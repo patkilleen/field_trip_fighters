@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CommandInputList.gd" type="Script" id=1]
+
+[node name="CommandInputList" type="GridContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+columns = 5
+script = ExtResource( 1 )
+size = 10

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/7-guard-break.wav-e13e4fdb5f26ce405cfc0d10663a5dc0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/7-guard-break.wav"
+dest_files=[ "res://.import/7-guard-break.wav-e13e4fdb5f26ce405cfc0d10663a5dc0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

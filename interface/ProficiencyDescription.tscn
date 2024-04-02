@@ -1,0 +1,386 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/ProficiencyDescription.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/loading-screen/prof-desc-bgd-border.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/loading-screen/prof-desc-bgd.png" type="Texture" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="ProficiencyDescription" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="bgd" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="bgd"]
+margin_right = 204.0
+margin_bottom = 204.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="bgd"]
+modulate = Color( 0.113725, 0.733333, 1, 1 )
+margin_left = 17.064
+margin_top = 15.9264
+margin_right = 187.064
+margin_bottom = 185.926
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
+
+[node name="acrobatics-advantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="acrobatics-advantage"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Recover 1 air dash on hit"
+
+[node name="attribute2" type="Label" parent="acrobatics-advantage"]
+margin_top = 22.0
+margin_right = 250.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Regen. guard in air"
+
+[node name="attribute3" type="Label" parent="acrobatics-advantage"]
+margin_top = 44.0
+margin_right = 250.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Recover jump/dash on
+	     air block"
+
+[node name="attribute4" type="Label" parent="acrobatics-advantage"]
+margin_top = 87.0
+margin_right = 250.0
+margin_bottom = 126.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Recover jump on 
+     ability cancel"
+
+[node name="acrobatics-disadvantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="acrobatics-disadvantage"]
+margin_right = 250.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Don't recover air dash
+    from jump"
+
+[node name="attribute2" type="Label" parent="acrobatics-disadvantage"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Lower jump height"
+
+[node name="attribute3" type="Label" parent="acrobatics-disadvantage"]
+margin_top = 65.0
+margin_right = 250.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Slower air dash"
+
+[node name="ability-cancel-advantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="ability-cancel-advantage"]
+margin_right = 250.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Ability canceling cost
+    reduction"
+
+[node name="attribute2" type="Label" parent="ability-cancel-advantage"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Ability canceling increases
+   long combo damage"
+
+[node name="ability-cancel-disadvantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="ability-cancel-disadvantage"]
+margin_right = 250.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Ability canceling cost 
+   increase"
+
+[node name="attribute2" type="Label" parent="ability-cancel-disadvantage"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Ability canceling decreases
+   long combo damage"
+
+[node name="defender-advantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="defender-advantage"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Ripost cost reduction"
+
+[node name="attribute2" type="Label" parent="defender-advantage"]
+margin_top = 22.0
+margin_right = 250.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Auto ripost cost reduction"
+
+[node name="attribute3" type="Label" parent="defender-advantage"]
+margin_top = 44.0
+margin_right = 250.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Tech cost reduction"
+
+[node name="attribute4" type="Label" parent="defender-advantage"]
+margin_top = 66.0
+margin_right = 250.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Push block cost reduction"
+
+[node name="attribute5" type="Label" parent="defender-advantage"]
+margin_top = 88.0
+margin_right = 250.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Increased guard HP"
+
+[node name="attribute6" type="Label" parent="defender-advantage"]
+margin_top = 110.0
+margin_right = 250.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Increased guard HP 
+   regen. rate"
+
+[node name="defender-disadvantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="defender-disadvantage"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Ripost cost increase"
+
+[node name="attribute2" type="Label" parent="defender-disadvantage"]
+margin_top = 22.0
+margin_right = 250.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Auto ripost cost  increase"
+
+[node name="attribute3" type="Label" parent="defender-disadvantage"]
+margin_top = 44.0
+margin_right = 250.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Tech cost  increase"
+
+[node name="attribute4" type="Label" parent="defender-disadvantage"]
+margin_top = 66.0
+margin_right = 250.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Push block cost  increase"
+
+[node name="attribute5" type="Label" parent="defender-disadvantage"]
+margin_top = 88.0
+margin_right = 250.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Reduced guard HP"
+
+[node name="attribute6" type="Label" parent="defender-disadvantage"]
+margin_top = 110.0
+margin_right = 250.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Reduced guard HP 
+   regen. rate"
+
+[node name="off-mastery-advantage" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="off-mastery-advantage"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Increased guard damage"
+
+[node name="attribute2" type="Label" parent="off-mastery-advantage"]
+margin_top = 22.0
+margin_right = 250.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Auto ability cancel cost
+   reduction"
+
+[node name="attribute3" type="Label" parent="off-mastery-advantage"]
+margin_top = 65.0
+margin_right = 250.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Increased # ability chunks
+   gained from Magic Series:
+   (Melee + Special + Tool)"
+
+[node name="attribute4" type="Label" parent="off-mastery-advantage"]
+margin_top = 129.0
+margin_right = 250.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Counter ripost cost 
+   reduction"
+
+[node name="off-mastery-disadvantage" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="off-mastery-disadvantage"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-Decreased guard damage"
+
+[node name="attribute2" type="Label" parent="off-mastery-disadvantage"]
+margin_top = 22.0
+margin_right = 250.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Increased auto ability 
+   cancel cost  "
+
+[node name="attribute3" type="Label" parent="off-mastery-disadvantage"]
+margin_top = 65.0
+margin_right = 250.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Reduced # ability chunks
+   gained from Magic Series:
+   (Melee + Special + Tool)"
+
+[node name="attribute4" type="Label" parent="off-mastery-disadvantage"]
+margin_top = 129.0
+margin_right = 250.0
+margin_bottom = 189.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "- Increased counter ripost 
+   cost 
+   "
+
+[node name="non-proficiency" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="attribute1" type="Label" parent="non-proficiency"]
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "-An all around average build"
+
+[node name="attribute2" type="Label" parent="."]
+margin_left = 4.43213
+margin_top = 219.715
+margin_right = 254.432
+margin_bottom = 241.715
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Proficiency property summary"

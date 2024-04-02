@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-getting-hit.wav-69d59e4f2970b33805f38b93ec19ed28.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/0-hitstun/1-getting-hit.wav"
+dest_files=[ "res://.import/1-getting-hit.wav-69d59e4f2970b33805f38b93ec19ed28.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

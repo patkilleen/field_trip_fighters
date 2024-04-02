@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/17-Mic_ripost.wav-f1106602b885a25621c6bf99f72c9977.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/17-Mic_ripost.wav"
+dest_files=[ "res://.import/17-Mic_ripost.wav-f1106602b885a25621c6bf99f72c9977.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

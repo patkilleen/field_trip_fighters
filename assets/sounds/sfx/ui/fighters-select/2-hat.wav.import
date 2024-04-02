@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/2-hat.wav-278f5170ab71596f01858f6e19738bc5.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/ui/fighters-select/2-hat.wav"
+dest_files=[ "res://.import/2-hat.wav-278f5170ab71596f01858f6e19738bc5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

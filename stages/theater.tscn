@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/theater/static-bgd.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/theater/foregroudn.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/theater/topspot-light.png" type="Texture" id=5]
+[ext_resource path="res://assets/sounds/ambience/stage/theater/ambience.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/stages/theater/outside.png" type="Texture" id=7]
+
+[node name="swamp" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 7.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10058.3, 49.263 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( 146, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 10928.7, 176.498 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+position = Vector2( -147, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 3
+
+[node name="nonAnimatedBgd" type="Sprite" parent="." index="3"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 433.99, 341.692 )
+z_index = -2
+texture = ExtResource( 3 )
+
+[node name="foreground" type="Sprite" parent="." index="4"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 435.1, 342.746 )
+z_index = 20
+texture = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="foreground" index="0"]
+position = Vector2( 2, -53 )
+texture = ExtResource( 5 )
+energy = 1.2
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="player1Spawn" parent="." index="11"]
+position = Vector2( 339, 455 )
+
+[node name="player2Spawn" parent="." index="12"]
+position = Vector2( 539, 455 )
+
+[node name="cameraBoundaries" parent="." index="15"]
+margin_left = 86.0
+margin_top = 18.0
+margin_right = 783.0
+margin_bottom = 652.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="21"]
+pause_mode = 1
+stream = ExtResource( 6 )
+volume_db = 2.5
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="39"]
+
+[node name="outside" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 0, -1 )
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/outside" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 809.631, 381.473 )
+scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="largeHitTempSpriteTemplate" parent="." index="41"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0

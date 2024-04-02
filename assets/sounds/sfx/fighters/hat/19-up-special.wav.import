@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/19-up-special.wav-397b8870b5946ee721ccb253728f01fd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/19-up-special.wav"
+dest_files=[ "res://.import/19-up-special.wav-397b8870b5946ee721ccb253728f01fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

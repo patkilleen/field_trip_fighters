@@ -1,0 +1,172 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/farm/farm-bgd.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/farm/farm-foreground.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/farm/chiken/0.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/farm/chiken/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/farm/crow/0.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/farm/crow/1.png" type="Texture" id=8]
+[ext_resource path="res://assets/stages/farm/hay-rolls.png" type="Texture" id=9]
+[ext_resource path="res://assets/stages/farm/tractor.png" type="Texture" id=10]
+[ext_resource path="res://assets/particles/smoke_particle.png" type="Texture" id=11]
+[ext_resource path="res://assets/sounds/ambience/stage/farm/ambience.ogg" type="AudioStream" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 0.729412, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.0133888, 0.4362 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 2.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 0.126726
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 5.0
+angle_random = 0.47
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[node name="swamp" index="0" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 7.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( 101, 19.726 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+visible = false
+z_index = 5
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 960, 8.365 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+z_index = 5
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 5
+
+[node name="nonAnimatedBgd" type="Sprite" parent="." index="3"]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
+light_mask = 5
+position = Vector2( 467.99, 335.692 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="foreground" type="Sprite" parent="." index="4"]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
+light_mask = 5
+position = Vector2( 429.1, 579.746 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 20
+texture = ExtResource( 4 )
+
+[node name="chiken" type="AnimatedSprite" parent="." index="5"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+position = Vector2( 515.01, 498.924 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="crow" type="AnimatedSprite" parent="." index="6"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+position = Vector2( 762.795, 448.057 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="haystack" type="Sprite" parent="." index="7"]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
+light_mask = 5
+position = Vector2( 70.539, 504.082 )
+scale = Vector2( 0.218404, 0.235282 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="tractor" type="Sprite" parent="." index="8"]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
+light_mask = 5
+position = Vector2( 1024.53, 515.813 )
+scale = Vector2( -0.2, 0.2 )
+z_index = 1
+texture = ExtResource( 10 )
+
+[node name="exaust" type="Particles2D" parent="tractor" index="0"]
+position = Vector2( 299.671, 43.2786 )
+rotation = 4.71239
+z_index = -1
+amount = 512
+lifetime = 25.0
+process_material = SubResource( 7 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="player1Spawn" parent="." index="15"]
+position = Vector2( 433, 455 )
+
+[node name="player2Spawn" parent="." index="16"]
+position = Vector2( 633, 455 )
+
+[node name="cameraBoundaries" parent="." index="19"]
+margin_left = 21.0
+margin_top = 21.0
+margin_right = 1087.0
+margin_bottom = 650.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="25"]
+pause_mode = 1
+stream = ExtResource( 12 )
+volume_db = 22.0
+autoplay = true
+
+[node name="largeHitTempSpriteTemplate" parent="." index="44"]
+diMeleeModulate = Color( 10, 10, 10, 1 )
+diSpecialModulate = Color( 4, 4, 4, 1 )
+diToolModulate = Color( 7, 7, 7, 1 )

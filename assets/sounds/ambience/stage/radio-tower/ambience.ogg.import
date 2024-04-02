@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ambience.ogg-d199d28249f51bcfe70dc22426dc5855.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/ambience/stage/radio-tower/ambience.ogg"
+dest_files=[ "res://.import/ambience.ogg-d199d28249f51bcfe70dc22426dc5855.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

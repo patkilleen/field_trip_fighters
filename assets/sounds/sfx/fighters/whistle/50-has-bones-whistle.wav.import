@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/50-has-bones-whistle.wav-e160566f38b3cc9b2ed7047c3dc8eadd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/50-has-bones-whistle.wav"
+dest_files=[ "res://.import/50-has-bones-whistle.wav-e160566f38b3cc9b2ed7047c3dc8eadd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,409 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://interface/new-prof-select/datamodel/ProficiencyDataModel.gd" type="Script" id=1]
+[ext_resource path="res://interface/new-prof-select/datamodel/majorProficiency.gd" type="Script" id=2]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/generalist.png" type="Texture" id=3]
+[ext_resource path="res://interface/new-prof-select/datamodel/minorProficiencySet.gd" type="Script" id=4]
+[ext_resource path="res://interface/new-prof-select/datamodel/minorProficiency.gd" type="Script" id=5]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/arcobatics.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/speed-demon.png" type="Texture" id=7]
+[ext_resource path="res://interface/new-prof-select/datamodel/proficiencyProperty.gd" type="Script" id=8]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/defensive-duelist.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/stiff-knees.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/disoriented.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/defender.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/regeneration.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/efficient-guard.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/inefficient.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/frail.png" type="Texture" id=16]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/ability-cancel.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/combo-artist.png" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/arcanist.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/deadmagic.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/combo-noob.png" type="Texture" id=21]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/offensive-mastery.png" type="Texture" id=22]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/shield-pressure.png" type="Texture" id=23]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/grappler.png" type="Texture" id=24]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/butter-fingers.png" type="Texture" id=25]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/lack-offense.png" type="Texture" id=26]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/psychic.png" type="Texture" id=27]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/foresight.png" type="Texture" id=28]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/ripost-master.png" type="Texture" id=29]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/sitting-duck.png" type="Texture" id=30]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/parryless.png" type="Texture" id=31]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/hardcore.png" type="Texture" id=32]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/no-johns-nothing.png" type="Texture" id=33]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/no-johns-anime.png" type="Texture" id=34]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/no-johns-classic.png" type="Texture" id=35]
+
+[node name="ProficiencyDataModel" type="Node"]
+script = ExtResource( 1 )
+
+[node name="generalist" type="Node" parent="."]
+script = ExtResource( 2 )
+profName = "Generalist"
+icon = ExtResource( 3 )
+
+[node name="advantage" type="Node" parent="generalist"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: An all around average build. You can adapt to any situation."
+
+[node name="nothing" type="Node" parent="generalist/advantage"]
+script = ExtResource( 5 )
+profName = "Generalist"
+icon = ExtResource( 3 )
+
+[node name="disadvantage" type="Node" parent="generalist"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: An all around average build. You can adapt to any situation."
+
+[node name="nothing" type="Node" parent="generalist/disadvantage"]
+script = ExtResource( 5 )
+profName = "Generalist"
+icon = ExtResource( 3 )
+
+[node name="acrobatics" type="Node" parent="."]
+script = ExtResource( 2 )
+profName = "Acrobatics"
+icon = ExtResource( 6 )
+
+[node name="advantage" type="Node" parent="acrobatics"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: You master the art of movement control"
+
+[node name="speed_demon" type="Node" parent="acrobatics/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Speed Demon"
+icon = ExtResource( 7 )
+
+[node name="property1" type="Node" parent="acrobatics/advantage/speed_demon"]
+script = ExtResource( 8 )
+id = 2
+
+[node name="defensive-duelist" type="Node" parent="acrobatics/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Defensive Duelist"
+icon = ExtResource( 9 )
+
+[node name="property1" type="Node" parent="acrobatics/advantage/defensive-duelist"]
+script = ExtResource( 8 )
+id = 179
+
+[node name="disadvantage" type="Node" parent="acrobatics"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Spending most of your time on the ground is ideal"
+
+[node name="stiff_knees" type="Node" parent="acrobatics/disadvantage"]
+script = ExtResource( 5 )
+profName = "Stiff Knees"
+icon = ExtResource( 10 )
+
+[node name="property5" type="Node" parent="acrobatics/disadvantage/stiff_knees"]
+script = ExtResource( 8 )
+id = 15
+isGood = false
+
+[node name="disoriented" type="Node" parent="acrobatics/disadvantage"]
+script = ExtResource( 5 )
+profName = "Disoriented"
+icon = ExtResource( 11 )
+
+[node name="property4" type="Node" parent="acrobatics/disadvantage/disoriented"]
+script = ExtResource( 8 )
+id = 190
+isGood = false
+
+[node name="defender" type="Node" parent="."]
+script = ExtResource( 2 )
+profName = "Defender"
+icon = ExtResource( 12 )
+
+[node name="advantage" type="Node" parent="defender"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: You leave little opening in your defensive play by having stronger defensive options"
+
+[node name="regeneration" type="Node" parent="defender/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Regeneration"
+icon = ExtResource( 13 )
+
+[node name="property2" type="Node" parent="defender/advantage/regeneration"]
+script = ExtResource( 8 )
+id = 180
+
+[node name="efficient-guard" type="Node" parent="defender/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Efficient Guard"
+icon = ExtResource( 14 )
+
+[node name="property5" type="Node" parent="defender/advantage/efficient-guard"]
+script = ExtResource( 8 )
+id = 128
+
+[node name="property6" type="Node" parent="defender/advantage/efficient-guard"]
+script = ExtResource( 8 )
+id = 133
+
+[node name="disadvantage" type="Node" parent="defender"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Care must be taken as your defenses are weaker"
+
+[node name="Inefficient" type="Node" parent="defender/disadvantage"]
+script = ExtResource( 5 )
+profName = "Inefficient"
+icon = ExtResource( 15 )
+
+[node name="property6" type="Node" parent="defender/disadvantage/Inefficient"]
+script = ExtResource( 8 )
+id = 181
+isGood = false
+
+[node name="property7" type="Node" parent="defender/disadvantage/Inefficient"]
+script = ExtResource( 8 )
+id = 18
+isGood = false
+
+[node name="frail" type="Node" parent="defender/disadvantage"]
+script = ExtResource( 5 )
+profName = "Frail"
+icon = ExtResource( 16 )
+
+[node name="property6" type="Node" parent="defender/disadvantage/frail"]
+script = ExtResource( 8 )
+id = 191
+isGood = false
+
+[node name="mage" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+profName = "Mage"
+icon = ExtResource( 17 )
+
+[node name="advantage" type="Node" parent="mage"]
+editor/display_folded = true
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: You optimize ability resource management"
+
+[node name="combo-artist" type="Node" parent="mage/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Combo Artist"
+icon = ExtResource( 18 )
+
+[node name="property2" type="Node" parent="mage/advantage/combo-artist"]
+script = ExtResource( 8 )
+id = 146
+
+[node name="arcanist" type="Node" parent="mage/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Arcanist"
+icon = ExtResource( 19 )
+
+[node name="property5" type="Node" parent="mage/advantage/arcanist"]
+script = ExtResource( 8 )
+id = 110
+
+[node name="disadvantage" type="Node" parent="mage"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Your ability resource management is limited, so your abilities should be used sparingly"
+
+[node name="spellbound" type="Node" parent="mage/disadvantage"]
+script = ExtResource( 5 )
+profName = "Spellbound"
+icon = ExtResource( 20 )
+
+[node name="property5" type="Node" parent="mage/disadvantage/spellbound"]
+script = ExtResource( 8 )
+id = 185
+isGood = false
+
+[node name="combo-noob" type="Node" parent="mage/disadvantage"]
+script = ExtResource( 5 )
+profName = "Combo Noob"
+icon = ExtResource( 21 )
+
+[node name="property5" type="Node" parent="mage/disadvantage/combo-noob"]
+script = ExtResource( 8 )
+id = 189
+isGood = false
+
+[node name="brawler" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+profName = "Brawler"
+icon = ExtResource( 22 )
+
+[node name="advantage" type="Node" parent="brawler"]
+editor/display_folded = true
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Keep the combo pressure up by having stronger aggressive options"
+
+[node name="shield_pressure" type="Node" parent="brawler/advantage"]
+script = ExtResource( 5 )
+profName = "Shield Pressure"
+icon = ExtResource( 23 )
+
+[node name="property5" type="Node" parent="brawler/advantage/shield_pressure"]
+script = ExtResource( 8 )
+id = 27
+
+[node name="grappler" type="Node" parent="brawler/advantage"]
+script = ExtResource( 5 )
+profName = "Grappler"
+icon = ExtResource( 24 )
+
+[node name="property2" type="Node" parent="brawler/advantage/grappler"]
+script = ExtResource( 8 )
+id = 186
+
+[node name="disadvantage" type="Node" parent="brawler"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Your aggressive options are limited, making you more reliant on witts instead of combo pressure"
+
+[node name="butter-fingers" type="Node" parent="brawler/disadvantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Butter Fingers"
+icon = ExtResource( 25 )
+
+[node name="property4" type="Node" parent="brawler/disadvantage/butter-fingers"]
+script = ExtResource( 8 )
+id = 187
+isGood = false
+
+[node name="lacking-offense" type="Node" parent="brawler/disadvantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Lacking Offense"
+icon = ExtResource( 26 )
+
+[node name="property1" type="Node" parent="brawler/disadvantage/lacking-offense"]
+script = ExtResource( 8 )
+id = 188
+isGood = false
+
+[node name="psychic" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+profName = "Psychic"
+icon = ExtResource( 27 )
+
+[node name="advantage" type="Node" parent="psychic"]
+editor/display_folded = true
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: You are a Yomi master and can read your opponent like a book"
+
+[node name="foresight" type="Node" parent="psychic/advantage"]
+script = ExtResource( 5 )
+profName = "Foresight"
+icon = ExtResource( 28 )
+
+[node name="property2" type="Node" parent="psychic/advantage/foresight"]
+script = ExtResource( 8 )
+id = 183
+stacks = true
+
+[node name="riposte_master" type="Node" parent="psychic/advantage"]
+editor/display_folded = true
+script = ExtResource( 5 )
+profName = "Riposte Master"
+icon = ExtResource( 29 )
+
+[node name="property2" type="Node" parent="psychic/advantage/riposte_master"]
+script = ExtResource( 8 )
+id = 115
+
+[node name="property3" type="Node" parent="psychic/advantage/riposte_master"]
+script = ExtResource( 8 )
+id = 38
+
+[node name="property4" type="Node" parent="psychic/advantage/riposte_master"]
+script = ExtResource( 8 )
+id = 122
+
+[node name="disadvantage" type="Node" parent="psychic"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: It will be a bad day when your opponent can read you"
+
+[node name="sitting_duck" type="Node" parent="psychic/disadvantage"]
+script = ExtResource( 5 )
+profName = "Sitting Duck"
+icon = ExtResource( 30 )
+
+[node name="property2" type="Node" parent="psychic/disadvantage/sitting_duck"]
+script = ExtResource( 8 )
+id = 19
+isGood = false
+
+[node name="parryless" type="Node" parent="psychic/disadvantage"]
+script = ExtResource( 5 )
+profName = "Parryless"
+icon = ExtResource( 31 )
+
+[node name="property2" type="Node" parent="psychic/disadvantage/parryless"]
+script = ExtResource( 8 )
+id = 184
+isGood = false
+
+[node name="hardcore" type="Node" parent="."]
+script = ExtResource( 2 )
+profName = "No Johns"
+icon = ExtResource( 32 )
+
+[node name="advantage" type="Node" parent="hardcore"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Hard mode. At the cost of not getting any benifits, your opponent can't John."
+
+[node name="nothing" type="Node" parent="hardcore/advantage"]
+script = ExtResource( 5 )
+profName = "Nothing!"
+icon = ExtResource( 33 )
+
+[node name="disadvantage" type="Node" parent="hardcore"]
+script = ExtResource( 4 )
+description = "Perks from this proficiency class offer: Severe disadvantages let you show off your classic 2D Fighter skills. As a result, your opponent cannot John, unless they also pick this."
+
+[node name="2d-anime-fighter" type="Node" parent="hardcore/disadvantage"]
+script = ExtResource( 5 )
+profName = "2D Anime Fighter"
+icon = ExtResource( 34 )
+
+[node name="property8" type="Node" parent="hardcore/disadvantage/2d-anime-fighter"]
+script = ExtResource( 8 )
+id = 175
+isGood = false
+
+[node name="property9" type="Node" parent="hardcore/disadvantage/2d-anime-fighter"]
+script = ExtResource( 8 )
+id = 176
+isGood = false
+
+[node name="classic-2d-fighter" type="Node" parent="hardcore/disadvantage"]
+script = ExtResource( 5 )
+profName = "Classic 2D Fighter"
+icon = ExtResource( 35 )
+
+[node name="property6" type="Node" parent="hardcore/disadvantage/classic-2d-fighter"]
+script = ExtResource( 8 )
+id = 15
+isGood = false
+
+[node name="property7" type="Node" parent="hardcore/disadvantage/classic-2d-fighter"]
+script = ExtResource( 8 )
+id = 16
+isGood = false
+
+[node name="property8" type="Node" parent="hardcore/disadvantage/classic-2d-fighter"]
+script = ExtResource( 8 )
+id = 175
+isGood = false
+
+[node name="property9" type="Node" parent="hardcore/disadvantage/classic-2d-fighter"]
+script = ExtResource( 8 )
+id = 176
+isGood = false

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/39-d-melee-mic-drop.wav-8ad3c45dd7a97b81a9d8eb4887d349d0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/microphone/39-d-melee-mic-drop.wav"
+dest_files=[ "res://.import/39-d-melee-mic-drop.wav-8ad3c45dd7a97b81a9d8eb4887d349d0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

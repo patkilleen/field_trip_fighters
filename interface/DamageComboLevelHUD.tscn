@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://interface/ComboLevelHUD.gd" type="Script" id=1]
+[ext_resource path="res://interface/CircularProgressStar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/interfaces/combo/yellow-progress-star.png" type="Texture" id=3]
+[ext_resource path="res://interface/star-array.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/interfaces/combo/filled-star.png" type="Texture" id=5]
+
+[node name="DamageComboLevelHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CircularProgressStar" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 1.0
+margin_right = 116.0
+margin_bottom = 226.0
+value = 0.0
+texture_progress = ExtResource( 3 )
+
+[node name="star-array" parent="HBoxContainer" instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 119.0
+margin_top = 25.0
+margin_right = 119.0
+margin_bottom = 226.0
+rect_scale = Vector2( 0.5, 0.5 )
+overFlowLabelFontSize = 40
+startTexture = ExtResource( 5 )

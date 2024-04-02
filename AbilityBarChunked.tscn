@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AbilityBarChunked.gd" type="Script" id=1]
+
+[node name="AbilityBarChunked" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+padding = Vector2( 10, 10 )
+
+[node name="chunks" type="GridContainer" parent="."]
+margin_bottom = 40.0
+columns = 5

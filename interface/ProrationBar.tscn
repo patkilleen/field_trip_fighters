@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface/ProrationBar.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/bar/proration/bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/bar/proration/fill.png" type="Texture" id=3]
+[ext_resource path="res://interface/FadingColorProgressBar.gd" type="Script" id=4]
+
+[node name="ProrationBar" type="Control"]
+margin_right = 962.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.3, 0.5 )
+script = ExtResource( 1 )
+
+[node name="bg" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="fill" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_progress = ExtResource( 3 )
+script = ExtResource( 4 )

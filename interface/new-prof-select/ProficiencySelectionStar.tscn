@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://interface/new-prof-select/ProficiencySelectionStar.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/new-prof-select/selection-star-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/ability-cancel.png" type="Texture" id=3]
+[ext_resource path="res://interface/new-prof-select/ProficiencyStarPair.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particles/holy-aura.tscn" type="PackedScene" id=5]
+
+[node name="ProficiencySelectionStar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -818.0
+margin_bottom = -404.0
+rect_min_size = Vector2( 206, 196 )
+script = ExtResource( 1 )
+
+[node name="bgd" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="prof-selected" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 206, 196 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="class-stars" parent="." instance=ExtResource( 4 )]
+margin_left = 64.2105
+margin_top = 155.789
+margin_right = 104.211
+margin_bottom = 195.789
+
+[node name="glow" parent="." instance=ExtResource( 5 )]
+self_modulate = Color( 1.58, 1.46, 0, 1 )
+position = Vector2( 102.885, 107.172 )
+z_index = -1

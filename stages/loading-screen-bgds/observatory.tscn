@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/stages/observatory/sky.png" type="Texture" id=1]
+[ext_resource path="res://particles/sparkle-shine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/stages/observatory/hills-far.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/observatory/hills-far-mid.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/observatory/paysage-far.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/observatory/hills-nearby-and-building.png" type="Texture" id=6]
+
+[node name="loadingScreenBgd" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -43.3656, -9.79266 )
+scale = Vector2( 0.699701, 0.677964 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="star" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 143.521, 192.672 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star2" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 219.334, 127.356 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star11" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 49.0474, 126.19 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star5" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 189.009, 27.0503 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star4" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 577.404, 177.509 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star12" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 380.966, 291.237 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star13" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 197.451, 310.622 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star14" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 400.352, 98.6753 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star7" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 782.682, 151.85 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star10" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 975.13, 154.182 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star6" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 544.746, 35.2143 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star8" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 662.548, 97.0313 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star15" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 666.425, 235.313 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star16" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 860.278, 89.2773 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star3" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 338.302, 168.179 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="star9" type="Node2D" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 493.427, 175.177 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+self_modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
+position = Vector2( -339.728, 256.985 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="."]
+self_modulate = Color( 0.745098, 0.745098, 0.745098, 1 )
+position = Vector2( -320.248, 321.881 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="."]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( -287.78, 325.478 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="."]
+self_modulate = Color( 0.901961, 0.901961, 0.901961, 1 )
+position = Vector2( -335.78, 407.465 )
+texture = ExtResource( 6 )
+centered = false

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/11-Mic_melee-air.wav-581d2c0fcbf8462cf6449f66fb13a47a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/11-Mic_melee-air.wav"
+dest_files=[ "res://.import/11-Mic_melee-air.wav-581d2c0fcbf8462cf6449f66fb13a47a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

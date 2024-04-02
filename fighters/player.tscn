@@ -1,0 +1,1421 @@
+[gd_scene load_steps=94 format=2]
+
+[ext_resource path="res://kinematicbody2d.gd" type="Script" id=1]
+[ext_resource path="res://PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://input_manager.gd" type="Script" id=3]
+[ext_resource path="res://movementAnimation.gd" type="Script" id=4]
+[ext_resource path="res://complexMovement.gd" type="Script" id=5]
+[ext_resource path="res://basicMovement.gd" type="Script" id=6]
+[ext_resource path="res://CollisionHandler.gd" type="Script" id=7]
+[ext_resource path="res://PlayerState.gd" type="Script" id=8]
+[ext_resource path="res://NewRipostHandler.gd" type="Script" id=9]
+[ext_resource path="res://NewCounterRipostHandler.gd" type="Script" id=10]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=11]
+[ext_resource path="res://music/heroSoundPlayer.gd" type="Script" id=12]
+[ext_resource path="res://fighters/ComboHandler.gd" type="Script" id=13]
+[ext_resource path="res://BarCapcityAmountComboHandler.gd" type="Script" id=14]
+[ext_resource path="res://TechHandler.gd" type="Script" id=15]
+[ext_resource path="res://frame-data-analyzer.gd" type="Script" id=16]
+[ext_resource path="res://guardHandler.gd" type="Script" id=17]
+[ext_resource path="res://grabHandler.gd" type="Script" id=18]
+[ext_resource path="res://inputLockHandler.gd" type="Script" id=19]
+[ext_resource path="res://negativePenaltyTracker.gd" type="Script" id=20]
+[ext_resource path="res://abilityBarLockHandler.gd" type="Script" id=21]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=22]
+[ext_resource path="res://interface/star-array.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/interfaces/combo/filled-dmg-star.png" type="Texture" id=24]
+[ext_resource path="res://particles/stunned-particles.tscn" type="PackedScene" id=25]
+[ext_resource path="res://fighters/playerNotification.gd" type="Script" id=26]
+[ext_resource path="res://assets/interfaces/missing-ability-chunk-icon.png" type="Texture" id=27]
+[ext_resource path="res://interface/missingAbilityBar.gd" type="Script" id=28]
+[ext_resource path="res://active-collision-areas.tscn" type="PackedScene" id=29]
+[ext_resource path="res://fighters/Sprite.gd" type="Script" id=30]
+[ext_resource path="res://fighters/attacksfx.gd" type="Script" id=31]
+[ext_resource path="res://assets/particles/attack-sfx/melee-particle.png" type="Texture" id=32]
+[ext_resource path="res://assets/particles/attack-sfx/special-particle.png" type="Texture" id=33]
+[ext_resource path="res://assets/particles/attack-sfx/tool-particle.png" type="Texture" id=34]
+[ext_resource path="res://assets/lighting/purple.png" type="Texture" id=35]
+[ext_resource path="res://assets/lighting/orange.png" type="Texture" id=36]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=37]
+[ext_resource path="res://assets/lighting/brown.png" type="Texture" id=38]
+[ext_resource path="res://assets/lighting/green.png" type="Texture" id=39]
+[ext_resource path="res://assets/lighting/1x1-white.png" type="Texture" id=40]
+[ext_resource path="res://assets/particles/attack-sfx/blockstun.png" type="Texture" id=41]
+[ext_resource path="res://interface/blockstun-shield.gd" type="Script" id=42]
+[ext_resource path="res://particles/pushBlockSfx.tscn" type="PackedScene" id=43]
+[ext_resource path="res://sfxSprites.gd" type="Script" id=44]
+[ext_resource path="res://spriteFrameTempSFXSprites.gd" type="Script" id=45]
+[ext_resource path="res://sfxSprite.tscn" type="PackedScene" id=46]
+[ext_resource path="res://assets/interfaces/perfect-block/perfect-block-fg.png" type="Texture" id=47]
+[ext_resource path="res://assets/interfaces/perfect-block/perfect-block-bgd.png" type="Texture" id=48]
+[ext_resource path="res://assets/particles/push-block/circle_01.png" type="Texture" id=49]
+[ext_resource path="res://assets/interfaces/bad-block-symbol.png" type="Texture" id=50]
+[ext_resource path="res://assets/interfaces/grab-autoriposter-symbol.png" type="Texture" id=51]
+[ext_resource path="res://assets/particles/push-block/forward-bubble.png" type="Texture" id=52]
+[ext_resource path="res://assets/particles/auto-ripost/startup-flare_15.png" type="Texture" id=53]
+[ext_resource path="res://assets/particles/auto-ripost/muzzle_flash_12.png" type="Texture" id=54]
+[ext_resource path="res://assets/particles/auto-ripost/auto-ripost-hit.png" type="Texture" id=55]
+[ext_resource path="res://assets/particles/auto-ripost/muzzle_flash_3.png" type="Texture" id=56]
+[ext_resource path="res://assets/particles/auto-ripost/muzzle_flash_9.png" type="Texture" id=57]
+[ext_resource path="res://particles/particleBuffer.gd" type="Script" id=58]
+[ext_resource path="res://particles/materials/fighter/shield-break-particles.tres" type="Material" id=59]
+[ext_resource path="res://assets/particles/sfx/target_20.png" type="Texture" id=60]
+[ext_resource path="res://bodyBox.gd" type="Script" id=61]
+[ext_resource path="res://particles/rage-smoke.tscn" type="PackedScene" id=62]
+[ext_resource path="res://particles/particles-time-sensitive.gd" type="Script" id=63]
+[ext_resource path="res://particles/firework.tscn" type="PackedScene" id=64]
+[ext_resource path="res://assets/particles/sword+.png" type="Texture" id=65]
+[ext_resource path="res://assets/particles/sword-.png" type="Texture" id=66]
+[ext_resource path="res://particles/star-burst.tscn" type="PackedScene" id=67]
+[ext_resource path="res://assets/interfaces/anti-shield-icon.png" type="Texture" id=68]
+[ext_resource path="res://particles/ParticleGlow.tscn" type="PackedScene" id=69]
+[ext_resource path="res://particles/holy-aura.tscn" type="PackedScene" id=70]
+[ext_resource path="res://particles/magicalGlow.tscn" type="PackedScene" id=71]
+[ext_resource path="res://particles/one-shot-particles.gd" type="Script" id=72]
+[ext_resource path="res://particles/CommandParticle.tscn" type="PackedScene" id=73]
+[ext_resource path="res://assets/shaders/shield-break.shader" type="Shader" id=74]
+[ext_resource path="res://interface/shattered-blockstun-shield.gd" type="Script" id=75]
+[ext_resource path="res://particles/guardRegenBuffParticles.tscn" type="PackedScene" id=76]
+[ext_resource path="res://particles/abilityCancelSwirlParticles.tscn" type="PackedScene" id=77]
+[ext_resource path="res://particles/abilityCancelExplosionParticles.tscn" type="PackedScene" id=78]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 1
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 22 )
+
+[sub_resource type="ShaderMaterial" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 32.0825 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.683594, 0.201085, 0.0720978, 0.10498, 0.816406, 0.0478363, 0.0478363, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.274414 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 30.0
+angular_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="OpenSimplexNoise" id=11]
+period = 5.1
+
+[sub_resource type="NoiseTexture" id=12]
+flags = 2
+width = 200
+height = 200
+noise = SubResource( 11 )
+
+[sub_resource type="OpenSimplexNoise" id=13]
+seed = 1
+period = 49.1
+
+[sub_resource type="NoiseTexture" id=14]
+width = 200
+height = 200
+as_normalmap = true
+noise = SubResource( 13 )
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 74 )
+shader_param/progress = 0.0
+shader_param/strength = 2.0
+shader_param/noise_tex_normal = SubResource( 14 )
+shader_param/noise_tex = SubResource( 12 )
+
+[node name="player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+debug_body_box_color = Color( 0.0498378, 0.757813, 0.00888062, 0.651922 )
+forwardDashABCancelWhiteList = 4292861935
+forwardDashABCancelWhiteList2 = 67108863
+backDashABCancelWhiteList = 4292853727
+backDashABCancelWhiteList2 = 67108863
+pushBlockAcrobaticsAutoCancels = 1146887
+pushBlockAcrobaticsAutoCancels2 = 1841152
+
+[node name="PlayerController" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+
+[node name="InputManager" type="Node" parent="PlayerController"]
+script = ExtResource( 3 )
+bufferSize = 100
+
+[node name="ripost-hitstun" type="Node" parent="PlayerController"]
+editor/display_folded = true
+script = ExtResource( 4 )
+overridable = false
+priority = 10
+enforcePriorityLocks = true
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+
+[node name="ground" type="Node" parent="PlayerController/ripost-hitstun"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 7
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="PlayerController/ripost-hitstun/ground"]
+script = ExtResource( 6 )
+
+[node name="slow-air-fall" type="Node" parent="PlayerController/ripost-hitstun"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+applyCondition = 1
+
+[node name="opp-grav" type="Node" parent="PlayerController/ripost-hitstun/slow-air-fall"]
+script = ExtResource( 6 )
+acceleration = 750.0
+angle = 270.0
+opposingGravity = true
+
+[node name="bm1" type="Node" parent="PlayerController/ripost-hitstun/slow-air-fall"]
+script = ExtResource( 6 )
+
+[node name="anti-block-hitstun" type="Node" parent="PlayerController"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/anti-block-hitstun"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="PlayerController/anti-block-hitstun/cplx_mvm5"]
+script = ExtResource( 6 )
+durationInFrames = 6
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/anti-block-hitstun"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+startFrame = 6
+
+[node name="bm0" type="Node" parent="PlayerController/anti-block-hitstun/cplx_mvm4"]
+script = ExtResource( 6 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 270.0
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/anti-block-hitstun"]
+script = ExtResource( 5 )
+gravEffect = 4
+startFrame = 26
+
+[node name="bm0" type="Node" parent="PlayerController/anti-block-hitstun/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 150.0
+acceleration = 700.0
+maxSpeed = 2000.0
+angle = 90.0
+
+[node name="CollisionHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 7 )
+
+[node name="PlayerState" type="Node" parent="PlayerController"]
+script = ExtResource( 8 )
+
+[node name="RipostHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 9 )
+
+[node name="NewCounterRipostHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 10 )
+
+[node name="commonSFXSounds" type="Node" parent="PlayerController"]
+script = ExtResource( 11 )
+soundDirectory = "res://assets/sounds/sfx/common/"
+volume_db = 3.0
+
+[node name="heroSFXSounds" type="Node" parent="PlayerController"]
+script = ExtResource( 12 )
+
+[node name="defaultHittingSFXPlayer" type="Node" parent="PlayerController"]
+script = ExtResource( 11 )
+soundDirectory = "res://assets/sounds/sfx/hitting/"
+
+[node name="ComboHandler" type="Node" parent="PlayerController"]
+editor/display_folded = true
+script = ExtResource( 13 )
+
+[node name="DamageAmountIncreaseHandler" type="Node" parent="PlayerController/ComboHandler"]
+script = ExtResource( 14 )
+
+[node name="TechHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 15 )
+
+[node name="frame_analyzer" type="Node" parent="PlayerController"]
+script = ExtResource( 16 )
+
+[node name="guardHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 17 )
+
+[node name="grabHandler" type="Node" parent="PlayerController"]
+editor/display_folded = true
+script = ExtResource( 18 )
+
+[node name="ground-throw-hitstun-mvm" type="Node" parent="PlayerController/grabHandler"]
+
+[node name="grab-backward-up-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-up-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+speed = 300.0
+maxSpeed = 3000.0
+angle = 180.0
+durationInFrames = 5
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-up-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm2" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+speed = 225.0
+maxSpeed = 2000.0
+angle = 270.0
+
+[node name="grab-forward-up-trhow" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-up-trhow"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm2" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 225.0
+maxSpeed = 2000.0
+angle = 270.0
+
+[node name="grab-forward-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 300.0
+maxSpeed = 2000.0
+durationInFrames = 15
+
+[node name="grab-forward-down-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-forward-down-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+speed = 15.0
+maxSpeed = 2000.0
+angle = 270.0
+durationInFrames = 5
+
+[node name="grab-down-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-down-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 15.0
+maxSpeed = 2000.0
+angle = 270.0
+durationInFrames = 5
+
+[node name="grab-backward-down-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm6" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 7
+
+[node name="bm1" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-down-throw/cplx_mvm6"]
+script = ExtResource( 6 )
+speed = 325.0
+maxSpeed = 2000.0
+angle = 180.0
+durationInFrames = 15
+
+[node name="cplx_mvm7" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 13
+
+[node name="bm1" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-down-throw/cplx_mvm7"]
+script = ExtResource( 6 )
+speed = 15.0
+maxSpeed = 2000.0
+angle = 270.0
+durationInFrames = 2
+
+[node name="grab-backward-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-backward-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 325.0
+maxSpeed = 2000.0
+angle = 180.0
+durationInFrames = 8
+
+[node name="grab-up-trhow" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-up-trhow"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm1" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 380.0
+maxSpeed = 2000.0
+angle = 265.0
+
+[node name="grab-neutral-throw" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-neutral-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/ground-throw-hitstun-mvm/grab-neutral-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="air-throw-hitstun-mvm" type="Node" parent="PlayerController/grabHandler"]
+
+[node name="grab-backward-up-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-up-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+speed = 300.0
+maxSpeed = 3000.0
+angle = 180.0
+durationInFrames = 5
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-up-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm2" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-up-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+speed = 225.0
+maxSpeed = 2000.0
+angle = 270.0
+
+[node name="grab-forward-up-trhow" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-up-trhow"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm2" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 225.0
+maxSpeed = 2000.0
+angle = 270.0
+
+[node name="grab-forward-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 2
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 300.0
+maxSpeed = 2000.0
+durationInFrames = 15
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 15
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+speed = 300.0
+maxSpeed = 2000.0
+durationInFrames = 15
+
+[node name="grab-forward-down-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-forward-down-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 200.0
+maxSpeed = 2000.0
+angle = 45.0
+durationInFrames = 30
+
+[node name="grab-down-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-down-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 250.0
+maxSpeed = 2000.0
+angle = 90.0
+durationInFrames = 15
+
+[node name="grab-backward-down-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-down-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-down-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 200.0
+maxSpeed = 2000.0
+angle = 135.0
+durationInFrames = 30
+
+[node name="grab-backward-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 2
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 325.0
+maxSpeed = 2000.0
+angle = 180.0
+durationInFrames = 10
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 15
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-backward-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+speed = 325.0
+maxSpeed = 2000.0
+angle = 180.0
+durationInFrames = 8
+
+[node name="grab-up-trhow" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+editor/display_folded = true
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-up-trhow"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm2" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+acceleration = 300.0
+maxSpeed = 3000.0
+angle = 270.0
+
+[node name="bm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-up-trhow/cplx_mvm3"]
+script = ExtResource( 6 )
+speed = 380.0
+maxSpeed = 2000.0
+angle = 265.0
+
+[node name="grab-neutral-throw" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm"]
+script = ExtResource( 4 )
+
+[node name="cplx_mvm3" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 2
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw/cplx_mvm3"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="cplx_mvm4" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 5
+startFrame = 15
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw/cplx_mvm4"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="cplx_mvm5" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw"]
+script = ExtResource( 5 )
+mvmType = 1
+gravEffect = 4
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="PlayerController/grabHandler/air-throw-hitstun-mvm/grab-neutral-throw/cplx_mvm5"]
+script = ExtResource( 6 )
+maxSpeed = 2000.0
+
+[node name="inputLockHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 19 )
+
+[node name="negativePenaltyTracker" type="Node" parent="PlayerController"]
+script = ExtResource( 20 )
+
+[node name="abilityBarLockHandler" type="Node" parent="PlayerController"]
+script = ExtResource( 21 )
+
+[node name="HUD" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -14, -71 )
+z_index = 10
+z_as_relative = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
+margin_left = -35.0
+margin_top = 14.0
+margin_right = 65.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 0 )
+alignment = 1
+
+[node name="pnameLabel" type="Label" parent="HUD/HBoxContainer2"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 50.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+margin_left = 5.94397
+margin_top = 26.4777
+margin_right = 45.944
+margin_bottom = 66.4777
+rect_scale = Vector2( 0.09, 0.09 )
+alignment = 1
+
+[node name="star-array" parent="HUD/HBoxContainer" instance=ExtResource( 23 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 20.0
+margin_bottom = 40.0
+overFlowLabelFontSize = 75
+starOverflowSize = 7
+startTexture = ExtResource( 24 )
+
+[node name="stunned-particles" parent="HUD" instance=ExtResource( 25 )]
+visible = false
+position = Vector2( 14, 32 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="playerNotification" type="Label" parent="HUD"]
+visible = false
+margin_left = 14.0
+margin_top = 22.0
+margin_right = 54.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 2 )
+text = "?
+"
+script = ExtResource( 26 )
+
+[node name="missingAbilityBar" type="Sprite" parent="HUD"]
+visible = false
+position = Vector2( 14.7734, 22.8676 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 27 )
+script = ExtResource( 28 )
+
+[node name="active-nodes" parent="." instance=ExtResource( 29 )]
+hurtbox_debug_color = Color( 0.11, 0.01, 1.93, 1 )
+hitbox_debug_color = Color( 3.71, 0, 0, 1 )
+proximity_guard_area_debug_color = Color( 0.81, 0.81, 0.02, 1 )
+
+[node name="Sprite" type="Sprite" parent="active-nodes"]
+light_mask = 21
+material = SubResource( 3 )
+z_index = 1
+script = ExtResource( 30 )
+
+[node name="attackSFXs" type="Node2D" parent="active-nodes"]
+editor/display_folded = true
+script = ExtResource( 31 )
+meleeParticle = ExtResource( 32 )
+specialParticle = ExtResource( 33 )
+toolParticle = ExtResource( 34 )
+
+[node name="inputManager" type="Node" parent="active-nodes/attackSFXs"]
+script = ExtResource( 3 )
+
+[node name="autoripost-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.0415344, -1.78267 )
+texture = ExtResource( 35 )
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="blocking-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.0415344, -1.78267 )
+texture = ExtResource( 36 )
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="tech-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.0415344, -1.78267 )
+texture = ExtResource( 37 )
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="rebound-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.0415344, -1.78267 )
+texture = ExtResource( 38 )
+energy = 2.0
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="grab-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.0415344, -1.78267 )
+texture = ExtResource( 39 )
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="ability-cancel-light" type="Light2D" parent="active-nodes"]
+visible = false
+position = Vector2( -0.64679, -1.73006 )
+scale = Vector2( 8.94737, 3.10947 )
+texture = ExtResource( 37 )
+color = Color( 0, 0.0745098, 0.85098, 1 )
+energy = 3.0
+range_item_cull_mask = 16
+shadow_item_cull_mask = 2
+
+[node name="melee-light" type="Light2D" parent="active-nodes"]
+position = Vector2( 719, 431.5 )
+texture = ExtResource( 40 )
+texture_scale = 2.0
+color = Color( 0, 0.0862745, 1, 0.0823529 )
+energy = 3.5
+mode = 3
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="tool-light" type="Light2D" parent="active-nodes"]
+position = Vector2( 719, 431.5 )
+texture = ExtResource( 40 )
+texture_scale = 2.0
+color = Color( 1, 0.0470588, 0, 0.0823529 )
+energy = 2.5
+mode = 3
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="special-light" type="Light2D" parent="active-nodes"]
+position = Vector2( 719, 431.5 )
+texture = ExtResource( 40 )
+texture_scale = 2.0
+color = Color( 0.752941, 0.639216, 0.0117647, 0.0823529 )
+energy = 4.5
+mode = 3
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+
+[node name="standing-blockstun-shield" type="Sprite" parent="active-nodes"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.701961 )
+position = Vector2( 18.3791, -7.87149 )
+scale = Vector2( 0.571914, 0.571914 )
+z_index = 6
+texture = ExtResource( 41 )
+script = ExtResource( 42 )
+
+[node name="low-blockstun-shield" type="Sprite" parent="active-nodes"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.701961 )
+position = Vector2( 23.2321, 2.15803 )
+scale = Vector2( 0.43603, 0.43603 )
+z_index = 6
+texture = ExtResource( 41 )
+script = ExtResource( 42 )
+
+[node name="pushBlockSfx" parent="active-nodes" instance=ExtResource( 43 )]
+visible = false
+position = Vector2( 21, -3 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 7
+
+[node name="sfxSprites" type="Node2D" parent="active-nodes"]
+script = ExtResource( 44 )
+
+[node name="perfectBlocksfx" type="Node" parent="active-nodes"]
+script = ExtResource( 45 )
+
+[node name="foreground" parent="active-nodes/perfectBlocksfx" instance=ExtResource( 46 )]
+visible = false
+position = Vector2( -2.44885, -2.9914 )
+scale = Vector2( 0.35, 0.35 )
+z_index = 15
+z_as_relative = false
+texture = ExtResource( 47 )
+lifetimeInFrames = 10
+disapearDurationInFrames = 10
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+
+[node name="background" parent="active-nodes/perfectBlocksfx" instance=ExtResource( 46 )]
+visible = false
+position = Vector2( -2.44885, -2.9914 )
+scale = Vector2( 0.35, 0.35 )
+z_as_relative = false
+texture = ExtResource( 48 )
+lifetimeInFrames = 10
+disapearDurationInFrames = 10
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+
+[node name="background2" parent="active-nodes/perfectBlocksfx" instance=ExtResource( 46 )]
+visible = false
+position = Vector2( -2.44885, -2.9914 )
+scale = Vector2( 1e-005, 1e-005 )
+z_as_relative = false
+texture = ExtResource( 49 )
+lifetimeInFrames = 10
+disapearDurationInFrames = 10
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 20
+targetScale = Vector2( 0.3, 0.3 )
+
+[node name="badBlocksfx" type="Node" parent="active-nodes"]
+script = ExtResource( 45 )
+
+[node name="foreground" parent="active-nodes/badBlocksfx" instance=ExtResource( 46 )]
+visible = false
+position = Vector2( 2.46886, -51.5538 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 15
+z_as_relative = false
+texture = ExtResource( 50 )
+lifetimeInFrames = 10
+disapearDurationInFrames = 10
+preventMirroring = true
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+
+[node name="grabAutoRipostingBlocksfx" type="Node" parent="active-nodes"]
+editor/display_folded = true
+script = ExtResource( 45 )
+
+[node name="foreground" parent="active-nodes/grabAutoRipostingBlocksfx" instance=ExtResource( 46 )]
+visible = false
+position = Vector2( 2.46886, -51.5538 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 15
+z_as_relative = false
+texture = ExtResource( 51 )
+lifetimeInFrames = 25
+disapearDurationInFrames = 10
+preventMirroring = true
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+
+[node name="pushBlockingTmpSfx" type="Node" parent="active-nodes"]
+editor/display_folded = true
+script = ExtResource( 45 )
+
+[node name="streak" parent="active-nodes/pushBlockingTmpSfx" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.0941176, 1, 0.278431, 1 )
+position = Vector2( 6.78002, 1.61767 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 52 )
+lifetimeInFrames = 5
+disapearDurationInFrames = 10
+overrideSpriteFrameOffset = true
+disableSkinModuleOverride = true
+disapearOnOpponentHitstun = true
+
+[node name="streak2" parent="active-nodes/pushBlockingTmpSfx" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.0941176, 1, 0.278431, 1 )
+scale = Vector2( 1e-005, 1e-005 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 49 )
+lifetimeInFrames = 10
+disapearDurationInFrames = 8
+overrideSpriteFrameOffset = true
+disableSkinModuleOverride = true
+disapearOnOpponentHitstun = true
+animateScale = true
+scaleAnimationLifeTime = 18
+targetScale = Vector2( 0.25, 0.25 )
+
+[node name="autoripost-awaiting" type="Node" parent="active-nodes"]
+editor/display_folded = true
+script = ExtResource( 45 )
+
+[node name="streak" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.603922, 0.0117647, 0.745098, 0.498039 )
+position = Vector2( 28.7623, -27.0438 )
+rotation = 3.14159
+scale = Vector2( 0.15, 0.15 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 5
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="inner-streak" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.831373, 0.435294, 0.92549, 0.498039 )
+position = Vector2( 28.7623, -27.0438 )
+rotation = 3.14159
+scale = Vector2( 0.08, 0.08 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 5
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="streak2" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.603922, 0.0117647, 0.745098, 0.498039 )
+position = Vector2( 1.42812, 19.7486 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 2
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="inner-streak2" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.831373, 0.435294, 0.92549, 0.498039 )
+position = Vector2( 1.42812, 19.7486 )
+rotation = 3.14159
+scale = Vector2( 0.05, 0.05 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 2
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="streak3" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.603922, 0.0117647, 0.745098, 0.498039 )
+position = Vector2( -21.2732, -16.3881 )
+rotation = 3.14159
+scale = Vector2( 0.07, 0.07 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 2
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="inner-streak3" parent="active-nodes/autoripost-awaiting" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.831373, 0.435294, 0.92549, 0.498039 )
+position = Vector2( -21.2732, -16.3881 )
+rotation = 3.14159
+scale = Vector2( 0.03, 0.03 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 53 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 2
+disableSkinModuleOverride = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 14
+
+[node name="autoripost-on-hit" type="Node" parent="active-nodes"]
+editor/display_folded = true
+script = ExtResource( 45 )
+
+[node name="streak3" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 1, 1, 1, 0.67451 )
+position = Vector2( 113.345, -8.75874 )
+rotation = 1.5708
+scale = Vector2( 0.224353, 0.413996 )
+z_index = 11
+z_as_relative = false
+texture = ExtResource( 54 )
+lifetimeInFrames = 5
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="inner-streak3" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.658824, 0.368627, 0.588235, 0.67451 )
+position = Vector2( 102.352, -8.74248 )
+rotation = 1.5708
+scale = Vector2( 0.173636, 0.351521 )
+z_index = 11
+z_as_relative = false
+texture = ExtResource( 54 )
+lifetimeInFrames = 5
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="streak" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 1, 1, 1, 0.12549 )
+position = Vector2( 65.1623, -6.39315 )
+rotation = 3.14159
+scale = Vector2( 3.78441, 2.12701 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 55 )
+lifetimeInFrames = 8
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="streak2" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.282353, 0, 0.32549, 0.67451 )
+position = Vector2( 90.3272, -6.39315 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.36705 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 56 )
+lifetimeInFrames = 8
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="streak4" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.282353, 0, 0.32549, 0.67451 )
+position = Vector2( 116.327, -27.3931 )
+rotation = 1.309
+scale = Vector2( 0.3, 0.36705 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 57 )
+lifetimeInFrames = 8
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="streak5" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.282353, 0, 0.32549, 0.67451 )
+position = Vector2( 116.327, 8.60685 )
+rotation = 1.83259
+scale = Vector2( 0.3, 0.36705 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 57 )
+lifetimeInFrames = 8
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="inner-streak2" parent="active-nodes/autoripost-on-hit" instance=ExtResource( 46 )]
+visible = false
+modulate = Color( 0.780392, 0, 0.898039, 0.67451 )
+position = Vector2( 76.6368, -8.75873 )
+rotation = 1.5708
+scale = Vector2( 0.224353, 0.297947 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 56 )
+lifetimeInFrames = 12
+disapearDurationInFrames = 3
+disableSkinModuleOverride = true
+
+[node name="shieldBreakParticleBuffer" type="Node2D" parent="active-nodes"]
+script = ExtResource( 58 )
+queueSize = 4
+
+[node name="shieldBreakParticles" type="Particles2D" parent="active-nodes/shieldBreakParticleBuffer"]
+modulate = Color( 1, 0, 0, 1 )
+z_index = 10
+emitting = false
+amount = 32
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.8
+process_material = ExtResource( 59 )
+texture = ExtResource( 60 )
+
+[node name="bodyBox" type="CollisionShape2D" parent="."]
+editor/display_folded = true
+visible = false
+z_index = 10
+shape = SubResource( 4 )
+script = ExtResource( 61 )
+
+[node name="floorDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( 0, -11 )
+enabled = true
+cast_to = Vector2( 0, 45 )
+
+[node name="leftPlatformDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( -10, -11 )
+enabled = true
+cast_to = Vector2( 0, 45 )
+
+[node name="leftOpponentDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( -10, 39 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+
+[node name="insideOpponentDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( -6.99506, -30.1137 )
+enabled = true
+cast_to = Vector2( 15, 62 )
+
+[node name="rightPlatformDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( 10, -11 )
+enabled = true
+cast_to = Vector2( 0, 45 )
+
+[node name="rightOpponentDetector" type="RayCast2D" parent="bodyBox"]
+position = Vector2( 10, 39 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+
+[node name="rightWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( 15, 0 )
+
+[node name="rightCornerDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( 25, 0 )
+
+[node name="hittingRightWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( 50, 0 )
+
+[node name="disableBodyBoxRightWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( 30, 0 )
+
+[node name="leftWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( -15, 0 )
+
+[node name="leftCornerDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( -25, 0 )
+
+[node name="hittingLeftWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( -50, 0 )
+
+[node name="disableBodyBoxLeftWallDetector" type="RayCast2D" parent="bodyBox"]
+enabled = true
+cast_to = Vector2( -30, 0 )
+
+[node name="landOnPlayerArea" type="Area2D" parent="bodyBox"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyBox/landOnPlayerArea"]
+position = Vector2( 0, 28 )
+shape = SubResource( 5 )
+
+[node name="insidePlayerArea2D" type="Area2D" parent="bodyBox"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyBox/insidePlayerArea2D"]
+shape = SubResource( 4 )
+
+[node name="rage-smoke" parent="." instance=ExtResource( 62 )]
+emitting = false
+process_material = SubResource( 10 )
+script = ExtResource( 63 )
+
+[node name="damage-inc" parent="." instance=ExtResource( 64 )]
+visible = false
+z_index = 0
+texture = ExtResource( 65 )
+
+[node name="damage-dec" parent="." instance=ExtResource( 64 )]
+visible = false
+z_index = 0
+texture = ExtResource( 66 )
+
+[node name="star-burst" parent="." instance=ExtResource( 67 )]
+position = Vector2( 0, -30 )
+z_index = 0
+
+[node name="anti-block" parent="." instance=ExtResource( 67 )]
+visible = false
+z_index = 0
+texture = ExtResource( 68 )
+
+[node name="gameObjects" type="Node2D" parent="."]
+
+[node name="turnAroundTimers" type="Node" parent="."]
+
+[node name="emptyStarGlow" parent="." instance=ExtResource( 69 )]
+visible = false
+position = Vector2( 0.27739, -16.6434 )
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 4
+lifetime = 2.0
+
+[node name="dmgStarGlow" parent="." instance=ExtResource( 70 )]
+visible = false
+self_modulate = Color( 3.96, 0.01, 0.01, 1 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="autoRipostSFX" parent="." instance=ExtResource( 70 )]
+self_modulate = Color( 1.76863, 0.0588235, 3, 0 )
+scale = Vector2( 0.65, 0.65 )
+
+[node name="abilityCancelParticleBuffer" type="Node2D" parent="."]
+script = ExtResource( 58 )
+
+[node name="abilityCancelParticles" parent="abilityCancelParticleBuffer" instance=ExtResource( 71 )]
+script = ExtResource( 72 )
+
+[node name="cmdHitParticleBuffer" type="Node2D" parent="."]
+script = ExtResource( 58 )
+particle = ExtResource( 73 )
+
+[node name="shattered-standing-blockstun-shield" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 0, 0, 0.701961 )
+material = SubResource( 15 )
+position = Vector2( 18.3791, -7.87149 )
+scale = Vector2( 0.571914, 0.571914 )
+z_index = 6
+texture = ExtResource( 41 )
+script = ExtResource( 75 )
+shieldBreakPixilationDuration = 0.7
+
+[node name="shattered-low-blockstun-shield" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 0, 0, 0.701961 )
+material = SubResource( 15 )
+position = Vector2( 23.2321, 2.15803 )
+scale = Vector2( 0.43603, 0.43603 )
+z_index = 6
+texture = ExtResource( 41 )
+script = ExtResource( 75 )
+shieldBreakPixilationDuration = 0.7
+standingShield = false
+
+[node name="autoAbilityCancelParticles" parent="." instance=ExtResource( 71 )]
+modulate = Color( 0.321094, 3, 0.3, 1 )
+amount = 25
+script = ExtResource( 72 )
+
+[node name="cachedResources" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.00392157 )
+
+[node name="guardRegenBuffParticles" parent="." instance=ExtResource( 76 )]
+visible = false
+emitting = false
+
+[node name="abilityCancelSwirlParticleBuffer" type="Node2D" parent="."]
+script = ExtResource( 58 )
+particle = ExtResource( 77 )
+
+[node name="abilityCancelExplosionParticleBuffer" type="Node2D" parent="."]
+script = ExtResource( 58 )
+particle = ExtResource( 78 )

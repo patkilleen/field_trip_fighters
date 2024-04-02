@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/interfaces/proficiencies/icons/generalist.png" type="Texture" id=1]
+[ext_resource path="res://interface/ProficiencyIcon.gd" type="Script" id=2]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/ability-cancel.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/arcobatics.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/defender.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/offensive-mastery.png" type="Texture" id=6]
+[ext_resource path="res://interface/new-prof-select/datamodel/ProficiencyDataModel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/new-prof-select/ProficiencyStarPair.tscn" type="PackedScene" id=8]
+
+[node name="ProficiencyIcon" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+abilityCancelingTexture = ExtResource( 3 )
+acrobaticsTexture = ExtResource( 4 )
+defenderTexture = ExtResource( 5 )
+generalistTexture = ExtResource( 1 )
+offensiveMasteryTexture = ExtResource( 6 )
+
+[node name="ProficiencyDataModel" parent="." instance=ExtResource( 7 )]
+
+[node name="class-stars" parent="." instance=ExtResource( 8 )]
+margin_left = 13.0
+margin_top = 59.0
+margin_right = 53.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.7, 0.7 )

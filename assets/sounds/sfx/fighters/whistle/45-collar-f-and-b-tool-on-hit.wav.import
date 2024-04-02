@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/45-collar-f-and-b-tool-on-hit.wav-6a7e25778dfd3b2f85d7da19a6954b1c.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/45-collar-f-and-b-tool-on-hit.wav"
+dest_files=[ "res://.import/45-collar-f-and-b-tool-on-hit.wav-6a7e25778dfd3b2f85d7da19a6954b1c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

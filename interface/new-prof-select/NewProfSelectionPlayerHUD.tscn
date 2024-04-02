@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://interface/new-prof-select/NewProfSelectionPlayerHUD.gd" type="Script" id=1]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/interfaces/combo/checkmark-transparent.png" type="Texture" id=3]
+[ext_resource path="res://interface/new-prof-select/NewProfSelectOptionBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/new-prof-select/ProficiencySelectionStar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/new-prof-select/datamodel/ProficiencyDataModel.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="NewProfSelectionPlayerHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="player2-label" type="Label" parent="."]
+margin_left = 61.885
+margin_top = -26.2199
+margin_right = 172.885
+margin_bottom = 9.7801
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0862745, 0, 0.847059, 1 )
+text = "Player 2"
+
+[node name="player1-label" type="Label" parent="."]
+margin_left = 336.885
+margin_top = -27.2199
+margin_right = 447.885
+margin_bottom = 8.7801
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+text = "Player 1"
+
+[node name="readyIcon" type="TextureRect" parent="."]
+visible = false
+margin_left = 296.885
+margin_top = -22.2199
+margin_right = 522.885
+margin_bottom = 203.78
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="NewProfSelectOptionBox" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 238.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="MinorProfPropertyList" type="VBoxContainer" parent="."]
+margin_top = 242.0
+margin_right = 500.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 500, 0 )
+rect_scale = Vector2( 1.1, 1.1 )
+
+[node name="smaller-star-selections" type="VBoxContainer" parent="."]
+margin_left = 483.568
+margin_top = 9.0216
+margin_right = 689.568
+margin_bottom = 405.022
+rect_min_size = Vector2( 206, 0 )
+rect_scale = Vector2( 0.65, 0.65 )
+
+[node name="ProficiencySelectionStar" parent="smaller-star-selections" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 206.0
+margin_bottom = 196.0
+
+[node name="ProficiencySelectionStar2" parent="smaller-star-selections" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 200.0
+margin_right = 206.0
+margin_bottom = 396.0
+
+[node name="larger-star-selections" type="HBoxContainer" parent="."]
+margin_left = 42.0
+margin_top = 38.0
+margin_right = 458.0
+margin_bottom = 434.0
+rect_min_size = Vector2( 206, 0 )
+
+[node name="ProficiencySelectionStar" parent="larger-star-selections" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 206.0
+margin_bottom = 396.0
+unconfirmedTransparancy = 1.0
+
+[node name="ProficiencySelectionStar2" parent="larger-star-selections" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 396.0
+unconfirmedTransparancy = 1.0
+
+[node name="ProficiencyDataModel" parent="." instance=ExtResource( 6 )]
+
+[node name="player1StarsPos" type="Position2D" parent="."]
+position = Vector2( 483.568, 9.022 )
+
+[node name="player2StarsPos" type="Position2D" parent="."]
+position = Vector2( -132, 9.022 )

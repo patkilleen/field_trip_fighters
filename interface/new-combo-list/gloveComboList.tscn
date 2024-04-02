@@ -1,0 +1,2868 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://interface/new-combo-list/heroInfo.gd" type="Script" id=1]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://interface/new-combo-list/animationEntry.gd" type="Script" id=3]
+[ext_resource path="res://assets/interfaces/command-input/X.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/command-input/r-x.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/d-x.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/l-x.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/up-x.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/Y.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/new-combo-list/followup-arrow.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/command-input/r-y.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/command-input/d-y.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/command-input/l-y.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/command-input/up-y.png" type="Texture" id=14]
+[ext_resource path="res://assets/fighters/glove/baseball/up-tool/0.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/command-input/B.png" type="Texture" id=16]
+[ext_resource path="res://assets/interfaces/command-input/r-b.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/command-input/d-b.png" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/command-input/l-B.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/command-input/up-b.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/command-input/AUTO-RIPOST.png" type="Texture" id=21]
+[ext_resource path="res://assets/interfaces/command-input/ripost.png" type="Texture" id=22]
+[ext_resource path="res://assets/interfaces/command-input/counter-ripost.png" type="Texture" id=23]
+[ext_resource path="res://assets/interfaces/command-input/l2.png" type="Texture" id=24]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=25]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=26]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=27]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=28]
+[ext_resource path="res://assets/interfaces/command-input/l1.png" type="Texture" id=29]
+[ext_resource path="res://assets/interfaces/command-input/l-a.png" type="Texture" id=30]
+[ext_resource path="res://assets/interfaces/command-input/A.png" type="Texture" id=31]
+[ext_resource path="res://assets/interfaces/command-input/r-a.png" type="Texture" id=32]
+[ext_resource path="res://assets/interfaces/command-input/right trigger.png" type="Texture" id=33]
+[ext_resource path="res://assets/interfaces/command-input/dash-back.png" type="Texture" id=34]
+[ext_resource path="res://assets/interfaces/command-input/DASH-down.png" type="Texture" id=35]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="rows" type="VBoxContainer"]
+margin_right = 580.0
+margin_bottom = 1022.0
+script = ExtResource( 1 )
+studentType = "Rush-down / Zoner"
+studentDescription = "Glove controls the stage using his ball. He throws his ball, reels it back using a string, and then can hit his ball with his baseball bat. An opponent can break the ball's string to force glove to go to it to pick it up."
+
+[node name="melee" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 580.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="MeleeColorRect" type="ColorRect" parent="melee"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.0156863, 0.156863, 0.717647, 1 )
+
+[node name="meleeLabel" type="Label" parent="melee/MeleeColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Melee"
+align = 1
+valign = 1
+
+[node name="air-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 54.0
+margin_right = 580.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 13
+type = "Neutral Melee"
+
+[node name="container" type="VBoxContainer" parent="air-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hat flick"
+
+[node name="cmdIconContainer" type="Control" parent="air-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-melee2/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-melee2/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="n-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 108.0
+margin_right = 580.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 9
+type = "Neutral Melee"
+
+[node name="container" type="VBoxContainer" parent="n-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Glove Punch"
+
+[node name="cmdIconContainer2" type="Control" parent="n-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="f-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 162.0
+margin_right = 580.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 39
+type = "Forward Melee"
+
+[node name="container" type="VBoxContainer" parent="f-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Toe Poke"
+
+[node name="cmdIconContainer2" type="Control" parent="f-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 5 )
+
+[node name="d-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 216.0
+margin_right = 580.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 32
+type = "Down Melee"
+
+[node name="container" type="VBoxContainer" parent="d-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crouching Glove Punch"
+
+[node name="cmdIconContainer2" type="Control" parent="d-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 6 )
+
+[node name="b-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 270.0
+margin_right = 580.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 46
+type = "Back Melee"
+
+[node name="container" type="VBoxContainer" parent="b-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Single"
+
+[node name="cmdIconContainer2" type="Control" parent="b-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+
+[node name="u-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 324.0
+margin_right = 580.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 47
+type = "Up Melee"
+
+[node name="container" type="VBoxContainer" parent="u-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Hopping Fly Ball"
+
+[node name="cmdIconContainer2" type="Control" parent="u-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 8 )
+
+[node name="special" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 378.0
+margin_right = 580.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="SpecialColorRect" type="ColorRect" parent="special"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.733333, 0.737255, 0.0235294, 1 )
+
+[node name="specialLabel" type="Label" parent="special/SpecialColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Special"
+align = 1
+valign = 1
+
+[node name="air-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 432.0
+margin_right = 580.0
+margin_bottom = 482.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 14
+type = "Neutral Special"
+additionalProperties = "Stale-moves"
+autoCancelNextRekaActionId = 103
+autoCancelPreviousRekaActionId = 14
+
+[node name="container" type="VBoxContainer" parent="air-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Upper-cut Fly Ball"
+
+[node name="cmdIconContainer" type="Control" parent="air-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-special/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-special/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="air-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 486.0
+margin_right = 580.0
+margin_bottom = 536.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 103
+type = "Neutral Special"
+additionalProperties = "Stale-moves"
+autoCancelNextRekaActionId = 104
+autoCancelPreviousRekaActionId = 14
+
+[node name="container" type="VBoxContainer" parent="air-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Line Drive"
+
+[node name="cmdIconContainer" type="Control" parent="air-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon3" type="TextureRect" parent="air-special2/container/cmdIconContainer"]
+margin_left = 147.0
+margin_top = 1.0
+margin_right = 721.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="cmdIcon4" type="TextureRect" parent="air-special2/container/cmdIconContainer"]
+margin_left = 53.0
+margin_top = -14.0
+margin_right = 627.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="moveName2" type="Label" parent="air-special2/container/cmdIconContainer"]
+margin_left = 101.0
+margin_top = 3.0
+margin_right = 675.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "On Hit + "
+
+[node name="air-special3" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 540.0
+margin_right = 580.0
+margin_bottom = 590.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 104
+type = "Neutral Special"
+additionalProperties = "Stale-moves"
+autoCancelNextRekaActionId = 104
+autoCancelPreviousRekaActionId = 103
+
+[node name="container" type="VBoxContainer" parent="air-special3"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special3/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Ball Spike"
+
+[node name="cmdIconContainer" type="Control" parent="air-special3/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon5" type="TextureRect" parent="air-special3/container/cmdIconContainer"]
+margin_left = 110.0
+margin_top = -8.0
+margin_right = 684.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="cmdIcon6" type="TextureRect" parent="air-special3/container/cmdIconContainer"]
+margin_left = 203.0
+margin_top = 4.0
+margin_right = 777.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="moveName3" type="Label" parent="air-special3/container/cmdIconContainer"]
+margin_left = 157.0
+margin_top = 6.0
+margin_right = 731.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "On Hit + "
+
+[node name="n-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 594.0
+margin_right = 580.0
+margin_bottom = 644.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 10
+type = "Neutral Special"
+
+[node name="container" type="VBoxContainer" parent="n-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Homerun"
+
+[node name="cmdIconContainer2" type="Control" parent="n-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="f-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 648.0
+margin_right = 580.0
+margin_bottom = 698.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 33
+type = "Forward Special"
+additionalProperties = "Shield Buster"
+
+[node name="container" type="VBoxContainer" parent="f-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Advancing Kick"
+
+[node name="cmdIconContainer2" type="Control" parent="f-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 11 )
+
+[node name="d-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 702.0
+margin_right = 580.0
+margin_bottom = 752.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 44
+type = "Down Special"
+
+[node name="container" type="VBoxContainer" parent="d-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Ground Ball"
+
+[node name="cmdIconContainer2" type="Control" parent="d-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 12 )
+
+[node name="b-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 756.0
+margin_right = 580.0
+margin_bottom = 806.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 27
+type = "Back Special"
+
+[node name="container" type="VBoxContainer" parent="b-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Bunt"
+
+[node name="cmdIconContainer2" type="Control" parent="b-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 13 )
+
+[node name="u-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 810.0
+margin_right = 580.0
+margin_bottom = 860.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 43
+type = "Up Special"
+
+[node name="container" type="VBoxContainer" parent="u-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Helmet Smasher"
+
+[node name="cmdIconContainer2" type="Control" parent="u-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="special-ball-bat-interactions" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 864.0
+margin_right = 580.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="SpecialColorRect" type="ColorRect" parent="special-ball-bat-interactions"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.733333, 0.737255, 0.0235294, 1 )
+
+[node name="specialLabel" type="Label" parent="special-ball-bat-interactions/SpecialColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Ball+Bat Interactions"
+align = 1
+valign = 1
+
+[node name="air-special4" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 918.0
+margin_right = 580.0
+margin_bottom = 968.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 24
+type = "Neutral Special"
+description = "Hits the ball straight up"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+ignoreOnHitAnimationDuration = true
+
+[node name="container" type="VBoxContainer" parent="air-special4"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special4/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Upper-cut Fly Ball"
+
+[node name="cmdIconContainer" type="Control" parent="air-special4/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-special4/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +        +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-special4/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="cmdIcon3" type="TextureRect" parent="air-special4/container/cmdIconContainer"]
+margin_left = 82.0
+margin_top = -4.0
+margin_right = 109.0
+margin_bottom = 23.0
+texture = ExtResource( 15 )
+
+[node name="air-special6" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 972.0
+margin_right = 580.0
+margin_bottom = 1022.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 29
+type = "Neutral Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+ignoreOnHitAnimationDuration = true
+
+[node name="container" type="VBoxContainer" parent="air-special6"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special6/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Line Drive"
+
+[node name="cmdIconContainer" type="Control" parent="air-special6/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon3" type="TextureRect" parent="air-special6/container/cmdIconContainer"]
+margin_left = 147.0
+margin_top = 1.0
+margin_right = 721.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="cmdIcon4" type="TextureRect" parent="air-special6/container/cmdIconContainer"]
+margin_left = 53.0
+margin_top = -14.0
+margin_right = 627.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="moveName2" type="Label" parent="air-special6/container/cmdIconContainer"]
+margin_left = 101.0
+margin_top = 3.0
+margin_right = 675.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "On Hit +       +"
+
+[node name="cmdIcon5" type="TextureRect" parent="air-special6/container/cmdIconContainer"]
+margin_left = 197.0
+margin_top = -2.0
+margin_right = 224.0
+margin_bottom = 25.0
+texture = ExtResource( 15 )
+
+[node name="air-special5" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1026.0
+margin_right = 580.0
+margin_bottom = 1076.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 30
+type = "Neutral Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+ignoreOnHitAnimationDuration = true
+
+[node name="container" type="VBoxContainer" parent="air-special5"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special5/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Ball Spike"
+
+[node name="cmdIconContainer" type="Control" parent="air-special5/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon5" type="TextureRect" parent="air-special5/container/cmdIconContainer"]
+margin_left = 110.0
+margin_top = -8.0
+margin_right = 684.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="cmdIcon6" type="TextureRect" parent="air-special5/container/cmdIconContainer"]
+margin_left = 203.0
+margin_top = 4.0
+margin_right = 777.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="moveName3" type="Label" parent="air-special5/container/cmdIconContainer"]
+margin_left = 157.0
+margin_top = 6.0
+margin_right = 731.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "On Hit +       +"
+
+[node name="cmdIcon7" type="TextureRect" parent="air-special5/container/cmdIconContainer"]
+margin_left = 251.0
+margin_top = -1.0
+margin_right = 278.0
+margin_bottom = 26.0
+texture = ExtResource( 15 )
+
+[node name="n-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1080.0
+margin_right = 580.0
+margin_bottom = 1130.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 15
+type = "Neutral Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="n-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Homerun"
+
+[node name="cmdIconContainer2" type="Control" parent="n-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="cmdIcon8" type="TextureRect" parent="n-special2/container/cmdIconContainer2"]
+margin_left = 50.0
+margin_top = -4.0
+margin_right = 77.0
+margin_bottom = 23.0
+texture = ExtResource( 15 )
+
+[node name="moveName2" type="Label" parent="n-special2/container/cmdIconContainer2"]
+margin_left = 39.0
+margin_top = 2.0
+margin_right = 613.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+"
+
+[node name="f-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1134.0
+margin_right = 580.0
+margin_bottom = 1184.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 14
+type = "Forward Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="f-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Advancing Kick"
+
+[node name="cmdIconContainer2" type="Control" parent="f-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 11 )
+
+[node name="cmdIcon9" type="TextureRect" parent="f-special2/container/cmdIconContainer2"]
+margin_left = 62.0
+margin_top = -5.0
+margin_right = 89.0
+margin_bottom = 22.0
+texture = ExtResource( 15 )
+
+[node name="moveName3" type="Label" parent="f-special2/container/cmdIconContainer2"]
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 625.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+"
+
+[node name="d-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1188.0
+margin_right = 580.0
+margin_bottom = 1238.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 26
+type = "Down Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="d-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Ground Ball"
+
+[node name="cmdIconContainer2" type="Control" parent="d-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 12 )
+
+[node name="cmdIcon10" type="TextureRect" parent="d-special2/container/cmdIconContainer2"]
+margin_left = 63.0
+margin_top = -5.0
+margin_right = 90.0
+margin_bottom = 22.0
+texture = ExtResource( 15 )
+
+[node name="moveName4" type="Label" parent="d-special2/container/cmdIconContainer2"]
+margin_left = 52.0
+margin_top = 1.0
+margin_right = 626.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+"
+
+[node name="b-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1242.0
+margin_right = 580.0
+margin_bottom = 1292.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 47
+type = "Back Special"
+description = "Glove hits his ball so hard that the string breaks, but the resulting ball strength is well worth it"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="b-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bat Swing - Bunt"
+
+[node name="cmdIconContainer2" type="Control" parent="b-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 13 )
+
+[node name="cmdIcon11" type="TextureRect" parent="b-special2/container/cmdIconContainer2"]
+margin_left = 62.0527
+margin_top = -4.21045
+margin_right = 89.0527
+margin_bottom = 22.7896
+texture = ExtResource( 15 )
+
+[node name="moveName5" type="Label" parent="b-special2/container/cmdIconContainer2"]
+margin_left = 51.0527
+margin_top = 1.78955
+margin_right = 625.053
+margin_bottom = 19.7896
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+"
+
+[node name="u-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1296.0
+margin_right = 580.0
+margin_bottom = 1346.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 13
+type = "Up Special"
+disableComboCancelView = true
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="u-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Helmet Smasher"
+
+[node name="cmdIconContainer2" type="Control" parent="u-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="cmdIcon12" type="TextureRect" parent="u-special2/container/cmdIconContainer2"]
+margin_left = 64.158
+margin_top = -8.73682
+margin_right = 91.158
+margin_bottom = 18.2632
+texture = ExtResource( 15 )
+
+[node name="moveName6" type="Label" parent="u-special2/container/cmdIconContainer2"]
+margin_left = 53.158
+margin_top = -2.73682
+margin_right = 627.158
+margin_bottom = 15.2632
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+"
+
+[node name="tool" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1350.0
+margin_right = 580.0
+margin_bottom = 1400.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="ToolColorRect" type="ColorRect" parent="tool"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.984314, 0, 0.0235294, 1 )
+
+[node name="toolLabel" type="Label" parent="tool/ToolColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Tool"
+align = 1
+valign = 1
+
+[node name="has-ball" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1404.0
+margin_right = 580.0
+margin_bottom = 1454.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="operaColorRect" type="ColorRect" parent="has-ball"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.972549, 0.411765, 0, 1 )
+
+[node name="operaLabel" type="Label" parent="has-ball/operaColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Has Ball in Hand"
+align = 1
+valign = 1
+
+[node name="air-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1458.0
+margin_right = 580.0
+margin_bottom = 1508.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 18
+type = "Neutral Tool"
+
+[node name="container" type="VBoxContainer" parent="air-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Helix"
+
+[node name="cmdIconContainer" type="Control" parent="air-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="air-tool-throw" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1512.0
+margin_right = 580.0
+margin_bottom = 1562.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 27
+type = "Air Tool"
+description = "After spinning his ball around glove throws his ball."
+disableComboCancelView = true
+additionalStartupFrames = 28
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="air-tool-throw"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="air-tool-throw/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool-throw/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Throw"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool-throw/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="n-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1566.0
+margin_right = 580.0
+margin_bottom = 1616.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 19
+type = "Neutral Tool"
+
+[node name="container" type="VBoxContainer" parent="n-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fastball Fakeout"
+
+[node name="cmdIconContainer2" type="Control" parent="n-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="f-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1620.0
+margin_right = 580.0
+margin_bottom = 1670.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 49
+type = "Forward Tool"
+autoCancelNamingStanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="f-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fastball"
+
+[node name="cmdIconContainer2" type="Control" parent="f-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 17 )
+
+[node name="f-tool-throw" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1674.0
+margin_right = 580.0
+margin_bottom = 1724.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 5
+type = "Forward Tool"
+description = "Glove performance a fast pich forward."
+disableComboCancelView = true
+additionalStartupFrames = 13
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="f-tool-throw"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="f-tool-throw/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="f-tool-throw/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Throw"
+
+[node name="cmdIcon2" type="TextureRect" parent="f-tool-throw/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="d-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1728.0
+margin_right = 580.0
+margin_bottom = 1778.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 42
+type = "Down Tool"
+autoCancelNamingStanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="d-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Lowball"
+
+[node name="cmdIconContainer2" type="Control" parent="d-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 18 )
+
+[node name="d-tool-throw" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1782.0
+margin_right = 580.0
+margin_bottom = 1832.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 3
+type = "Down Tool"
+description = "Glove throws a low ball, tripping opponents on hit."
+disableComboCancelView = true
+additionalStartupFrames = 12
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="d-tool-throw"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="d-tool-throw/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="d-tool-throw/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Throw"
+
+[node name="cmdIcon2" type="TextureRect" parent="d-tool-throw/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="b-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1836.0
+margin_right = 580.0
+margin_bottom = 1886.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 38
+type = "Back Tool"
+
+[node name="container" type="VBoxContainer" parent="b-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Highball Fakeout"
+
+[node name="cmdIconContainer2" type="Control" parent="b-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="u-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1890.0
+margin_right = 580.0
+margin_bottom = 1940.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 34
+type = "Up Tool"
+
+[node name="container" type="VBoxContainer" parent="u-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Highball"
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="u-tool-throw" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1944.0
+margin_right = 580.0
+margin_bottom = 1994.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 4
+type = "Up Tool"
+description = "Glove throws a high ball into the air."
+disableComboCancelView = true
+additionalStartupFrames = 18
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="u-tool-throw"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool-throw/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="u-tool-throw/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Throw"
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool-throw/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="no-ball" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1998.0
+margin_right = 580.0
+margin_bottom = 2048.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="rapColorRect" type="ColorRect" parent="no-ball"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[node name="rapLabel" type="Label" parent="no-ball/rapColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Ball is Active on the Stage"
+align = 1
+valign = 1
+
+[node name="air-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2052.0
+margin_right = 580.0
+margin_bottom = 2102.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 51
+type = "Neutral Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="air-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Helix Catch Pitch"
+
+[node name="cmdIconContainer" type="Control" parent="air-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool2/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool2/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="air-tool-pull" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2106.0
+margin_right = 580.0
+margin_bottom = 2156.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 31
+type = "Neutral Tool"
+description = "Glove pulls the ball towards him in the air."
+disableComboCancelView = true
+additionalStartupFrames = 9
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="air-tool-pull"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="air-tool-pull/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool-pull/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Pull"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool-pull/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="air-tool-pull-then-throw" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2160.0
+margin_right = 580.0
+margin_bottom = 2210.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 27
+type = "Neutral Tool"
+description = "Glove catches the ball after pulling it towards him mid-animation (before finishing air tool) and then throws the ball"
+disableComboCancelView = true
+additionalStartupFrames = 24
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="air-tool-pull-then-throw"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="air-tool-pull-then-throw/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Catch" type="Label" parent="air-tool-pull-then-throw/container/cmdIconContainer2"]
+margin_left = 139.0
+margin_top = 18.0
+margin_right = 713.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Throw (after catching ball mid-animation)"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool-pull-then-throw/container/cmdIconContainer2"]
+margin_left = 87.0
+margin_right = 661.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="b-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2214.0
+margin_right = 580.0
+margin_bottom = 2264.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 55
+type = "Back Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="b-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Pull-back"
+
+[node name="cmdIconContainer2" type="Control" parent="b-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="b-tool-pull" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2268.0
+margin_right = 580.0
+margin_bottom = 2318.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 6
+type = "Back Tool"
+description = "Glove pulls the ball towards him"
+disableComboCancelView = true
+additionalStartupFrames = 2
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="b-tool-pull"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="b-tool-pull/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="b-tool-pull/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Pull"
+
+[node name="cmdIcon2" type="TextureRect" parent="b-tool-pull/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="u-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2322.0
+margin_right = 580.0
+margin_bottom = 2372.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 56
+type = "Up Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="u-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quick Flick"
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="u-tool-pull" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2376.0
+margin_right = 580.0
+margin_bottom = 2426.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 7
+type = "Up Tool"
+description = "Glove  flicks the ball upwards  using his string"
+disableComboCancelView = true
+additionalStartupFrames = 2
+projectileOverrideNodePath = "res://projectiles/glove-baseball.tscn"
+displayRawMeatyFrameData = true
+projectileFrameDataType = 1
+
+[node name="container" type="VBoxContainer" parent="u-tool-pull"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool-pull/container"]
+margin_right = 574.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="u-tool-pull/container/cmdIconContainer2"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 658.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ball Pull"
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool-pull/container/cmdIconContainer2"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.6, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="universal" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 2430.0
+margin_right = 580.0
+margin_bottom = 2480.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="universalColorRect" type="ColorRect" parent="universal"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.529412, 0.054902, 0.721569, 1 )
+
+[node name="universalLabel" type="Label" parent="universal/universalColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Universal"
+align = 1
+valign = 1
+
+[node name="autoRipost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2484.0
+margin_right = 580.0
+margin_bottom = 2534.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "Invincible (vulnerable to grab) alpha counter reversal. When hit by an attack during this animation, a short-to-medium range parry is performed. There is a brief moment of vulnerability at the end of the animation where you can be hit if the opponent doesn't hit you."
+autoCancelsTypeBlackList = 31
+universalMove = 1
+additionalProperties = "Parry"
+
+[node name="container" type="VBoxContainer" parent="autoRipost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="autoRipost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Auto-ripost"
+
+[node name="cmdIconContainer" type="Control" parent="autoRipost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="autoRipost/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="ripost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2538.0
+margin_right = 580.0
+margin_bottom = 2588.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "Ever know exactly what combo your opponent will do? A large window of time is created when you start riposting. If you are hit during that time and inputed R1 + the opponent's command, you steal the combo. Riposting can be done in almost any situation (including during hitstun). Riposting prevents input for the duration. Failing a ripost: when in neutral, you become stunned momentarily; in hitstun, you reset the opponent's damage proration and you are locked of ability bar gain temporarily."
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 2
+
+[node name="container" type="VBoxContainer" parent="ripost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ripost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ripost"
+
+[node name="cmdIconContainer" type="Control" parent="ripost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ripost/container/cmdIconContainer"]
+margin_left = 1.99999
+margin_right = 576.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="counter-ripost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2592.0
+margin_right = 580.0
+margin_bottom = 2642.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 3
+
+[node name="container" type="VBoxContainer" parent="counter-ripost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="counter-ripost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Counter-Ripost"
+
+[node name="cmdIconContainer" type="Control" parent="counter-ripost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="counter-ripost/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 23 )
+
+[node name="ability-cancel" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2646.0
+margin_right = 580.0
+margin_bottom = 2696.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 4
+
+[node name="container" type="VBoxContainer" parent="ability-cancel"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ability-cancel/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ability Cancel"
+
+[node name="cmdIconContainer" type="Control" parent="ability-cancel/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ability-cancel/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 24 )
+
+[node name="push-block" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2700.0
+margin_right = 580.0
+margin_bottom = 2750.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 78
+type = "Ability-based"
+universalMove = 5
+
+[node name="container" type="VBoxContainer" parent="push-block"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="push-block/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Push Block"
+
+[node name="cmdIconContainer" type="Control" parent="push-block/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="push-block/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Block + "
+
+[node name="cmdIcon2" type="TextureRect" parent="push-block/container/cmdIconContainer"]
+margin_left = 42.0
+margin_right = 616.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 24 )
+
+[node name="tech" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2754.0
+margin_right = 580.0
+margin_bottom = 2804.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "While blocking (in block stun), push blocking will push your opponent away, prevent them from input buttons for a very brief moment, allowing you to reduce your opponent's aggression.  Block stun can be circumvented by ability canceling the push block animation (although it may be ability costly)"
+disableComboCancelView = true
+universalMove = 6
+additionalProperties = "invincibility"
+
+[node name="container" type="VBoxContainer" parent="tech"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="tech/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Tech"
+
+[node name="cmdIconContainer" type="Control" parent="tech/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="tech/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hitstun + bump into (wall, ceiling, or floor) +"
+
+[node name="cmdIcon2" type="TextureRect" parent="tech/container/cmdIconContainer"]
+margin_left = 284.0
+margin_right = 858.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 24 )
+
+[node name="magic-series" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2808.0
+margin_right = 580.0
+margin_bottom = 2858.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "While blocking (in block stun), push blocking will push your opponent away, prevent them from input buttons for a very brief moment, allowing you to reduce your opponent's aggression.  Block stun can be circumvented by ability canceling the push block animation (although it may be ability costly)"
+disableComboCancelView = true
+universalMove = 8
+
+[node name="container" type="VBoxContainer" parent="magic-series"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="magic-series/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Magic Series"
+
+[node name="cmdIconContainer" type="Control" parent="magic-series/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="magic-series/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Any                  +                  +                    combo"
+
+[node name="melee" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 52.0
+margin_right = 137.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="all-DI" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -211.0
+margin_right = -171.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 25 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 27 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="special" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 135.0
+margin_right = 220.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="all-DI2" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -128.0
+margin_right = -88.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 25 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 27 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="tool" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 216.0
+margin_right = 301.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="all-DI3" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -47.0
+margin_right = -7.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 25 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 27 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="grab" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2862.0
+margin_right = 580.0
+margin_bottom = 2912.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 48
+type = "Cooldown-based"
+specialCase = 0
+universalMove = 7
+hitAdvantageOverride = "15"
+linkHitAdvantageOverride = "-1 to current hitstun duration"
+
+[node name="container" type="VBoxContainer" parent="grab"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="grab/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Grab"
+
+[node name="cmdIconContainer" type="Control" parent="grab/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="grab/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 29 )
+
+[node name="mvm" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 2916.0
+margin_right = 580.0
+margin_bottom = 2966.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="mvmColorRect" type="ColorRect" parent="mvm"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.00784314, 0.529412, 0.0156863, 1 )
+
+[node name="mvmLabel" type="Label" parent="mvm/mvmColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Movement"
+align = 1
+valign = 1
+
+[node name="crouch" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2970.0
+margin_right = 580.0
+margin_bottom = 3020.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 12
+type = "Movement"
+description = "Crouching brings you lower to the ground, allowing the evasion of some high-reaching anti-airs, however only down-input attacks can be done out of crouch. Any other animation will force a brief moment of uncrouching."
+universalMove = 9
+
+[node name="container" type="VBoxContainer" parent="crouch"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="crouch/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crouch"
+
+[node name="cmdIconContainer" type="Control" parent="crouch/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="crouch/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="jump" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3024.0
+margin_right = 580.0
+margin_bottom = 3074.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 0
+type = "Movement"
+universalMove = 10
+autoCancelBlackList = 4294967295
+autoCancelBlackList2 = 67102695
+
+[node name="container" type="VBoxContainer" parent="jump"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="jump/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Jump"
+
+[node name="cmdIconContainer" type="Control" parent="jump/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 30 )
+
+[node name="moveName2" type="Label" parent="jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "             or             or"
+
+[node name="cmdIcon3" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_left = 70.0
+margin_right = 644.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 31 )
+
+[node name="cmdIcon4" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_left = 138.0
+margin_right = 712.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 32 )
+
+[node name="ground-dash-forward" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3078.0
+margin_right = 580.0
+margin_bottom = 3128.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 40
+type = "Movement"
+universalMove = 11
+autoCancelBlackList = 4294967288
+autoCancelBlackList2 = 6552551
+
+[node name="container" type="VBoxContainer" parent="ground-dash-forward"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ground-dash-forward/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground Dash Forward "
+
+[node name="cmdIconContainer" type="Control" parent="ground-dash-forward/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ground-dash-forward/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 33 )
+
+[node name="ground-dash-back" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3132.0
+margin_right = 580.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 41
+type = "Movement"
+universalMove = 12
+autoCancelBlackList = 4294967288
+autoCancelBlackList2 = 4456423
+
+[node name="container" type="VBoxContainer" parent="ground-dash-back"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ground-dash-back/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground Dash Back"
+
+[node name="cmdIconContainer" type="Control" parent="ground-dash-back/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ground-dash-back/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 34 )
+
+[node name="crouch-cancel" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3186.0
+margin_right = 580.0
+margin_bottom = 3236.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 75
+type = "Movement"
+description = "Crouching brings you lower to the ground, allowing the evasion of some high-reaching anti-airs, however only down-input attacks can be done out of crouch. Any other animation will force a brief moment of uncrouching."
+universalMove = 13
+
+[node name="container" type="VBoxContainer" parent="crouch-cancel"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="crouch-cancel/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crouch-cancel"
+
+[node name="cmdIconContainer" type="Control" parent="crouch-cancel/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="crouch-cancel/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground dashing in neutral + "
+
+[node name="cmdIcon2" type="TextureRect" parent="crouch-cancel/container/cmdIconContainer"]
+margin_left = 177.0
+margin_right = 751.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="air-jump" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3240.0
+margin_right = 580.0
+margin_bottom = 3290.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 112
+type = "Movement"
+universalMove = 10
+autoCancelBlackList = 4294868991
+autoCancelBlackList2 = 67108839
+
+[node name="container" type="VBoxContainer" parent="air-jump"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-jump/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Jump"
+
+[node name="cmdIconContainer" type="Control" parent="air-jump/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 34.0
+margin_right = 608.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 30 )
+
+[node name="moveName2" type="Label" parent="air-jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +              or             or"
+
+[node name="cmdIcon3" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 105.0
+margin_right = 679.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 31 )
+
+[node name="cmdIcon4" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 173.0
+margin_right = 747.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 32 )
+
+[node name="air-dash-forward" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3294.0
+margin_right = 580.0
+margin_bottom = 3344.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 6
+type = "Movement"
+universalMove = 14
+autoCancelBlackList = 4289855480
+autoCancelBlackList2 = 6553543
+
+[node name="container" type="VBoxContainer" parent="air-dash-forward"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-dash-forward/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Dash Forward "
+
+[node name="cmdIconContainer" type="Control" parent="air-dash-forward/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-dash-forward/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + "
+
+[node name="cmdIcon2" type="TextureRect" parent="air-dash-forward/container/cmdIconContainer"]
+margin_left = 23.0
+margin_right = 597.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 33 )
+
+[node name="air-dash-back" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3348.0
+margin_right = 580.0
+margin_bottom = 3398.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 7
+type = "Movement"
+universalMove = 15
+autoCancelBlackList = 4289855480
+autoCancelBlackList2 = 6553543
+
+[node name="container" type="VBoxContainer" parent="air-dash-back"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-dash-back/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Dash Back"
+
+[node name="cmdIconContainer" type="Control" parent="air-dash-back/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName3" type="Label" parent="air-dash-back/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + "
+
+[node name="cmdIcon2" type="TextureRect" parent="air-dash-back/container/cmdIconContainer"]
+margin_left = 31.0
+margin_right = 605.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 34 )
+
+[node name="fast-fall" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3402.0
+margin_right = 580.0
+margin_bottom = 3452.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Movement"
+description = "Stop your current air momentum and quickly fall downards without interrupting your current animation."
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 16
+
+[node name="container" type="VBoxContainer" parent="fast-fall"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="fast-fall/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fast Fall"
+
+[node name="cmdIconContainer" type="Control" parent="fast-fall/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="fast-fall/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="fast-fall/container/cmdIconContainer"]
+margin_left = 25.0
+margin_right = 599.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 35 )
+
+[node name="landing-lag" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3456.0
+margin_right = 580.0
+margin_bottom = 3506.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 31
+type = "Movement"
+description = "Most air animations will trigger landing lag when you land mid-animation.  Trip guard is not supported, meaning you are vulnerable and cannot block during this animation.  Landing while blocking doesn't trigger landing lag, but does extend the block stun duration"
+universalMove = 17
+recoveryAdvOverride = "varies"
+
+[node name="container" type="VBoxContainer" parent="landing-lag"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="landing-lag/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Landing Lag"
+
+[node name="cmdIconContainer" type="Control" parent="landing-lag/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="landing-lag/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + Land"

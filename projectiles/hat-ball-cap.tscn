@@ -1,0 +1,693 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://projectiles/abstract_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://projectiles/HatBallCapController.gd" type="Script" id=2]
+[ext_resource path="res://projectiles/HatBallCapActionAnimationManager.gd" type="Script" id=3]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=4]
+[ext_resource path="res://assets/fighters/hat/ball-cap/flying-hat.png" type="Texture" id=5]
+[ext_resource path="res://SpriteAnimation.gd" type="Script" id=6]
+[ext_resource path="res://assets/fighters/hat/ball-cap/flying/0.png" type="Texture" id=7]
+[ext_resource path="res://assets/fighters/hat/ball-cap/flying/1.png" type="Texture" id=8]
+[ext_resource path="res://assets/fighters/hat/ball-cap/flying/2.png" type="Texture" id=9]
+[ext_resource path="res://assets/fighters/hat/ball-cap/flying/3.png" type="Texture" id=10]
+[ext_resource path="res://assets/fighters/hat/ball-cap/grounded-hat.png" type="Texture" id=11]
+[ext_resource path="res://complexMovement.gd" type="Script" id=12]
+[ext_resource path="res://basicMovement.gd" type="Script" id=13]
+[ext_resource path="res://movementAnimation.gd" type="Script" id=14]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=15]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.0878906, 0.698547, 0.9375, 1, 1, 1, 1, 0.00552941 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 1 )
+flag_disable_z = true
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 7
+outline_size = 1
+font_data = ExtResource( 15 )
+
+[node name="hat-ball-cap" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+supportsReparentingOnDestroy = false
+
+[node name="ActionAnimationManager" parent="ProjectileController" index="1"]
+script = ExtResource( 3 )
+
+[node name="SpriteAnimationManager" parent="ProjectileController/ActionAnimationManager" index="0"]
+editor/display_folded = false
+targetSpritePath = NodePath("../../../../hat-ball-cap/active-nodes/Sprite")
+
+[node name="frame3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="0"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 5 )
+autoCancels = -8384521
+autoCancels2 = 24
+sprite_Offset = Vector2( 3, 0 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="frame2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="0"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 5 )
+autoCancels = -8384521
+autoCancels2 = 24
+sprite_Offset = Vector2( 3, 0 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="completion" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="2"]
+isLooping = true
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="0"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 5 )
+autoCancels = -8384521
+autoCancels2 = 24
+sprite_Offset = Vector2( 3, 0 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="in-air" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="3"]
+script = ExtResource( 6 )
+isLooping = true
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/in-air" index="0"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 7 )
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="frame5" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/in-air" index="1"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 8 )
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="frame6" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/in-air" index="2"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 9 )
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="frame7" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/in-air" index="3"]
+script = ExtResource( 4 )
+duration = 4
+texture = ExtResource( 10 )
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="on-ground" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="4"]
+script = ExtResource( 6 )
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/on-ground" index="0"]
+script = ExtResource( 4 )
+duration = 0
+texture = ExtResource( 11 )
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="off-battlefield" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="5"]
+script = ExtResource( 6 )
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/off-battlefield" index="0"]
+script = ExtResource( 4 )
+duration = 0
+autoCancels = 2928
+landing_lag = 2
+type = 2
+
+[node name="MovementAnimations" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager" index="0"]
+editor/display_folded = false
+
+[node name="start-up" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="0"]
+editor/display_folded = true
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up/cplx_mvm0" index="0"]
+script = ExtResource( 13 )
+speed = 250.0
+maxSpeed = 1000.0
+
+[node name="active" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="1"]
+editor/display_folded = true
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active/cplx_mvm0" index="0"]
+script = ExtResource( 13 )
+speed = 250.0
+maxSpeed = 1000.0
+minSpeed = 20.0
+
+[node name="completion" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="2"]
+editor/display_folded = true
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion/cplx_mvm0" index="0"]
+script = ExtResource( 13 )
+
+[node name="back-tool" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="3"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/back-tool" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/back-tool/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 370.0
+maxSpeed = 1000.0
+angle = 310.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/back-tool/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="land" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="4"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/land" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 7
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/land/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+maxSpeed = 1000.0
+
+[node name="off-battelfield" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="5"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/off-battelfield" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 7
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/off-battelfield/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+maxSpeed = 1000.0
+
+[node name="up-tool" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="6"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/up-tool" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/up-tool/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 295.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/up-tool/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="f-tool" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="7"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/f-tool" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/f-tool/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 425.0
+maxSpeed = 1000.0
+angle = 325.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/f-tool/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="d-tool2" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="8"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/d-tool2" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/d-tool2/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 250.0
+maxSpeed = 1000.0
+angle = 315.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/d-tool2/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 900.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="9"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle0" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle0/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 345.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle0/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle45" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="10"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle45" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle45/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 15.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle45/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle90" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="11"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle90" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle90/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 60.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle90/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle135" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="12"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle135" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle135/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 105.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle135/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle180" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="13"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle180" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle180/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 150.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle180/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle225" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="14"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle225" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle225/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 195.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle225/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="air-tool-angle270" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="15"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle270" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle270/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 200.0
+maxSpeed = 1000.0
+angle = 235.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/air-tool-angle270/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="sprinter-stance-tool" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="16"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/sprinter-stance-tool" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/sprinter-stance-tool/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 375.0
+maxSpeed = 1000.0
+angle = 235.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/sprinter-stance-tool/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 400.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="b-ball-cap-hit-by-light" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="17"]
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-light" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-light/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 260.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-light/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 700.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="b-ball-cap-hit-by-medium" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="18"]
+editor/display_folded = true
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-medium" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-medium/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 235.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-medium/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 700.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="b-ball-cap-hit-by-heavy" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="19"]
+script = ExtResource( 14 )
+priority = 2
+clearUnprocessedCmplxMvm = true
+stopsAllMvmOnPlay = true
+bouncableSurfaces = 7
+maxBounces = 1
+bounceFriction = 1.0
+
+[node name="cplx_mvm4" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-heavy" index="0"]
+script = ExtResource( 12 )
+mvmType = 1
+gravEffect = 4
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-heavy/cplx_mvm4" index="0"]
+script = ExtResource( 13 )
+speed = 500.0
+maxSpeed = 1000.0
+angle = 200.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/b-ball-cap-hit-by-heavy/cplx_mvm4" index="1"]
+script = ExtResource( 13 )
+acceleration = 700.0
+maxSpeed = 10000.0
+angle = 270.0
+opposingGravity = true
+
+[node name="heroSFXSounds" parent="ProjectileController" index="4"]
+volume_db = -8.0
+
+[node name="active-nodes" parent="." index="1"]
+z_index = 6
+
+[node name="Sprite" parent="active-nodes" index="1"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="hatStandingDetector" type="RayCast2D" parent="bodyBox" index="9"]
+position = Vector2( 11, -14.705 )
+enabled = true
+cast_to = Vector2( -25, 30 )
+collision_mask = 0
+
+[node name="hatStandingDetector2" type="RayCast2D" parent="bodyBox" index="10"]
+position = Vector2( -13, -16.705 )
+enabled = true
+cast_to = Vector2( 25, 30 )
+collision_mask = 0
+
+[node name="particle-trail2" type="Particles2D" parent="cachedResources" index="0"]
+rotation = 3.14159
+z_index = 5
+amount = 100
+lifetime = 2.0
+speed_scale = 5.0
+process_material = SubResource( 3 )
+
+[node name="HUD" type="Node2D" parent="." index="4"]
+z_index = 10
+z_as_relative = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD" index="0"]
+margin_left = -49.2926
+margin_top = -48.2335
+margin_right = 50.7074
+margin_bottom = -8.2335
+rect_min_size = Vector2( 100, 0 )
+alignment = 1
+
+[node name="pnameLabel" type="Label" parent="HUD/HBoxContainer2" index="0"]
+margin_left = 50.0
+margin_top = 15.0
+margin_right = 50.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 4 )

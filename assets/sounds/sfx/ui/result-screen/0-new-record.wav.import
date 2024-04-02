@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/0-new-record.wav-0712bbb2014dca7eff541cdd8f74ebef.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/ui/result-screen/0-new-record.wav"
+dest_files=[ "res://.import/0-new-record.wav-0712bbb2014dca7eff541cdd8f74ebef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

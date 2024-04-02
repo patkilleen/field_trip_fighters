@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/51-air-tool.wav-9e80fc445a421d341853ca8ba44de445.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/51-air-tool.wav"
+dest_files=[ "res://.import/51-air-tool.wav-9e80fc445a421d341853ca8ba44de445.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

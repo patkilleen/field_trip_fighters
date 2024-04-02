@@ -1,0 +1,189 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/kayaking/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/kayaking/left-map-section.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/kayaking/bridge.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/kayaking/bus.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/kayaking/kayaking-guy2.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/kayaking/kayaking-guy3.png" type="Texture" id=8]
+[ext_resource path="res://assets/stages/kayaking/kayaking-guy1.png" type="Texture" id=9]
+[ext_resource path="res://assets/stages/kayaking/rapids-0.png" type="Texture" id=10]
+[ext_resource path="res://assets/stages/kayaking/rapids-1.png" type="Texture" id=11]
+[ext_resource path="res://assets/stages/kayaking/forground.png" type="Texture" id=12]
+[ext_resource path="res://assets/sounds/ambience/stage/kayaking/ambience.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/stages/kayaking/sky.png" type="Texture" id=14]
+[ext_resource path="res://stages/PathFollow2D.gd" type="Script" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 267.118, 1216.16, 0, 0, 0, 0, 256.611, 927.84, 0, 0, 0, 0, 275.473, 864.394, -3.52964, -6.49355, 3.52964, 6.49355, 293.478, 828.384, 0, 0, 0, 0, 296.908, 754.65, 0, 0, 0, 0, 243.327, 716.618, 0, 0, 0, 0, 132.292, 700.635, 0, 0, 0, 0, -91.4832, 700.635, 0, 0, 0, 0, -257.319, 766.876, 0, 0, 0, 0, -232.267, 1242.88, 0, 0, 0, 0, -132.056, 1256.24, 0, 0, 0, 0, 190.289, 1244.55, 0, 0, 0, 0, 268.788, 1216.16 )
+}
+
+[node name="swamp" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 8.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10056, 19.726 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( 87, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 10913, 8.365 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+position = Vector2( -82, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 0
+
+[node name="nonAnimatedBgd-large" type="Sprite" parent="." index="3"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 433.99, 330.692 )
+z_index = -2
+texture = ExtResource( 3 )
+
+[node name="nonAnimatedBgd-left-section" type="Sprite" parent="." index="4"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 433.99, 330.692 )
+texture = ExtResource( 4 )
+
+[node name="bridge" type="Sprite" parent="." index="5"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 433.99, 330.692 )
+texture = ExtResource( 5 )
+
+[node name="bus" type="Sprite" parent="." index="6"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 227.99, 411.692 )
+texture = ExtResource( 6 )
+
+[node name="lake-kayaker1" type="Sprite" parent="." index="7"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 558.484, 305.104 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="lake-kayaker2" type="Sprite" parent="." index="8"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 704.033, 285.991 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="moving-kayaker-node" type="Node2D" parent="." index="9"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+position = Vector2( 422.16, 779.081 )
+rotation = -0.895955
+
+[node name="sprite" type="Sprite" parent="moving-kayaker-node" index="0"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+rotation = 1.5708
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="rock-rapids" type="AnimatedSprite" parent="." index="10"]
+pause_mode = 2
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+position = Vector2( 478.99, 485.692 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="foreground" type="Sprite" parent="." index="11"]
+self_modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+light_mask = 5
+position = Vector2( 429.1, 559.746 )
+z_index = 20
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="player1Spawn" parent="." index="18"]
+position = Vector2( 339, 455 )
+
+[node name="player2Spawn" parent="." index="19"]
+position = Vector2( 539, 455 )
+
+[node name="cameraBoundaries" parent="." index="22"]
+margin_left = 31.0
+margin_top = -53.0
+margin_right = 833.0
+margin_bottom = 652.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="28"]
+pause_mode = 1
+stream = ExtResource( 13 )
+volume_db = 4.0
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="46"]
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 0, -1 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/sky" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -314, -181 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="largeHitTempSpriteTemplate" parent="." index="48"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0
+
+[node name="movingKayakers" type="Node2D" parent="." index="50"]
+pause_mode = 2
+
+[node name="canal-kayaker" type="Path2D" parent="movingKayakers" index="0"]
+pause_mode = 2
+position = Vector2( 155.042, -437.079 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="movingKayakers/canal-kayaker" index="0"]
+position = Vector2( 267.118, 1216.16 )
+rotation = -0.895955
+script = ExtResource( 15 )
+speed = 85.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="movingKayakers/canal-kayaker/PathFollow2D" index="0"]
+z_index = -1
+remote_path = NodePath("../../../../moving-kayaker-node")

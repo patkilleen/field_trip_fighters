@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://interface/victory-info/StudentVictoryInfo.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/character-select/ken.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/fighters/glove/hero-select-icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/fighters/belt/n-tool/active-counter.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/character-select/mic-potrait.PNG" type="Texture" id=5]
+[ext_resource path="res://assets/fighters/hat/ball-cap-f/idle/ground/0.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/student-info/background.png" type="Texture" id=7]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 8 )
+
+[node name="StudentVictoryInfo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+kenTexture = ExtResource( 2 )
+gloveTexture = ExtResource( 3 )
+beltTexture = ExtResource( 4 )
+micTexture = ExtResource( 5 )
+hatTexture = ExtResource( 6 )
+
+[node name="bgd" type="TextureRect" parent="."]
+margin_right = 2919.0
+margin_bottom = 4378.0
+rect_scale = Vector2( 0.55, 0.58 )
+texture = ExtResource( 7 )
+
+[node name="heroPortrait" type="TextureRect" parent="."]
+margin_left = 764.768
+margin_top = 159.986
+margin_right = 804.768
+margin_bottom = 199.986
+texture = ExtResource( 3 )
+
+[node name="heroNameLabel" type="Label" parent="."]
+margin_left = 722.574
+margin_top = 96.6948
+margin_right = 1172.57
+margin_bottom = 138.695
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.337255, 0.341176, 0.623529, 1 )
+text = "winner name"
+
+[node name="heroInfoLabelHeader" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 46.695
+margin_right = 550.0
+margin_bottom = 88.695
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.337255, 0.341176, 0.623529, 1 )
+text = "Student Information"
+
+[node name="heroAttributesGridContainer" type="GridContainer" parent="."]
+margin_left = 105.0
+margin_top = 108.0
+margin_right = 456.0
+margin_bottom = 359.0
+columns = 2
+
+[node name="heroVictoryQuoteLabelHeader" type="Label" parent="."]
+visible = false
+margin_left = 100.0
+margin_top = 439.695
+margin_right = 550.0
+margin_bottom = 481.695
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.519823, 0.761719, 0.505829, 1 )
+text = "Victory Quote"
+
+[node name="heroVictoryQuoteLabel" type="Label" parent="."]
+margin_left = 113.0
+margin_top = 441.0
+margin_right = 949.0
+margin_bottom = 567.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.337255, 0.341176, 0.623529, 1 )
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\""
+align = 1
+valign = 1
+autowrap = true
+
+[node name="attributeTemplate" type="Label" parent="."]
+visible = false
+margin_left = 109.0
+margin_top = 206.0
+margin_right = 243.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 134, 31 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+text = "template"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 959.306
+margin_top = 13.8687
+margin_right = 1041.31
+margin_bottom = 64.8687
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+text = "Page 
+1 of 2"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 621.665
+margin_top = 11.6635
+margin_right = 936.665
+margin_bottom = 71.6635
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "Report Card"

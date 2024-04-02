@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/microphone.wav-aed071ee4c6da9c5daecf8bc7d521962.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/hero-themes/microphone.wav"
+dest_files=[ "res://.import/microphone.wav-aed071ee4c6da9c5daecf8bc7d521962.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

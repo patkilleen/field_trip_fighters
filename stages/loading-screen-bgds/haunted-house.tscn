@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/stages/haunted-mansion/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/stages/haunted-mansion/far-back-montains-forest.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/haunted-mansion/mansion_and_bus.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby3.png" type="Texture" id=4]
+[ext_resource path="res://assets/shaders/moving-mist.shader" type="Shader" id=5]
+[ext_resource path="res://assets/stages/haunted-mansion/mist-2.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby2.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/haunted-mansion/mist1.png" type="Texture" id=8]
+[ext_resource path="res://stages/scrolling-texture.gd" type="Script" id=9]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby1.png" type="Texture" id=10]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/Direction = Vector2( 1, 0 )
+shader_param/Speed = 0.01
+shader_param/time = 0.0
+
+[node name="loadingScreenBgd" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -46.5249, -42.1981 )
+scale = Vector2( 0.978999, 1.07856 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -32, 43 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 179, 187 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="trees" type="Sprite" parent="."]
+position = Vector2( 214, 258 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="trees2" type="Sprite" parent="."]
+position = Vector2( -617, 258 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="moving-mist" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( -4.75928, 423 )
+scale = Vector2( 1.01845, 0.75 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="trees3" type="Sprite" parent="."]
+position = Vector2( 18, 277 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="trees4" type="Sprite" parent="."]
+position = Vector2( -910, 277 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="moving-mist2" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( -188, 478 )
+scale = Vector2( 1.3171, 1 )
+texture = ExtResource( 8 )
+centered = false
+script = ExtResource( 9 )
+
+[node name="trees5" type="Sprite" parent="."]
+position = Vector2( 56, 303 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="trees6" type="Sprite" parent="."]
+position = Vector2( -1008, 285 )
+texture = ExtResource( 10 )
+centered = false

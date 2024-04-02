@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://particles/materials/stage/ability-cancel/abilityCancelSwirlParticles.tres" type="Material" id=1]
+[ext_resource path="res://assets/particles/example/spotlight_8.png" type="Texture" id=2]
+[ext_resource path="res://particles/oneShotParticlesOnDuration.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="abilityCancelSwirlParticles" type="Particles2D"]
+modulate = Color( 0.31, 0.13, 1.77, 1 )
+material = SubResource( 1 )
+emitting = false
+amount = 128
+speed_scale = 3.0
+local_coords = false
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+duration = 2.0

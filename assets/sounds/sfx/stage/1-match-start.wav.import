@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-match-start.wav-1e3acc52775dfbf6959f96501000fc9e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/stage/1-match-start.wav"
+dest_files=[ "res://.import/1-match-start.wav-1e3acc52775dfbf6959f96501000fc9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

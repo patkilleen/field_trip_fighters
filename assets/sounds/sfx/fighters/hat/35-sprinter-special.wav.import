@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/35-sprinter-special.wav-83c73080429661c28bdc8d6278aad336.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/35-sprinter-special.wav"
+dest_files=[ "res://.import/35-sprinter-special.wav-83c73080429661c28bdc8d6278aad336.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

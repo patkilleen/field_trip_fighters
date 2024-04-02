@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/6-Mic_damage3.wav-d5939b2dbda057ac5a635630a894b2cb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/microphone/6-Mic_damage3.wav"
+dest_files=[ "res://.import/6-Mic_damage3.wav-d5939b2dbda057ac5a635630a894b2cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-hurt-block.wav-11b2d4a5e9e3fd80b838edbcdbefe8e8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/1-hurt-block.wav"
+dest_files=[ "res://.import/1-hurt-block.wav-11b2d4a5e9e3fd80b838edbcdbefe8e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

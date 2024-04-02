@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/18-Mic_riposeCOUNTER.wav-a0e8f5fe871343531575550191ad8fde.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/18-Mic_riposeCOUNTER.wav"
+dest_files=[ "res://.import/18-Mic_riposeCOUNTER.wav-a0e8f5fe871343531575550191ad8fde.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

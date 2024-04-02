@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/32-mic-long-special.wav-08e7fe37a1d6345735ed5b5baccd59b9.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/32-mic-long-special.wav"
+dest_files=[ "res://.import/32-mic-long-special.wav-08e7fe37a1d6345735ed5b5baccd59b9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

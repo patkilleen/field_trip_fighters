@@ -1,0 +1,182 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://interface/new-prof-select/NewProfSelectOptionBox.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/new-prof-select/options-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/new-prof-select/text-bgd.png" type="Texture" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/interfaces/new-prof-select/prof-select-arrow.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/new-prof-select/minor-class-text-bgd.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/new-prof-select/minor-class-arrows.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/arcobatics.png" type="Texture" id=8]
+[ext_resource path="res://interface/cursor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/interfaces/new-prof-select/major-class-icon.png" type="Texture" id=10]
+[ext_resource path="res://interface/new-prof-select/ProficiencyStarPair.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="NewProfSelectOptionBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="options-box" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="options-bgd" type="TextureRect" parent="options-box"]
+margin_right = 487.0
+margin_bottom = 194.0
+texture = ExtResource( 2 )
+
+[node name="proficiency-name-bgd" type="TextureRect" parent="options-box"]
+margin_left = 102.0
+margin_top = 13.0
+margin_right = 396.0
+margin_bottom = 53.0
+texture = ExtResource( 3 )
+
+[node name="profNameContainer" type="HBoxContainer" parent="options-box/proficiency-name-bgd"]
+margin_left = 12.0
+margin_right = 281.0
+margin_bottom = 29.0
+alignment = 1
+
+[node name="proficiencyName" type="Label" parent="options-box/proficiency-name-bgd/profNameContainer"]
+margin_left = 58.0
+margin_top = 3.0
+margin_right = 210.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
+text = "Proficiency Name"
+
+[node name="right-arrow" type="TextureRect" parent="options-box/proficiency-name-bgd"]
+margin_left = 297.0
+margin_top = 1.0
+margin_right = 337.0
+margin_bottom = 41.0
+texture = ExtResource( 5 )
+
+[node name="left-arrow" type="TextureRect" parent="options-box/proficiency-name-bgd"]
+margin_left = -0.450012
+margin_top = 26.95
+margin_right = 39.55
+margin_bottom = 66.95
+rect_rotation = -180.0
+texture = ExtResource( 5 )
+
+[node name="minor-class-text-bgd" type="TextureRect" parent="options-box"]
+visible = false
+margin_left = 126.014
+margin_top = 131.741
+margin_right = 393.014
+margin_bottom = 171.741
+texture = ExtResource( 6 )
+
+[node name="minorProfNameContainer" type="HBoxContainer" parent="options-box/minor-class-text-bgd"]
+margin_right = 269.0
+margin_bottom = 29.0
+alignment = 1
+
+[node name="proficiencyName" type="Label" parent="options-box/minor-class-text-bgd/minorProfNameContainer"]
+margin_left = 118.0
+margin_top = 3.0
+margin_right = 151.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
+text = "ALL"
+
+[node name="minor-class-arrows" type="TextureRect" parent="options-box/minor-class-text-bgd"]
+margin_left = 2.0
+margin_top = -20.0
+margin_right = 269.0
+margin_bottom = 54.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="major-class-icon" type="TextureRect" parent="options-box"]
+margin_left = 203.854
+margin_top = -117.236
+margin_right = 304.854
+margin_bottom = -10.2362
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="p1Pencil" parent="options-box/major-class-icon" instance=ExtResource( 9 )]
+position = Vector2( -125.191, 24.2139 )
+scale = Vector2( 0.75, 0.75 )
+offset = Vector2( 200, 50 )
+speed = 0.75
+
+[node name="p2Pencil" parent="options-box/major-class-icon" instance=ExtResource( 9 )]
+position = Vector2( 226.809, 24.2139 )
+scale = Vector2( -0.75, 0.75 )
+offset = Vector2( 200, 50 )
+speed = 0.75
+
+[node name="previous-major-class-icon" type="TextureRect" parent="options-box"]
+modulate = Color( 1, 1, 1, 0.666667 )
+margin_left = 24.854
+margin_top = 1.764
+margin_right = 125.854
+margin_bottom = 108.764
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="next-major-class-icon" type="TextureRect" parent="options-box"]
+modulate = Color( 1, 1, 1, 0.666667 )
+margin_left = 427.854
+margin_top = -0.236
+margin_right = 528.854
+margin_bottom = 106.764
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="minor-class-icon" type="TextureRect" parent="options-box"]
+visible = false
+margin_left = 34.0
+margin_top = 109.0
+margin_right = 114.0
+margin_bottom = 189.0
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="descriptionContainer" type="HBoxContainer" parent="options-box"]
+margin_left = 12.0
+margin_top = 42.0
+margin_right = 478.0
+margin_bottom = 147.0
+alignment = 1
+
+[node name="profDesc" type="Label" parent="options-box/descriptionContainer"]
+margin_left = 20.0
+margin_top = 32.0
+margin_right = 445.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 425, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Benefit from spending most of your time 
+in the air "
+autowrap = true
+
+[node name="class-stars" parent="options-box" instance=ExtResource( 11 )]
+margin_left = 219.0
+margin_top = 149.0
+margin_right = 259.0
+margin_bottom = 189.0

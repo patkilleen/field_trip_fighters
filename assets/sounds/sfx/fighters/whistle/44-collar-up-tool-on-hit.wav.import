@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/44-collar-up-tool-on-hit.wav-0ac05e2059024f82a4951b0b230239dd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/44-collar-up-tool-on-hit.wav"
+dest_files=[ "res://.import/44-collar-up-tool-on-hit.wav-0ac05e2059024f82a4951b0b230239dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

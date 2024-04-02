@@ -1,0 +1,735 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://projectiles/abstract_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=2]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/walking-startup/0.png" type="Texture" id=3]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/walking-startup/1.png" type="Texture" id=4]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/walking-startup/2.png" type="Texture" id=5]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/wing-attack-active/active-0.png" type="Texture" id=6]
+[ext_resource path="res://ProximityGuardArea.gd" type="Script" id=7]
+[ext_resource path="res://HitboxArea.gd" type="Script" id=8]
+[ext_resource path="res://movementAnimation.gd" type="Script" id=9]
+[ext_resource path="res://complexMovement.gd" type="Script" id=10]
+[ext_resource path="res://basicMovement.gd" type="Script" id=11]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/wing-attack-active/active-1.png" type="Texture" id=12]
+[ext_resource path="res://assets/fighters/whistle/special/neutral/goose/wing-attack-active/active-2.png" type="Texture" id=13]
+[ext_resource path="res://spriteFrameTempSFXSprites.gd" type="Script" id=14]
+[ext_resource path="res://sfxSprite.tscn" type="PackedScene" id=15]
+[ext_resource path="res://SpriteAnimation.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50.431, 46.951 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 22.4385, 23.0081 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 152.026, 32.2728 )
+
+[node name="whistle-goose" index="0" instance=ExtResource( 1 )]
+completeAnimationOnHit = false
+
+[node name="ActionAnimationManager" parent="ProjectileController" index="1"]
+editor/display_folded = false
+
+[node name="SpriteAnimationManager" parent="ProjectileController/ActionAnimationManager" index="0"]
+editor/display_folded = false
+
+[node name="start-up" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="0"]
+editor/display_folded = true
+isLooping = true
+isLoopingWithDuration = true
+loopDuration = 48
+heroSoundSFXId = 56
+heroSFXSoundVolumeOffset = 8
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="0"]
+script = ExtResource( 2 )
+duration = 5
+texture = ExtResource( 3 )
+autoCancels = -8384521
+autoCancels2 = 24
+canUseBufferedCommands = false
+type = 2
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="1"]
+script = ExtResource( 2 )
+duration = 5
+texture = ExtResource( 4 )
+autoCancels = -8384521
+autoCancels2 = 24
+canUseBufferedCommands = false
+type = 2
+
+[node name="frame2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="2"]
+script = ExtResource( 2 )
+duration = 5
+texture = ExtResource( 5 )
+autoCancels = -8384521
+autoCancels2 = 24
+canUseBufferedCommands = false
+type = 2
+
+[node name="active" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="1"]
+isLooping = true
+isLoopingWithDuration = true
+loopDuration = 45
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="0"]
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 6 )
+autoCancelsOnHit = 8389895
+sprite_Offset = Vector2( 22, 0 )
+type = 2
+
+[node name="proximity-guard-area5" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0" index="0"]
+editor/display_folded = true
+script = ExtResource( 7 )
+overrideSpriteFrameOffset = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/proximity-guard-area5" index="0"]
+visible = false
+position = Vector2( 7, 0 )
+shape = SubResource( 1 )
+
+[node name="hitbox3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0" index="1"]
+editor/display_folded = true
+script = ExtResource( 8 )
+clashType = 2
+hitstunDurationType = 2
+blockStunDurationType = 2
+damage = 55.0
+duration = 50
+hitFreezeDuration = 12
+is_projectile = true
+hitStunLandingType = 1
+minDurationBeforeFallProne = 15
+dmgProrationClass = 2
+blockStunDuration = 18
+incorrectBlockStunDuration = 23
+airBlockStunLandingRecoveryDuration = 6
+guardHPDamage = 25.0
+incorrectBlockGuardHPDamage = 75.0
+stopMomentumOnPushOpponent = true
+guardDamageClass = 1
+pushesBackOnHitInCorner = false
+clashRecoveryDuration = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3" index="0"]
+visible = false
+position = Vector2( 3.9736, 0.2728 )
+shape = SubResource( 2 )
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3" index="1"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/hitStunMovementAnimation/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 210.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/hitStunMovementAnimation/cplx_mvm1" index="1"]
+script = ExtResource( 11 )
+acceleration = 450.0
+maxSpeed = 2500.0
+angle = 270.0
+opposingGravity = true
+
+[node name="blockStunMovementAnimation4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3" index="2"]
+script = ExtResource( 9 )
+maxBounces = 1
+knockbackType = 1
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/blockStunMovementAnimation4" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/blockStunMovementAnimation4/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/blockStunMovementAnimation4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+applyCondition = 1
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/blockStunMovementAnimation4/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="corner-hit-push-away4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3" index="3"]
+editor/display_folded = true
+script = ExtResource( 9 )
+knockbackType = 3
+
+[node name="air-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4" index="0"]
+script = ExtResource( 10 )
+mvmType = 4
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4/air-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="groundr-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 7
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4/groundr-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="air-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4" index="2"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4/air-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="ground-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4" index="3"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox3/corner-hit-push-away4/ground-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="spider-wind-hitbox" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0" index="2"]
+editor/display_folded = true
+script = ExtResource( 8 )
+selfOnly = true
+damage = 40.0
+duration = 90
+minDurationBeforeFallProne = 15
+blockStunDuration = 17
+playSoundSFX = false
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/spider-wind-hitbox" index="0"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/spider-wind-hitbox/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/spider-wind-hitbox/hitStunMovementAnimation/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 50.0
+maxSpeed = 1000.0
+durationInFrames = 90
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/spider-wind-hitbox/hitStunMovementAnimation/cplx_mvm0" index="1"]
+script = ExtResource( 11 )
+speed = 350.0
+acceleration = 450.0
+maxSpeed = 1000.0
+angle = 270.0
+durationInFrames = 90
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/spider-wind-hitbox" index="1"]
+position = Vector2( -122.026, 0.2728 )
+shape = SubResource( 3 )
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="1"]
+script = ExtResource( 2 )
+texture = ExtResource( 12 )
+autoCancelsOnHit = 8389895
+sprite_Offset = Vector2( 4, 0 )
+type = 2
+
+[node name="hitbox2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1" index="0"]
+editor/display_folded = true
+script = ExtResource( 8 )
+clashType = 2
+hitstunDurationType = 2
+blockStunDurationType = 2
+damage = 55.0
+duration = 50
+hitFreezeDuration = 12
+is_projectile = true
+hitStunLandingType = 1
+minDurationBeforeFallProne = 15
+dmgProrationClass = 2
+blockStunDuration = 18
+incorrectBlockStunDuration = 23
+airBlockStunLandingRecoveryDuration = 6
+guardHPDamage = 25.0
+incorrectBlockGuardHPDamage = 75.0
+stopMomentumOnPushOpponent = true
+guardDamageClass = 1
+pushesBackOnHitInCorner = false
+clashRecoveryDuration = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2" index="0"]
+visible = false
+position = Vector2( 0.973598, 0.2728 )
+shape = SubResource( 2 )
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2" index="1"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/hitStunMovementAnimation/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 210.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/hitStunMovementAnimation/cplx_mvm1" index="1"]
+script = ExtResource( 11 )
+acceleration = 450.0
+maxSpeed = 2500.0
+angle = 270.0
+opposingGravity = true
+
+[node name="blockStunMovementAnimation4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2" index="2"]
+script = ExtResource( 9 )
+maxBounces = 1
+knockbackType = 1
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/blockStunMovementAnimation4" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/blockStunMovementAnimation4/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/blockStunMovementAnimation4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+applyCondition = 1
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/blockStunMovementAnimation4/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="corner-hit-push-away4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2" index="3"]
+editor/display_folded = true
+script = ExtResource( 9 )
+knockbackType = 3
+
+[node name="air-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4" index="0"]
+script = ExtResource( 10 )
+mvmType = 4
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4/air-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="groundr-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 7
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4/groundr-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="air-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4" index="2"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4/air-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="ground-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4" index="3"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox2/corner-hit-push-away4/ground-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="proximity-guard-area6" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1" index="1"]
+editor/display_folded = true
+script = ExtResource( 7 )
+overrideSpriteFrameOffset = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/proximity-guard-area6" index="0"]
+visible = false
+position = Vector2( 7, 0 )
+shape = SubResource( 1 )
+
+[node name="spider-wind-hitbox2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1" index="2"]
+editor/display_folded = true
+script = ExtResource( 8 )
+selfOnly = true
+damage = 40.0
+duration = 90
+minDurationBeforeFallProne = 15
+blockStunDuration = 17
+playSoundSFX = false
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/spider-wind-hitbox2" index="0"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/spider-wind-hitbox2/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/spider-wind-hitbox2/hitStunMovementAnimation/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 50.0
+maxSpeed = 1000.0
+durationInFrames = 90
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/spider-wind-hitbox2/hitStunMovementAnimation/cplx_mvm0" index="1"]
+script = ExtResource( 11 )
+speed = 350.0
+acceleration = 450.0
+maxSpeed = 1000.0
+angle = 270.0
+durationInFrames = 90
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/spider-wind-hitbox2" index="1"]
+position = Vector2( -122.026, 0.2728 )
+shape = SubResource( 3 )
+
+[node name="frame2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="2"]
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 13 )
+autoCancelsOnHit = 8389895
+sprite_Offset = Vector2( -8, 0 )
+type = 2
+
+[node name="hitbox" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2" index="0"]
+editor/display_folded = true
+script = ExtResource( 8 )
+clashType = 2
+hitstunDurationType = 2
+blockStunDurationType = 2
+damage = 55.0
+duration = 50
+hitFreezeDuration = 12
+is_projectile = true
+hitStunLandingType = 1
+minDurationBeforeFallProne = 15
+dmgProrationClass = 2
+blockStunDuration = 18
+incorrectBlockStunDuration = 23
+airBlockStunLandingRecoveryDuration = 6
+guardHPDamage = 25.0
+incorrectBlockGuardHPDamage = 75.0
+stopMomentumOnPushOpponent = true
+guardDamageClass = 1
+pushesBackOnHitInCorner = false
+clashRecoveryDuration = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox" index="0"]
+visible = false
+position = Vector2( -2.0264, 0.2728 )
+shape = SubResource( 2 )
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox" index="1"]
+script = ExtResource( 9 )
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/hitStunMovementAnimation/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 350.0
+maxSpeed = 1000.0
+angle = 210.0
+
+[node name="opp-grav" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/hitStunMovementAnimation/cplx_mvm1" index="1"]
+script = ExtResource( 11 )
+acceleration = 450.0
+maxSpeed = 2500.0
+angle = 270.0
+opposingGravity = true
+
+[node name="blockStunMovementAnimation4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox" index="2"]
+script = ExtResource( 9 )
+maxBounces = 1
+knockbackType = 1
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/blockStunMovementAnimation4" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/blockStunMovementAnimation4/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="cplx_mvm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/blockStunMovementAnimation4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+applyCondition = 1
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/blockStunMovementAnimation4/cplx_mvm1" index="0"]
+script = ExtResource( 11 )
+speed = 175.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+
+[node name="corner-hit-push-away4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox" index="3"]
+script = ExtResource( 9 )
+knockbackType = 3
+
+[node name="air-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4" index="0"]
+script = ExtResource( 10 )
+mvmType = 4
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4/air-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="groundr-momentum-stop" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4" index="1"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 7
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4/groundr-momentum-stop" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="air-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4" index="2"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 1
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4/air-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="ground-push-away" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4" index="3"]
+script = ExtResource( 10 )
+mvmType = 18
+gravEffect = 3
+applyCondition = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/hitbox/corner-hit-push-away4/ground-push-away" index="0"]
+script = ExtResource( 11 )
+speed = 150.0
+acceleration = -1200.0
+maxSpeed = 1000.0
+angle = 180.0
+durationInFrames = 20
+
+[node name="proximity-guard-area7" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2" index="1"]
+editor/display_folded = true
+script = ExtResource( 7 )
+overrideSpriteFrameOffset = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/proximity-guard-area7" index="0"]
+position = Vector2( 7, 0 )
+shape = SubResource( 1 )
+
+[node name="spider-wind-hitbox3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2" index="2"]
+editor/display_folded = true
+script = ExtResource( 8 )
+selfOnly = true
+damage = 40.0
+duration = 90
+minDurationBeforeFallProne = 15
+blockStunDuration = 17
+playSoundSFX = false
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/spider-wind-hitbox3" index="0"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/spider-wind-hitbox3/hitStunMovementAnimation" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/spider-wind-hitbox3/hitStunMovementAnimation/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 50.0
+maxSpeed = 1000.0
+durationInFrames = 90
+
+[node name="bm1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/spider-wind-hitbox3/hitStunMovementAnimation/cplx_mvm0" index="1"]
+script = ExtResource( 11 )
+speed = 350.0
+acceleration = 450.0
+maxSpeed = 1000.0
+angle = 270.0
+durationInFrames = 90
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame2/spider-wind-hitbox3" index="1"]
+position = Vector2( -122.026, 0.2728 )
+shape = SubResource( 3 )
+
+[node name="completion" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="2"]
+editor/display_folded = true
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="0"]
+script = ExtResource( 2 )
+duration = 12
+autoCancels = -8384521
+autoCancels2 = 24
+canUseBufferedCommands = false
+type = 2
+
+[node name="tempSFXSprites8" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame4" index="0"]
+script = ExtResource( 14 )
+
+[node name="goose-fade" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame4/tempSFXSprites8" index="0" instance=ExtResource( 15 )]
+scale = Vector2( -0.32, 0.32 )
+z_index = 4
+z_as_relative = false
+texture = ExtResource( 4 )
+lifetimeInFrames = 1
+disapearDurationInFrames = 12
+overrideSpriteFrameOffset = true
+disapearOnAnimationChange = false
+disapearOnHitstun = false
+disapearOnAnimationFinish = false
+animateScale = true
+scaleAnimationLifeTime = 12
+
+[node name="start-up2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="3"]
+script = ExtResource( 16 )
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up2" index="0"]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 4 )
+autoCancels = -8384521
+autoCancels2 = 24
+canUseBufferedCommands = false
+type = 2
+
+[node name="proximity-guard-area6" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up2/frame3" index="0"]
+script = ExtResource( 7 )
+overrideSpriteFrameOffset = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up2/frame3/proximity-guard-area6" index="0"]
+visible = false
+position = Vector2( 7, 0 )
+shape = SubResource( 1 )
+
+[node name="MovementAnimations" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager" index="0"]
+editor/display_folded = false
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+speed = 250.0
+maxSpeed = 1000.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+maxSpeed = 1000.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion" index="0"]
+script = ExtResource( 10 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion/cplx_mvm0" index="0"]
+script = ExtResource( 11 )
+
+[node name="active-nodes" parent="." index="1"]
+z_index = 6
+
+[node name="Sprite" parent="active-nodes" index="1"]
+scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 13 )
+
+[node name="attackSFXs" parent="active-nodes" index="2"]
+editor/display_folded = true
+visible = false
+
+[node name="bodyBox" parent="." index="2"]
+position = Vector2( 0, 5 )

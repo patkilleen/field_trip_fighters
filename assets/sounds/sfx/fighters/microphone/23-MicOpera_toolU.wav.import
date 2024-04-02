@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/23-MicOpera_toolU.wav-484c218b1dd2f176ce9c4b2d5ab311b1.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/microphone/23-MicOpera_toolU.wav"
+dest_files=[ "res://.import/23-MicOpera_toolU.wav-484c218b1dd2f176ce9c4b2d5ab311b1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

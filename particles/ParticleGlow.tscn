@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/particles/example/floaty_64.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.141274, 0.373961, 1 )
+colors = PoolColorArray( 0.85098, 0.878431, 0.666667, 0.313726, 0.85098, 0.811765, 0.647059, 0.266667, 0.937459, 0.502401, 0.0972769, 0.69767, 0.937255, 0.494118, 0.0901961, 0.705882 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 16.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 50.0
+angular_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+color_ramp = SubResource( 3 )
+hue_variation = -0.01
+hue_variation_random = 0.02
+anim_speed = 1.0
+
+[node name="Particles2D" type="Particles2D"]
+material = SubResource( 1 )
+amount = 10
+lifetime = 1.5
+explosiveness = 0.17
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

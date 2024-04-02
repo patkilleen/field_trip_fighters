@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/7-Belt_lose.wav-f7e18a5597113a986027a61124a6b9a5.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/7-Belt_lose.wav"
+dest_files=[ "res://.import/7-Belt_lose.wav-f7e18a5597113a986027a61124a6b9a5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/4-half-way-bell-second.wav-ba92e332c0d2a960dc37bf7f413bbb33.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/stage/4-half-way-bell-second.wav"
+dest_files=[ "res://.import/4-half-way-bell-second.wav-ba92e332c0d2a960dc37bf7f413bbb33.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

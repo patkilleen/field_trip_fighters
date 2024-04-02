@@ -1,0 +1,1113 @@
+[gd_scene load_steps=206 format=2]
+
+[ext_resource path="res://interface/LoadingScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/ftf-logo.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/loading-screen/loading screen.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://ProficiencySelectionHUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/interfaces/combo/filled-dmg-star.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/combo/red-progress-star.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/combo/gray-progress-star.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/combo/unfilled-star.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/combo/small-star.png" type="Texture" id=11]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/1.png" type="Texture" id=12]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/2.png" type="Texture" id=13]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/3.png" type="Texture" id=14]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/4.png" type="Texture" id=15]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/5.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/6.png" type="Texture" id=17]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/7.png" type="Texture" id=18]
+[ext_resource path="res://assets/particles/attack-sfx/di-melee/8.png" type="Texture" id=19]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/1.png" type="Texture" id=20]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/2.png" type="Texture" id=21]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/3.png" type="Texture" id=22]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/4.png" type="Texture" id=23]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/5.png" type="Texture" id=24]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/6.png" type="Texture" id=25]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/7.png" type="Texture" id=26]
+[ext_resource path="res://assets/particles/attack-sfx/di-special/8.png" type="Texture" id=27]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/1.png" type="Texture" id=28]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/2.png" type="Texture" id=29]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/3.png" type="Texture" id=30]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/4.png" type="Texture" id=31]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/5.png" type="Texture" id=32]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/6.png" type="Texture" id=33]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/7.png" type="Texture" id=34]
+[ext_resource path="res://assets/particles/attack-sfx/di-tool/8.png" type="Texture" id=35]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/0.png" type="Texture" id=36]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/1.png" type="Texture" id=37]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/2.png" type="Texture" id=38]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/3.png" type="Texture" id=39]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/4.png" type="Texture" id=40]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash/5.png" type="Texture" id=41]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash-cancel/1.png" type="Texture" id=42]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash-cancel/2.png" type="Texture" id=43]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash-cancel/3.png" type="Texture" id=44]
+[ext_resource path="res://assets/particles/attack-sfx/ground-dash-cancel/4.png" type="Texture" id=45]
+[ext_resource path="res://assets/particles/attack-sfx/jump-dust/0.png" type="Texture" id=46]
+[ext_resource path="res://assets/particles/attack-sfx/jump-dust/1.png" type="Texture" id=47]
+[ext_resource path="res://assets/particles/attack-sfx/jump-dust/2.png" type="Texture" id=48]
+[ext_resource path="res://assets/particles/attack-sfx/jump-dust/3.png" type="Texture" id=49]
+[ext_resource path="res://assets/particles/attack-sfx/jump-dust/4.png" type="Texture" id=50]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/1.png" type="Texture" id=51]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/2.png" type="Texture" id=52]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/3.png" type="Texture" id=53]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/4.png" type="Texture" id=54]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/5.png" type="Texture" id=55]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/6.png" type="Texture" id=56]
+[ext_resource path="res://assets/particles/attack-sfx/n-clash/7.png" type="Texture" id=57]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/1.png" type="Texture" id=58]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/2.png" type="Texture" id=59]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/3.png" type="Texture" id=60]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/4.png" type="Texture" id=61]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/5.png" type="Texture" id=62]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/6.png" type="Texture" id=63]
+[ext_resource path="res://assets/particles/attack-sfx/n-melee/7.png" type="Texture" id=64]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/1.png" type="Texture" id=65]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/2.png" type="Texture" id=66]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/3.png" type="Texture" id=67]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/4.png" type="Texture" id=68]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/5.png" type="Texture" id=69]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/6.png" type="Texture" id=70]
+[ext_resource path="res://assets/particles/attack-sfx/n-other/7.png" type="Texture" id=71]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/1.png" type="Texture" id=72]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/2.png" type="Texture" id=73]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/3.png" type="Texture" id=74]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/4.png" type="Texture" id=75]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/5.png" type="Texture" id=76]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/6.png" type="Texture" id=77]
+[ext_resource path="res://assets/particles/attack-sfx/n-special/7.png" type="Texture" id=78]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/1.png" type="Texture" id=79]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/2.png" type="Texture" id=80]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/3.png" type="Texture" id=81]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/4.png" type="Texture" id=82]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/5.png" type="Texture" id=83]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/6.png" type="Texture" id=84]
+[ext_resource path="res://assets/particles/attack-sfx/n-tool/7.png" type="Texture" id=85]
+[ext_resource path="res://assets/particles/attack-sfx/air-dash.png" type="Texture" id=86]
+[ext_resource path="res://assets/particles/attack-sfx/bad-block-ring.png" type="Texture" id=87]
+[ext_resource path="res://assets/particles/attack-sfx/bad-block.png" type="Texture" id=88]
+[ext_resource path="res://assets/particles/attack-sfx/correct-block-ring.png" type="Texture" id=89]
+[ext_resource path="res://assets/particles/attack-sfx/correct-block.png" type="Texture" id=90]
+[ext_resource path="res://assets/particles/attack-sfx/melee-particle.png" type="Texture" id=91]
+[ext_resource path="res://assets/particles/attack-sfx/special-particle.png" type="Texture" id=92]
+[ext_resource path="res://assets/particles/attack-sfx/tool-particle.png" type="Texture" id=93]
+[ext_resource path="res://assets/particles/attack-sfx/perfect-block-ring.png" type="Texture" id=94]
+[ext_resource path="res://assets/particles/attack-sfx/perfect-block.png" type="Texture" id=95]
+[ext_resource path="res://assets/particles/push-block/expanding-glow.png" type="Texture" id=96]
+[ext_resource path="res://assets/particles/push-block/player-glow.png" type="Texture" id=97]
+[ext_resource path="res://assets/particles/push-block/spark_particle2.png" type="Texture" id=98]
+[ext_resource path="res://assets/particles/tech/1.png" type="Texture" id=99]
+[ext_resource path="res://assets/particles/tech/2.png" type="Texture" id=100]
+[ext_resource path="res://assets/particles/tech/3.png" type="Texture" id=101]
+[ext_resource path="res://assets/particles/tech/4.png" type="Texture" id=102]
+[ext_resource path="res://assets/particles/tech/5.png" type="Texture" id=103]
+[ext_resource path="res://assets/particles/tech/tech-particle.png" type="Texture" id=104]
+[ext_resource path="res://assets/particles/clash-break-bubble.png" type="Texture" id=105]
+[ext_resource path="res://assets/particles/clash-bubble.png" type="Texture" id=106]
+[ext_resource path="res://assets/stages/magnifying-glass-arrow-player-2.png" type="Texture" id=107]
+[ext_resource path="res://assets/stages/magnifying-glass-arrow.png" type="Texture" id=108]
+[ext_resource path="res://assets/stages/magnifying-glass-bgd2.png" type="Texture" id=109]
+[ext_resource path="res://assets/stages/magnifying-glass-bgd-player2.png" type="Texture" id=110]
+[ext_resource path="res://assets/stages/magnifying-glass-bgd.png" type="Texture" id=111]
+[ext_resource path="res://assets/particles/example/floaty_64.png" type="Texture" id=112]
+[ext_resource path="res://assets/particles/example/random_selection.png" type="Texture" id=113]
+[ext_resource path="res://assets/particles/example/offset_glow.png" type="Texture" id=114]
+[ext_resource path="res://assets/lighting/1x1-white.png" type="Texture" id=115]
+[ext_resource path="res://assets/lighting/brown.png" type="Texture" id=116]
+[ext_resource path="res://assets/lighting/green.png" type="Texture" id=117]
+[ext_resource path="res://assets/lighting/orange.png" type="Texture" id=118]
+[ext_resource path="res://assets/lighting/purple.png" type="Texture" id=119]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=120]
+[ext_resource path="res://assets/particles/attack-sfx/blockstun.png" type="Texture" id=121]
+[ext_resource path="res://assets/particles/stun/canary.png" type="Texture" id=122]
+[ext_resource path="res://assets/particles/stun/ring.png" type="Texture" id=123]
+[ext_resource path="res://assets/interfaces/missing-ability-chunk-icon.png" type="Texture" id=124]
+[ext_resource path="res://particles/cahcedParticleEffects.gd" type="Script" id=125]
+[ext_resource path="res://particles/attack-sfx/techSFX.tscn" type="PackedScene" id=126]
+[ext_resource path="res://particles/attack-sfx/AttackSFX.tscn" type="PackedScene" id=127]
+[ext_resource path="res://particles/attack-sfx/airJumpDust.tscn" type="PackedScene" id=128]
+[ext_resource path="res://particles/LandingDust.tscn" type="PackedScene" id=129]
+[ext_resource path="res://particles/star-burst.tscn" type="PackedScene" id=130]
+[ext_resource path="res://particles/attack-sfx/leaveGroundDust.tscn" type="PackedScene" id=131]
+[ext_resource path="res://particles/magicalGlow.tscn" type="PackedScene" id=132]
+[ext_resource path="res://particles/materials/fighter/autoAbilityCancel.tres" type="Material" id=133]
+[ext_resource path="res://particles/vortex.tscn" type="PackedScene" id=134]
+[ext_resource path="res://particles/blackhole.tscn" type="PackedScene" id=135]
+[ext_resource path="res://particles/CommandParticle.tscn" type="PackedScene" id=136]
+[ext_resource path="res://particles/abilityCancelSwirlParticles.tscn" type="PackedScene" id=137]
+[ext_resource path="res://particles/materials/stage/ability-cancel/abilityCancelSwirlParticles.tres" type="Material" id=138]
+[ext_resource path="res://particles/abilityCancelExplosionParticles.tscn" type="PackedScene" id=139]
+[ext_resource path="res://particles/rage-smoke.tscn" type="PackedScene" id=140]
+[ext_resource path="res://particles/particles-time-sensitive.gd" type="Script" id=141]
+[ext_resource path="res://particles/firework.tscn" type="PackedScene" id=142]
+[ext_resource path="res://assets/particles/sword+.png" type="Texture" id=143]
+[ext_resource path="res://assets/particles/sword-.png" type="Texture" id=144]
+[ext_resource path="res://particles/holy-aura.tscn" type="PackedScene" id=145]
+[ext_resource path="res://particles/materials/stage/ability-cancel/magicalGlow.tres" type="Material" id=146]
+[ext_resource path="res://particles/one-shot-particles.gd" type="Script" id=147]
+[ext_resource path="res://particles/guardRegenBuffParticles.tscn" type="PackedScene" id=148]
+[ext_resource path="res://particles/materials/interface/star-burst.tres" type="Material" id=149]
+[ext_resource path="res://particles/materials/fighter/pushblock/pushBlock-particles2.tres" type="Material" id=150]
+[ext_resource path="res://particles/materials/interface/abilityBarUpFlow.tres" type="Material" id=151]
+[ext_resource path="res://particles/materials/fighter/shield-break-particles.tres" type="Material" id=152]
+[ext_resource path="res://assets/particles/sfx/target_20.png" type="Texture" id=153]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/di-melee.png" type="Texture" id=154]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/di-other.png" type="Texture" id=155]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/di-special.png" type="Texture" id=156]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/di-tool.png" type="Texture" id=157]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/n-melee.png" type="Texture" id=158]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/n-orange.png" type="Texture" id=159]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/n-other.png" type="Texture" id=160]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/n-special.png" type="Texture" id=161]
+[ext_resource path="res://assets/particles/attack-sfx/large-hit/n-tool.png" type="Texture" id=162]
+[ext_resource path="res://ComboPanel.tscn" type="PackedScene" id=163]
+[ext_resource path="res://interface/stage/matchCountdown.gd" type="Script" id=164]
+[ext_resource path="res://interface/notificationLabel.tscn" type="PackedScene" id=165]
+[ext_resource path="res://assets/shaders/shield-break.shader" type="Shader" id=166]
+[ext_resource path="res://interface/shattered-blockstun-shield.gd" type="Script" id=167]
+[ext_resource path="res://interface/shaders/false-wall-fuzzy-edge.shader" type="Shader" id=168]
+[ext_resource path="res://assets/interfaces/shaders/noise-150x119.png" type="Texture" id=169]
+[ext_resource path="res://assets/interfaces/shaders/transparent-bgd.png" type="Texture" id=170]
+[ext_resource path="res://stages/scrolling-texture.gd" type="Script" id=171]
+[ext_resource path="res://assets/shaders/false-wall-electricity.shader" type="Shader" id=172]
+[ext_resource path="res://interface/stage/wall-electricity.gd" type="Script" id=173]
+[ext_resource path="res://interface/SocialMedia.tscn" type="PackedScene" id=174]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 10, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 98, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = 1.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+scale = 5.0
+scale_random = 0.7
+color = Color( 0.293698, 0.988281, 0.0424652, 1 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 0.0718039, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.00226999, 0.489258 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.3
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -50.0
+scale = 0.1
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 0.683594, 0.201085, 0.0720978, 0.10498, 0.816406, 0.0478363, 0.0478363, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 0.274414 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 30.0
+angular_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 0.209961 ), 0.0, 0.0, 0, 0, Vector2( 0.998698, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+flag_disable_z = true
+gravity = Vector3( -98, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.6
+angular_velocity = 6.16571e-044
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.05
+scale_random = 0.1
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 17 )
+
+[sub_resource type="CanvasItemMaterial" id=21]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=22]
+blend_mode = 1
+
+[sub_resource type="DynamicFont" id=23]
+size = 125
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 30
+outline_size = 2
+outline_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="OpenSimplexNoise" id=25]
+period = 5.1
+
+[sub_resource type="NoiseTexture" id=26]
+flags = 2
+width = 200
+height = 200
+noise = SubResource( 25 )
+
+[sub_resource type="OpenSimplexNoise" id=27]
+seed = 1
+period = 49.1
+
+[sub_resource type="NoiseTexture" id=28]
+width = 200
+height = 200
+as_normalmap = true
+noise = SubResource( 27 )
+
+[sub_resource type="ShaderMaterial" id=29]
+shader = ExtResource( 166 )
+shader_param/progress = 0.0
+shader_param/strength = 2.0
+shader_param/noise_tex_normal = SubResource( 28 )
+shader_param/noise_tex = SubResource( 26 )
+
+[sub_resource type="ShaderMaterial" id=30]
+shader = ExtResource( 168 )
+shader_param/strength = 2.0
+shader_param/time = 0.0
+shader_param/noise = ExtResource( 169 )
+
+[sub_resource type="ShaderMaterial" id=31]
+shader = ExtResource( 172 )
+shader_param/beams = 3
+shader_param/energy = 3.0
+shader_param/roughness = 2
+shader_param/frequency = 10
+shader_param/speed = 1.0
+shader_param/thickness = 0.006
+shader_param/outline_thickness = 0.03
+shader_param/beam_difference = 0.0
+shader_param/glow = 0.0
+shader_param/outline_glow = 0.0
+shader_param/color = Color( 0.91, 1, 1, 1 )
+shader_param/outline_color = Color( 0.5, 1, 0.96, 1 )
+shader_param/progress = 1.0
+shader_param/y_offset = 0.0
+shader_param/fixed_edge_size = 0.05
+shader_param/noise_scale = Vector2( 1, 1 )
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 100
+script = ExtResource( 1 )
+fadeOutColor = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -100.0
+margin_top = -35.0
+margin_right = 2257.0
+margin_bottom = 721.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_top = -1.0
+margin_right = 40.0
+margin_bottom = 39.0
+
+[node name="stageBgdContainer" type="Control" parent="Control"]
+margin_top = 1.0
+margin_right = 40.0
+margin_bottom = 41.0
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="icon" type="Sprite" parent="Control"]
+position = Vector2( 209.685, 265.115 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="bgd" type="Sprite" parent="Control"]
+position = Vector2( 585.836, 176.069 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 3 )
+
+[node name="info" type="Control" parent="Control"]
+margin_top = -32.0
+margin_right = 40.0
+margin_bottom = 8.0
+
+[node name="fighter1-info" type="Control" parent="Control/info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -40.0
+
+[node name="textureRect" type="Sprite" parent="Control/info/fighter1-info"]
+position = Vector2( 449.986, 215.116 )
+texture = ExtResource( 4 )
+
+[node name="name" type="Label" parent="Control/info/fighter1-info"]
+margin_left = 11.0
+margin_top = 98.0
+margin_right = 526.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 1 )
+text = "fighter1 name"
+align = 1
+
+[node name="ProficiencySelectionHUD" parent="Control/info/fighter1-info" instance=ExtResource( 6 )]
+margin_left = 317.13
+margin_top = 263.708
+margin_right = 357.13
+margin_bottom = 303.708
+rect_scale = Vector2( 0.8, 0.8 )
+
+[node name="fighter2-info" type="Control" parent="Control/info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 600.0
+margin_right = 560.0
+margin_bottom = -40.0
+
+[node name="textureRect" type="Sprite" parent="Control/info/fighter2-info"]
+position = Vector2( 125.358, 206.777 )
+texture = ExtResource( 4 )
+
+[node name="name" type="Label" parent="Control/info/fighter2-info"]
+margin_left = -55.0
+margin_top = 98.0
+margin_right = 408.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 1 )
+text = "fighter2 name"
+align = 1
+
+[node name="ProficiencySelectionHUD" parent="Control/info/fighter2-info" instance=ExtResource( 6 )]
+margin_left = 14.393
+margin_top = 261.895
+margin_right = 54.393
+margin_bottom = 301.895
+rect_scale = Vector2( 0.8, 0.8 )
+
+[node name="Particles2D" type="Particles2D" parent="Control/info"]
+position = Vector2( 41.2138, 598.552 )
+amount = 100
+lifetime = 10.0
+process_material = SubResource( 2 )
+
+[node name="stageName" type="Label" parent="Control"]
+margin_left = 154.0
+margin_top = 505.0
+margin_right = 1025.0
+margin_bottom = 553.0
+custom_fonts/font = SubResource( 1 )
+text = "Stage Name"
+align = 1
+
+[node name="cachedResources" type="Node2D" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+position = Vector2( 517.739, 321.241 )
+
+[node name="stars" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+position = Vector2( -500.911, -277.019 )
+
+[node name="dmg-star" type="Sprite" parent="Control/cachedResources/stars"]
+position = Vector2( 508.535, 295.279 )
+texture = ExtResource( 7 )
+
+[node name="dmg-star-progress" type="Sprite" parent="Control/cachedResources/stars"]
+position = Vector2( 508.535, 295.279 )
+texture = ExtResource( 8 )
+
+[node name="dmg-star-empty-progress" type="Sprite" parent="Control/cachedResources/stars"]
+position = Vector2( 508.535, 295.279 )
+texture = ExtResource( 9 )
+
+[node name="dmg-star-emtpy" type="Sprite" parent="Control/cachedResources/stars"]
+position = Vector2( 508.535, 295.279 )
+texture = ExtResource( 10 )
+
+[node name="small-star" type="Sprite" parent="Control/cachedResources/stars"]
+position = Vector2( 501.517, 281.294 )
+texture = ExtResource( 11 )
+
+[node name="attack-sfx" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="di-melee" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 13 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 14 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 15 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 16 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 17 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 18 )
+
+[node name="Sprite8" type="Sprite" parent="Control/cachedResources/attack-sfx/di-melee"]
+texture = ExtResource( 19 )
+
+[node name="di-special" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 20 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 21 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 22 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 23 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 24 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 25 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 26 )
+
+[node name="Sprite8" type="Sprite" parent="Control/cachedResources/attack-sfx/di-special"]
+texture = ExtResource( 27 )
+
+[node name="di-tool" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 28 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 29 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 30 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 31 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 32 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 33 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 34 )
+
+[node name="Sprite8" type="Sprite" parent="Control/cachedResources/attack-sfx/di-tool"]
+texture = ExtResource( 35 )
+
+[node name="ground-dash" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 36 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 37 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 38 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 39 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 40 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash"]
+texture = ExtResource( 41 )
+
+[node name="ground-dash-cancel" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash-cancel"]
+texture = ExtResource( 42 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash-cancel"]
+texture = ExtResource( 43 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash-cancel"]
+texture = ExtResource( 44 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/ground-dash-cancel"]
+texture = ExtResource( 45 )
+
+[node name="jump-dust" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/jump-dust"]
+texture = ExtResource( 46 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/jump-dust"]
+texture = ExtResource( 47 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/jump-dust"]
+texture = ExtResource( 48 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/jump-dust"]
+texture = ExtResource( 49 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/jump-dust"]
+texture = ExtResource( 50 )
+
+[node name="n-clash" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 51 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 52 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 53 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 54 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 55 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 56 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/n-clash"]
+texture = ExtResource( 57 )
+
+[node name="n-melee" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 58 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 59 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 60 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 61 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 62 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 63 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/n-melee"]
+texture = ExtResource( 64 )
+
+[node name="n-other" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 65 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 66 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 67 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 68 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 69 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 70 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/n-other"]
+texture = ExtResource( 71 )
+
+[node name="n-special" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 72 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 73 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 74 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 75 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 76 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 77 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/n-special"]
+texture = ExtResource( 78 )
+
+[node name="n-tool" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 79 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 80 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 81 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 82 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 83 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 84 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/attack-sfx/n-tool"]
+texture = ExtResource( 85 )
+
+[node name="air-dash" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 86 )
+
+[node name="bad-block-ring" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 87 )
+
+[node name="bad-block" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 88 )
+
+[node name="correct-block-ring" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 89 )
+
+[node name="correct-block" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 90 )
+
+[node name="melee-particle" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 91 )
+
+[node name="special-particle" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 92 )
+
+[node name="tool-particle" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 93 )
+
+[node name="perfect-block-ring" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 94 )
+
+[node name="perfect-block" type="Sprite" parent="Control/cachedResources/attack-sfx"]
+texture = ExtResource( 95 )
+
+[node name="push-block" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/push-block"]
+texture = ExtResource( 96 )
+
+[node name="sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/push-block"]
+texture = ExtResource( 97 )
+
+[node name="sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/push-block"]
+texture = ExtResource( 98 )
+
+[node name="tech" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 99 )
+
+[node name="sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 100 )
+
+[node name="sprite3" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 101 )
+
+[node name="sprite4" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 102 )
+
+[node name="sprite5" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 103 )
+
+[node name="sprite6" type="Sprite" parent="Control/cachedResources/attack-sfx/tech"]
+texture = ExtResource( 104 )
+
+[node name="clash-bubble" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/clash-bubble"]
+texture = ExtResource( 105 )
+
+[node name="sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/clash-bubble"]
+texture = ExtResource( 106 )
+
+[node name="cloud-jumping" type="Node2D" parent="Control/cachedResources/attack-sfx"]
+editor/display_folded = true
+
+[node name="sprite" type="Sprite" parent="Control/cachedResources/attack-sfx/cloud-jumping"]
+texture = ExtResource( 105 )
+
+[node name="sprite2" type="Sprite" parent="Control/cachedResources/attack-sfx/cloud-jumping"]
+texture = ExtResource( 106 )
+
+[node name="magnifying-glass" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/magnifying-glass"]
+texture = ExtResource( 107 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/magnifying-glass"]
+texture = ExtResource( 108 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/magnifying-glass"]
+texture = ExtResource( 109 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/magnifying-glass"]
+texture = ExtResource( 110 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/magnifying-glass"]
+texture = ExtResource( 111 )
+
+[node name="particles" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/particles"]
+texture = ExtResource( 112 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/particles"]
+texture = ExtResource( 113 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/particles"]
+texture = ExtResource( 114 )
+
+[node name="lighting-textures" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 115 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 116 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 117 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 118 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 119 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/lighting-textures"]
+texture = ExtResource( 120 )
+
+[node name="shield-blockstun" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/shield-blockstun"]
+texture = ExtResource( 121 )
+
+[node name="stunn-canaries" type="Node2D" parent="Control/cachedResources"]
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/stunn-canaries"]
+texture = ExtResource( 122 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/stunn-canaries"]
+texture = ExtResource( 123 )
+
+[node name="missing-ability-bar" type="Sprite" parent="Control/cachedResources"]
+texture = ExtResource( 124 )
+
+[node name="particleEffects" type="Node2D" parent="Control/cachedResources"]
+script = ExtResource( 125 )
+
+[node name="techSFX" parent="Control/cachedResources/particleEffects" instance=ExtResource( 126 )]
+cached = true
+
+[node name="AttackSFX" parent="Control/cachedResources/particleEffects" instance=ExtResource( 127 )]
+cached = true
+
+[node name="jumpDust" parent="Control/cachedResources/particleEffects" instance=ExtResource( 128 )]
+cached = true
+
+[node name="LandingDust" parent="Control/cachedResources/particleEffects" instance=ExtResource( 129 )]
+emitting = true
+process_material = SubResource( 7 )
+cached = true
+
+[node name="star-burst" parent="Control/cachedResources/particleEffects" instance=ExtResource( 130 )]
+rotation = -1.5708
+emitting = true
+
+[node name="leavegroundDust" parent="Control/cachedResources/particleEffects" instance=ExtResource( 131 )]
+cached = true
+
+[node name="magicGlow" parent="Control/cachedResources/particleEffects" instance=ExtResource( 132 )]
+material = SubResource( 8 )
+emitting = true
+process_material = ExtResource( 133 )
+
+[node name="vortex" parent="Control/cachedResources/particleEffects" instance=ExtResource( 134 )]
+material = SubResource( 9 )
+
+[node name="blackhole" parent="Control/cachedResources/particleEffects" instance=ExtResource( 135 )]
+
+[node name="CommandParticle" parent="Control/cachedResources/particleEffects" instance=ExtResource( 136 )]
+emitting = true
+one_shot = false
+cached = true
+
+[node name="abilityCancelSwirlParticles" parent="Control/cachedResources/particleEffects" instance=ExtResource( 137 )]
+material = ExtResource( 138 )
+emitting = true
+cached = true
+
+[node name="abilityCancelExplosion" parent="Control/cachedResources/particleEffects" instance=ExtResource( 139 )]
+material = SubResource( 10 )
+emitting = true
+one_shot = false
+cached = true
+
+[node name="rage-smoke" parent="Control/cachedResources/particleEffects" instance=ExtResource( 140 )]
+emitting = false
+process_material = SubResource( 15 )
+script = ExtResource( 141 )
+
+[node name="damage-inc" parent="Control/cachedResources/particleEffects" instance=ExtResource( 142 )]
+process_material = SubResource( 20 )
+texture = ExtResource( 143 )
+
+[node name="damage-dec" parent="Control/cachedResources/particleEffects" instance=ExtResource( 142 )]
+process_material = SubResource( 20 )
+texture = ExtResource( 144 )
+
+[node name="star-burstPlayer" parent="Control/cachedResources/particleEffects" instance=ExtResource( 130 )]
+position = Vector2( 0, -30 )
+emitting = true
+
+[node name="autoRipostSFX" parent="Control/cachedResources/particleEffects" instance=ExtResource( 145 )]
+self_modulate = Color( 1.76863, 0.0588235, 3, 0 )
+material = SubResource( 21 )
+scale = Vector2( 0.65, 0.65 )
+
+[node name="abilityCancelParticles" parent="Control/cachedResources/particleEffects" instance=ExtResource( 132 )]
+material = ExtResource( 146 )
+emitting = true
+script = ExtResource( 147 )
+
+[node name="autoAbilityCancelParticles" parent="Control/cachedResources/particleEffects" instance=ExtResource( 132 )]
+modulate = Color( 0.321094, 3, 0.3, 1 )
+material = SubResource( 8 )
+emitting = true
+amount = 25
+process_material = ExtResource( 133 )
+script = ExtResource( 147 )
+
+[node name="guardRegenBuffParticles" parent="Control/cachedResources/particleEffects" instance=ExtResource( 148 )]
+
+[node name="starBurstcombhud" type="Particles2D" parent="Control/cachedResources/particleEffects"]
+position = Vector2( 60, 60 )
+scale = Vector2( 6, 6 )
+amount = 20
+lifetime = 1.6
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = ExtResource( 149 )
+texture = ExtResource( 11 )
+
+[node name="pushBlockParticles2D" type="Particles2D" parent="Control/cachedResources/particleEffects"]
+amount = 128
+process_material = ExtResource( 150 )
+
+[node name="abilityCancelParticles2" parent="Control/cachedResources/particleEffects" instance=ExtResource( 132 )]
+material = SubResource( 22 )
+position = Vector2( 0.477295, -1.80185 )
+amount = 10
+lifetime = 3.0
+speed_scale = 3.5
+process_material = ExtResource( 151 )
+script = ExtResource( 147 )
+
+[node name="shieldBreakParticles" type="Particles2D" parent="Control/cachedResources/particleEffects"]
+modulate = Color( 1, 0, 0, 1 )
+z_index = 10
+amount = 32
+lifetime = 0.75
+explosiveness = 0.8
+process_material = ExtResource( 152 )
+texture = ExtResource( 153 )
+
+[node name="largehittingSFX" type="Node2D" parent="Control/cachedResources"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 154 )
+
+[node name="Sprite2" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 155 )
+
+[node name="Sprite3" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 156 )
+
+[node name="Sprite4" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 157 )
+
+[node name="Sprite5" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 158 )
+
+[node name="Sprite6" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 159 )
+
+[node name="Sprite7" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 160 )
+
+[node name="Sprite8" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 161 )
+
+[node name="Sprite9" type="Sprite" parent="Control/cachedResources/largehittingSFX"]
+texture = ExtResource( 162 )
+
+[node name="ComboPanel" parent="Control/cachedResources" instance=ExtResource( 163 )]
+margin_left = -323.986
+margin_top = -518.788
+margin_right = -283.986
+margin_bottom = -478.788
+
+[node name="matchCountdown2" type="Label" parent="Control/cachedResources"]
+margin_left = -3.73901
+margin_top = -68.741
+margin_right = 68.261
+margin_bottom = 78.259
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "1"
+script = ExtResource( 164 )
+transparencyAnimationDelay = 0.4
+transparencyAnimationDuration = 0.3
+growAnimationDuration = 0.3
+ungrowAnimationDuration = 0.3
+
+[node name="notificationLabel" parent="Control/cachedResources" instance=ExtResource( 165 )]
+custom_fonts/font = SubResource( 24 )
+text = "hello
+"
+
+[node name="shattered-standing-blockstun-shield" type="Sprite" parent="Control/cachedResources"]
+self_modulate = Color( 1, 0, 0, 0.701961 )
+material = SubResource( 29 )
+position = Vector2( 18.3791, -7.87149 )
+scale = Vector2( 0.571914, 0.571914 )
+z_index = 6
+texture = ExtResource( 121 )
+script = ExtResource( 167 )
+shieldBreakPixilationDuration = 0.7
+
+[node name="wall-edge" type="Sprite" parent="Control/cachedResources"]
+modulate = Color( 0.266667, 0.113725, 0, 0.341176 )
+material = SubResource( 30 )
+position = Vector2( 110.697, 18.1661 )
+rotation = 1.5708
+scale = Vector2( 0.25, 6 )
+texture = ExtResource( 170 )
+script = ExtResource( 171 )
+
+[node name="electricity" type="ColorRect" parent="Control/cachedResources"]
+modulate = Color( 0.733333, 0, 0.156863, 1 )
+material = SubResource( 31 )
+margin_left = -491.742
+margin_top = -210.203
+margin_right = -241.742
+margin_bottom = -61.2029
+rect_scale = Vector2( 5, 3 )
+script = ExtResource( 173 )
+
+[node name="SocialMedia" parent="Control" instance=ExtResource( 174 )]
+margin_left = 783.0
+margin_top = 563.0
+margin_right = 783.0
+margin_bottom = 563.0

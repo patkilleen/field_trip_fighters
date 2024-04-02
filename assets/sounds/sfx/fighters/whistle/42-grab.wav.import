@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/42-grab.wav-f8812df68643cce1f9fc5c1601c3228e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/42-grab.wav"
+dest_files=[ "res://.import/42-grab.wav-f8812df68643cce1f9fc5c1601c3228e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

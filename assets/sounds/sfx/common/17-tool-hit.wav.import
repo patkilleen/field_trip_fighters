@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/17-tool-hit.wav-d0d0fbd6c2978bde4b13c27ce32ef53d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/17-tool-hit.wav"
+dest_files=[ "res://.import/17-tool-hit.wav-d0d0fbd6c2978bde4b13c27ce32ef53d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

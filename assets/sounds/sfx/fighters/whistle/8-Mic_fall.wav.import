@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8-Mic_fall.wav-02a62f24a15ca3220aa9f6af9b138ec3.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/8-Mic_fall.wav"
+dest_files=[ "res://.import/8-Mic_fall.wav-02a62f24a15ca3220aa9f6af9b138ec3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/3-Mic_hurt.wav-24b742e558d5cf458c1f3ea5d4fff761.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/30-hitstun/3-Mic_hurt.wav"
+dest_files=[ "res://.import/3-Mic_hurt.wav-24b742e558d5cf458c1f3ea5d4fff761.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/36-grab.wav-7f7c052f4d0df20e748d74ac5a9124af.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/36-grab.wav"
+dest_files=[ "res://.import/36-grab.wav-7f7c052f4d0df20e748d74ac5a9124af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

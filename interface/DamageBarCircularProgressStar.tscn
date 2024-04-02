@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/DamageBarCircularProgressStar.gd" type="Script" id=1]
+[ext_resource path="res://particles/sparkle-shine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/CircularProgressStar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/interfaces/command-input/b-y-1-btn.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/combo/unfilled-star.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/combo/filled-dmg-star.png" type="Texture" id=6]
+
+[node name="DamageBarCircularProgressStar" type="Control"]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 100, 40 )
+script = ExtResource( 1 )
+
+[node name="shine" parent="." instance=ExtResource( 2 )]
+position = Vector2( 53.493, 61.589 )
+scale = Vector2( 5, 5 )
+
+[node name="CircularProgressStar" parent="." instance=ExtResource( 3 )]
+firstButtonTexture = ExtResource( 4 )
+secondButtonTexture = ExtResource( 4 )
+thirdButtonTexture = ExtResource( 4 )
+
+[node name="emptyStarTextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="filledStarTextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )

@@ -1,0 +1,485 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/fighters/marth/platform/platform.png" type="Texture" id=3]
+[ext_resource path="res://stages/platform.gd" type="Script" id=4]
+[ext_resource path="res://EnvironmentStaticBody2D.gd" type="Script" id=5]
+[ext_resource path="res://assets/stages/radio-tower/static-bgd.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/radio-tower/forground.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/radio-tower/rain-drop.png" type="Texture" id=8]
+[ext_resource path="res://particles/particleHitFreezePause.gd" type="Script" id=9]
+[ext_resource path="res://assets/sounds/ambience/stage/radio-tower/ambience.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/stages/radio-tower/sky.png" type="Texture" id=11]
+[ext_resource path="res://assets/stages/radio-tower/far-bgd.png" type="Texture" id=12]
+[ext_resource path="res://assets/stages/radio-tower/light.png" type="Texture" id=13]
+[ext_resource path="res://stages/radio-tower/tower-light.gd" type="Script" id=14]
+[ext_resource path="res://assets/stages/radio-tower/white-light.png" type="Texture" id=15]
+[ext_resource path="res://assets/stages/radio-tower/bgd-mist.png" type="Texture" id=16]
+[ext_resource path="res://assets/stages/radio-tower/bgd.png" type="Texture" id=17]
+[ext_resource path="res://assets/stages/radio-tower/chimney-smoke.png" type="Texture" id=18]
+[ext_resource path="res://assets/stages/radio-tower/wind-mill-base.png" type="Texture" id=19]
+[ext_resource path="res://assets/stages/radio-tower/wind-mill-blade-close.png" type="Texture" id=20]
+[ext_resource path="res://stages/radio-tower/windmill-blade.gd" type="Script" id=21]
+[ext_resource path="res://assets/stages/radio-tower/near-wind-mill-head.png" type="Texture" id=22]
+[ext_resource path="res://assets/stages/radio-tower/behind-fence.png" type="Texture" id=23]
+[ext_resource path="res://assets/stages/radio-tower/nearby-tower.png" type="Texture" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 56.3626, 15.298 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.2322, 170.245 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 900, 1, 20 )
+flag_disable_z = true
+gravity = Vector3( -60, 98, 0 )
+angular_velocity = 0.126726
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.75
+scale_random = 0.32
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.748148 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.067034, 0.7706 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -1.76694e+032
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 2.3
+tangential_accel = -11.5
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
+
+[node name="swamp" index="0" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 5.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10055.2, -142.843 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( -9, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="easter-egg-platform" type="Sprite" parent="." index="1"]
+editor/display_folded = true
+position = Vector2( 323.791, -733.706 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="easter-egg-platform" index="0"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource( 5 )
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="easter-egg-platform/StaticBody2D" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="easter-egg-platform2" type="Sprite" parent="." index="2"]
+editor/display_folded = true
+position = Vector2( 424.791, -733.706 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="easter-egg-platform2" index="0"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource( 5 )
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="easter-egg-platform2/StaticBody2D" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="easter-egg-platform3" type="Sprite" parent="." index="3"]
+editor/display_folded = true
+position = Vector2( 217.791, -733.706 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="easter-egg-platform3" index="0"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource( 5 )
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="easter-egg-platform3/StaticBody2D" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="rightwall" parent="." index="4"]
+position = Vector2( 10898.7, 544.726 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+position = Vector2( -10, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="bus1" type="CollisionShape2D" parent="rightwall" index="1"]
+position = Vector2( -105.878, 554.041 )
+z_index = 25
+shape = SubResource( 2 )
+
+[node name="bus2" type="CollisionShape2D" parent="rightwall" index="2"]
+position = Vector2( -62.8778, 226.041 )
+rotation = 0.261799
+z_index = 25
+shape = SubResource( 2 )
+
+[node name="background" parent="." index="5"]
+visible = false
+frame = 1
+
+[node name="nonAnimatedBgd" type="Sprite" parent="." index="6"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 433.99, 508.692 )
+texture = ExtResource( 6 )
+
+[node name="foreground" type="Sprite" parent="." index="7"]
+self_modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
+light_mask = 5
+position = Vector2( 429.1, 597.746 )
+z_index = 20
+texture = ExtResource( 7 )
+
+[node name="rain" type="Particles2D" parent="." index="8"]
+pause_mode = 2
+position = Vector2( 693.913, -288.177 )
+z_index = 30
+amount = 240
+lifetime = 8.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1000, -1000, 3000, 3000 )
+process_material = SubResource( 3 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="CanvasLayer" parent="." index="14"]
+editor/display_folded = true
+
+[node name="player1Spawn" parent="." index="15"]
+position = Vector2( 433, 455 )
+
+[node name="player2Spawn" parent="." index="16"]
+position = Vector2( 633, 455 )
+
+[node name="cameraBoundaries" parent="." index="19"]
+margin_left = -66.0
+margin_top = -857.0
+margin_right = 931.0
+margin_bottom = 650.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="25"]
+pause_mode = 1
+stream = ExtResource( 10 )
+volume_db = 4.0
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="43"]
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/sky" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -283.178, -190.642 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="far-bgd" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/far-bgd" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -278, 17 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="tower-red-light" type="Sprite" parent="ParallaxBackground/far-bgd" index="1"]
+position = Vector2( 379.329, 19.5847 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+initialBlinkDelay = 0.05
+
+[node name="tower-white-light" type="Sprite" parent="ParallaxBackground/far-bgd" index="2"]
+position = Vector2( 379.329, 28.5847 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+
+[node name="mist3" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+motion_scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/mist3" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -215, 41 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="bgd" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/bgd" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -310, -186.815 )
+scale = Vector2( 0.95, 0.95 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="power-plant-smoke" type="Particles2D" parent="ParallaxBackground/bgd" index="1"]
+position = Vector2( 282.707, 118.431 )
+rotation = 4.71239
+scale = Vector2( 0.8, 0.8 )
+amount = 40
+lifetime = 3.0
+speed_scale = 0.5
+process_material = SubResource( 8 )
+texture = ExtResource( 18 )
+script = ExtResource( 9 )
+
+[node name="power-plant-smoke2" type="Particles2D" parent="ParallaxBackground/bgd" index="2"]
+position = Vector2( 304.707, 119.431 )
+rotation = 4.71239
+scale = Vector2( 0.8, 0.8 )
+amount = 40
+lifetime = 3.0
+speed_scale = 0.5
+process_material = SubResource( 8 )
+texture = ExtResource( 18 )
+script = ExtResource( 9 )
+
+[node name="windmill-near" type="Node2D" parent="ParallaxBackground/bgd" index="3"]
+editor/display_folded = true
+
+[node name="base" type="Sprite" parent="ParallaxBackground/bgd/windmill-near" index="0"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 19 )
+
+[node name="blade" type="Sprite" parent="ParallaxBackground/bgd/windmill-near" index="1"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 21 )
+rotationSpeed = 5.0
+
+[node name="head" type="Sprite" parent="ParallaxBackground/bgd/windmill-near" index="2"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+
+[node name="tower-white-light4" type="Sprite" parent="ParallaxBackground/bgd/windmill-near" index="3"]
+position = Vector2( 227.895, 205.897 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 4.0
+initialBlinkDelay = 1.0
+
+[node name="windmill-far" type="Node2D" parent="ParallaxBackground/bgd" index="4"]
+editor/display_folded = true
+position = Vector2( -154.613, 24.2335 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="base" type="Sprite" parent="ParallaxBackground/bgd/windmill-far" index="0"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 19 )
+
+[node name="blade" type="Sprite" parent="ParallaxBackground/bgd/windmill-far" index="1"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 21 )
+rotationSpeed = 5.5
+
+[node name="head" type="Sprite" parent="ParallaxBackground/bgd/windmill-far" index="2"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+
+[node name="tower-white-light2" type="Sprite" parent="ParallaxBackground/bgd/windmill-far" index="3"]
+position = Vector2( 228.427, 206.926 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 4.0
+initialBlinkDelay = 0.5
+
+[node name="windmill-far2" type="Node2D" parent="ParallaxBackground/bgd" index="5"]
+editor/display_folded = true
+position = Vector2( -196.613, 30.2335 )
+scale = Vector2( 0.55, 0.55 )
+
+[node name="base" type="Sprite" parent="ParallaxBackground/bgd/windmill-far2" index="0"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 19 )
+
+[node name="blade" type="Sprite" parent="ParallaxBackground/bgd/windmill-far2" index="1"]
+position = Vector2( 227.754, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 21 )
+rotationSpeed = 5.5
+
+[node name="head" type="Sprite" parent="ParallaxBackground/bgd/windmill-far2" index="2"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 22 )
+
+[node name="tower-white-light3" type="Sprite" parent="ParallaxBackground/bgd/windmill-far2" index="3"]
+position = Vector2( 227.66, 206.296 )
+scale = Vector2( 0.227273, 0.227273 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 4.0
+initialBlinkDelay = 0.1
+
+[node name="far-rain" type="Particles2D" parent="ParallaxBackground/bgd" index="6"]
+pause_mode = 2
+position = Vector2( 450.913, -218.177 )
+scale = Vector2( 0.35, 0.35 )
+amount = 130
+lifetime = 8.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1000, -1000, 3000, 3000 )
+process_material = SubResource( 3 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="mist1" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/mist1" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -215, 113 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="mist2" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+motion_scale = Vector2( 0.35, 0.35 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/mist2" index="0"]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 0.643137 )
+position = Vector2( 534, 1.00002 )
+scale = Vector2( -0.8, 0.8 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="behind-fence" type="ParallaxLayer" parent="ParallaxBackground" index="6"]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/behind-fence" index="0"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -114, -70 )
+texture = ExtResource( 23 )
+centered = false
+
+[node name="tower-extension" type="Sprite" parent="ParallaxBackground/behind-fence" index="1"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 275.554, -516.656 )
+texture = ExtResource( 24 )
+centered = false
+
+[node name="tower-extension2" type="Sprite" parent="ParallaxBackground/behind-fence" index="2"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 275.554, -823.656 )
+texture = ExtResource( 24 )
+centered = false
+
+[node name="tower-extension3" type="Sprite" parent="ParallaxBackground/behind-fence" index="3"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 275.554, -1239 )
+texture = ExtResource( 24 )
+centered = false
+
+[node name="tower-light2" type="Sprite" parent="ParallaxBackground/behind-fence" index="4"]
+position = Vector2( 373.468, -534.383 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+blinkFrequency = 2.5
+
+[node name="tower-light3" type="Sprite" parent="ParallaxBackground/behind-fence" index="5"]
+position = Vector2( 352.79, -432.486 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 2.5
+
+[node name="tower-light4" type="Sprite" parent="ParallaxBackground/behind-fence" index="6"]
+position = Vector2( 327.466, -75.9985 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 2.5
+
+[node name="tower-light5" type="Sprite" parent="ParallaxBackground/behind-fence" index="7"]
+position = Vector2( 329.414, -185.088 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 2.5
+
+[node name="tower-light6" type="Sprite" parent="ParallaxBackground/behind-fence" index="8"]
+position = Vector2( 329.414, -292.131 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+blinkFrequency = 2.5
+
+[node name="largeHitTempSpriteTemplate" parent="." index="45"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0

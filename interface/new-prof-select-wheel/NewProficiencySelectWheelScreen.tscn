@@ -1,0 +1,292 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://interface/new-prof-select-wheel/NewProficiencySelectWheelScreen.gd" type="Script" id=1]
+[ext_resource path="res://interface/new-prof-select-wheel/NewProficiencySelectWheelHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/a.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/b.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/x.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/new-prof-select/green-star.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/new-prof-select/red-star.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/character-select/background.png" type="Texture" id=13]
+[ext_resource path="res://interface/back-arrow.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="NewProficiencySelectWheelScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="P1-NewProficiencySelectWheelHUD" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+margin_left = 114.0
+margin_top = 49.0
+margin_right = -406.0
+margin_bottom = 49.0
+rect_scale = Vector2( 0.85, 0.85 )
+
+[node name="ColorRect" type="ColorRect" parent="P1-NewProficiencySelectWheelHUD"]
+margin_left = -108.941
+margin_top = 406.0
+margin_right = 458.059
+margin_bottom = 604.0
+color = Color( 0.164706, 0.164706, 0.164706, 0.427451 )
+
+[node name="profDesc" type="Label" parent="P1-NewProficiencySelectWheelHUD"]
+margin_left = -101.0
+margin_top = 410.0
+margin_right = 448.0
+margin_bottom = 546.0
+rect_min_size = Vector2( 425, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Benefit from spending most of your time 
+in the air "
+autowrap = true
+
+[node name="propertyList" type="VBoxContainer" parent="P1-NewProficiencySelectWheelHUD"]
+margin_left = -3.35294
+margin_top = 415.647
+margin_right = 442.647
+margin_bottom = 554.647
+
+[node name="P2-NewProficiencySelectWheelHUD" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+margin_left = 594.0
+margin_top = 49.0
+margin_right = 74.0
+margin_bottom = 49.0
+rect_scale = Vector2( 0.85, 0.85 )
+inputDeviceId = "P2"
+
+[node name="ColorRect" type="ColorRect" parent="P2-NewProficiencySelectWheelHUD"]
+margin_left = -96.0
+margin_top = 406.0
+margin_right = 471.0
+margin_bottom = 604.0
+color = Color( 0.164706, 0.164706, 0.164706, 0.427451 )
+
+[node name="profDesc" type="Label" parent="P2-NewProficiencySelectWheelHUD"]
+margin_left = -88.0588
+margin_top = 410.0
+margin_right = 460.941
+margin_bottom = 546.0
+rect_min_size = Vector2( 425, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Benefit from spending most of your time 
+in the air "
+autowrap = true
+
+[node name="propertyList" type="VBoxContainer" parent="P2-NewProficiencySelectWheelHUD"]
+margin_left = 1.94116
+margin_top = 415.647
+margin_right = 450.941
+margin_bottom = 554.647
+
+[node name="footer" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 135.18
+margin_top = 153.56
+margin_right = 175.18
+margin_bottom = 193.56
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="confirm" type="Label" parent="footer"]
+margin_left = -123.473
+margin_top = 554.152
+margin_right = 148.527
+margin_bottom = 585.152
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Confirm Selection"
+
+[node name="mjaor-prof" type="Label" parent="footer"]
+margin_left = 455.088
+margin_top = 554.072
+margin_right = 727.088
+margin_bottom = 593.072
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select"
+
+[node name="unconfirm" type="Label" parent="footer"]
+margin_left = 50.2943
+margin_top = 555.504
+margin_right = 322.294
+margin_bottom = 594.504
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Unconfirm"
+
+[node name="random" type="Label" parent="footer"]
+margin_left = 200.961
+margin_top = 555.504
+margin_right = 472.961
+margin_bottom = 594.504
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Random Choice"
+
+[node name="adv" type="Label" parent="footer"]
+margin_left = 904.355
+margin_top = 556.368
+margin_right = 1176.35
+margin_bottom = 595.368
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Strength"
+
+[node name="disa" type="Label" parent="footer"]
+margin_left = 1056.35
+margin_top = 556.368
+margin_right = 1328.35
+margin_bottom = 595.368
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Weakness"
+
+[node name="A-btn" type="TextureRect" parent="footer"]
+margin_left = -162.719
+margin_top = 543.003
+margin_right = -112.719
+margin_bottom = 590.003
+texture = ExtResource( 4 )
+
+[node name="B-btn" type="TextureRect" parent="footer"]
+margin_left = 10.2143
+margin_top = 543.003
+margin_right = 60.2143
+margin_bottom = 590.003
+texture = ExtResource( 5 )
+
+[node name="X-btn" type="TextureRect" parent="footer"]
+margin_left = 136.881
+margin_top = 543.003
+margin_right = 186.881
+margin_bottom = 590.003
+texture = ExtResource( 6 )
+
+[node name="right-btn" type="TextureRect" parent="footer"]
+margin_left = 401.989
+margin_top = 542.194
+margin_right = 486.989
+margin_bottom = 589.194
+texture = ExtResource( 7 )
+
+[node name="down-btn" type="TextureRect" parent="footer"]
+margin_left = 377.467
+margin_top = 558.498
+margin_right = 462.467
+margin_bottom = 605.498
+texture = ExtResource( 8 )
+
+[node name="left-btn" type="TextureRect" parent="footer"]
+margin_left = 368.121
+margin_top = 543.372
+margin_right = 453.121
+margin_bottom = 590.372
+texture = ExtResource( 9 )
+
+[node name="up-btn" type="TextureRect" parent="footer"]
+margin_left = 377.715
+margin_top = 524.73
+margin_right = 462.715
+margin_bottom = 571.73
+texture = ExtResource( 10 )
+
+[node name="green-star" type="TextureRect" parent="footer"]
+margin_left = 850.221
+margin_top = 546.044
+margin_right = 886.221
+margin_bottom = 586.044
+texture = ExtResource( 11 )
+
+[node name="red-star" type="TextureRect" parent="footer"]
+margin_left = 1008.22
+margin_top = 546.044
+margin_right = 1044.22
+margin_bottom = 586.044
+texture = ExtResource( 12 )
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -1
+
+[node name="bgd" type="TextureRect" parent="Node2D"]
+margin_left = -44.3688
+margin_top = -34.27
+margin_right = 1875.63
+margin_bottom = 1045.73
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 13 )
+
+[node name="back-arrow" parent="." instance=ExtResource( 14 )]
+visible = false
+margin_left = -15.8239
+margin_top = 508.818
+margin_right = 129.176
+margin_bottom = 636.818
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -171.639
+margin_top = 10.5677
+margin_right = 297.361
+margin_bottom = 70.5677
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Proficency Selection"
+
+[node name="player2-label" type="Label" parent="."]
+margin_left = 870.951
+margin_top = 56.8347
+margin_right = 981.951
+margin_bottom = 92.8347
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.0862745, 0, 0.847059, 1 )
+text = "Player 2"
+
+[node name="player1-label" type="Label" parent="."]
+margin_left = 46.194
+margin_top = 50.1068
+margin_right = 157.194
+margin_bottom = 86.1068
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+text = "Player 1"

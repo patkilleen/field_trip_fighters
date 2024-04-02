@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/2-timer-tick.wav-4931ebbcdac42fd1f5b945a220a57af4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/stage/2-timer-tick.wav"
+dest_files=[ "res://.import/2-timer-tick.wav-4931ebbcdac42fd1f5b945a220a57af4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

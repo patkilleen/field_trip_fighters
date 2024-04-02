@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HurtboxArea.gd" type="Script" id=1]
+[ext_resource path="res://assets/common_collision_areas/ground-hitstun/ground-hitstun-shape.tres" type="Shape2D" id=2]
+
+[node name="ground-hitstun-hurtbox-area" type="Node"]
+script = ExtResource( 1 )
+overrideSpriteFrameOffset = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 1 )
+shape = ExtResource( 2 )

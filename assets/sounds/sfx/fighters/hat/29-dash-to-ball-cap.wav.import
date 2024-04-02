@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/29-dash-to-ball-cap.wav-2940f6e4e1c97d8dcf019d61c0b59b11.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/29-dash-to-ball-cap.wav"
+dest_files=[ "res://.import/29-dash-to-ball-cap.wav-2940f6e4e1c97d8dcf019d61c0b59b11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

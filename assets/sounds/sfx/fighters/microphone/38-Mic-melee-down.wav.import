@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/38-Mic-melee-down.wav-e32c5253efc70b24752d1f58a272a0cf.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/microphone/38-Mic-melee-down.wav"
+dest_files=[ "res://.import/38-Mic-melee-down.wav-e32c5253efc70b24752d1f58a272a0cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

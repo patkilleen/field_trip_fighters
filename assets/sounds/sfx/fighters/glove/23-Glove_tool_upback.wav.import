@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/23-Glove_tool_upback.wav-01c594ca0592e2d221c6b27dd0a63d68.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/23-Glove_tool_upback.wav"
+dest_files=[ "res://.import/23-Glove_tool_upback.wav-01c594ca0592e2d221c6b27dd0a63d68.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

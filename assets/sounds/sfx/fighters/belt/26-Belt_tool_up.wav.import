@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/26-Belt_tool_up.wav-6f9fa0841be6b7930096c10d4f787cc8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/26-Belt_tool_up.wav"
+dest_files=[ "res://.import/26-Belt_tool_up.wav-6f9fa0841be6b7930096c10d4f787cc8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

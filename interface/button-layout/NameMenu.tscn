@@ -1,0 +1,234 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://interface/button-layout/NameMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/new-combo-list/details-icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/new-combo-list/disabled-details-icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/character-select/background.png" type="Texture" id=4]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/a.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/b.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=9]
+[ext_resource path="res://interface/back-arrow.tscn" type="PackedScene" id=10]
+[ext_resource path="res://interface/button-layout/ControllerButtonLayout.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="NameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+selectedNameIcon = ExtResource( 2 )
+unselectedNameIcon = ExtResource( 3 )
+
+[node name="background" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="black-board" type="TextureRect" parent="background"]
+margin_left = -41.0
+margin_top = -1.0
+margin_right = 1879.0
+margin_bottom = 1079.0
+rect_scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 4 )
+
+[node name="Header" type="Control" parent="."]
+margin_left = 196.122
+margin_top = 12.1884
+margin_right = 236.122
+margin_bottom = 52.1884
+
+[node name="title" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 86.876
+margin_top = 16.4633
+margin_right = 555.876
+margin_bottom = 76.4633
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Player Name Options"
+
+[node name="Middle" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="nameSelection" type="Control" parent="Middle"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="buttons" type="Control" parent="Middle/nameSelection"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="newName" type="Button" parent="Middle/nameSelection/buttons"]
+margin_left = 212.15
+margin_top = 463.55
+margin_right = 324.15
+margin_bottom = 513.55
+custom_fonts/font = SubResource( 2 )
+text = "New Name"
+
+[node name="deleteName" type="Button" parent="Middle/nameSelection/buttons"]
+margin_left = 739.341
+margin_top = 464.716
+margin_right = 851.341
+margin_bottom = 514.716
+custom_fonts/font = SubResource( 2 )
+text = "Delete Name"
+
+[node name="changeControlsName" type="Button" parent="Middle/nameSelection/buttons"]
+editor/display_folded = true
+margin_left = 347.447
+margin_top = 464.716
+margin_right = 459.447
+margin_bottom = 514.716
+custom_fonts/font = SubResource( 2 )
+text = "Button Layout"
+
+[node name="BTexture3" type="TextureRect" parent="Middle/nameSelection/buttons/changeControlsName"]
+margin_left = 32.6058
+margin_top = -38.4005
+margin_right = 72.6058
+margin_bottom = 1.59949
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="ItemList" type="ItemList" parent="Middle/nameSelection"]
+margin_left = 346.522
+margin_top = 112.076
+margin_right = 602.522
+margin_bottom = 372.076
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = SubResource( 2 )
+
+[node name="addingName" type="Control" parent="Middle"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="buttons2" type="Control" parent="Middle/addingName"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="confirm" type="Button" parent="Middle/addingName/buttons2"]
+margin_left = 212.15
+margin_top = 463.55
+margin_right = 324.15
+margin_bottom = 513.55
+custom_fonts/font = SubResource( 2 )
+text = "Create"
+
+[node name="cancel" type="Button" parent="Middle/addingName/buttons2"]
+margin_left = 347.447
+margin_top = 464.716
+margin_right = 459.447
+margin_bottom = 514.716
+custom_fonts/font = SubResource( 2 )
+text = "Cancel"
+
+[node name="LineEdit" type="LineEdit" parent="Middle/addingName"]
+margin_left = 291.667
+margin_top = 222.0
+margin_right = 660.667
+margin_bottom = 287.0
+custom_fonts/font = SubResource( 1 )
+text = "name"
+max_length = 5
+
+[node name="Footers" type="Control" parent="."]
+margin_left = 77.0
+margin_right = 117.0
+margin_bottom = 40.0
+
+[node name="MainState" type="Control" parent="Footers"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="back" type="Control" parent="Footers/MainState"]
+margin_left = -123.0
+margin_right = -83.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/MainState/back"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Back"
+
+[node name="BTexture" type="TextureRect" parent="Footers/MainState/back"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 7 )
+
+[node name="select" type="Control" parent="Footers/MainState"]
+margin_left = 404.0
+margin_right = 444.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footers/MainState/select"]
+margin_left = 166.843
+margin_top = 554.31
+margin_right = 438.843
+margin_bottom = 585.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select"
+
+[node name="downTexture" type="TextureRect" parent="Footers/MainState/select"]
+margin_left = 96.5264
+margin_top = 562.526
+margin_right = 181.526
+margin_bottom = 602.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 8 )
+
+[node name="upTexture" type="TextureRect" parent="Footers/MainState/select"]
+margin_left = 96.5264
+margin_top = 530.526
+margin_right = 181.526
+margin_bottom = 570.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 9 )
+
+[node name="back-arrow" parent="Footers" instance=ExtResource( 10 )]
+visible = false
+margin_left = -59.9102
+margin_top = 528.047
+margin_right = 85.0898
+margin_bottom = 656.047
+
+[node name="ControllerButtonLayout" parent="." instance=ExtResource( 11 )]
+visible = false

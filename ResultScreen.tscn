@@ -1,0 +1,315 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://ResultScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/result-screen/background.png" type="Texture" id=2]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://interface/PauseLayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=6]
+[ext_resource path="res://interface/victory-info/StudentVictoryInfo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/interfaces/character-select/glove-portrait.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/character-select/whistle-portrait.png" type="Texture" id=9]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 13
+font_data = ExtResource( 3 )
+
+[node name="resultScreen" type="CanvasLayer"]
+script = ExtResource( 1 )
+newRecordFontColor = Color( 0.72549, 0.0666667, 0.0666667, 1 )
+
+[node name="wrapper" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="bgd" type="TextureRect" parent="wrapper"]
+margin_top = -12.0
+margin_right = 2919.0
+margin_bottom = 4366.0
+rect_scale = Vector2( 0.54, 0.58 )
+texture = ExtResource( 2 )
+
+[node name="result-text" type="Label" parent="wrapper"]
+visible = false
+margin_left = 27.0
+margin_top = 124.0
+margin_right = 222.0
+margin_bottom = 138.0
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "Game!"
+
+[node name="p1-stats-header" type="Label" parent="wrapper"]
+visible = false
+margin_left = 19.0
+margin_top = 194.0
+margin_right = 105.0
+margin_bottom = 208.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "Player 1 Stats"
+
+[node name="p2-stats-header" type="Label" parent="wrapper"]
+visible = false
+margin_left = 500.0
+margin_top = 194.0
+margin_right = 586.0
+margin_bottom = 208.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "Player 2 Stats"
+
+[node name="tip" type="Label" parent="wrapper"]
+visible = false
+margin_left = 30.0
+margin_top = 48.0
+margin_right = 225.0
+margin_bottom = 62.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "press start to continue..."
+
+[node name="player1-stats" type="Label" parent="wrapper"]
+visible = false
+margin_left = 19.0
+margin_top = 250.0
+margin_right = 214.0
+margin_bottom = 264.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "p1:"
+
+[node name="player2-stats" type="Label" parent="wrapper"]
+visible = false
+margin_left = 500.0
+margin_top = 250.0
+margin_right = 695.0
+margin_bottom = 264.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "p2:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="wrapper"]
+editor/display_folded = true
+margin_left = 50.0
+margin_top = 41.0
+margin_right = 1008.0
+margin_bottom = 543.0
+
+[node name="header" type="HBoxContainer" parent="wrapper/VBoxContainer"]
+margin_right = 958.0
+margin_bottom = 106.0
+
+[node name="spacing-right" type="Control" parent="wrapper/VBoxContainer/header"]
+margin_right = 300.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="wrapper/VBoxContainer/header"]
+margin_left = 304.0
+margin_right = 575.0
+margin_bottom = 106.0
+
+[node name="Label" type="Label" parent="wrapper/VBoxContainer/header/VBoxContainer"]
+margin_right = 271.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "Report Card"
+
+[node name="Label2" type="Label" parent="wrapper/VBoxContainer/header/VBoxContainer"]
+margin_top = 64.0
+margin_right = 271.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "The winner is"
+
+[node name="winnerIcon" type="TextureRect" parent="wrapper/VBoxContainer/header"]
+margin_left = 579.0
+margin_right = 579.0
+margin_bottom = 106.0
+
+[node name="spacing" type="Control" parent="wrapper/VBoxContainer"]
+margin_top = 110.0
+margin_right = 958.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="center" type="HBoxContainer" parent="wrapper/VBoxContainer"]
+margin_top = 139.0
+margin_right = 958.0
+margin_bottom = 519.0
+
+[node name="spacing-right3" type="Control" parent="wrapper/VBoxContainer/center"]
+margin_right = 75.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 75, 0 )
+
+[node name="leftPane" type="VBoxContainer" parent="wrapper/VBoxContainer/center"]
+margin_left = 79.0
+margin_right = 429.0
+margin_bottom = 380.0
+
+[node name="player1" type="Label" parent="wrapper/VBoxContainer/center/leftPane"]
+margin_right = 350.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "Player 1"
+
+[node name="spacing2" type="Control" parent="wrapper/VBoxContainer/center/leftPane"]
+margin_top = 46.0
+margin_right = 350.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 5 )
+
+[node name="player1ScrollContainer" type="ScrollContainer" parent="wrapper/VBoxContainer/center/leftPane"]
+margin_top = 55.0
+margin_right = 350.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 350, 325 )
+
+[node name="player1Stats" type="VBoxContainer" parent="wrapper/VBoxContainer/center/leftPane/player1ScrollContainer"]
+
+[node name="spacing-right4" type="Control" parent="wrapper/VBoxContainer/center"]
+margin_left = 433.0
+margin_right = 493.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="rightPane" type="VBoxContainer" parent="wrapper/VBoxContainer/center"]
+margin_left = 497.0
+margin_right = 872.0
+margin_bottom = 380.0
+
+[node name="player2" type="Label" parent="wrapper/VBoxContainer/center/rightPane"]
+margin_right = 375.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "Player 2"
+
+[node name="spacing3" type="Control" parent="wrapper/VBoxContainer/center/rightPane"]
+margin_top = 46.0
+margin_right = 375.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 5 )
+
+[node name="player2ScrollContainer" type="ScrollContainer" parent="wrapper/VBoxContainer/center/rightPane"]
+margin_top = 55.0
+margin_right = 375.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 375, 325 )
+
+[node name="player2Stats" type="VBoxContainer" parent="wrapper/VBoxContainer/center/rightPane/player2ScrollContainer"]
+
+[node name="spacing3" type="Control" parent="wrapper/VBoxContainer/center"]
+margin_left = 876.0
+margin_right = 876.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="footer" type="HBoxContainer" parent="wrapper/VBoxContainer"]
+margin_top = 523.0
+margin_right = 958.0
+margin_bottom = 565.0
+
+[node name="spacing-right2" type="Control" parent="wrapper/VBoxContainer/footer"]
+margin_right = 40.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="newRecordP1" type="Label" parent="wrapper/VBoxContainer/footer"]
+margin_left = 44.0
+margin_top = 9.0
+margin_right = 256.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 212, 0 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "* New Record Acheived"
+
+[node name="spacing-right3" type="Control" parent="wrapper/VBoxContainer/footer"]
+margin_left = 260.0
+margin_right = 280.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Label3" type="Label" parent="wrapper/VBoxContainer/footer"]
+margin_left = 284.0
+margin_right = 647.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.25098, 0.537255, 1 )
+text = "Press start to continue"
+
+[node name="newRecordP2" type="Label" parent="wrapper/VBoxContainer/footer"]
+margin_left = 651.0
+margin_top = 9.0
+margin_right = 863.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 212, 0 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "* New Record Acheived"
+
+[node name="stat-template" type="Label" parent="wrapper"]
+visible = false
+margin_left = 50.0
+margin_top = 206.0
+margin_right = 131.0
+margin_bottom = 230.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+text = "template"
+
+[node name="PauseLayer" parent="wrapper" instance=ExtResource( 4 )]
+
+[node name="Label" type="Label" parent="wrapper"]
+margin_left = 959.306
+margin_top = 13.8687
+margin_right = 1041.31
+margin_bottom = 64.8687
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+text = "Page 
+2 of 2"
+
+[node name="up-texture" type="TextureRect" parent="wrapper"]
+margin_left = 452.402
+margin_top = 228.701
+margin_right = 537.402
+margin_bottom = 268.701
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="down-texture" type="TextureRect" parent="wrapper"]
+margin_left = 452.402
+margin_top = 493.603
+margin_right = 537.402
+margin_bottom = 533.603
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="StudentVictoryInfo" parent="wrapper" instance=ExtResource( 7 )]
+visible = false
+gloveTexture = ExtResource( 8 )
+whistleTexture = ExtResource( 9 )
+
+[node name="sfxPlayer" type="Node" parent="."]
+script = ExtResource( 10 )
+soundDirectory = "res://assets/sounds/sfx/ui/result-screen/"

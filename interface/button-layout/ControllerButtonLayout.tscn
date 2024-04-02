@@ -1,0 +1,2719 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://interface/button-layout/ControllerButtonLayout.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/character-select/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/controller-btn-layout/controller.png" type="Texture" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/interfaces/controller-btn-layout/button-bgd.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/dash-forward.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/R1.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/l2.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/l1.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/X.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/command-input/Y.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/command-input/B.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/command-input/A.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=16]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/new-combo-list/details-icon.png" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/new-combo-list/disabled-details-icon.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/b.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/x.png" type="Texture" id=21]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/a.png" type="Texture" id=22]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/y.png" type="Texture" id=23]
+[ext_resource path="res://interface/back-arrow.tscn" type="PackedScene" id=24]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="ControllerButtonLayout" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+unselectedColor = Color( 1, 1, 1, 1 )
+selectedColor = Color( 1, 0.733333, 0.45098, 1 )
+
+[node name="background" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="black-board" type="TextureRect" parent="background"]
+margin_left = -41.0
+margin_top = -1.0
+margin_right = 1879.0
+margin_bottom = 1079.0
+rect_scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 2 )
+
+[node name="controller" type="TextureRect" parent="background"]
+margin_left = 274.35
+margin_top = 94.0
+margin_right = 755.35
+margin_bottom = 407.0
+texture = ExtResource( 3 )
+
+[node name="Header" type="Control" parent="."]
+margin_left = 196.122
+margin_top = 12.1884
+margin_right = 236.122
+margin_bottom = 52.1884
+
+[node name="title" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 232.85
+margin_top = 18.05
+margin_right = 701.85
+margin_bottom = 78.05
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Button Layout"
+
+[node name="pName" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 232.85
+margin_top = 41.8
+margin_right = 701.85
+margin_bottom = 101.8
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Player-name"
+
+[node name="Middle" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="MainState" type="Control" parent="Middle"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="slots" type="Control" parent="Middle/MainState"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="top-right-slots" type="VBoxContainer" parent="Middle/MainState/slots"]
+editor/display_folded = true
+margin_left = 742.105
+margin_top = 41.0
+margin_right = 782.105
+margin_bottom = 233.0
+
+[node name="ButtonSlot-R2" type="Control" parent="Middle/MainState/slots/top-right-slots"]
+margin_right = 40.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R2"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R2"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R2"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R2"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R2"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-R1" type="Control" parent="Middle/MainState/slots/top-right-slots"]
+margin_top = 49.0
+margin_right = 40.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R1"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R1"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R1"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R1"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 96.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/top-right-slots/ButtonSlot-R1"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ripost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="top-left-slots" type="VBoxContainer" parent="Middle/MainState/slots"]
+margin_left = 24.0
+margin_top = 41.0
+margin_right = 64.0
+margin_bottom = 233.0
+
+[node name="ButtonSlot-L2" type="Control" parent="Middle/MainState/slots/top-left-slots"]
+margin_right = 40.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L2"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L2"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L2"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L2"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L2"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ability"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-L1" type="Control" parent="Middle/MainState/slots/top-left-slots"]
+margin_top = 49.0
+margin_right = 40.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L1"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L1"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L1"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L1"]
+margin_left = 11.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/top-left-slots/ButtonSlot-L1"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Grab"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="center-right-slots" type="VBoxContainer" parent="Middle/MainState/slots"]
+editor/display_folded = true
+margin_left = 745.263
+margin_top = 192.263
+margin_right = 785.263
+margin_bottom = 384.263
+
+[node name="ButtonSlot-X" type="Control" parent="Middle/MainState/slots/center-right-slots"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-X"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-X"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-X"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-X"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-X"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Melee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-Y" type="Control" parent="Middle/MainState/slots/center-right-slots"]
+editor/display_folded = true
+margin_top = 49.0
+margin_right = 40.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-Y"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-Y"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-Y"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-Y"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-Y"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Special"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-B" type="Control" parent="Middle/MainState/slots/center-right-slots"]
+editor/display_folded = true
+margin_top = 98.0
+margin_right = 40.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-B"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-B"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-B"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-B"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-B"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tool"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-A" type="Control" parent="Middle/MainState/slots/center-right-slots"]
+margin_top = 147.0
+margin_right = 40.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-A"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-A"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-A"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-A"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-right-slots/ButtonSlot-A"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jump"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="center-left-slots" type="VBoxContainer" parent="Middle/MainState/slots"]
+margin_left = 24.0
+margin_top = 192.263
+margin_right = 64.0
+margin_bottom = 384.263
+
+[node name="ButtonSlot-CSTICK-left" type="Control" parent="Middle/MainState/slots/center-left-slots"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-left"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-left"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-left"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-left"]
+margin_left = 13.0
+margin_top = 12.0
+margin_right = 98.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-left"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-CSTICK-up" type="Control" parent="Middle/MainState/slots/center-left-slots"]
+editor/display_folded = true
+margin_top = 49.0
+margin_right = 40.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-up"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-up"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-up"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-up"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 96.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-up"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Auto Ripost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-CSTICK-right" type="Control" parent="Middle/MainState/slots/center-left-slots"]
+editor/display_folded = true
+margin_top = 98.0
+margin_right = 40.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-right"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-right"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-right"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-right"]
+margin_left = 20.0
+margin_top = 12.0
+margin_right = 105.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-right"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Forward Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonSlot-CSTICK-DOWN" type="Control" parent="Middle/MainState/slots/center-left-slots"]
+margin_top = 147.0
+margin_right = 40.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-DOWN"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-DOWN"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-DOWN"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-DOWN"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 97.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/MainState/slots/center-left-slots/ButtonSlot-CSTICK-DOWN"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fast Fall"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="lines" type="Control" parent="Middle/MainState"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="L2" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 277.591, 74.6465 )
+points = PoolVector2Array( -13.3516, -6.81512, 128.414, 34.2189 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="L1" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 277.591, 122.646 )
+points = PoolVector2Array( -13.3516, -6.81512, 133.325, 7.09212 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="R2" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 122.646 )
+points = PoolVector2Array( 329.502, -13.4905, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="R1" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 171.646 )
+points = PoolVector2Array( 321.415, -42.643, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="X" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 275.646 )
+points = PoolVector2Array( 306.972, -76.1992, 408.414, -112.219, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="Y" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 323.646 )
+points = PoolVector2Array( 340.051, -155.073, 379.011, -163.159, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="B" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 375.646 )
+points = PoolVector2Array( 368.719, -176.934, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="A" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( 294.591, 418.646 )
+points = PoolVector2Array( 334.905, -192.001, 457.407, -55.3907 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="cstick-left" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( -71.2194, 410.62 )
+points = PoolVector2Array( 334.905, -192.001, 630.147, -153.101 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="cstick-up" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( -71.2194, 460.62 )
+points = PoolVector2Array( 334.905, -192.001, 518.982, -251.603, 648.525, -225.888 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="cstick-right" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( -71.2194, 507.62 )
+points = PoolVector2Array( 334.905, -192.001, 484.065, -184.775, 671.312, -250.836 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="cstick-down" type="Line2D" parent="Middle/MainState/lines"]
+position = Vector2( -71.2194, 561.62 )
+points = PoolVector2Array( 334.905, -192.001, 498.585, -209.196, 650.269, -282.77 )
+width = 3.0
+default_color = Color( 0.345098, 0.12549, 0.12549, 1 )
+texture_mode = -678047951
+
+[node name="ChangingButtonState" type="Control" parent="Middle"]
+editor/display_folded = true
+visible = false
+margin_top = -58.0
+margin_right = 40.0
+margin_bottom = -18.0
+
+[node name="outter-bgd" type="ColorRect" parent="Middle/ChangingButtonState"]
+margin_left = 150.0
+margin_top = 85.0
+margin_right = 849.0
+margin_bottom = 589.0
+color = Color( 0.286275, 0.145098, 0.145098, 1 )
+
+[node name="inner-bgd" type="ColorRect" parent="Middle/ChangingButtonState"]
+margin_left = 180.0
+margin_top = 172.0
+margin_right = 818.0
+margin_bottom = 531.0
+color = Color( 0.145098, 0.25098, 0.286275, 1 )
+
+[node name="TitleButtonSlot" type="Control" parent="Middle/ChangingButtonState"]
+margin_left = 386.105
+margin_top = 113.0
+margin_right = 426.105
+margin_bottom = 158.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = -50.0
+margin_top = 2.0
+margin_right = 287.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = -17.1
+margin_top = 12.0
+margin_right = 262.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 280, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = -25.1
+margin_top = 9.0
+margin_right = 270.9
+margin_bottom = 49.0
+rect_scale = Vector2( 1.21, 1 )
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = -15.0
+margin_top = 12.0
+margin_right = 70.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = 34.0
+margin_top = 12.0
+margin_right = 237.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="remapping" type="Label" parent="Middle/ChangingButtonState/TitleButtonSlot"]
+margin_left = 44.0
+margin_top = -25.0
+margin_right = 202.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Remapping: "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VBoxContainer" type="GridContainer" parent="Middle/ChangingButtonState"]
+margin_left = 211.0
+margin_top = 177.0
+margin_right = 801.0
+margin_bottom = 506.0
+columns = 2
+
+[node name="ButtonSlot-ability" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_right = 300.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ability"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 250.876
+margin_top = 15.0716
+margin_right = 290.876
+margin_bottom = 55.0716
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ability"]
+margin_left = 250.876
+margin_top = 15.0716
+margin_right = 290.876
+margin_bottom = 55.0716
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-dash" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_right = 604.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 249.876
+margin_top = 15.0716
+margin_right = 289.876
+margin_bottom = 55.0716
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-dash"]
+margin_left = 249.876
+margin_top = 15.0716
+margin_right = 289.876
+margin_bottom = 55.0716
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-grab" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 49.0
+margin_right = 300.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 11.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Grab"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 251.275
+margin_top = 14.9884
+margin_right = 291.275
+margin_bottom = 54.9884
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-grab"]
+margin_left = 251.275
+margin_top = 14.9884
+margin_right = 291.275
+margin_bottom = 54.9884
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-ripost" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 49.0
+margin_right = 604.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 11.0
+margin_top = 9.0
+margin_right = 96.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ripost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 251.014
+margin_top = 15.5572
+margin_right = 291.014
+margin_bottom = 55.5572
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-ripost"]
+margin_left = 251.014
+margin_top = 15.5572
+margin_right = 291.014
+margin_bottom = 55.5572
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-back-dash" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 98.0
+margin_right = 300.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 7.0
+margin_top = 12.0
+margin_right = 92.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 109.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 251.275
+margin_top = 16.0428
+margin_right = 291.275
+margin_bottom = 56.0428
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-back-dash"]
+margin_left = 251.275
+margin_top = 16.0428
+margin_right = 291.275
+margin_bottom = 56.0428
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-melee" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 98.0
+margin_right = 604.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Melee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 251.685
+margin_top = 14.1521
+margin_right = 291.685
+margin_bottom = 54.1521
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-melee"]
+margin_left = 251.685
+margin_top = 14.1521
+margin_right = 291.685
+margin_bottom = 54.1521
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-forward-dash" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 147.0
+margin_right = 300.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 95.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
+stretch_mode = 4
+
+[node name="btnTexture3" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 26.0
+margin_top = 12.0
+margin_right = 111.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Forward Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 251.275
+margin_top = 13.6813
+margin_right = 291.275
+margin_bottom = 53.6813
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-forward-dash"]
+margin_left = 251.275
+margin_top = 13.6813
+margin_right = 291.275
+margin_bottom = 53.6813
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-special" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 147.0
+margin_right = 604.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Special"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 252.097
+margin_top = 14.0511
+margin_right = 292.097
+margin_bottom = 54.0511
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-special"]
+margin_left = 252.097
+margin_top = 14.0511
+margin_right = 292.097
+margin_bottom = 54.0511
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-fastfall" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+margin_top = 196.0
+margin_right = 300.0
+margin_bottom = 241.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 7.0
+margin_top = 12.0
+margin_right = 92.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 26.0
+margin_top = 12.0
+margin_right = 111.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fast Fall"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 251.686
+margin_top = 12.95
+margin_right = 291.686
+margin_bottom = 52.95
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-fastfall"]
+margin_left = 251.686
+margin_top = 12.95
+margin_right = 291.686
+margin_bottom = 52.95
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-tool" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 196.0
+margin_right = 604.0
+margin_bottom = 241.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tool"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 252.196
+margin_top = 19.5842
+margin_right = 292.196
+margin_bottom = 59.5842
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-tool"]
+margin_left = 252.196
+margin_top = 19.5842
+margin_right = 292.196
+margin_bottom = 59.5842
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-auto-ripost" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 245.0
+margin_right = 300.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 1.0
+margin_top = 11.0
+margin_right = 86.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 47.0
+margin_top = 9.0
+margin_right = 132.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 78.0
+margin_top = 12.0
+margin_right = 236.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Auto Ripost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="plus" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = -26.0
+margin_top = 12.0
+margin_right = 132.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 252.15
+margin_top = 11.6123
+margin_right = 292.15
+margin_bottom = 51.6123
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-auto-ripost"]
+margin_left = 252.15
+margin_top = 11.6123
+margin_right = 292.15
+margin_bottom = 51.6123
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-jump" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_left = 304.0
+margin_top = 245.0
+margin_right = 604.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jump"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 253.323
+margin_top = 17.199
+margin_right = 293.323
+margin_bottom = 57.199
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-jump"]
+margin_left = 253.323
+margin_top = 17.199
+margin_right = 293.323
+margin_bottom = 57.199
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-counter-ripost" type="Control" parent="Middle/ChangingButtonState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 294.0
+margin_right = 300.0
+margin_bottom = 339.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 1.0
+margin_top = 11.0
+margin_right = 86.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 47.0
+margin_top = 9.0
+margin_right = 132.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 78.0
+margin_top = 12.0
+margin_right = 236.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Counter Ripost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="plus" type="Label" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = -26.0
+margin_top = 12.0
+margin_right = 132.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 252.245
+margin_top = 16.781
+margin_right = 292.245
+margin_bottom = 56.781
+texture = ExtResource( 18 )
+
+[node name="unavailableIcon" type="TextureRect" parent="Middle/ChangingButtonState/VBoxContainer/ButtonSlot-counter-ripost"]
+margin_left = 252.245
+margin_top = 16.781
+margin_right = 292.245
+margin_bottom = 56.781
+texture = ExtResource( 19 )
+
+[node name="availableLabel" type="Label" parent="Middle/ChangingButtonState"]
+margin_left = 161.319
+margin_top = 536.534
+margin_right = 554.319
+margin_bottom = 581.534
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Available"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="unavailableLabel" type="Label" parent="Middle/ChangingButtonState"]
+margin_left = 471.957
+margin_top = 537.242
+margin_right = 864.957
+margin_bottom = 582.242
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Unvailable for remapping for this button"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="availableIcon" type="TextureRect" parent="Middle/ChangingButtonState"]
+margin_left = 286.116
+margin_top = 550.177
+margin_right = 326.116
+margin_bottom = 590.177
+texture = ExtResource( 18 )
+
+[node name="unavailalbeIcon" type="TextureRect" parent="Middle/ChangingButtonState"]
+margin_left = 481.584
+margin_top = 548.885
+margin_right = 521.584
+margin_bottom = 588.885
+texture = ExtResource( 19 )
+
+[node name="ChangingOtherSettingsState" type="Control" parent="Middle"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="outter-bgd" type="ColorRect" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 288.0
+margin_top = 85.0
+margin_right = 720.0
+margin_bottom = 498.0
+color = Color( 0.286275, 0.145098, 0.145098, 1 )
+
+[node name="inner-bgd" type="ColorRect" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 329.0
+margin_top = 121.0
+margin_right = 679.0
+margin_bottom = 381.0
+color = Color( 0.145098, 0.25098, 0.286275, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 382.0
+margin_top = 124.0
+margin_right = 697.0
+margin_bottom = 463.0
+
+[node name="ButtonSlot-up" type="Control" parent="Middle/ChangingOtherSettingsState/VBoxContainer"]
+editor/display_folded = true
+margin_right = 315.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 30.0
+margin_top = 12.0
+margin_right = 115.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jump"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 254.726
+margin_top = 16.3269
+margin_right = 294.726
+margin_bottom = 56.3269
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-up"]
+margin_left = 254.726
+margin_top = 16.327
+margin_right = 294.726
+margin_bottom = 56.327
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-right" type="Control" parent="Middle/ChangingOtherSettingsState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 49.0
+margin_right = 315.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 38.0
+margin_top = 12.0
+margin_right = 123.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Forward Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 254.726
+margin_top = 16.3269
+margin_right = 294.726
+margin_bottom = 56.3269
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-right"]
+margin_left = 254.726
+margin_top = 16.327
+margin_right = 294.726
+margin_bottom = 56.327
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-down" type="Control" parent="Middle/ChangingOtherSettingsState/VBoxContainer"]
+editor/display_folded = true
+margin_top = 98.0
+margin_right = 315.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 30.0
+margin_top = 12.0
+margin_right = 115.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fast Fall"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 254.726
+margin_top = 16.3269
+margin_right = 294.726
+margin_bottom = 56.3269
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-down"]
+margin_left = 254.726
+margin_top = 16.327
+margin_right = 294.726
+margin_bottom = 56.327
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-left" type="Control" parent="Middle/ChangingOtherSettingsState/VBoxContainer"]
+margin_top = 147.0
+margin_right = 315.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = -1.09998
+margin_top = 2.0
+margin_right = 248.9
+margin_bottom = 52.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 10.9
+margin_top = 12.0
+margin_right = 240.9
+margin_bottom = 42.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 2.90002
+margin_top = 9.0
+margin_right = 248.9
+margin_bottom = 49.0
+texture = ExtResource( 5 )
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btnTexture2" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 39.0
+margin_top = 12.0
+margin_right = 124.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 62.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back Dash"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 254.726
+margin_top = 16.3269
+margin_right = 294.726
+margin_bottom = 56.3269
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-left"]
+margin_left = 254.726
+margin_top = 16.327
+margin_right = 294.726
+margin_bottom = 56.327
+texture = ExtResource( 19 )
+
+[node name="ButtonSlot-RIPOSTfacing" type="Control" parent="Middle/ChangingOtherSettingsState/VBoxContainer"]
+margin_top = 196.0
+margin_right = 315.0
+margin_bottom = 241.0
+rect_min_size = Vector2( 300, 45 )
+
+[node name="black-transparent" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = -1.0
+margin_top = 2.0
+margin_right = 249.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 250, 50 )
+color = Color( 0.239216, 0.239216, 0.239216, 0.701961 )
+
+[node name="white" type="ColorRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 241.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 230, 30 )
+
+[node name="border" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 3.0
+margin_top = 9.0
+margin_right = 249.0
+margin_bottom = 58.0
+rect_scale = Vector2( 1, 1.4 )
+texture = ExtResource( 5 )
+
+[node name="btnTexture3" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 8.0
+margin_top = 34.0
+margin_right = 93.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btnTexture4" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 76.0
+margin_top = 63.0
+margin_right = 161.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 40, 0 )
+rect_rotation = -180.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="btnTexture" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 9.0
+margin_top = 11.0
+margin_right = 94.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 40, 0 )
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="btn-name" type="Label" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 59.0
+margin_top = 12.0
+margin_right = 240.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ripost Same Direction as Attacker Input"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 254.726
+margin_top = 16.3269
+margin_right = 294.726
+margin_bottom = 56.3269
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState/VBoxContainer/ButtonSlot-RIPOSTfacing"]
+margin_left = 254.726
+margin_top = 16.327
+margin_right = 294.726
+margin_bottom = 56.327
+texture = ExtResource( 19 )
+
+[node name="title" type="Label" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 314.0
+margin_top = 83.0
+margin_right = 707.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Toggling Optional Settings"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledLabel" type="Label" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 215.319
+margin_top = 393.534
+margin_right = 608.319
+margin_bottom = 438.534
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Enabled"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="disabledLabel" type="Label" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 394.957
+margin_top = 392.242
+margin_right = 787.957
+margin_bottom = 437.242
+rect_min_size = Vector2( 140, 30 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Disabled"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 351.116
+margin_top = 407.177
+margin_right = 391.116
+margin_bottom = 447.177
+texture = ExtResource( 18 )
+
+[node name="disabledIcon" type="TextureRect" parent="Middle/ChangingOtherSettingsState"]
+margin_left = 525.584
+margin_top = 405.885
+margin_right = 565.584
+margin_bottom = 445.885
+texture = ExtResource( 19 )
+
+[node name="remapTip" type="Label" parent="Middle"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 342.254
+margin_top = 469.556
+margin_right = 811.254
+margin_bottom = 529.556
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Toggle optional input settings"
+
+[node name="Footers" type="Control" parent="."]
+margin_left = 77.0
+margin_right = 117.0
+margin_bottom = 40.0
+
+[node name="MainState" type="Control" parent="Footers"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="back" type="Control" parent="Footers/MainState"]
+editor/display_folded = true
+margin_left = -123.0
+margin_right = -83.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/MainState/back"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Back"
+
+[node name="BTexture" type="TextureRect" parent="Footers/MainState/back"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 20 )
+
+[node name="save" type="Control" parent="Footers/MainState"]
+editor/display_folded = true
+margin_left = 12.0
+margin_right = 52.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/MainState/save"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Save"
+
+[node name="BTexture" type="TextureRect" parent="Footers/MainState/save"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 21 )
+
+[node name="remapInput" type="Control" parent="Footers/MainState"]
+editor/display_folded = true
+margin_left = 125.0
+margin_right = 165.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/MainState/remapInput"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Remap Button"
+
+[node name="BTexture" type="TextureRect" parent="Footers/MainState/remapInput"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 22 )
+
+[node name="default" type="Control" parent="Footers/MainState"]
+editor/display_folded = true
+margin_left = 504.0
+margin_right = 544.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footers/MainState/default"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Restore to Default Settings"
+
+[node name="downTexture" type="TextureRect" parent="Footers/MainState/default"]
+margin_left = 85.5264
+margin_top = 546.526
+margin_right = 170.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="other" type="Control" parent="Footers/MainState"]
+editor/display_folded = true
+margin_left = 304.0
+margin_right = 344.0
+margin_bottom = 40.0
+
+[node name="switchLabel" type="Label" parent="Footers/MainState/other"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Other Settings"
+
+[node name="rightTexture" type="TextureRect" parent="Footers/MainState/other"]
+margin_left = 96.5264
+margin_top = 546.526
+margin_right = 181.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 23 )
+
+[node name="ChangingButtonState" type="Control" parent="Footers"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="cancel" type="Control" parent="Footers/ChangingButtonState"]
+editor/display_folded = true
+margin_left = -101.0
+margin_right = -61.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/ChangingButtonState/cancel"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Cancel"
+
+[node name="BTexture" type="TextureRect" parent="Footers/ChangingButtonState/cancel"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 20 )
+
+[node name="confirm" type="Control" parent="Footers/ChangingButtonState"]
+editor/display_folded = true
+margin_left = 27.0
+margin_right = 67.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/ChangingButtonState/confirm"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Confirm"
+
+[node name="BTexture" type="TextureRect" parent="Footers/ChangingButtonState/confirm"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 22 )
+
+[node name="select" type="Control" parent="Footers/ChangingButtonState"]
+margin_left = 536.0
+margin_right = 576.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footers/ChangingButtonState/select"]
+margin_left = 166.843
+margin_top = 554.31
+margin_right = 438.843
+margin_bottom = 585.31
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select"
+
+[node name="downTexture" type="TextureRect" parent="Footers/ChangingButtonState/select"]
+margin_left = 96.5264
+margin_top = 562.526
+margin_right = 181.526
+margin_bottom = 602.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 17 )
+
+[node name="downTexture2" type="TextureRect" parent="Footers/ChangingButtonState/select"]
+margin_left = 127.526
+margin_top = 532.526
+margin_right = 212.526
+margin_bottom = 572.526
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 17 )
+
+[node name="upTexture" type="TextureRect" parent="Footers/ChangingButtonState/select"]
+margin_left = 96.5264
+margin_top = 530.526
+margin_right = 181.526
+margin_bottom = 570.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 15 )
+
+[node name="upTexture2" type="TextureRect" parent="Footers/ChangingButtonState/select"]
+margin_left = 156.526
+margin_top = 533.526
+margin_right = 241.526
+margin_bottom = 573.526
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 15 )
+
+[node name="ChangingOtherSettingsState" type="Control" parent="Footers"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="back" type="Control" parent="Footers/ChangingOtherSettingsState"]
+editor/display_folded = true
+margin_left = -101.0
+margin_right = -61.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/ChangingOtherSettingsState/back"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Back
+"
+
+[node name="BTexture" type="TextureRect" parent="Footers/ChangingOtherSettingsState/back"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 20 )
+
+[node name="toggle" type="Control" parent="Footers/ChangingOtherSettingsState"]
+editor/display_folded = true
+margin_left = 27.0
+margin_right = 67.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footers/ChangingOtherSettingsState/toggle"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Toggle"
+
+[node name="BTexture" type="TextureRect" parent="Footers/ChangingOtherSettingsState/toggle"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 22 )
+
+[node name="select2" type="Control" parent="Footers/ChangingOtherSettingsState"]
+editor/display_folded = true
+margin_left = 536.0
+margin_right = 576.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footers/ChangingOtherSettingsState/select2"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select"
+
+[node name="downTexture" type="TextureRect" parent="Footers/ChangingOtherSettingsState/select2"]
+margin_left = 96.5264
+margin_top = 562.526
+margin_right = 181.526
+margin_bottom = 602.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 17 )
+
+[node name="upTexture" type="TextureRect" parent="Footers/ChangingOtherSettingsState/select2"]
+margin_left = 96.5264
+margin_top = 530.526
+margin_right = 181.526
+margin_bottom = 570.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 15 )
+
+[node name="back-arrow" parent="Footers" instance=ExtResource( 24 )]
+visible = false
+margin_left = -59.9102
+margin_top = 528.047
+margin_right = 85.0898
+margin_bottom = 656.047

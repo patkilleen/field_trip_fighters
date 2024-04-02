@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-glove.wav-1c905cec5db0445548f71d26e76c66f3.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/ui/fighters-select/1-glove.wav"
+dest_files=[ "res://.import/1-glove.wav-1c905cec5db0445548f71d26e76c66f3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

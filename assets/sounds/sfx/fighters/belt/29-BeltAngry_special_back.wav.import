@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/29-BeltAngry_special_back.wav-fb443856f72a563575385d0c01775f13.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/29-BeltAngry_special_back.wav"
+dest_files=[ "res://.import/29-BeltAngry_special_back.wav-fb443856f72a563575385d0c01775f13.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

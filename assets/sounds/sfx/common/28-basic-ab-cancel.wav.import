@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/28-basic-ab-cancel.wav-2fe2bfedd749e3a41e61c601474e57c7.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/28-basic-ab-cancel.wav"
+dest_files=[ "res://.import/28-basic-ab-cancel.wav-2fe2bfedd749e3a41e61c601474e57c7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

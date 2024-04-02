@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-landing-hitstun.wav-80d4156b34b3f7df11cd82d917d008c6.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/1-landing-hitstun/1-landing-hitstun.wav"
+dest_files=[ "res://.import/1-landing-hitstun.wav-80d4156b34b3f7df11cd82d917d008c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

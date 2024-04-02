@@ -1,0 +1,15 @@
+Requires Windows 10 with minimum requirements of 4-core CPU and 4 GB of RAM. This is an open source 2D fighting game named Field Trip Fighters and its programmed in the Godot engine version 3.1.2.
+
+Steps to run.
+
+0. Download the project
+1. Download Godot version 3.1.2 (https://www.mudlakebiodiversity.ca/ftf/Godot_v3.1.2-stable_win64.exe)
+2. Run Godot
+3. Select Import
+4. Click Browse
+5. Navigate into the root folder of the project and select 'project.godot'
+6. Click Import & Edit
+7. You will now need to wait a couple minutes and wait for all the resources to get imported (this only needs to be done once). Make sure not to click anything during this process
+8. When the import progress is complete, click the play button in the top right (side-ways triangle)
+
+

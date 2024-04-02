@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/particles/wisp.png" type="Texture" id=1]
+[ext_resource path="res://particles/one-shot-particles.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 50, 1 )
+flag_disable_z = true
+spread = 82.6
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 2 )
+
+[node name="dashStreakPartiles" type="Particles2D"]
+position = Vector2( 48.8574, -5.95821 )
+scale = Vector2( 1, 0.5 )
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/defender/1.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.696296 )
+colors = PoolColorArray( 1, 1, 1, 0.545098, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.080688, 0.1821 ), 0.0, 0.0, 0, 0, Vector2( 0.684042, 0.1139 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 48, 15 )
+flag_disable_z = true
+gravity = Vector3( 0, -100, 0 )
+angular_velocity = -1.72427e-024
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+scale = 0.6
+scale_random = 0.1
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="guardRegenBuffParticles" type="Particles2D"]
+amount = 4
+lifetime = 2.0
+speed_scale = 1.5
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )

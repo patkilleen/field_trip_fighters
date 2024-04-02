@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/0-hurt.wav-87cfb846a26a911e2352d9653f90d427.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/30-hitstun/0-hurt.wav"
+dest_files=[ "res://.import/0-hurt.wav-87cfb846a26a911e2352d9653f90d427.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

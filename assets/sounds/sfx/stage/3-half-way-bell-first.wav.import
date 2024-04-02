@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/3-half-way-bell-first.wav-06e08b2d7745a2ce42820a0142850358.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/stage/3-half-way-bell-first.wav"
+dest_files=[ "res://.import/3-half-way-bell-first.wav-06e08b2d7745a2ce42820a0142850358.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

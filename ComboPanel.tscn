@@ -1,0 +1,262 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Combo-Panel.gd" type="Script" id=1]
+[ext_resource path="res://interface/ProrationBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://Stars.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SubCombos.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/abilityBarFeedingHUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/interfaces/bar/damage/sword-icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/bar/focus/brain.png" type="Texture" id=8]
+[ext_resource path="res://interface/DamageComboLevelHUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/interfaces/combo/filled-dmg-star.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/combo/red-progress-star.png" type="Texture" id=11]
+[ext_resource path="res://interface/ComboStateMachine.gd" type="Script" id=12]
+[ext_resource path="res://assets/interfaces/combo/filled-focus-star.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/combo/purple-progress-star.png" type="Texture" id=14]
+[ext_resource path="res://assets/particles/locked-sward+.png" type="Texture" id=15]
+[ext_resource path="res://assets/particles/unlocked-sword+.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/locked-brain+.png" type="Texture" id=17]
+[ext_resource path="res://assets/particles/unlocked-brain+.png" type="Texture" id=18]
+[ext_resource path="res://interface/CircularProgressDamageBar.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/interfaces/combo/b-or-y.png" type="Texture" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="ComboPanel" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="DamageProrationBar" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 182.402
+margin_top = 679.778
+margin_right = 1144.4
+margin_bottom = 719.778
+rect_scale = Vector2( 0.3, 0.25 )
+
+[node name="Combo" type="Control" parent="."]
+margin_left = 326.208
+margin_top = 545.938
+margin_right = 366.208
+margin_bottom = 585.938
+
+[node name="Combo-text" type="Label" parent="Combo"]
+margin_top = -14.0
+margin_right = 73.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 1 )
+text = "Hit"
+
+[node name="Damage-text2" type="Label" parent="Combo"]
+margin_left = 3.17334
+margin_top = 44.2936
+margin_right = 76.1733
+margin_bottom = 110.294
+custom_fonts/font = SubResource( 2 )
+text = "Damage"
+
+[node name="Combo-count" type="Label" parent="Combo"]
+margin_left = 90.0
+margin_top = -14.0
+margin_right = 135.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="damage" type="Label" parent="Combo"]
+margin_left = 155.053
+margin_top = 46.1202
+margin_right = 200.053
+margin_bottom = 112.12
+custom_fonts/font = SubResource( 2 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="Combo"]
+visible = false
+show_behind_parent = true
+margin_left = -12.0
+margin_top = -15.0
+margin_right = 304.0
+margin_bottom = 202.0
+color = Color( 0, 0, 0, 0.430941 )
+
+[node name="Stars" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = -21.0
+margin_top = 401.0
+margin_right = 620.0
+margin_bottom = 576.0
+rect_scale = Vector2( 0.7, 0.7 )
+
+[node name="SubCombos" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_top = 500.0
+margin_right = 488.0
+margin_bottom = 540.0
+rect_scale = Vector2( 0.45, 0.45 )
+
+[node name="bgdColor" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = -29.0
+margin_top = 390.0
+margin_right = 614.0
+margin_bottom = 712.0
+color = Color( 0, 0, 0, 0.10498 )
+
+[node name="FocusProrationBar" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 337.0
+margin_top = 657.0
+margin_right = 1299.0
+margin_bottom = 697.0
+rect_scale = Vector2( 0.25, 0.5 )
+type = 1
+
+[node name="abilityBarFeedingHUD" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = 308.0
+margin_top = 599.0
+margin_right = 348.0
+margin_bottom = 639.0
+
+[node name="icon" type="TextureRect" parent="."]
+visible = false
+margin_left = 287.0
+margin_top = 615.0
+margin_right = 552.0
+margin_bottom = 867.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="icon2" type="TextureRect" parent="."]
+visible = false
+margin_left = 296.0
+margin_top = 645.0
+margin_right = 561.0
+margin_bottom = 927.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 8 )
+stretch_mode = 3
+
+[node name="VBoxContainer" type="Control" parent="."]
+margin_left = -21.0526
+margin_top = 402.105
+margin_right = 18.9474
+margin_bottom = 442.105
+
+[node name="MagicSeriesComboLevelHUD" parent="VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 164.565
+margin_top = 87.904
+margin_right = 204.565
+margin_bottom = 87.904
+rect_scale = Vector2( 1.4, 1.4 )
+starOverflowSize = 1
+starTexture = ExtResource( 10 )
+progressStarTexture = ExtResource( 11 )
+
+[node name="controller" type="Node" parent="VBoxContainer/MagicSeriesComboLevelHUD"]
+script = ExtResource( 12 )
+
+[node name="ReverseBeatComboLevelHUD" parent="VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 164.565
+margin_top = 87.904
+margin_right = 204.565
+margin_bottom = 87.904
+rect_scale = Vector2( 1.4, 1.4 )
+starOverflowSize = 1
+starTexture = ExtResource( 13 )
+progressStarTexture = ExtResource( 14 )
+
+[node name="controller" type="Node" parent="VBoxContainer/ReverseBeatComboLevelHUD"]
+script = ExtResource( 12 )
+stateMachineType = 1
+
+[node name="DmgLockTextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 73.0
+margin_top = 391.0
+margin_right = 402.0
+margin_bottom = 704.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 15 )
+
+[node name="DmgUnlockedTextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 73.0
+margin_top = 391.0
+margin_right = 402.0
+margin_bottom = 704.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 16 )
+
+[node name="FocusLockTextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 79.0
+margin_top = 542.0
+margin_right = 408.0
+margin_bottom = 855.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 17 )
+
+[node name="FocusUnlockedTextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 79.0
+margin_top = 542.0
+margin_right = 408.0
+margin_bottom = 855.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 18 )
+
+[node name="CircularDamageProgressBar" parent="." instance=ExtResource( 19 )]
+margin_left = -18.1849
+margin_top = 545.852
+margin_right = 109.815
+margin_bottom = 677.852
+
+[node name="icon" type="TextureRect" parent="CircularDamageProgressBar"]
+margin_left = 27.4971
+margin_top = 37.8299
+margin_right = 292.497
+margin_bottom = 289.83
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 20 )
+stretch_mode = 3
+
+[node name="increase" type="TextureRect" parent="CircularDamageProgressBar"]
+margin_left = 137.818
+margin_top = 11.9868
+margin_right = 403.818
+margin_bottom = 264.987
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 16 )
+stretch_mode = 3

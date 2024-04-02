@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/21-MicOpera_toolD.wav-a0a966e98980729391dacb5f3e9a60c4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/21-MicOpera_toolD.wav"
+dest_files=[ "res://.import/21-MicOpera_toolD.wav-a0a966e98980729391dacb5f3e9a60c4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

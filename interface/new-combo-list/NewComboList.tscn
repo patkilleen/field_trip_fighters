@@ -1,0 +1,985 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://interface/new-combo-list/NewComboList.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/new-combo-list/bgd-border-right.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/new-combo-list/bdg-border-left.png" type="Texture" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/interfaces/new-combo-list/details-icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/new-combo-list/disabled-details-icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/d-x.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/dash-back.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/b.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/x.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/command-input/dash-forward.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/command-input/l2.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=16]
+[ext_resource path="res://interface/CommandMap.tscn" type="PackedScene" id=17]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 13
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="NewComboList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+unselectedMoveColor = Color( 0.301961, 0.32549, 0.403922, 1 )
+selectedMoveColor = Color( 0.698039, 0.564706, 0.376471, 1 )
+
+[node name="background" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="screen" type="ColorRect" parent="background"]
+margin_right = 1051.0
+margin_bottom = 613.0
+color = Color( 0.321569, 0.321569, 0.321569, 1 )
+
+[node name="right-border" type="TextureRect" parent="background"]
+margin_left = 683.143
+margin_top = 80.4782
+margin_right = 972.143
+margin_bottom = 465.478
+texture = ExtResource( 2 )
+
+[node name="right-border2" type="TextureRect" parent="background"]
+margin_left = 53.0
+margin_top = 80.0
+margin_right = 599.0
+margin_bottom = 465.0
+texture = ExtResource( 3 )
+
+[node name="Header" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 196.122
+margin_top = 12.1884
+margin_right = 236.122
+margin_bottom = 52.1884
+
+[node name="title" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -121.5
+margin_right = 347.5
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Moveset List"
+
+[node name="playerLabel" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 92.3504
+margin_right = 561.35
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Player X : Hero Name"
+
+[node name="details-icons" type="Control" parent="Header"]
+margin_left = 102.0
+margin_right = 142.0
+margin_bottom = 40.0
+
+[node name="desc-icons" type="Control" parent="Header/details-icons"]
+editor/display_folded = true
+margin_left = 521.884
+margin_top = 25.4848
+margin_right = 561.884
+margin_bottom = 65.4848
+
+[node name="leftIcon" type="TextureRect" parent="Header/details-icons/desc-icons"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="rightIcon" type="TextureRect" parent="Header/details-icons/desc-icons"]
+margin_left = 29.0
+margin_right = 69.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="combo-icons" type="Control" parent="Header/details-icons"]
+editor/display_folded = true
+visible = false
+margin_left = 521.884
+margin_top = 25.4848
+margin_right = 561.884
+margin_bottom = 65.4848
+
+[node name="leftIcon" type="TextureRect" parent="Header/details-icons/combo-icons"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="rightIcon" type="TextureRect" parent="Header/details-icons/combo-icons"]
+margin_left = 29.0
+margin_right = 69.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="backLabel2" type="Label" parent="Header"]
+margin_left = -96.4151
+margin_top = 41.0672
+margin_right = 175.585
+margin_bottom = 72.0672
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Directional input assumes you are facing right."
+
+[node name="Middle" type="HBoxContainer" parent="."]
+margin_left = 9.97229
+margin_top = 89.2632
+margin_right = 991.972
+margin_bottom = 514.263
+
+[node name="padding" type="Control" parent="Middle"]
+margin_right = 50.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Middle"]
+margin_left = 54.0
+margin_right = 654.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 600, 0 )
+scroll_horizontal_enabled = false
+
+[node name="padding2" type="Control" parent="Middle"]
+margin_left = 658.0
+margin_right = 678.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="detailsContainer" type="Control" parent="Middle"]
+margin_left = 682.0
+margin_right = 982.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 300, 350 )
+
+[node name="descriptionContainer" type="VBoxContainer" parent="Middle/detailsContainer"]
+margin_bottom = 40.0
+
+[node name="sectionTitle" type="Label" parent="Middle/detailsContainer/descriptionContainer"]
+margin_right = 357.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Attributes"
+align = 1
+
+[node name="frameDataRowHeader" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 22.0
+margin_right = 357.0
+margin_bottom = 40.0
+
+[node name="startup" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowHeader"]
+margin_right = 49.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Startup"
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/frameDataRowHeader"]
+margin_left = 53.0
+margin_right = 68.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="active" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowHeader"]
+margin_left = 72.0
+margin_right = 115.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Active"
+
+[node name="padding4" type="Control" parent="Middle/detailsContainer/descriptionContainer/frameDataRowHeader"]
+margin_left = 119.0
+margin_right = 134.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="recovery" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowHeader"]
+margin_left = 138.0
+margin_right = 202.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Recovery"
+
+[node name="frameDataRowValues" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 44.0
+margin_right = 357.0
+margin_bottom = 62.0
+
+[node name="startup" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowValues"]
+margin_right = 70.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/frameDataRowValues"]
+margin_left = 74.0
+margin_right = 74.0
+margin_bottom = 18.0
+
+[node name="active" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowValues"]
+margin_left = 78.0
+margin_right = 138.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 60, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+
+[node name="padding4" type="Control" parent="Middle/detailsContainer/descriptionContainer/frameDataRowValues"]
+margin_left = 142.0
+margin_right = 142.0
+margin_bottom = 18.0
+
+[node name="recovery" type="Label" parent="Middle/detailsContainer/descriptionContainer/frameDataRowValues"]
+margin_left = 146.0
+margin_right = 276.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 130, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+
+[node name="hitFrameDataRowHeader" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 66.0
+margin_right = 357.0
+margin_bottom = 84.0
+
+[node name="hitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowHeader"]
+margin_right = 96.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Hit Advantage"
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowHeader"]
+margin_left = 100.0
+margin_right = 105.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="linkHitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowHeader"]
+margin_left = 109.0
+margin_right = 237.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Link Hit Advantage"
+
+[node name="hitFrameDataRowValues" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 88.0
+margin_right = 357.0
+margin_bottom = 106.0
+
+[node name="hitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowValues"]
+margin_right = 110.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 110, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+autowrap = true
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowValues"]
+margin_left = 114.0
+margin_right = 114.0
+margin_bottom = 18.0
+
+[node name="linkHitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/hitFrameDataRowValues"]
+margin_left = 118.0
+margin_right = 288.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 170, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+autowrap = true
+
+[node name="blockFrameDataRowHeader" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 110.0
+margin_right = 357.0
+margin_bottom = 128.0
+
+[node name="goodBlockHitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/blockFrameDataRowHeader"]
+margin_right = 144.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Correct Block Advan."
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/blockFrameDataRowHeader"]
+margin_left = 148.0
+margin_right = 153.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="badBlockAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/blockFrameDataRowHeader"]
+margin_left = 157.0
+margin_right = 276.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Bad Block Advan."
+
+[node name="blockFrameData2RowValues" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 132.0
+margin_right = 357.0
+margin_bottom = 150.0
+
+[node name="goodBlockHitAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/blockFrameData2RowValues"]
+margin_right = 160.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 160, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+autowrap = true
+
+[node name="padding3" type="Control" parent="Middle/detailsContainer/descriptionContainer/blockFrameData2RowValues"]
+margin_left = 164.0
+margin_right = 164.0
+margin_bottom = 18.0
+
+[node name="badBlockAdv" type="Label" parent="Middle/detailsContainer/descriptionContainer/blockFrameData2RowValues"]
+margin_left = 168.0
+margin_right = 288.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 120, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "16"
+autowrap = true
+
+[node name="properties" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 154.0
+margin_right = 357.0
+margin_bottom = 172.0
+
+[node name="staticLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer/properties"]
+margin_right = 71.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Properties"
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer/properties"]
+margin_left = 75.0
+margin_right = 300.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 225, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air, low, non-counter-ripostable"
+autowrap = true
+
+[node name="cancelCostContainer" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 176.0
+margin_right = 357.0
+margin_bottom = 194.0
+
+[node name="staticLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer/cancelCostContainer"]
+margin_right = 128.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Ability Cancel Cost"
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer/cancelCostContainer"]
+margin_left = 132.0
+margin_right = 357.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 225, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "2"
+autowrap = true
+
+[node name="descriptionStaticLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 198.0
+margin_right = 357.0
+margin_bottom = 216.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Description"
+
+[node name="desciprtionContainer" type="HBoxContainer" parent="Middle/detailsContainer/descriptionContainer"]
+margin_top = 220.0
+margin_right = 357.0
+margin_bottom = 420.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/descriptionContainer/desciprtionContainer"]
+margin_right = 15.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="descriptionScrollContainer" type="ScrollContainer" parent="Middle/detailsContainer/descriptionContainer/desciprtionContainer"]
+margin_left = 19.0
+margin_right = 291.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 270, 200 )
+scroll_horizontal_enabled = false
+
+[node name="descriptionDynamicLabel" type="Label" parent="Middle/detailsContainer/descriptionContainer/desciprtionContainer/descriptionScrollContainer"]
+margin_right = 260.0
+margin_bottom = 217.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap = true
+
+[node name="combosContainer" type="VBoxContainer" parent="Middle/detailsContainer"]
+visible = false
+margin_bottom = 40.0
+
+[node name="sectionTitle" type="Label" parent="Middle/detailsContainer/combosContainer"]
+margin_right = 293.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Auto-Cancels"
+align = 1
+
+[node name="airTip" type="Label" parent="Middle/detailsContainer/combosContainer"]
+margin_top = 22.0
+margin_right = 293.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "* = while in the air"
+
+[node name="cmdScrollContainer" type="ScrollContainer" parent="Middle/detailsContainer/combosContainer"]
+editor/display_folded = true
+margin_top = 44.0
+margin_right = 293.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 293, 400 )
+scroll_horizontal_enabled = false
+
+[node name="rows" type="VBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer"]
+margin_right = 293.0
+margin_bottom = 250.0
+
+[node name="freeCancels" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_right = 293.0
+margin_bottom = 18.0
+
+[node name="staticLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/freeCancels"]
+margin_right = 30.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Free"
+
+[node name="cancel1" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+editor/display_folded = true
+margin_top = 22.0
+margin_right = 293.0
+margin_bottom = 40.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel1"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel1"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel1"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Attack Name"
+autowrap = true
+
+[node name="cancel2" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+editor/display_folded = true
+margin_top = 44.0
+margin_right = 293.0
+margin_bottom = 62.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel2"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel2"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel2"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dash Back"
+autowrap = true
+
+[node name="onHitCancels" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 66.0
+margin_right = 293.0
+margin_bottom = 66.0
+
+[node name="staticLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 70.0
+margin_right = 293.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "On-hit Cancels"
+
+[node name="cancel4" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 92.0
+margin_right = 293.0
+margin_bottom = 110.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel4"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel4"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel4"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Attack Name"
+autowrap = true
+
+[node name="cancel3" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+editor/display_folded = true
+margin_top = 114.0
+margin_right = 293.0
+margin_bottom = 132.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel3"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel3"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel3"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dash Back"
+autowrap = true
+
+[node name="onHitCancels2" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 136.0
+margin_right = 293.0
+margin_bottom = 136.0
+
+[node name="staticLabel2" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 140.0
+margin_right = 293.0
+margin_bottom = 158.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "On-hit Auto Ability Cancels"
+
+[node name="cancel6" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 162.0
+margin_right = 293.0
+margin_bottom = 180.0
+
+[node name="airIndicator" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel6"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "*"
+align = 1
+autowrap = true
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel6"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel6"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dash Back"
+autowrap = true
+
+[node name="cancel5" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+editor/display_folded = true
+margin_top = 184.0
+margin_right = 293.0
+margin_bottom = 202.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel5"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel5"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel5"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Attack Name"
+autowrap = true
+
+[node name="onHitCancels3" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 206.0
+margin_right = 293.0
+margin_bottom = 206.0
+
+[node name="staticLabel3" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+margin_top = 210.0
+margin_right = 293.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "On-hit Landing Lag Cancels"
+
+[node name="cancel7" type="HBoxContainer" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows"]
+editor/display_folded = true
+margin_top = 232.0
+margin_right = 293.0
+margin_bottom = 250.0
+
+[node name="padding" type="Control" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel7"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel7"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="Middle/detailsContainer/combosContainer/cmdScrollContainer/rows/cancel7"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Attack Name"
+autowrap = true
+
+[node name="Footer" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 77.0
+margin_right = 117.0
+margin_bottom = 40.0
+
+[node name="back" type="Control" parent="Footer"]
+margin_left = -123.0
+margin_right = -83.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footer/back"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Back"
+
+[node name="BTexture" type="TextureRect" parent="Footer/back"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 9 )
+
+[node name="resourceCostLabel" type="Control" parent="Footer"]
+margin_left = 41.0
+margin_right = 81.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="Footer/resourceCostLabel"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Toggle Resource
+ Costs View"
+
+[node name="BTexture" type="TextureRect" parent="Footer/resourceCostLabel"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 10 )
+
+[node name="select" type="Control" parent="Footer"]
+margin_left = 264.0
+margin_right = 304.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footer/select"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select"
+
+[node name="downTexture" type="TextureRect" parent="Footer/select"]
+margin_left = 96.5264
+margin_top = 562.526
+margin_right = 181.526
+margin_bottom = 602.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 11 )
+
+[node name="upTexture" type="TextureRect" parent="Footer/select"]
+margin_left = 96.5264
+margin_top = 530.526
+margin_right = 181.526
+margin_bottom = 570.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 12 )
+
+[node name="selectAlot" type="Control" parent="Footer"]
+margin_left = 460.0
+margin_right = 500.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="Footer/selectAlot"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select Fast"
+
+[node name="downTexture" type="TextureRect" parent="Footer/selectAlot"]
+margin_left = 85.5264
+margin_top = 546.526
+margin_right = 170.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 13 )
+
+[node name="upTexture" type="TextureRect" parent="Footer/selectAlot"]
+margin_left = 51.5264
+margin_top = 546.526
+margin_right = 136.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 14 )
+
+[node name="switch-details" type="Control" parent="Footer"]
+margin_left = 659.0
+margin_right = 699.0
+margin_bottom = 40.0
+
+[node name="switchLabel" type="Label" parent="Footer/switch-details"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Switch Details"
+
+[node name="leftTexture" type="TextureRect" parent="Footer/switch-details"]
+margin_left = 61.5264
+margin_top = 546.526
+margin_right = 146.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 15 )
+
+[node name="rightTexture" type="TextureRect" parent="Footer/switch-details"]
+margin_left = 96.5264
+margin_top = 546.526
+margin_right = 181.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 16 )
+
+[node name="templates" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="airComboCancelEntryTemplate" type="HBoxContainer" parent="templates"]
+margin_left = 691.972
+margin_top = 317.263
+margin_right = 984.972
+margin_bottom = 335.263
+
+[node name="airIndicator" type="Label" parent="templates/airComboCancelEntryTemplate"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "*"
+align = 1
+autowrap = true
+
+[node name="cmdIcon" type="TextureRect" parent="templates/airComboCancelEntryTemplate"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="templates/airComboCancelEntryTemplate"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dash Back"
+autowrap = true
+
+[node name="comboCancelEntryTemplate" type="HBoxContainer" parent="templates"]
+margin_left = 691.972
+margin_top = 155.263
+margin_right = 984.972
+margin_bottom = 173.263
+
+[node name="padding" type="Control" parent="templates/comboCancelEntryTemplate"]
+margin_right = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cmdIcon" type="TextureRect" parent="templates/comboCancelEntryTemplate"]
+margin_left = 24.0
+margin_right = 69.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="dynamicLabel" type="Label" parent="templates/comboCancelEntryTemplate"]
+margin_left = 73.0
+margin_right = 293.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 220, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Attack Name"
+autowrap = true
+
+[node name="staticLabel2" type="Label" parent="templates"]
+margin_left = 725.972
+margin_top = 133.263
+margin_right = 755.972
+margin_bottom = 151.263
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Free"
+
+[node name="CommandMap" parent="." instance=ExtResource( 17 )]
+
+[node name="sfxPlayer" type="Node" parent="."]
+script = ExtResource( 18 )
+soundDirectory = "res://assets/sounds/sfx/ui/menu-cursor/"

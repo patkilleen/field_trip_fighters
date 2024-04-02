@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/26-down-melee.wav-7b3421892313272b86363193a19944ad.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/26-down-melee.wav"
+dest_files=[ "res://.import/26-down-melee.wav-7b3421892313272b86363193a19944ad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

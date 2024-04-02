@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://CommandNotification.gd" type="Script" id=1]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://CommandTextureRect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/interfaces/combo/checkmark-transparent.png" type="Texture" id=4]
+[ext_resource path="res://assets/particles/pink-glow.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/combo/red-x.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.505495, 0.978022 )
+colors = PoolColorArray( 0.27916, 0.0620575, 0.324219, 0.767961, 0.505495, 0.505495, 0.505495, 0.259647, 0.792969, 0.716063, 0.0898285, 0.535922 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 100, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 50.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_random = 0.6
+color_ramp = SubResource( 3 )
+
+[node name="CommandNotification" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 13.0
+margin_right = 50.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "temp"
+
+[node name="CommandTextureRect" parent="." instance=ExtResource( 3 )]
+margin_left = 12.0
+margin_top = 67.0
+margin_right = 27.0
+margin_bottom = 107.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="success" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 77.0
+margin_top = 36.0
+margin_right = 303.0
+margin_bottom = 262.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="success"]
+visible = false
+position = Vector2( 96.6264, 158.448 )
+rotation = 4.71239
+scale = Vector2( 0.3, 0.3 )
+z_index = -1
+amount = 50
+lifetime = 10.0
+process_material = SubResource( 4 )
+texture = ExtResource( 5 )
+
+[node name="fail" type="TextureRect" parent="."]
+visible = false
+margin_left = 89.0
+margin_top = 55.0
+margin_right = 210.0
+margin_bottom = 176.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )

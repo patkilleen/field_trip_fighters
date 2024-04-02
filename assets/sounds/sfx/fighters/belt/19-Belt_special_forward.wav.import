@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/19-Belt_special_forward.wav-d5a658139b8dfb29b112b73faee056a4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/19-Belt_special_forward.wav"
+dest_files=[ "res://.import/19-Belt_special_forward.wav-d5a658139b8dfb29b112b73faee056a4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

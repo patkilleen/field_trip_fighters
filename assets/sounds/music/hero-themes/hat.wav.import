@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hat.wav-3a94e3db400a9ac2e10d1541e98fe2f7.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/hero-themes/hat.wav"
+dest_files=[ "res://.import/hat.wav-3a94e3db400a9ac2e10d1541e98fe2f7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

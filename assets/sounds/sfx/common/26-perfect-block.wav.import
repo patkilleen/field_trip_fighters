@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/26-perfect-block.wav-6e5b0ee81ad99ae6dab144ea16c1599a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/26-perfect-block.wav"
+dest_files=[ "res://.import/26-perfect-block.wav-6e5b0ee81ad99ae6dab144ea16c1599a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

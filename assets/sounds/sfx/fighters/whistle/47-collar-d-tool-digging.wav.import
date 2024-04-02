@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/47-collar-d-tool-digging.wav-fb6afe60a1c8046ffeb6e37f4fe9c038.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/47-collar-d-tool-digging.wav"
+dest_files=[ "res://.import/47-collar-d-tool-digging.wav-fb6afe60a1c8046ffeb6e37f4fe9c038.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

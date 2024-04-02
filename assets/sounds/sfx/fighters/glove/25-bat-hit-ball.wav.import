@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/25-bat-hit-ball.wav-57d3eefd70872e42b1e8affa8e3e9337.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/25-bat-hit-ball.wav"
+dest_files=[ "res://.import/25-bat-hit-ball.wav-57d3eefd70872e42b1e8affa8e3e9337.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

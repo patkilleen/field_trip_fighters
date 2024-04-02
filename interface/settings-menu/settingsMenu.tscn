@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://interface/settings-menu/optionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://interface/settings-menu/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/stats-menu/StatsMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/replays-menu/ReplaysMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/back-arrow.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="optionsMenu" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 960.0
+margin_bottom = 548.0
+
+[node name="header" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
+margin_right = 910.0
+margin_bottom = 60.0
+
+[node name="spacing-right" type="Control" parent="VBoxContainer/header"]
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/header"]
+margin_left = 304.0
+margin_right = 480.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="VBoxContainer/header/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.519823, 0.761719, 0.505829, 1 )
+text = "Options"
+
+[node name="winnerIcon" type="TextureRect" parent="VBoxContainer/header"]
+margin_left = 484.0
+margin_right = 484.0
+margin_bottom = 60.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 910.0
+margin_bottom = 100.0
+
+[node name="Settings" parent="VBoxContainer/TabContainer" instance=ExtResource( 3 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Controls" type="Control" parent="VBoxContainer/TabContainer"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Controls"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "not implented yet"
+
+[node name="Stats" parent="VBoxContainer/TabContainer" instance=ExtResource( 4 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Replays" parent="VBoxContainer/TabContainer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="footer" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
+margin_top = 104.0
+margin_right = 910.0
+margin_bottom = 104.0
+
+[node name="spacing-right2" type="Control" parent="VBoxContainer/footer"]
+margin_right = 300.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="back-arrow" parent="VBoxContainer/footer/spacing-right2" instance=ExtResource( 6 )]

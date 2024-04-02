@@ -1,0 +1,325 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/stages/radio-tower/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/stages/radio-tower/far-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/radio-tower/light.png" type="Texture" id=3]
+[ext_resource path="res://stages/radio-tower/tower-light.gd" type="Script" id=4]
+[ext_resource path="res://assets/stages/radio-tower/white-light.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/radio-tower/bgd-mist.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/radio-tower/bgd.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/radio-tower/chimney-smoke.png" type="Texture" id=8]
+[ext_resource path="res://particles/particleHitFreezePause.gd" type="Script" id=9]
+[ext_resource path="res://assets/stages/radio-tower/wind-mill-base.png" type="Texture" id=10]
+[ext_resource path="res://assets/stages/radio-tower/wind-mill-blade-close.png" type="Texture" id=11]
+[ext_resource path="res://stages/radio-tower/windmill-blade.gd" type="Script" id=12]
+[ext_resource path="res://assets/stages/radio-tower/near-wind-mill-head.png" type="Texture" id=13]
+[ext_resource path="res://assets/stages/radio-tower/rain-drop.png" type="Texture" id=14]
+[ext_resource path="res://assets/stages/radio-tower/nearby-tower.png" type="Texture" id=15]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.748148 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.067034, 0.7706 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -1.76694e+032
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 2.3
+tangential_accel = -11.5
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 900, 1, 20 )
+flag_disable_z = true
+gravity = Vector3( -60, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.75
+scale_random = 0.32
+
+[node name="loadingScreenBgd" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -37.457, -23.9618 )
+scale = Vector2( 1.07276, 0.983495 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -87.5993, 365.601 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="tower-red-light" type="Sprite" parent="."]
+position = Vector2( 902.518, 371.359 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+initialBlinkDelay = 0.05
+
+[node name="tower-white-light" type="Sprite" parent="."]
+position = Vector2( 902.518, 380.359 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+
+[node name="Sprite4" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -93.5952, 293.483 )
+scale = Vector2( 1.2026, 0.8 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -7.44897, 365.483 )
+scale = Vector2( 1.0725, 1.13191 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="power-plant-smoke" type="Particles2D" parent="."]
+position = Vector2( 660.888, 376.914 )
+rotation = 4.71239
+scale = Vector2( 0.8, 0.8 )
+amount = 40
+lifetime = 3.0
+speed_scale = 0.5
+process_material = SubResource( 5 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="power-plant-smoke2" type="Particles2D" parent="."]
+position = Vector2( 687.888, 377.914 )
+rotation = 4.71239
+scale = Vector2( 0.8, 0.8 )
+amount = 40
+lifetime = 3.0
+speed_scale = 0.5
+process_material = SubResource( 5 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="windmill-near" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 290.181, 252.483 )
+
+[node name="base" type="Sprite" parent="windmill-near"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 10 )
+
+[node name="blade" type="Sprite" parent="windmill-near"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 12 )
+rotationSpeed = 5.0
+
+[node name="head" type="Sprite" parent="windmill-near"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="tower-white-light4" type="Sprite" parent="windmill-near"]
+position = Vector2( 227.895, 205.897 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+blinkFrequency = 4.0
+initialBlinkDelay = 1.0
+
+[node name="windmill-near2" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -19.9841, 417.905 )
+
+[node name="base" type="Sprite" parent="windmill-near2"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 10 )
+
+[node name="blade" type="Sprite" parent="windmill-near2"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 12 )
+rotationSpeed = 5.0
+
+[node name="head" type="Sprite" parent="windmill-near2"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="tower-white-light4" type="Sprite" parent="windmill-near2"]
+position = Vector2( 227.895, 205.897 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+blinkFrequency = 4.0
+initialBlinkDelay = 1.0
+
+[node name="windmill-near3" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 422.001, 416.612 )
+
+[node name="base" type="Sprite" parent="windmill-near3"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 10 )
+
+[node name="blade" type="Sprite" parent="windmill-near3"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 12 )
+rotationSpeed = 5.0
+
+[node name="head" type="Sprite" parent="windmill-near3"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="tower-white-light4" type="Sprite" parent="windmill-near3"]
+position = Vector2( 227.895, 205.897 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+blinkFrequency = 4.0
+initialBlinkDelay = 1.0
+
+[node name="windmill-far" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 135.568, 276.717 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="base" type="Sprite" parent="windmill-far"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 10 )
+
+[node name="blade" type="Sprite" parent="windmill-far"]
+position = Vector2( 225.936, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 12 )
+rotationSpeed = 5.5
+
+[node name="head" type="Sprite" parent="windmill-far"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="tower-white-light2" type="Sprite" parent="windmill-far"]
+position = Vector2( 228.427, 206.926 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+blinkFrequency = 4.0
+initialBlinkDelay = 0.5
+
+[node name="windmill-far2" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 93.5681, 282.717 )
+scale = Vector2( 0.55, 0.55 )
+
+[node name="base" type="Sprite" parent="windmill-far2"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 10 )
+
+[node name="blade" type="Sprite" parent="windmill-far2"]
+position = Vector2( 227.754, 206.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 12 )
+rotationSpeed = 5.5
+
+[node name="head" type="Sprite" parent="windmill-far2"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 13 )
+
+[node name="tower-white-light3" type="Sprite" parent="windmill-far2"]
+position = Vector2( 227.66, 206.296 )
+scale = Vector2( 0.227273, 0.227273 )
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+blinkFrequency = 4.0
+initialBlinkDelay = 0.1
+
+[node name="far-rain" type="Particles2D" parent="."]
+position = Vector2( 355.46, -50.6474 )
+scale = Vector2( 0.35, 0.35 )
+amount = 130
+lifetime = 8.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1000, -1000, 3000, 3000 )
+process_material = SubResource( 6 )
+texture = ExtResource( 14 )
+script = ExtResource( 9 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -215, 199 )
+scale = Vector2( 1.29285, 1.33583 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite7" type="Sprite" parent="."]
+self_modulate = Color( 0.74902, 0.74902, 0.74902, 0.643137 )
+position = Vector2( 1095.03, 163 )
+scale = Vector2( -1.36103, 1.23067 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="rain" type="Particles2D" parent="."]
+position = Vector2( 693.913, -288.177 )
+z_index = 30
+amount = 240
+lifetime = 8.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1000, -1000, 3000, 3000 )
+process_material = SubResource( 6 )
+texture = ExtResource( 14 )
+script = ExtResource( 9 )
+
+[node name="tower-extension" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 349.176, 193.537 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="tower-extension2" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( 349.176, -113.463 )
+texture = ExtResource( 15 )
+centered = false

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/super_smash_theme_wave.wav-062d32d8939413420f910a1437053696.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/main_menu/super_smash_theme_wave.wav"
+dest_files=[ "res://.import/super_smash_theme_wave.wav-062d32d8939413420f910a1437053696.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

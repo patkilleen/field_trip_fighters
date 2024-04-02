@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/6-Belt_jump.wav-fbb354688bdf70042de6de148a9234a0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/6-Belt_jump.wav"
+dest_files=[ "res://.import/6-Belt_jump.wav-fbb354688bdf70042de6de148a9234a0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,151 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://CommandMap.gd" type="Script" id=1]
+[ext_resource path="res://textureContainer.gd" type="Script" id=2]
+[ext_resource path="res://assets/interfaces/command-input/A.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/command-input/X.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/command-input/l-x.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/r-x.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/d-x.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/up-x.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/Y.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/l-y.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/command-input/r-y.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/command-input/d-y.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/command-input/up-y.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/command-input/B.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/command-input/l-B.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/command-input/r-b.png" type="Texture" id=16]
+[ext_resource path="res://assets/interfaces/command-input/d-b.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/command-input/up-b.png" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/command-input/dash-forward.png" type="Texture" id=21]
+[ext_resource path="res://assets/interfaces/command-input/dash-back.png" type="Texture" id=22]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=23]
+[ext_resource path="res://assets/interfaces/command-input/r-a.png" type="Texture" id=24]
+[ext_resource path="res://assets/interfaces/command-input/l-a.png" type="Texture" id=25]
+[ext_resource path="res://assets/interfaces/command-input/DASH-down.png" type="Texture" id=26]
+[ext_resource path="res://assets/interfaces/command-input/AUTO-RIPOST.png" type="Texture" id=27]
+[ext_resource path="res://assets/interfaces/command-input/l1.png" type="Texture" id=28]
+
+[node name="CommandMap" type="Node"]
+script = ExtResource( 1 )
+
+[node name="textures" type="Node" parent="."]
+
+[node name="Jump" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="N-Melee" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 4 )
+
+[node name="B-Melee" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 5 )
+
+[node name="F-Melee" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 6 )
+
+[node name="D-Melee" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 7 )
+
+[node name="U-Melee" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 8 )
+
+[node name="N-Special" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 9 )
+
+[node name="B-Special" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 10 )
+
+[node name="F-Special" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 11 )
+
+[node name="D-Special" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 12 )
+
+[node name="U-Special" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 13 )
+
+[node name="N-Tool" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 14 )
+
+[node name="B-Tool" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 15 )
+
+[node name="F-Tool" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 16 )
+
+[node name="D-Tool" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 17 )
+
+[node name="U-Tool" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 18 )
+
+[node name="F-Move" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 19 )
+
+[node name="B-Move" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 20 )
+
+[node name="F-Stop-Move" type="Node" parent="textures"]
+script = ExtResource( 2 )
+
+[node name="B-Stop-Move" type="Node" parent="textures"]
+script = ExtResource( 2 )
+
+[node name="F-Dash" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 21 )
+
+[node name="B-Dash" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 22 )
+
+[node name="Crouch" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 23 )
+
+[node name="Stop-Crouch" type="Node" parent="textures"]
+script = ExtResource( 2 )
+
+[node name="F-Jump" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 24 )
+
+[node name="B-Jump" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 25 )
+
+[node name="FastFall" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 26 )
+
+[node name="Start" type="Node" parent="textures"]
+script = ExtResource( 2 )
+
+[node name="Auto-ripost" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 27 )
+
+[node name="grab" type="Node" parent="textures"]
+script = ExtResource( 2 )
+texture = ExtResource( 28 )

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://interface/stage/magnifyingGlass.gd" type="Script" id=1]
+[ext_resource path="res://assets/stages/magnifying-glass-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/magnifying-glass-bgd-player2.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/magnifying-glass-arrow.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/magnifying-glass-arrow-player-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/full-white-rec.png" type="Texture" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 2
+
+[node name="magnifyingGlass" type="Node2D"]
+script = ExtResource( 1 )
+minScale = 0.3
+player1Background = ExtResource( 2 )
+player2Background = ExtResource( 3 )
+player1Arrow = ExtResource( 4 )
+player2Arrow = ExtResource( 5 )
+
+[node name="pointer" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.596667 )
+texture = ExtResource( 4 )
+
+[node name="background" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.596667 )
+texture = ExtResource( 2 )
+
+[node name="invisiblity-area" type="Light2D" parent="."]
+position = Vector2( -0.790558, -0.263519 )
+texture = ExtResource( 6 )
+mode = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -0.527008, 33.7306 )
+
+[node name="target" type="Sprite" parent="Node2D"]
+material = SubResource( 1 )
+z_index = 1

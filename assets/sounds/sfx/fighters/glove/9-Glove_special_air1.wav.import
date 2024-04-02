@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/9-Glove_special_air1.wav-a286aa81fea3f08a13a0f9a1b12880f0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/9-Glove_special_air1.wav"
+dest_files=[ "res://.import/9-Glove_special_air1.wav-a286aa81fea3f08a13a0f9a1b12880f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

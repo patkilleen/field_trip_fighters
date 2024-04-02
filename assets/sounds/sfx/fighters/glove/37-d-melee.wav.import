@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/37-d-melee.wav-16ef8d604ccb0d42fd095a9c2e2891b5.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/37-d-melee.wav"
+dest_files=[ "res://.import/37-d-melee.wav-16ef8d604ccb0d42fd095a9c2e2891b5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

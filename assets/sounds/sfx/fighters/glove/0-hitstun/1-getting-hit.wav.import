@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1-getting-hit.wav-2c73995f4442bdc8302734dc4feba789.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/0-hitstun/1-getting-hit.wav"
+dest_files=[ "res://.import/1-getting-hit.wav-2c73995f4442bdc8302734dc4feba789.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

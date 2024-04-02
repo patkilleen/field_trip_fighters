@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://interface/new-prof-select/ProficiencyMinorClassDescription.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/new-prof-select/minor-class-text-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/new-prof-select/disabled-minor-class-text-bgd.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/acrobatics/arcobatics-air-cancel-artist.png" type="Texture" id=4]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://interface/cursor.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="ProficiencyMinorClassDescription" type="HBoxContainer"]
+script = ExtResource( 1 )
+activePropertyNameBgdTexture = ExtResource( 2 )
+disabledPropertyNameBgdTexture = ExtResource( 3 )
+
+[node name="container" type="VBoxContainer" parent="."]
+margin_right = 351.0
+margin_bottom = 84.0
+
+[node name="ProficiencyMinorClassDescription" type="HBoxContainer" parent="container"]
+margin_right = 351.0
+margin_bottom = 80.0
+
+[node name="minoclassProfIcon" type="TextureRect" parent="container/ProficiencyMinorClassDescription"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 0 )
+texture = ExtResource( 4 )
+
+[node name="iconLinkingBar" type="ColorRect" parent="container/ProficiencyMinorClassDescription/minoclassProfIcon"]
+margin_left = 39.0
+margin_right = 44.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 10, 0 )
+color = Color( 0.278431, 0, 0.505882, 1 )
+
+[node name="propertyList" type="VBoxContainer" parent="container/ProficiencyMinorClassDescription"]
+margin_left = 84.0
+margin_right = 351.0
+margin_bottom = 80.0
+
+[node name="minor-class-text-bgd" type="TextureRect" parent="container/ProficiencyMinorClassDescription/propertyList"]
+margin_right = 267.0
+margin_bottom = 31.0
+texture = ExtResource( 2 )
+
+[node name="minorProfNameContainer" type="HBoxContainer" parent="container/ProficiencyMinorClassDescription/propertyList/minor-class-text-bgd"]
+margin_right = 269.0
+margin_bottom = 29.0
+alignment = 1
+
+[node name="proficiencyName" type="Label" parent="container/ProficiencyMinorClassDescription/propertyList/minor-class-text-bgd/minorProfNameContainer"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 132.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
+text = "Minor class name"
+
+[node name="disabledProficiencyName" type="Label" parent="container/ProficiencyMinorClassDescription/propertyList/minor-class-text-bgd/minorProfNameContainer"]
+margin_left = 136.0
+margin_top = 5.0
+margin_right = 264.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+text = "Minor class name"
+
+[node name="p1pencil" parent="container/ProficiencyMinorClassDescription/propertyList/minor-class-text-bgd" instance=ExtResource( 6 )]
+position = Vector2( 156, -8.6003 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+offset = Vector2( 600, 35 )
+speed = 0.75
+
+[node name="p2pencil" parent="container/ProficiencyMinorClassDescription/propertyList/minor-class-text-bgd" instance=ExtResource( 6 )]
+position = Vector2( 156, -8.6003 )
+scale = Vector2( -0.5, 0.5 )
+z_index = 1
+offset = Vector2( 400, 35 )
+speed = 0.75
+
+[node name="padding2" type="Control" parent="container/ProficiencyMinorClassDescription/propertyList"]
+margin_top = 35.0
+margin_right = 267.0
+margin_bottom = 35.0
+
+[node name="padding" type="Control" parent="container"]
+margin_top = 84.0
+margin_right = 351.0
+margin_bottom = 84.0

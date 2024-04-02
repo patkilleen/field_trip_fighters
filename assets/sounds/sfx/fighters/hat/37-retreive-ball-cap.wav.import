@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/37-retreive-ball-cap.wav-717b1af04b9bb2d979d670bedf13f70e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/hat/37-retreive-ball-cap.wav"
+dest_files=[ "res://.import/37-retreive-ball-cap.wav-717b1af04b9bb2d979d670bedf13f70e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

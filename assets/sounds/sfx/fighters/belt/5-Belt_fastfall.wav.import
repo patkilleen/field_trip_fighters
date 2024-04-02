@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/5-Belt_fastfall.wav-ac2882a01148aabcaa75c52ccd5f9021.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/5-Belt_fastfall.wav"
+dest_files=[ "res://.import/5-Belt_fastfall.wav-ac2882a01148aabcaa75c52ccd5f9021.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://blockSfX.gd" type="Script" id=1]
+[ext_resource path="res://assets/particles/attack-sfx/correct-block.png" type="Texture" id=2]
+[ext_resource path="res://assets/particles/attack-sfx/bad-block.png" type="Texture" id=3]
+[ext_resource path="res://assets/particles/attack-sfx/correct-block-ring.png" type="Texture" id=4]
+[ext_resource path="res://assets/particles/attack-sfx/bad-block-ring.png" type="Texture" id=5]
+[ext_resource path="res://assets/particles/attack-sfx/perfect-block-ring.png" type="Texture" id=6]
+[ext_resource path="res://assets/particles/attack-sfx/perfect-block.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "main"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ring:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.154, 0.2 ), Vector2( 1.54, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("aura:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.196, 0.341 ), Vector2( 1.96, 3.41 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("aura:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ring:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="blockSfX" type="Node2D"]
+modulate = Color( 2, 2, 2, 1 )
+scale = Vector2( 0.6, 0.6 )
+z_index = 10
+script = ExtResource( 1 )
+correctBlockAuraTexture = ExtResource( 2 )
+badBlockAuraTexture = ExtResource( 3 )
+correctBlockRingTexture = ExtResource( 4 )
+badBlockRingTexture = ExtResource( 5 )
+perfecttBlockRingTexture = ExtResource( 6 )
+perfectAuraTexture = ExtResource( 7 )
+
+[node name="ring" type="Sprite" parent="."]
+position = Vector2( 19.9826, 23.7075 )
+rotation = -0.261799
+scale = Vector2( 0.154, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="aura" type="Sprite" parent="."]
+position = Vector2( 13.1576, 29.4955 )
+rotation = -0.261799
+scale = Vector2( 0.196, 0.341 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/main = SubResource( 1 )

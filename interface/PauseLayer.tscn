@@ -1,0 +1,1113 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://interface/PauseLayer.gd" type="Script" id=1]
+[ext_resource path="res://ProficiencySelectionHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/NewResourceCostList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://interface/ListSelection.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/pauseResultScreenOpponentUI.gd" type="Script" id=6]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/y.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/right trigger.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/x.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/a.png" type="Texture" id=10]
+[ext_resource path="res://particles/LandingDust.gd" type="Script" id=11]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=12]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 0.392157, 0, 0, 0, 0.423529 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 1
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+outline_size = 2
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 23
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+spread = 148.45
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 103.45
+angular_velocity = 8.90703e-015
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+color = Color( 0.11, 3, 0, 1 )
+
+[node name="PauseLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="wrapper" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="DarkBackground" type="TextureRect" parent="wrapper"]
+margin_right = 2048.0
+margin_bottom = 600.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="ProficiencySelectionHUD" parent="wrapper" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 400.495
+margin_top = 437.074
+margin_right = 440.495
+margin_bottom = 477.074
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="comboListTemplate" type="Control" parent="wrapper"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ResourceCostList" parent="wrapper" instance=ExtResource( 3 )]
+visible = false
+margin_left = 220.464
+margin_top = 38.4142
+margin_right = 220.464
+margin_bottom = 38.4142
+rect_scale = Vector2( 0.6, 0.6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="wrapper"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = 209.0
+margin_right = 1004.0
+margin_bottom = 257.0
+alignment = 1
+
+[node name="pauseLabel" type="Label" parent="wrapper/HBoxContainer"]
+margin_left = 444.0
+margin_right = 579.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Paused"
+
+[node name="ListSelection" parent="wrapper" instance=ExtResource( 5 )]
+margin_left = 409.0
+margin_top = 275.0
+margin_right = 611.0
+margin_bottom = 275.0
+csvOptions = "Resume,Restart,Student Details,Back to Character Select,Back to Proficiency Select,Back to Main Menu"
+
+[node name="trainignHUDBgd" type="TextureRect" parent="wrapper"]
+margin_left = 12.0
+margin_top = 87.0
+margin_right = 517.0
+margin_bottom = 595.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="wrapper"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 310.675
+margin_top = 149.147
+margin_right = 647.675
+margin_bottom = 197.147
+alignment = 1
+
+[node name="controllerDCLabel" type="Label" parent="wrapper/HBoxContainer2"]
+margin_left = 31.0
+margin_top = 8.0
+margin_right = 305.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Controller Disconnected"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="wrapper"]
+margin_left = 25.0
+margin_top = 98.0
+margin_right = 504.0
+margin_bottom = 570.0
+scroll_horizontal_enabled = false
+
+[node name="TrainingHUD" type="VBoxContainer" parent="wrapper/ScrollContainer"]
+margin_right = 467.0
+margin_bottom = 781.0
+
+[node name="HBoxContainer23" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_right = 467.0
+margin_bottom = 18.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer23"]
+margin_right = 83.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU Control"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 22.0
+margin_right = 467.0
+margin_bottom = 42.0
+
+[node name="padding" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer16"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer16"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 114.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Behavior"
+
+[node name="BehaviorSelection" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer16"]
+margin_left = 118.0
+margin_right = 318.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 46.0
+margin_right = 467.0
+margin_bottom = 66.0
+
+[node name="padding2" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 122.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Command"
+
+[node name="CommandSelectionButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer"]
+margin_left = 126.0
+margin_right = 326.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 70.0
+margin_right = 467.0
+margin_bottom = 90.0
+
+[node name="padding2" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer13"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer13"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 186.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Reversal Command"
+
+[node name="CommandSelectionButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer13"]
+margin_left = 190.0
+margin_right = 390.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="RecordingButtonContainer" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 94.0
+margin_right = 467.0
+margin_bottom = 118.0
+
+[node name="padding2" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/RecordingButtonContainer"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/RecordingButtonContainer"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 195.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU Input Recording"
+
+[node name="Button" type="Button" parent="wrapper/ScrollContainer/TrainingHUD/RecordingButtonContainer"]
+margin_left = 199.0
+margin_right = 318.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 6 )
+text = "New  Recording"
+
+[node name="RecordingEntriesContainer" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 122.0
+margin_right = 467.0
+margin_bottom = 122.0
+
+[node name="padding2" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/RecordingEntriesContainer"]
+margin_right = 75.0
+rect_min_size = Vector2( 75, 0 )
+
+[node name="recordings" type="VBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD/RecordingEntriesContainer"]
+margin_left = 79.0
+margin_right = 79.0
+
+[node name="HBoxContainer24" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 126.0
+margin_right = 467.0
+margin_bottom = 144.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer24"]
+margin_right = 71.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Ability Bar"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 148.0
+margin_right = 467.0
+margin_bottom = 172.0
+
+[node name="padding3" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer2"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 177.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Player Infinite Bar"
+
+[node name="playerInfBarCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer2"]
+margin_left = 181.0
+margin_right = 381.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+pressed = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 176.0
+margin_right = 467.0
+margin_bottom = 200.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer3"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer3"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 163.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU Infinite Bar"
+
+[node name="cpuInfBarCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer3"]
+margin_left = 167.0
+margin_right = 367.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+pressed = true
+
+[node name="HBoxContainer31" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 204.0
+margin_right = 467.0
+margin_bottom = 228.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer31"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer31"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 165.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Player Refill Bar"
+
+[node name="playerRefilBarCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer31"]
+margin_left = 169.0
+margin_right = 369.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+pressed = true
+
+[node name="HBoxContainer32" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 232.0
+margin_right = 467.0
+margin_bottom = 256.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer32"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer32"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 151.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU Refill Bar"
+
+[node name="cpuRefillBarCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer32"]
+margin_left = 155.0
+margin_right = 355.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+pressed = true
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 260.0
+margin_right = 467.0
+margin_bottom = 284.0
+
+[node name="padding5" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer8"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer8"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 240.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Player # Ability Bar Chunks"
+
+[node name="playerAbilityBarChunksLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer8"]
+margin_left = 244.0
+margin_right = 302.0
+margin_bottom = 24.0
+text = "24"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 288.0
+margin_right = 467.0
+margin_bottom = 312.0
+
+[node name="padding6" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer9"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer9"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 226.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU # Ability Bar Chunks"
+
+[node name="cpuAbilityBarChunksLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer9"]
+margin_left = 230.0
+margin_right = 288.0
+margin_bottom = 24.0
+text = "24"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 228.0
+margin_right = 390.0
+margin_bottom = 246.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer14"]
+margin_right = 50.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer14"]
+margin_left = 54.0
+margin_right = 322.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Automatic Active Frames Ability Cancel"
+
+[node name="HBoxContainer29" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 250.0
+margin_right = 390.0
+margin_bottom = 270.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer29"]
+margin_right = 75.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 75, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer29"]
+margin_left = 79.0
+margin_top = 1.0
+margin_right = 128.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Player:"
+
+[node name="activeAutoAbilityCancelSelection" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer29"]
+margin_left = 132.0
+margin_right = 332.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer28" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 228.0
+margin_right = 390.0
+margin_bottom = 248.0
+
+[node name="padding4" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer28"]
+margin_right = 75.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 75, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer28"]
+margin_left = 79.0
+margin_top = 1.0
+margin_right = 118.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU :"
+
+[node name="activeAutoAbilityCancelSelection2" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer28"]
+margin_left = 122.0
+margin_right = 322.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer25" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 316.0
+margin_right = 467.0
+margin_bottom = 334.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer25"]
+margin_right = 64.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Riposting"
+
+[node name="HBoxContainer19" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 338.0
+margin_right = 467.0
+margin_bottom = 362.0
+
+[node name="padding7" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer19"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer19"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 97.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Ripost"
+
+[node name="ripostCheckBox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer19"]
+margin_left = 101.0
+margin_right = 301.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 366.0
+margin_right = 467.0
+margin_bottom = 405.0
+
+[node name="padding8" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer4"]
+margin_right = 50.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer4"]
+margin_left = 54.0
+margin_right = 315.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 5 )
+text = "Ripost # Hits Delay 
+(<= 0 means no hit count-based ripost)"
+
+[node name="NumRipostHitDelayLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer4"]
+margin_left = 319.0
+margin_right = 377.0
+margin_bottom = 39.0
+text = "1"
+
+[node name="HBoxContainer33" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 409.0
+margin_right = 467.0
+margin_bottom = 429.0
+
+[node name="padding8" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer33"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer33"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 186.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Command to Ripost"
+
+[node name="RipostCommandSelectionButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer33"]
+margin_left = 190.0
+margin_right = 390.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 433.0
+margin_right = 467.0
+margin_bottom = 457.0
+
+[node name="padding9" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer5"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer5"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 154.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Counter Ripost"
+
+[node name="counterRipostCheckBox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer5"]
+margin_left = 158.0
+margin_right = 358.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer26" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 461.0
+margin_right = 467.0
+margin_bottom = 479.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer26"]
+margin_right = 40.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Guard"
+
+[node name="HBoxContainer22" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 483.0
+margin_right = 467.0
+margin_bottom = 503.0
+
+[node name="padding10" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 131.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Guard Type"
+
+[node name="GuardTypeSelection" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22"]
+margin_left = 135.0
+margin_right = 335.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer27" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 507.0
+margin_right = 467.0
+margin_bottom = 527.0
+
+[node name="padding10" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer27"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer27"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 158.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Guard Behavior"
+
+[node name="GuardBehaviorSelection" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer27"]
+margin_left = 162.0
+margin_right = 362.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer22-block4" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 531.0
+margin_right = 467.0
+margin_bottom = 555.0
+
+[node name="padding13" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block4"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block4"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 130.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Push Block"
+
+[node name="blockstunPushBlockCheckBox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block4"]
+margin_left = 134.0
+margin_right = 334.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer22-block5" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 559.0
+margin_right = 467.0
+margin_bottom = 583.0
+
+[node name="padding14" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block5"]
+margin_right = 50.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block5"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 146.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Perfect Block"
+
+[node name="perfBlockCheckBox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer22-block5"]
+margin_left = 150.0
+margin_right = 350.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="TechGroup" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 587.0
+margin_right = 467.0
+margin_bottom = 605.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/TechGroup"]
+margin_right = 56.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Tech'ing"
+
+[node name="HBoxContainer-tech-type" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 609.0
+margin_right = 467.0
+margin_bottom = 629.0
+
+[node name="padding14" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer-tech-type"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer-tech-type"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 163.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Tech Type (NIY)"
+
+[node name="choiceButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer-tech-type"]
+margin_left = 167.0
+margin_right = 367.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 633.0
+margin_right = 467.0
+margin_bottom = 653.0
+
+[node name="padding11" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer18"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer18"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 191.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Tech Direction (NIY)"
+
+[node name="techSlectionButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer18"]
+margin_left = 195.0
+margin_right = 395.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="techFilterContainer" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 657.0
+margin_right = 467.0
+margin_bottom = 677.0
+
+[node name="padding11" type="Control" parent="wrapper/ScrollContainer/TrainingHUD/techFilterContainer"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/techFilterContainer"]
+margin_left = 54.0
+margin_top = 1.0
+margin_right = 151.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Collision Filter"
+
+[node name="filterButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/techFilterContainer"]
+margin_left = 155.0
+margin_right = 355.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 681.0
+margin_right = 467.0
+margin_bottom = 701.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer17"]
+margin_top = 1.0
+margin_right = 84.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Game Speed"
+
+[node name="speedSlectionButton" type="OptionButton" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer17"]
+margin_left = 88.0
+margin_right = 288.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer20" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 705.0
+margin_right = 467.0
+margin_bottom = 729.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer20"]
+margin_top = 3.0
+margin_right = 69.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Train CPU"
+
+[node name="trainBotCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer20"]
+margin_left = 73.0
+margin_right = 273.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 450.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer10"]
+margin_right = 49.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "Player:"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 456.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer6"]
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "# Empty Damage Stars"
+
+[node name="dmgCapLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer6"]
+margin_left = 159.0
+margin_right = 217.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 456.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer7"]
+margin_top = 3.0
+margin_right = 149.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "# Filled Damage Stars"
+
+[node name="dmgAmountLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer7"]
+margin_left = 153.0
+margin_right = 211.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 450.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer15"]
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+text = "CPU:"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 456.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer11"]
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "# Empty Damage Stars"
+
+[node name="dmgCapLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer11"]
+margin_left = 159.0
+margin_right = 217.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+visible = false
+margin_top = 432.0
+margin_right = 331.0
+margin_bottom = 456.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer12"]
+margin_top = 3.0
+margin_right = 149.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "# Filled Damage Stars"
+
+[node name="dmgAmountLineEdit" type="LineEdit" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer12"]
+margin_left = 153.0
+margin_right = 211.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="HBoxContainer30" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 733.0
+margin_right = 467.0
+margin_bottom = 757.0
+
+[node name="Label" type="Label" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer30"]
+margin_top = 3.0
+margin_right = 263.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "Enable character special state override"
+
+[node name="specialCheckbox" type="CheckBox" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer30"]
+margin_left = 267.0
+margin_right = 467.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="HBoxContainer21" type="HBoxContainer" parent="wrapper/ScrollContainer/TrainingHUD"]
+margin_top = 761.0
+margin_right = 467.0
+margin_bottom = 781.0
+
+[node name="saveDemoDataMenuButton" type="Button" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer21"]
+margin_right = 117.0
+margin_bottom = 20.0
+text = "Save Demo Data"
+
+[node name="loadDemoDataMenuButton" type="Button" parent="wrapper/ScrollContainer/TrainingHUD/HBoxContainer21"]
+margin_left = 121.0
+margin_right = 239.0
+margin_bottom = 20.0
+text = "Load Demo Data"
+
+[node name="hboxcontainerToggle" type="HBoxContainer" parent="wrapper"]
+editor/display_folded = true
+visible = false
+margin_left = 67.0
+margin_top = 4.0
+margin_right = 238.0
+margin_bottom = 44.0
+
+[node name="Label2" type="Label" parent="wrapper/hboxcontainerToggle"]
+margin_top = 11.0
+margin_right = 126.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 5 )
+text = "Hide Training HUD"
+
+[node name="trainindHUDToggleBtn" type="CheckButton" parent="wrapper/hboxcontainerToggle"]
+margin_left = 130.0
+margin_right = 206.0
+margin_bottom = 40.0
+
+[node name="resultScreenOpponentUI" type="Control" parent="wrapper"]
+editor/display_folded = true
+margin_left = 721.0
+margin_top = 34.0
+margin_right = 761.0
+margin_bottom = 74.0
+script = ExtResource( 6 )
+
+[node name="reqProfSelect" type="Label" parent="wrapper/resultScreenOpponentUI"]
+margin_top = 142.0
+margin_right = 232.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 7 )
+text = "Request proficiency selection"
+
+[node name="reqStageSelect" type="Label" parent="wrapper/resultScreenOpponentUI"]
+margin_top = 99.0
+margin_right = 232.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 7 )
+text = "Request stage selection"
+
+[node name="reqCharSelect" type="Label" parent="wrapper/resultScreenOpponentUI"]
+margin_top = 184.0
+margin_right = 232.0
+margin_bottom = 205.0
+custom_fonts/font = SubResource( 7 )
+text = "Request character selection"
+
+[node name="reqRematch" type="Label" parent="wrapper/resultScreenOpponentUI"]
+margin_top = 59.0
+margin_right = 232.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 7 )
+text = "Request rematch"
+
+[node name="btn_Y" type="TextureRect" parent="wrapper/resultScreenOpponentUI"]
+margin_left = 240.0
+margin_top = 134.0
+margin_right = 280.0
+margin_bottom = 174.0
+texture = ExtResource( 7 )
+
+[node name="particleSpawnPos" type="Position2D" parent="wrapper/resultScreenOpponentUI/btn_Y"]
+position = Vector2( 20, 17 )
+
+[node name="btn_R2" type="TextureRect" parent="wrapper/resultScreenOpponentUI"]
+margin_left = 216.0
+margin_top = 94.0
+margin_right = 301.0
+margin_bottom = 134.0
+texture = ExtResource( 8 )
+
+[node name="particleSpawnPos" type="Position2D" parent="wrapper/resultScreenOpponentUI/btn_R2"]
+position = Vector2( 42, 17 )
+
+[node name="btn_X" type="TextureRect" parent="wrapper/resultScreenOpponentUI"]
+margin_left = 240.0
+margin_top = 176.0
+margin_right = 280.0
+margin_bottom = 216.0
+texture = ExtResource( 9 )
+
+[node name="particleSpawnPos" type="Position2D" parent="wrapper/resultScreenOpponentUI/btn_X"]
+position = Vector2( 21, 19 )
+
+[node name="btn_A" type="TextureRect" parent="wrapper/resultScreenOpponentUI"]
+margin_left = 240.0
+margin_top = 51.0
+margin_right = 280.0
+margin_bottom = 91.0
+texture = ExtResource( 10 )
+
+[node name="particleSpawnPos" type="Position2D" parent="wrapper/resultScreenOpponentUI/btn_A"]
+position = Vector2( 21, 19 )
+
+[node name="request" type="Label" parent="wrapper/resultScreenOpponentUI"]
+margin_left = -32.0
+margin_top = 298.0
+margin_right = 263.0
+margin_bottom = 326.0
+rect_rotation = 30.0
+custom_fonts/font = SubResource( 8 )
+text = "Character selection requested"
+
+[node name="Particles2Dtemplate" type="Particles2D" parent="wrapper/resultScreenOpponentUI"]
+position = Vector2( 260, 9 )
+emitting = false
+amount = 64
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource( 9 )
+script = ExtResource( 11 )
+pauseOnHitFreeze = false
+
+[node name="sfxPlayer" type="Node" parent="."]
+script = ExtResource( 12 )
+soundDirectory = "res://assets/sounds/sfx/ui/menu-cursor/"

@@ -1,0 +1,220 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/haunted-mansion/static-bgd.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/haunted-mansion/foreground.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/haunted-mansion/dust-particle.png" type="Texture" id=5]
+[ext_resource path="res://particles/particleHitFreezePause.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/ambience/stage/haunted-house/ambience.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/stages/haunted-mansion/sky.png" type="Texture" id=8]
+[ext_resource path="res://assets/stages/haunted-mansion/far-back-montains-forest.png" type="Texture" id=9]
+[ext_resource path="res://assets/stages/haunted-mansion/mansion_and_bus.png" type="Texture" id=10]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby3.png" type="Texture" id=11]
+[ext_resource path="res://assets/shaders/moving-mist.shader" type="Shader" id=12]
+[ext_resource path="res://assets/stages/haunted-mansion/mist-2.png" type="Texture" id=13]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby2.png" type="Texture" id=14]
+[ext_resource path="res://assets/stages/haunted-mansion/mist1.png" type="Texture" id=15]
+[ext_resource path="res://stages/scrolling-texture.gd" type="Script" id=16]
+[ext_resource path="res://assets/stages/haunted-mansion/vegetation-nearby1.png" type="Texture" id=17]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.214292, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 850, 200, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angular_velocity = 14696.1
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 12 )
+shader_param/Direction = Vector2( 1, 0 )
+shader_param/Speed = 0.01
+shader_param/time = 0.0
+
+[node name="swamp" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 5.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10054, 19.726 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( -79, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 10910, 8.365 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+position = Vector2( 82, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 0
+
+[node name="nonAnimatedBgd" type="Sprite" parent="." index="3"]
+light_mask = 5
+position = Vector2( 427.99, 574.692 )
+texture = ExtResource( 3 )
+
+[node name="foreground" type="Sprite" parent="." index="4"]
+light_mask = 5
+position = Vector2( 429.1, 590.746 )
+z_index = 20
+texture = ExtResource( 4 )
+
+[node name="dust-particles" type="Particles2D" parent="." index="5"]
+pause_mode = 2
+position = Vector2( 497.531, 430.104 )
+amount = 150
+process_material = SubResource( 5 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="CanvasLayer" parent="." index="11"]
+editor/display_folded = true
+
+[node name="player1Spawn" parent="." index="12"]
+position = Vector2( 433, 455 )
+
+[node name="player2Spawn" parent="." index="13"]
+position = Vector2( 633, 455 )
+
+[node name="cameraBoundaries" parent="." index="16"]
+margin_left = -133.0
+margin_top = -156.0
+margin_right = 987.0
+margin_bottom = 650.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="22"]
+pause_mode = 1
+stream = ExtResource( 7 )
+volume_db = -2.0
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="40"]
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/sky" index="0"]
+position = Vector2( -366, -237 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="back-mountains-forest" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2( 1, 0.8 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/back-mountains-forest" index="0"]
+position = Vector2( -131, 43 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="mansion-and-bus" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+position = Vector2( 0, 1 )
+motion_scale = Vector2( 0.65, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/mansion-and-bus" index="0"]
+position = Vector2( -11, 186 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="trees3" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_scale = Vector2( 0.8, 1 )
+
+[node name="trees" type="Sprite" parent="ParallaxBackground/trees3" index="0"]
+position = Vector2( 214, 233 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="trees2" type="Sprite" parent="ParallaxBackground/trees3" index="1"]
+position = Vector2( -617, 233 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="moving-mist" type="Sprite" parent="ParallaxBackground/trees3" index="2"]
+material = SubResource( 6 )
+position = Vector2( 23, 389 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="trees2" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2( 0.85, 1 )
+
+[node name="trees" type="Sprite" parent="ParallaxBackground/trees2" index="0"]
+position = Vector2( 18, 215 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="trees2" type="Sprite" parent="ParallaxBackground/trees2" index="1"]
+position = Vector2( -910, 215 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="moving-mist2" type="Sprite" parent="ParallaxBackground/trees2" index="2"]
+material = SubResource( 6 )
+position = Vector2( -188, 399 )
+texture = ExtResource( 15 )
+centered = false
+script = ExtResource( 16 )
+
+[node name="trees1" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="trees" type="Sprite" parent="ParallaxBackground/trees1" index="0"]
+position = Vector2( 56, 203 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="trees2" type="Sprite" parent="ParallaxBackground/trees1" index="1"]
+position = Vector2( -1008, 185 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="largeHitTempSpriteTemplate" parent="." index="42"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0

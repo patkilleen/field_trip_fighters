@@ -1,0 +1,508 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://interface/new-prof-select-wheel/NewProficiencySelectWheelHUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/bar/ability/new-2/bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/generalist.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/new-prof-select/green-star.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/new-prof-select/red-star.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/new-prof-select-wheel/wheel-slot2.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/ability-cancel.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/defender.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/offensive-mastery.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/hardcore.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/arcobatics.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/psychic.png" type="Texture" id=12]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/interfaces/bar/ability/new-2/white-indicator.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/proficiencies/icons/minor-prof-icons/new/frail.png" type="Texture" id=15]
+[ext_resource path="res://interface/new-prof-select/datamodel/ProficiencyDataModel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/interfaces/combo/filled-star.png" type="Texture" id=17]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[node name="NewProficiencySelectWheelHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -520.0
+script = ExtResource( 1 )
+
+[node name="major-class-slots" type="Control" parent="."]
+margin_left = 156.947
+margin_top = 2.10527
+margin_right = 196.947
+margin_bottom = 42.1053
+
+[node name="generalist-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = 30.0
+margin_top = 136.0
+margin_right = 70.0
+margin_bottom = 176.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/generalist-slot"]
+modulate = Color( 0.388235, 0.380392, 0.501961, 1 )
+position = Vector2( -3, 18 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/generalist-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( -3, 18 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/generalist-slot"]
+position = Vector2( -1, 15 )
+texture = ExtResource( 3 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/generalist-slot"]
+margin_left = -23.0
+margin_top = -36.0
+margin_right = 17.0
+margin_bottom = 4.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/generalist-slot/choice-stars"]
+margin_left = -6.66667
+margin_top = -10.6667
+margin_right = 29.3333
+margin_bottom = 29.3333
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/generalist-slot/choice-stars"]
+margin_left = 26.3333
+margin_top = -9.33333
+margin_right = 62.3333
+margin_bottom = 30.6667
+texture = ExtResource( 5 )
+
+[node name="mage-slot" type="Control" parent="major-class-slots"]
+margin_left = 143.856
+margin_top = 70.1426
+margin_right = 183.856
+margin_bottom = 110.143
+rect_rotation = 45.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/mage-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/mage-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/mage-slot"]
+position = Vector2( -1.41422, 24.0416 )
+rotation = -0.785398
+texture = ExtResource( 7 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/mage-slot"]
+margin_left = -12.6572
+margin_top = -38.0424
+margin_right = 27.3428
+margin_bottom = 1.95761
+rect_rotation = -45.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/mage-slot/choice-stars"]
+margin_left = -23.1444
+margin_top = -15.5973
+margin_right = 12.8556
+margin_bottom = 24.4027
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/mage-slot/choice-stars"]
+margin_left = 8.79907
+margin_top = 9.08166
+margin_right = 44.7991
+margin_bottom = 49.0817
+texture = ExtResource( 5 )
+
+[node name="defender-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = 186.963
+margin_top = 164.229
+margin_right = 226.963
+margin_bottom = 204.229
+rect_rotation = 90.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/defender-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/defender-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/defender-slot"]
+position = Vector2( -5.77646, 14.8978 )
+rotation = -1.5708
+texture = ExtResource( 8 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/defender-slot"]
+margin_left = -20.9363
+margin_top = -25.2432
+margin_right = 19.0637
+margin_bottom = 14.7568
+rect_rotation = -90.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/defender-slot/choice-stars"]
+margin_left = -8.1257
+margin_top = -23.4211
+margin_right = 27.8743
+margin_bottom = 16.5789
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/defender-slot/choice-stars"]
+margin_left = -4.76053
+margin_top = 14.0879
+margin_right = 31.2395
+margin_bottom = 54.0879
+texture = ExtResource( 5 )
+
+[node name="offensive-master-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = 153.297
+margin_top = 262.117
+margin_right = 193.297
+margin_bottom = 302.117
+rect_rotation = 135.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/offensive-master-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/offensive-master-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( -0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/offensive-master-slot"]
+position = Vector2( -2.12134, 14.8492 )
+rotation = -2.35619
+texture = ExtResource( 9 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/offensive-master-slot"]
+margin_left = -18.4436
+margin_top = -24.7031
+margin_right = 21.5564
+margin_bottom = 15.2969
+rect_rotation = -135.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/offensive-master-slot/choice-stars"]
+margin_top = -23.1444
+margin_right = 36.0
+margin_bottom = 16.8556
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/offensive-master-slot/choice-stars"]
+margin_left = -22.8735
+margin_top = 12.5785
+margin_right = 13.1265
+margin_bottom = 52.5785
+texture = ExtResource( 5 )
+
+[node name="hardcore-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = -90.856
+margin_top = 62.143
+margin_right = -50.856
+margin_bottom = 102.143
+rect_rotation = -45.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/hardcore-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/hardcore-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/hardcore-slot"]
+position = Vector2( 2.82843, 13.5858 )
+rotation = 0.785398
+texture = ExtResource( 10 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/hardcore-slot"]
+margin_left = 1.10458
+margin_top = -58.7881
+margin_right = 41.1046
+margin_bottom = -18.7881
+rect_rotation = 45.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/hardcore-slot/choice-stars"]
+margin_left = -9.9141
+margin_top = 13.5007
+margin_right = 26.0859
+margin_bottom = 53.5007
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/hardcore-slot/choice-stars"]
+margin_left = 23.1835
+margin_top = -12.3624
+margin_right = 59.1835
+margin_bottom = 27.6376
+texture = ExtResource( 5 )
+
+[node name="acrobatics-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = -138.368
+margin_top = 158.263
+margin_right = -98.3685
+margin_bottom = 198.263
+rect_rotation = -90.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/acrobatics-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/acrobatics-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/acrobatics-slot"]
+position = Vector2( 5.32938, 21.6933 )
+rotation = 1.5708
+texture = ExtResource( 11 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/acrobatics-slot"]
+margin_left = 14.9703
+margin_top = -57.8765
+margin_right = 54.9703
+margin_bottom = -17.8765
+rect_rotation = 90.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/acrobatics-slot/choice-stars"]
+margin_left = 13.9374
+margin_top = -18.3973
+margin_right = 49.9374
+margin_bottom = 21.6027
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/acrobatics-slot/choice-stars"]
+margin_left = 12.4702
+margin_top = 18.9548
+margin_right = 48.4702
+margin_bottom = 58.9548
+texture = ExtResource( 5 )
+
+[node name="psychic-slot" type="Control" parent="major-class-slots"]
+editor/display_folded = true
+margin_left = -104.737
+margin_top = 260.474
+margin_right = -64.7368
+margin_bottom = 300.474
+rect_rotation = -135.0
+
+[node name="unselect-bgd" type="Sprite" parent="major-class-slots/psychic-slot"]
+modulate = Color( 0.227451, 0.219608, 0.317647, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="selected-bgd" type="Sprite" parent="major-class-slots/psychic-slot"]
+visible = false
+modulate = Color( 0.92549, 0.890196, 0.533333, 1 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 6 )
+
+[node name="prof-icon" type="Sprite" parent="major-class-slots/psychic-slot"]
+position = Vector2( 4.24273, 25.456 )
+rotation = 2.35619
+texture = ExtResource( 12 )
+
+[node name="choice-stars" type="Control" parent="major-class-slots/psychic-slot"]
+margin_left = 29.3369
+margin_top = -47.6777
+margin_right = 69.3369
+margin_bottom = -7.67773
+rect_rotation = 135.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="greenStar" type="TextureRect" parent="major-class-slots/psychic-slot/choice-stars"]
+margin_left = 1.35661
+margin_top = -25.0872
+margin_right = 37.3566
+margin_bottom = 14.9128
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="major-class-slots/psychic-slot/choice-stars"]
+margin_left = 25.2926
+margin_top = 2.22998
+margin_right = 61.2926
+margin_bottom = 42.23
+texture = ExtResource( 5 )
+
+[node name="proficiencyName" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 202.0
+margin_right = 248.0
+margin_bottom = 273.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
+text = "Offensive Mastery"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="minor-class-slots" type="Control" parent="."]
+margin_left = 39.0
+margin_top = 72.0
+margin_right = 79.0
+margin_bottom = 112.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="slot1" type="Control" parent="minor-class-slots"]
+margin_left = 105.966
+margin_top = 380.905
+margin_right = 145.966
+margin_bottom = 420.905
+
+[node name="line" type="Sprite" parent="minor-class-slots/slot1"]
+modulate = Color( 0.584314, 0.580392, 0.152941, 1 )
+position = Vector2( 18.4612, -54.056 )
+rotation = -2.79253
+scale = Vector2( 0.100021, 0.991234 )
+texture = ExtResource( 6 )
+
+[node name="background" type="TextureRect" parent="minor-class-slots/slot1"]
+modulate = Color( 0.352941, 0.34902, 0.580392, 1 )
+margin_left = -59.621
+margin_top = -55.1393
+margin_right = 123.379
+margin_bottom = 127.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+
+[node name="background2" type="TextureRect" parent="minor-class-slots/slot1"]
+modulate = Color( 1, 0.988235, 0.141176, 1 )
+margin_left = -59.621
+margin_top = -55.1393
+margin_right = 123.379
+margin_bottom = 127.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+
+[node name="border" type="TextureRect" parent="minor-class-slots/slot1"]
+modulate = Color( 0.584314, 0.580392, 0.152941, 1 )
+margin_left = -59.621
+margin_top = -55.1393
+margin_right = 126.379
+margin_bottom = 130.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 14 )
+
+[node name="prof-icon" type="Sprite" parent="minor-class-slots/slot1"]
+texture = ExtResource( 15 )
+
+[node name="slot2" type="Control" parent="minor-class-slots"]
+margin_left = 260.966
+margin_top = 380.905
+margin_right = 300.966
+margin_bottom = 420.905
+
+[node name="line" type="Sprite" parent="minor-class-slots/slot2"]
+modulate = Color( 0.584314, 0.580392, 0.152941, 1 )
+position = Vector2( -6.43064, -48.0929 )
+rotation = 2.79253
+scale = Vector2( 0.1, 0.935822 )
+texture = ExtResource( 6 )
+
+[node name="background" type="TextureRect" parent="minor-class-slots/slot2"]
+modulate = Color( 0.352941, 0.34902, 0.580392, 1 )
+margin_left = -59.621
+margin_top = -56.1393
+margin_right = 123.379
+margin_bottom = 126.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+
+[node name="background2" type="TextureRect" parent="minor-class-slots/slot2"]
+modulate = Color( 1, 0.988235, 0.141176, 1 )
+margin_left = -59.621
+margin_top = -56.1393
+margin_right = 123.379
+margin_bottom = 126.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+
+[node name="border" type="TextureRect" parent="minor-class-slots/slot2"]
+modulate = Color( 0.584314, 0.580392, 0.152941, 1 )
+margin_left = -59.621
+margin_top = -56.1393
+margin_right = 126.379
+margin_bottom = 129.861
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 14 )
+
+[node name="prof-icon" type="Sprite" parent="minor-class-slots/slot2"]
+texture = ExtResource( 15 )
+
+[node name="profDataModel" parent="." instance=ExtResource( 16 )]
+
+[node name="greenStar" type="TextureRect" parent="."]
+margin_left = 166.233
+margin_top = 30.928
+margin_right = 202.233
+margin_bottom = 70.928
+texture = ExtResource( 4 )
+
+[node name="redStar" type="TextureRect" parent="."]
+margin_left = 166.233
+margin_top = 30.928
+margin_right = 202.233
+margin_bottom = 70.928
+texture = ExtResource( 5 )
+
+[node name="goldenStar" type="TextureRect" parent="."]
+margin_left = 164.0
+margin_top = 29.0
+margin_right = 279.0
+margin_bottom = 139.0
+rect_scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 17 )
+
+[node name="sfxPlayer" type="Node" parent="."]
+script = ExtResource( 18 )
+soundDirectory = "res://assets/sounds/sfx/ui/menu-cursor/"
+
+[node name="invalidOptionsfxPlayer" type="Node" parent="."]
+script = ExtResource( 18 )
+soundDirectory = "res://assets/sounds/sfx/ui/menu-cursor/"
+volume_db = -2.0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://HurtboxArea.gd" type="Script" id=1]
+[ext_resource path="res://assets/common_collision_areas/ground-idle/body_box.tres" type="Shape2D" id=2]
+[ext_resource path="res://assets/common_collision_areas/ground-idle/head_box.tres" type="Shape2D" id=3]
+[ext_resource path="res://assets/common_collision_areas/grab/grab_hitbox_arm_only.tres" type="Shape2D" id=4]
+
+[node name="active-grab-hurtbox-area" type="Node"]
+script = ExtResource( 1 )
+overrideSpriteFrameOffset = true
+
+[node name="ground-idle-body" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 6 )
+shape = ExtResource( 2 )
+
+[node name="ground-idle-head" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -29 )
+shape = ExtResource( 3 )
+
+[node name="grab-arm" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 15.982, -7.994 )
+shape = ExtResource( 4 )

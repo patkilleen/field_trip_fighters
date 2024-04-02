@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/34-b-melee.wav-da9767c4241258f272383f51e610f9b2.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/belt/34-b-melee.wav"
+dest_files=[ "res://.import/34-b-melee.wav-da9767c4241258f272383f51e610f9b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

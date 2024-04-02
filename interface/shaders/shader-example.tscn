@@ -1,0 +1,422 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://interface/shaders/color-outline.shader" type="Shader" id=1]
+[ext_resource path="res://assets/fighters/belt/air-melee/active.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/shaders/noise-150x119.png" type="Texture" id=3]
+[ext_resource path="res://interface/shaders/moving-dots.shader" type="Shader" id=4]
+[ext_resource path="res://assets/interfaces/shaders/transparent-bgd.png" type="Texture" id=5]
+[ext_resource path="res://interface/shaders/flag-wave.shader" type="Shader" id=6]
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 1 )
+shader_param/intensity = 50
+shader_param/precision = 0.02
+shader_param/flipColors = null
+shader_param/outline_color = Color( 0.556863, 0.0352941, 0.647059, 1 )
+shader_param/outline_color_2 = Color( 0.972549, 0.227451, 1, 1 )
+shader_param/use_outline_uv = true
+shader_param/useTexture = false
+
+[sub_resource type="Shader" id=16]
+code = "//https://godotshaders.com/shader/vaporwave-grid/
+shader_type canvas_item;
+
+uniform float battery : hint_range(0.0,1.0) = 1.0;
+uniform float anchor : hint_range(-1.0,1.0) = -0.5;
+uniform float speed_scale : hint_range(1.0, 10.0) = 1.0;
+uniform float fov : hint_range(0.01, 1.0) = 0.2;
+uniform vec4 background_color : hint_color = vec4(0.0, 0.1, 0.2, 1.0);
+uniform vec4 grid_color : hint_color = vec4(1.0, 0.5, 1.0, 1.0);
+
+float grid(vec2 uv, float batt, float t) {
+    vec2 size = vec2(uv.y, uv.y * uv.y * 0.2) * 0.01;
+    uv += vec2(0.0, t * speed_scale * (batt + 0.05));
+    uv = abs(fract(uv) - 0.5);
+ 	vec2 lines = smoothstep(size, vec2(0.0), uv);
+ 	lines += smoothstep(size * 5.0, vec2(0.0), uv) * 0.4 * batt;
+    return clamp(lines.x + lines.y, 0.0, 3.0);
+}
+
+void fragment() {
+	vec2 uv = UV;
+	vec4 col = background_color;
+    uv.y = 3.0 / (abs(uv.y + fov) + 0.05);
+	uv.x += anchor;
+    uv.x *= uv.y * 1.0;
+    float gridVal = grid(uv, battery,TIME);
+    col = mix(background_color, grid_color, gridVal);
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = SubResource( 16 )
+shader_param/battery = 1.0
+shader_param/anchor = -0.5
+shader_param/speed_scale = 1.0
+shader_param/fov = 0.2
+shader_param/background_color = Color( 0, 0.1, 0.2, 1 )
+shader_param/grid_color = Color( 1, 0.5, 1, 1 )
+
+[sub_resource type="Shader" id=18]
+code = "//Shader by: Jordancjb (https://linktr.ee/jordancjb)
+//Licensed under Creative Commons 0, Use as you like c:
+//https://godotshaders.com/shader/static-overlay/
+shader_type canvas_item;
+
+//Noise Texture
+uniform sampler2D Noise;
+
+//Settings
+uniform float Transparency = 4.0;
+uniform float Slow = 25.0;
+
+//Shader Code
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV) * texture(Noise, texture(Noise, UV).xy + cos(TIME) / Slow) / Transparency;
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/Transparency = 1.0
+shader_param/Slow = 25.0
+shader_param/Noise = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=20]
+shader = ExtResource( 4 )
+shader_param/variant = 1.1
+shader_param/distortion = 1.0
+shader_param/seed = 0.01
+shader_param/stretch = Vector3( 3, 3, 3 )
+shader_param/pattern = 5.0
+shader_param/blur = 2.0
+
+[sub_resource type="Shader" id=21]
+code = "shader_type canvas_item;
+
+uniform sampler2D noiseTexture;
+uniform vec3 baseColorRGB = vec3(0.2, 0.1, 0.4);
+uniform float speed = 0.15;
+
+mat2 makem2(in float theta)
+{
+	float c = cos(theta);
+	float s = sin(theta);
+	vec2 part1 = vec2(c, -s);
+	vec2 part2 = vec2(s, c);
+	return mat2(part1, part2);
+}
+
+float noise(in vec2 x)
+{
+	return texture(noiseTexture, x * 0.01).x;
+}
+
+float fbm(in vec2 p)
+{
+	float z = 2.0;
+	float rz = 0.0;
+	vec2 bp = p;
+	for (float i = 1.0; i < 6.0; i++)
+	{
+		rz += abs((noise(p) - 0.5) * 2.0) / z;
+		z = z * 2.0;
+		p = p * 2.0;
+	}
+	return rz;
+}
+
+float dualfbm(in vec2 p, float time)
+{
+	//get two rotated fbm calls and displace the domain
+	vec2 p2 = p * 0.7;
+	vec2 basis = vec2(fbm(p2 - (time * speed) * 1.6), fbm(p2 + (time * speed) * 1.7));
+	basis = (basis - 0.5) * 0.2;
+	p += basis;
+	
+	//coloring
+	return fbm(p * makem2((time * speed) * 0.2));
+}
+
+float circ(vec2 p) 
+{
+	float tau = 6.2831853;
+	float r = length(p);
+	r = 0.5 * log(r);
+	return abs(mod(r * 4.0, tau) - 3.14) * 3.0 + 0.2;
+}
+
+void fragment()
+{
+	//setup system
+	vec2 p = UV.xy / (1.0 / TEXTURE_PIXEL_SIZE).xy - 0.5;
+	p.x *= (1.0 / TEXTURE_PIXEL_SIZE).x / (1.0 / TEXTURE_PIXEL_SIZE).y;
+	p *= 4.0;
+	
+	float rz = dualfbm(p,TIME);
+	
+	//rings
+	p /= exp(mod((TIME * speed) * 10.0, 3.14159));
+	rz *= pow(abs((0.1 - circ(p))), 0.9);
+	
+	//final color
+	vec3 col = baseColorRGB / rz;
+	col = pow(abs(col), vec3(0.99));
+	COLOR = vec4(col, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 21 )
+shader_param/baseColorRGB = Vector3( 0.3, 0.3, 0.4 )
+shader_param/speed = 0.15
+shader_param/noiseTexture = ExtResource( 3 )
+
+[sub_resource type="Shader" id=23]
+code = "shader_type canvas_item;
+
+uniform float strength = 4.0;
+uniform sampler2D noise;
+
+void fragment() {
+	COLOR = texture(TEXTURE,UV);
+	float noise_value = texture( noise, vec2(fract(TIME), UV.y) ).r;
+	if (COLOR.a == 0.0) {
+		float dist_to_mid = abs(UV.x - 0.5) * 2.0;
+		COLOR = vec4(1.0, 1.0, 1.0, strength * noise_value * (1.0 - dist_to_mid) * (1.0 - dist_to_mid) );
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=24]
+shader = SubResource( 23 )
+shader_param/strength = 1.0
+shader_param/noise = ExtResource( 3 )
+
+[sub_resource type="Gradient" id=25]
+offsets = PoolRealArray( 0, 0.0612517, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.172549, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=26]
+gradient = SubResource( 25 )
+
+[sub_resource type="Shader" id=27]
+code = "/*
+Shader from Godot Shaders - the free shader library.
+godotshaders.com/shader/energy-beams
+
+This shader is under CC0 license. Feel free to use, improve and 
+change this shader according to your needs and consider sharing 
+the modified result to godotshaders.com.
+https://godotshaders.com/shader/energy-beams/
+*/
+
+shader_type canvas_item;
+render_mode blend_add; // Remove this if you want to use HDR glow instead (use \"Glow\" and \"Outline Glow\" sliders)
+
+uniform int beams = 2; // How many beams the energy field should have
+
+uniform float energy = 3.0; // How much the beams will travel up and down
+uniform int roughness : hint_range(1, 10) = 3; // How compact the noise texture will be
+uniform int frequency = 10; // Amount of \"ripples\" in the beams
+
+uniform float speed = 1.0; // Animation speed
+uniform float thickness : hint_range(0.0, 0.1) = 0.006; // Thickness of the main beam
+uniform float outline_thickness : hint_range(0.0, 0.1) = 0.03; //Thickness of the outline color
+uniform float beam_difference : hint_range(0.0, 1.0) = 0.0; // The thickness difference between the main beam and the other, if there are more than one beam. The closer to 1 the smaller the thickness difference.
+
+uniform float glow : hint_range(0.0, 3.0) = 0.0; // Use together with WorldEnvironment's Glow feature
+uniform float outline_glow : hint_range(0.0, 3.0) = 0.0;
+
+uniform vec4 color : hint_color = vec4(0.91, 1.0, 1.0, 1.0);
+uniform vec4 outline_color : hint_color = vec4(0.5, 1.0, 0.96, 1.0);
+
+uniform float progress : hint_range(0.0, 1.0) = 1.0;
+
+uniform float y_offset : hint_range (-0.5, 0.5) = 0.0; // Position of the beam
+uniform float fixed_edge_size : hint_range(0.0, 0.5) = 0.05; // How close to the edge should the beam be still before the animatino starts
+uniform vec2 noise_scale = vec2(1.0); // If the object (for example the ColorRect or Sprite node) is compressed use this to compensate for the noise texture being compressed.
+
+float random(vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) *
+            43758.5453123);
+}
+
+float noise(vec2 uv) {
+    vec2 uv_index = floor(uv);
+    vec2 uv_fract = fract(uv);
+
+    // Four corners in 2D of a tile
+    float a = random(uv_index);
+    float b = random(uv_index + vec2(1.0, 0.0));
+    float c = random(uv_index + vec2(0.0, 1.0));
+    float d = random(uv_index + vec2(1.0, 1.0));
+
+    vec2 blur = smoothstep(0.0, 1.0, uv_fract);
+
+    return mix(a, b, blur.x) +
+            (c - a) * blur.y * (1.0 - blur.x) +
+            (d - b) * blur.x * blur.y;
+}
+
+float fbm(vec2 uv, float time) {
+    int octaves = roughness;
+    float amp = 0.01 * energy * progress;
+    float freq = float(frequency);
+	float value = 0.0;
+	
+    for(int i = 0; i < octaves; i++) {
+        value += amp * noise(freq * vec2(uv.x, uv.y + time));
+        amp *= 0.5;
+        freq *= 2.0;
+    }
+    return value;
+}
+
+vec4 difference(vec4 base, vec4 blend){
+	return abs(base - blend);
+}
+
+vec4 bolt(vec2 uv, float time, float i)
+{
+	// Setup the beam locking to the edges.
+	float falloff = smoothstep(0.0, fixed_edge_size, uv.x) * smoothstep(0.0, fixed_edge_size, 1.0 - uv.x);
+	
+	// Use Fractal Brownian Motion to create a \"cloud texture\" and use Difference blend mode to make the beam
+	vec4 clouds = vec4(fbm((uv + vec2(i) ) * noise_scale, time * speed)) * falloff;
+	vec4 diff_clouds = difference(clouds, vec4(uv.y - 0.5 + y_offset + (uv.y * falloff * 0.02 * energy * progress)));
+	
+	// Create a new noise to mask the beams on low \"progress\" values. To make a \"turn-off\" effect more visually interesting.
+	vec4 clouds2 = vec4(fbm((uv * 2.0) * noise_scale, time * 1.)) * 5.0;
+	diff_clouds += smoothstep(0.0, 0.8, clouds2) * 0.1 * (1.-progress);
+	
+	// Set thickness of the beams. First beam is the Thickness size and all following beams are sized with beam_difference
+	float thickness2 =  1. - ( thickness / (min(i + beam_difference, 1.0) + (1.0-beam_difference))) * progress ;
+	vec4 beam = clamp(smoothstep(thickness2, thickness2 + 0.005 * progress, 1.0 - diff_clouds), vec4(0.0), vec4(1.0));
+	
+	//Set the beam outlines
+	vec4 beam_outline;
+	float outline = thickness2 - (outline_thickness * progress);
+	beam_outline = clamp(smoothstep(outline, outline + 0.04, 1.0 - diff_clouds), 0.0, 1.0);
+	beam_outline = clamp(beam_outline - beam, 0.0, 1.0);
+	
+	// Merge the beam and the outline and return to the fragment function
+	return (beam * (color + vec4(glow, glow, glow, 0.))) + (beam_outline * (outline_color + vec4(outline_glow, outline_glow, outline_glow, 0.)));
+}
+
+void fragment()
+{	
+	vec4 beam = vec4(0.0);
+	
+	for (int i = 0; i < beams; i++){
+		beam = max(beam, bolt(UV, TIME, float(i)));
+	}
+	
+	COLOR = beam;
+}"
+
+[sub_resource type="ShaderMaterial" id=28]
+shader = SubResource( 27 )
+shader_param/beams = 3
+shader_param/energy = 3.0
+shader_param/roughness = 2
+shader_param/frequency = 10
+shader_param/speed = 1.0
+shader_param/thickness = 0.006
+shader_param/outline_thickness = 0.03
+shader_param/beam_difference = 0.0
+shader_param/glow = 0.0
+shader_param/outline_glow = 0.0
+shader_param/color = Color( 0.91, 1, 1, 1 )
+shader_param/outline_color = Color( 0.5, 1, 0.96, 1 )
+shader_param/progress = 1.0
+shader_param/y_offset = 0.0
+shader_param/fixed_edge_size = 0.05
+shader_param/noise_scale = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 6 )
+shader_param/speed = 10.0
+shader_param/frequency_y = 5.0
+shader_param/frequency_x = 5.0
+shader_param/amplitude_y = 5.0
+shader_param/amplitude_x = 5.0
+shader_param/inclination = 0.0
+
+[sub_resource type="Gradient" id=29]
+
+[sub_resource type="GradientTexture" id=30]
+gradient = SubResource( 29 )
+
+[node name="shader-example" type="Node2D"]
+
+[node name="colored-outline" type="Sprite" parent="."]
+material = SubResource( 15 )
+position = Vector2( 427.93, 280.56 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="scifi-grid" type="ColorRect" parent="."]
+material = SubResource( 17 )
+margin_left = 285.0
+margin_top = -1.89999
+margin_right = 685.0
+margin_bottom = 188.1
+rect_rotation = 89.9999
+
+[node name="moving-wall" type="ColorRect" parent="."]
+modulate = Color( 0.952941, 0, 0.984314, 1 )
+material = SubResource( 19 )
+margin_left = 539.437
+margin_top = 32.6548
+margin_right = 1495.44
+margin_bottom = 657.655
+rect_scale = Vector2( 0.5, 0.5 )
+color = Color( 0.231373, 0.0117647, 0.262745, 1 )
+
+[node name="dots" type="ColorRect" parent="."]
+modulate = Color( 0.196078, 0.188235, 0.0313726, 1 )
+material = SubResource( 20 )
+margin_left = -721.254
+margin_top = 0.263458
+margin_right = 12.7457
+margin_bottom = 569.263
+color = Color( 0.411765, 0, 0.690196, 1 )
+
+[node name="flahsy1" type="ColorRect" parent="."]
+material = SubResource( 22 )
+margin_left = 231.0
+margin_top = 383.0
+margin_right = 536.0
+margin_bottom = 581.0
+color = Color( 0.258824, 0.00784314, 0.262745, 1 )
+
+[node name="noisy-beam" type="Sprite" parent="."]
+material = SubResource( 24 )
+position = Vector2( 686.951, 445.615 )
+scale = Vector2( 0.428172, 1.13979 )
+texture = ExtResource( 5 )
+
+[node name="basic gradient" type="TextureRect" parent="."]
+margin_left = 1321.0
+margin_top = 290.0
+margin_right = 1675.0
+margin_bottom = 657.0
+texture = SubResource( 26 )
+expand = true
+
+[node name="electricity" type="ColorRect" parent="."]
+material = SubResource( 28 )
+margin_left = 132.0
+margin_top = 475.0
+margin_right = 217.0
+margin_bottom = 624.0
+rect_scale = Vector2( 5, 5 )
+
+[node name="flag-wave" type="TextureRect" parent="."]
+material = SubResource( 14 )
+margin_left = 800.0
+margin_top = 1327.0
+margin_right = 1396.0
+margin_bottom = 1553.0
+rect_rotation = 270.0
+texture = SubResource( 30 )
+expand = true

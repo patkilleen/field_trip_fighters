@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://interface/CommandNotification.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/ripost-indicator.png" type="Texture" id=2]
+[ext_resource path="res://CommandTextureRect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/interfaces/empty-cmd-ripost-indicator.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/combo/checkmark-transparent.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/combo/blue-x.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="CommandPairDisplay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="bgd" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="HBoxContainer3" type="Control" parent="."]
+margin_left = 34.2
+margin_top = 39.9
+margin_right = 159.2
+margin_bottom = 119.9
+rect_min_size = Vector2( 125, 80 )
+
+[node name="leftCmd" parent="HBoxContainer3" instance=ExtResource( 3 )]
+margin_left = 17.0
+margin_top = 20.0
+margin_right = 135.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 118, 43 )
+
+[node name="HBoxContainer4" type="Control" parent="."]
+margin_left = 204.2
+margin_top = 39.9
+margin_right = 329.2
+margin_bottom = 119.9
+rect_min_size = Vector2( 125, 80 )
+
+[node name="rightCmd" parent="HBoxContainer4" instance=ExtResource( 3 )]
+margin_left = 17.0
+margin_top = 20.0
+margin_right = 135.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 118, 43 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_right = 170.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+alignment = 1
+
+[node name="leftLabel" type="Label" parent="HBoxContainer"]
+margin_left = 53.0
+margin_top = 8.0
+margin_right = 97.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "filler"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_left = 193.0
+margin_right = 343.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+alignment = 1
+
+[node name="rightLabel" type="Label" parent="HBoxContainer2"]
+margin_left = 53.0
+margin_top = 8.0
+margin_right = 97.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "filler"
+
+[node name="emptyCmdLeft" type="TextureRect" parent="."]
+visible = false
+margin_left = 27.95
+margin_top = 40.1
+margin_right = 159.95
+margin_bottom = 123.1
+texture = ExtResource( 5 )
+
+[node name="emptyCmdRight" type="TextureRect" parent="."]
+visible = false
+margin_left = 195.95
+margin_top = 40.1
+margin_right = 327.95
+margin_bottom = 123.1
+texture = ExtResource( 5 )
+
+[node name="checkMark" type="TextureRect" parent="."]
+visible = false
+margin_left = 157.5
+margin_top = -1.89999
+margin_right = 383.5
+margin_bottom = 224.1
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="cross" type="TextureRect" parent="."]
+visible = false
+margin_left = 166.2
+margin_top = 11.4
+margin_right = 392.2
+margin_bottom = 237.4
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )

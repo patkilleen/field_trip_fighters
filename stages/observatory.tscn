@@ -1,0 +1,187 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/observatory/floor.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/observatory/forground.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/observatory/sky.png" type="Texture" id=5]
+[ext_resource path="res://particles/sparkle-shine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/stages/observatory/hills-far.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/observatory/hills-far-mid.png" type="Texture" id=8]
+[ext_resource path="res://assets/stages/observatory/paysage-far.png" type="Texture" id=9]
+[ext_resource path="res://assets/stages/observatory/hills-nearby-and-building.png" type="Texture" id=10]
+
+[node name="swamp" index="0" instance=ExtResource( 1 )]
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10060, 19.726 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( -230, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 10922, 8.365 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+position = Vector2( 252, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 1
+
+[node name="nonAnimatedBgd" type="Sprite" parent="." index="3"]
+light_mask = 5
+position = Vector2( 433.99, 583.692 )
+texture = ExtResource( 3 )
+
+[node name="foreground" type="Sprite" parent="." index="4"]
+light_mask = 5
+position = Vector2( 429.1, 593.746 )
+z_index = 20
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="player1Spawn" parent="." index="11"]
+position = Vector2( 433, 455 )
+
+[node name="player2Spawn" parent="." index="12"]
+position = Vector2( 633, 455 )
+
+[node name="cameraBoundaries" parent="." index="15"]
+margin_left = -290.0
+margin_top = -156.0
+margin_right = 1175.0
+margin_bottom = 650.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="38"]
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/sky" index="0"]
+position = Vector2( -366, -237 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="star" parent="ParallaxBackground/sky" index="1" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( -179.113, -34.5353 )
+
+[node name="star2" parent="ParallaxBackground/sky" index="2" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( -103.3, -99.851 )
+
+[node name="star11" parent="ParallaxBackground/sky" index="3" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( -273.587, -101.017 )
+
+[node name="star5" parent="ParallaxBackground/sky" index="4" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( -133.625, -200.157 )
+
+[node name="star4" parent="ParallaxBackground/sky" index="5" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 254.77, -49.6979 )
+
+[node name="star12" parent="ParallaxBackground/sky" index="6" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 58.3319, 64.0294 )
+
+[node name="star13" parent="ParallaxBackground/sky" index="7" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( -125.183, 83.4147 )
+
+[node name="star14" parent="ParallaxBackground/sky" index="8" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 77.7172, -128.532 )
+
+[node name="star7" parent="ParallaxBackground/sky" index="9" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 460.048, -75.3576 )
+
+[node name="star10" parent="ParallaxBackground/sky" index="10" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 652.496, -73.0249 )
+
+[node name="star6" parent="ParallaxBackground/sky" index="11" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 222.112, -191.993 )
+
+[node name="star8" parent="ParallaxBackground/sky" index="12" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 339.914, -130.176 )
+
+[node name="star15" parent="ParallaxBackground/sky" index="13" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 343.791, 8.10596 )
+
+[node name="star16" parent="ParallaxBackground/sky" index="14" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 537.644, -137.93 )
+
+[node name="star3" parent="ParallaxBackground/sky" index="15" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 15.668, -59.0287 )
+
+[node name="star9" parent="ParallaxBackground/sky" index="16" instance=ExtResource( 6 )]
+modulate = Color( 0.6, 0.5, 0.5, 1 )
+position = Vector2( 170.793, -52.0306 )
+
+[node name="back-mountains" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/back-mountains" index="0"]
+self_modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
+position = Vector2( -367, 37 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="behind-observatory" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+motion_scale = Vector2( 0.65, 0.55 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/behind-observatory" index="0"]
+self_modulate = Color( 0.745098, 0.745098, 0.745098, 1 )
+position = Vector2( -367, 91 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="landscape-and-observatory" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_scale = Vector2( 0.8, 0.6 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/landscape-and-observatory" index="0"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( -367, 54 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="nearby-hills" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2( 1, 0.8 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/nearby-hills" index="0"]
+self_modulate = Color( 0.901961, 0.901961, 0.901961, 1 )
+position = Vector2( -365, 215 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="largeHitTempSpriteTemplate" parent="." index="40"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0

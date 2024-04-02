@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/11-Mic_melee-air.wav-a7b24becef19a353288130f565d92a42.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/microphone/11-Mic_melee-air.wav"
+dest_files=[ "res://.import/11-Mic_melee-air.wav-a7b24becef19a353288130f565d92a42.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/34-MicRap_tool-forward.wav-3cf25eb5d869c931896b3169535414bb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/34-MicRap_tool-forward.wav"
+dest_files=[ "res://.import/34-MicRap_tool-forward.wav-3cf25eb5d869c931896b3169535414bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

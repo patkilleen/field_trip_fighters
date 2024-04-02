@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/19-MicOpera_toolA.wav-c1c12dee1eb4f8e1f9b364c97cb9070a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/19-MicOpera_toolA.wav"
+dest_files=[ "res://.import/19-MicOpera_toolA.wav-c1c12dee1eb4f8e1f9b364c97cb9070a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

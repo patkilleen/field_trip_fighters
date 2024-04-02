@@ -1,0 +1,205 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://projectiles/abstract_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=2]
+[ext_resource path="res://assets/projectiles/fire/startup/fire-0.png" type="Texture" id=3]
+[ext_resource path="res://assets/projectiles/fire/startup/fire-1.png" type="Texture" id=4]
+[ext_resource path="res://assets/projectiles/fire/startup/fire-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/projectiles/fire/active/fire-0.png" type="Texture" id=6]
+[ext_resource path="res://HitboxArea.gd" type="Script" id=7]
+[ext_resource path="res://movementAnimation.gd" type="Script" id=8]
+[ext_resource path="res://complexMovement.gd" type="Script" id=9]
+[ext_resource path="res://basicMovement.gd" type="Script" id=10]
+[ext_resource path="res://assets/projectiles/fire/active/fire-1.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.2564, 17.8177 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.494983, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.914063, 0.544175, 0.185669, 1, 0.800781, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 15, 1 )
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
+
+[node name="fire" index="0" instance=ExtResource( 1 )]
+
+[node name="SpriteAnimationManager" parent="ProjectileController/ActionAnimationManager" index="0"]
+editor/display_folded = false
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="0"]
+script = ExtResource( 2 )
+duration = 8
+texture = ExtResource( 3 )
+sprite_Offset = Vector2( -7, -7 )
+canUseBufferedCommands = false
+soundSFXId = 18
+type = 1
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="1"]
+script = ExtResource( 2 )
+duration = 8
+texture = ExtResource( 4 )
+sprite_Offset = Vector2( -11, -11 )
+canUseBufferedCommands = false
+type = 1
+
+[node name="frame2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="2"]
+script = ExtResource( 2 )
+duration = 8
+texture = ExtResource( 5 )
+sprite_Offset = Vector2( -20, -20 )
+canUseBufferedCommands = false
+type = 1
+
+[node name="active" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="1"]
+isLooping = true
+isLoopingWithDuration = true
+loopDuration = 92
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="0"]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 4
+texture = ExtResource( 6 )
+sprite_Offset = Vector2( -24, -24 )
+type = 2
+
+[node name="hitbox" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0" index="0"]
+editor/display_folded = true
+script = ExtResource( 7 )
+specialHittingSPXSoundId = 19
+clashType = 2
+damage = 30.0
+duration = 48
+hitFreezeDuration = 4
+is_projectile = true
+hitStunLandingType = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox" index="0"]
+position = Vector2( 19.0944, 19.7356 )
+shape = SubResource( 1 )
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox" index="1"]
+script = ExtResource( 8 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox/hitStunMovementAnimation" index="0"]
+script = ExtResource( 9 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0/hitbox/hitStunMovementAnimation/cplx_mvm0" index="0"]
+script = ExtResource( 10 )
+durationInFrames = 1
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="1"]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 4
+texture = ExtResource( 11 )
+sprite_Offset = Vector2( -24, -24 )
+type = 2
+
+[node name="hitbox" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1" index="0"]
+script = ExtResource( 7 )
+specialHittingSPXSoundId = 19
+clashType = 2
+damage = 30.0
+duration = 48
+hitFreezeDuration = 4
+is_projectile = true
+hitStunLandingType = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox" index="0"]
+position = Vector2( 19.0944, 19.7356 )
+shape = SubResource( 1 )
+
+[node name="hitStunMovementAnimation" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox" index="1"]
+script = ExtResource( 8 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox/hitStunMovementAnimation" index="0"]
+script = ExtResource( 9 )
+mvmType = 1
+gravEffect = 5
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame1/hitbox/hitStunMovementAnimation/cplx_mvm0" index="0"]
+script = ExtResource( 10 )
+durationInFrames = 1
+
+[node name="frame3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="0"]
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 5 )
+sprite_Offset = Vector2( -20, -20 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="1"]
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 4 )
+sprite_Offset = Vector2( -11, -11 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="frame5" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="2"]
+script = ExtResource( 2 )
+duration = 3
+texture = ExtResource( 3 )
+sprite_Offset = Vector2( -7, -7 )
+canUseBufferedCommands = false
+type = 3
+
+[node name="MovementAnimations" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager" index="0"]
+editor/display_folded = false
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up" index="0"]
+script = ExtResource( 9 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up/cplx_mvm0" index="0"]
+script = ExtResource( 10 )
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active" index="0"]
+script = ExtResource( 9 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active/cplx_mvm0" index="0"]
+script = ExtResource( 10 )
+speed = 50.0
+acceleration = 200.0
+maxSpeed = 700.0
+angle = 45.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion" index="0"]
+script = ExtResource( 9 )
+mvmType = 1
+gravEffect = 2
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion/cplx_mvm0" index="0"]
+script = ExtResource( 10 )
+
+[node name="Sprite" parent="active-nodes" index="1"]
+z_index = 2
+texture = ExtResource( 6 )
+
+[node name="particle-trail" type="Particles2D" parent="active-nodes" index="2"]
+position = Vector2( -4.52946, -11.9707 )
+rotation = 3.14159
+z_index = 1
+amount = 100
+process_material = SubResource( 4 )

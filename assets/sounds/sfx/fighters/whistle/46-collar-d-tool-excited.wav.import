@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/46-collar-d-tool-excited.wav-fa13aebf2098552c7c81c4c392594374.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/46-collar-d-tool-excited.wav"
+dest_files=[ "res://.import/46-collar-d-tool-excited.wav-fa13aebf2098552c7c81c4c392594374.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

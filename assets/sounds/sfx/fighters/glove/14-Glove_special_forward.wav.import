@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/14-Glove_special_forward.wav-e06350835709c4fed8841a3f3cf5c1ad.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/glove/14-Glove_special_forward.wav"
+dest_files=[ "res://.import/14-Glove_special_forward.wav-e06350835709c4fed8841a3f3cf5c1ad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

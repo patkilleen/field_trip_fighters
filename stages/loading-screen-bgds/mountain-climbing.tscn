@@ -1,0 +1,110 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/stages/mountain-climbing/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/stages/mountain-climbing/mountains-far.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/mountain-climbing/forst4.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/mountain-climbing/forest-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/mountain-climbing/forest-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/mountain-climbing/forest1.png" type="Texture" id=6]
+[ext_resource path="res://assets/stages/mountain-climbing/forest0.png" type="Texture" id=7]
+[ext_resource path="res://assets/stages/mountain-climbing/behind-left.png" type="Texture" id=8]
+[ext_resource path="res://assets/shaders/waterfall.shader" type="Shader" id=9]
+[ext_resource path="res://assets/stages/mountain-climbing/water-fall.png" type="Texture" id=10]
+[ext_resource path="res://stages/mountain-climbing/waterfall.gd" type="Script" id=11]
+[ext_resource path="res://assets/stages/mountain-climbing/plants-top-left.png" type="Texture" id=12]
+[ext_resource path="res://assets/stages/mountain-climbing/behind-right.png" type="Texture" id=13]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+
+[sub_resource type="NoiseTexture" id=4]
+noise = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 9 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/zoom = 0.513342
+shader_param/gap_stretch = Vector2( 1.5, 0.05 )
+shader_param/refraction_stretch = Vector2( 1, 0.8 )
+shader_param/refraction_strength = 0.05
+shader_param/water_tint = Color( 0.219608, 0.423529, 0.694118, 0.490196 )
+shader_param/water_highlight = Color( 1, 1, 1, 0.266667 )
+shader_param/speed = 2.0
+shader_param/flow_gaps = 0.3
+shader_param/highlight_width = 0.02
+shader_param/time = 125.786
+shader_param/refraction_map = SubResource( 2 )
+shader_param/water_mask = SubResource( 4 )
+
+[node name="loadingScreenBgd" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -9.6633, -19.2163 )
+scale = Vector2( 1.02329, 1.17447 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -18.9779, 160.438 )
+scale = Vector2( 1.04464, 1.02847 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( -5.87392, 121.478 )
+scale = Vector2( 1.00477, 1.02147 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( -16.2501, 266.374 )
+scale = Vector2( 0.999332, 1.05899 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( -37.3788, 332.594 )
+scale = Vector2( 1.03376, 1.00979 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 1073.6, 393.841 )
+scale = Vector2( -1.02289, 1.16818 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 1049.59, 457.505 )
+scale = Vector2( -1.01745, 1.11142 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="left-cliff" type="Sprite" parent="."]
+position = Vector2( 0.816154, 309.934 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="waterfall" type="Sprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( 51.2583, 313.52 )
+texture = ExtResource( 10 )
+centered = false
+script = ExtResource( 11 )
+
+[node name="plant-top" type="Sprite" parent="."]
+position = Vector2( -2.74184, 270.521 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="right-cliff" type="Sprite" parent="."]
+position = Vector2( 639.699, 411.728 )
+texture = ExtResource( 13 )
+centered = false

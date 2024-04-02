@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HurtboxArea.gd" type="Script" id=1]
+[ext_resource path="res://assets/common_collision_areas/ground-idle/body_box.tres" type="Shape2D" id=2]
+[ext_resource path="res://assets/common_collision_areas/ground-idle/head_box.tres" type="Shape2D" id=3]
+
+[node name="ground-idle-hurtbox-area" type="Node"]
+script = ExtResource( 1 )
+overrideSpriteFrameOffset = true
+canHoldBackBlock = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 6 )
+shape = ExtResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -29 )
+shape = ExtResource( 3 )

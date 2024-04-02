@@ -1,0 +1,1822 @@
+[gd_scene load_steps=92 format=2]
+
+[ext_resource path="res://map-controller.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/stage-selection/new-stage-select.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/stage-selection/stage-select.png" type="Texture" id=3]
+[ext_resource path="res://assets/bus/bus.png" type="Texture" id=4]
+[ext_resource path="res://stage-checkpoint.gd" type="Script" id=5]
+[ext_resource path="res://assets/stage-icons/random.png" type="Texture" id=6]
+[ext_resource path="res://route.gd" type="Script" id=7]
+[ext_resource path="res://PathFollow2DExample.gd" type="Script" id=8]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=9]
+[ext_resource path="res://assets/stage-icons/snow-carnaval.PNG" type="Texture" id=10]
+[ext_resource path="res://interface/stage/animatedObjects.gd" type="Script" id=11]
+[ext_resource path="res://assets/particles/snow-flake.png" type="Texture" id=12]
+[ext_resource path="res://particles/particleHitFreezePause.gd" type="Script" id=13]
+[ext_resource path="res://assets/interfaces/stage-selection/happy-snowman.png" type="Texture" id=14]
+[ext_resource path="res://assets/stage-icons/art-museum.PNG" type="Texture" id=15]
+[ext_resource path="res://assets/stage-icons/theater.PNG" type="Texture" id=16]
+[ext_resource path="res://assets/stages/theater/topspot-light.png" type="Texture" id=17]
+[ext_resource path="res://assets/stage-icons/haunted-mansion.PNG" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/stage-selection/haunted-mansion-with-moon.png" type="Texture" id=19]
+[ext_resource path="res://assets/stage-icons/farm.PNG" type="Texture" id=20]
+[ext_resource path="res://assets/stage-icons/kayaking.PNG" type="Texture" id=21]
+[ext_resource path="res://assets/stage-icons/observatory.PNG" type="Texture" id=22]
+[ext_resource path="res://particles/sparkle-shine.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/stage-icons/radio-tower.PNG" type="Texture" id=24]
+[ext_resource path="res://assets/interfaces/stage-selection/wind-mill-blades.png" type="Texture" id=25]
+[ext_resource path="res://stages/radio-tower/windmill-blade.gd" type="Script" id=26]
+[ext_resource path="res://assets/stages/radio-tower/rain-drop.png" type="Texture" id=27]
+[ext_resource path="res://assets/stages/radio-tower/bgd-mist.png" type="Texture" id=28]
+[ext_resource path="res://assets/interfaces/stage-selection/wind-mill-base.png" type="Texture" id=29]
+[ext_resource path="res://assets/interfaces/stage-selection/wind-mill-head.png" type="Texture" id=30]
+[ext_resource path="res://assets/interfaces/stage-selection/radio-tower-white-light.png" type="Texture" id=31]
+[ext_resource path="res://stages/radio-tower/tower-light.gd" type="Script" id=32]
+[ext_resource path="res://assets/interfaces/stage-selection/radio-tower-red-light.png" type="Texture" id=33]
+[ext_resource path="res://assets/stage-icons/rock-climbing.PNG" type="Texture" id=34]
+[ext_resource path="res://assets/shaders/waterfall.shader" type="Shader" id=35]
+[ext_resource path="res://assets/stages/mountain-climbing/water-fall.png" type="Texture" id=36]
+[ext_resource path="res://stages/mountain-climbing/waterfall.gd" type="Script" id=37]
+[ext_resource path="res://assets/stage-icons/bridge.PNG" type="Texture" id=38]
+[ext_resource path="res://assets/interfaces/stage-selection/road.png" type="Texture" id=39]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=40]
+[ext_resource path="res://interface/star-array.tscn" type="PackedScene" id=41]
+[ext_resource path="res://assets/interfaces/combo/filled-star.png" type="Texture" id=42]
+[ext_resource path="res://interface/back-arrow.tscn" type="PackedScene" id=43]
+[ext_resource path="res://interface/ListSelection.tscn" type="PackedScene" id=44]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/b.png" type="Texture" id=45]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/x.png" type="Texture" id=46]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=47]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=48]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=49]
+[ext_resource path="res://assets/interfaces/command-input/xbox-buttons/a.png" type="Texture" id=50]
+[ext_resource path="res://music/DirectorySoundPlayer.gd" type="Script" id=51]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 15 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 341.412, 637.511, 0, 0, 0, 0, 374.491, 636.776, 0, 0, 0, 0, 440.65, 633.835, 0, 0, 0, 0, 569.291, 625.749 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 298.992, 682.848, 0, 0, 0, 0, 300.797, 733.388, 0, 0, 0, 0, 301.699, 772.196, 0, 0, 0, 0, 295.382, 819.126 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 281.473, 576.21, 0, 0, 0, 0, 222.887, 518.192, 0, 0, 0, 0, 156.902, 506.281, 0, 0, 0, 0, 101.808, 500.998, 0, 0, 0, 0, 30.8659, 499.112 )
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 34.1197, 45.408 )
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 304.374, 681.869, 0, 0, 0, 0, 305.109, 713.478, 0, 0, 0, 0, 298.493, 773.756, 0, 0, 0, 0, 288.202, 803.895 )
+}
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 0, 400, 1 )
+flag_disable_z = true
+spread = 5.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 100.0
+angular_velocity_random = 0.48
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 10.0
+radial_accel_random = 0.29
+angle_random = 1.0
+scale_random = 0.5
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 176.833, 647.348, 0, 0, 0, 0, 107.018, 650.942, 0, 0, 0, 0, 43.3636, 654.022, 0, 0, 0, 0, 30.4339, 655.038 )
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, 0, 0, 0, 0, 615.528, 644.413 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 312.919, 594.798, 0, 0, 0, 0, 317.563, 555.656, 0, 0, 0, 0, 316.237, 521.821, 0, 0, 0, 0, 313.583, 472.065 )
+}
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, -3.52964, -6.49355, 3.52964, 6.49355, 305.529, 677.422, 0, 0, 0, 0, 309.602, 704.301, 0, 0, 0, 0, 308.787, 743.397, 0, 0, 0, 0, 314.489, 802.041 )
+}
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 20.5826, -8.8211, 302.052, 639.921, 0, 0, 0, 0, 300.826, 644.522, 0, 0, 0, 0, -15.4153, 637.125 )
+}
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( -0.830013, 9.50222, 0.830013, -9.50222, 299.472, 639.424, 0, 0, 0, 0, 289.442, 509.058 )
+}
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( -0.830013, 9.50222, 0.830013, -9.50222, 299.472, 639.424, 0, 0, 0, 0, 435.514, 776.885 )
+}
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 245.752, 769.251, 0, 0, 0, 0, 340.562, 762.037, 0, 0, 0, 0, 402.835, 734.962, 0, 0, 0, 0, 465.107, 683.519 )
+}
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 241.96, 769.105, 0, 0, 0, 0, 124.345, 715.443, 0, 0, 0, 0, 100.822, 604.444, 0, 0, 0, 0, 97.1466, 480.213 )
+}
+
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 339.988, 506.892, 0, 0, 0, 0, 458.783, 384.636 )
+}
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 339.988, 506.892, 0, 0, 0, 0, 338.977, 590.112, 0, 0, 0, 0, 346.715, 645.824, 0, 0, 0, 0, 369.155, 737.13, 0, 0, 0, 0, 509.218, 805.336 )
+}
+
+[sub_resource type="Curve2D" id=19]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 93.1488, 526.697, 0, 0, 0, 0, -25.9816, 508.647, 0, 0, 0, 0, -136.989, 489.695, 0, 0, 0, 0, -229.045, 452.692 )
+}
+
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( -0.830013, 9.50222, 0.830013, -9.50222, 429.357, 767.46, 0, 0, 0, 0, 298.265, 638.259 )
+}
+
+[sub_resource type="Curve2D" id=21]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 131.762, 570.997, 0, 0, 0, 0, 69.0443, 589.73, 0, 0, 0, 0, 28.3189, 602.762, 0, 0, 0, 0, -46.6159, 609.279 )
+}
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 279.188, 561.222, 0, 0, 0, 0, 411.138, 581.585, 0, 0, 0, 0, 496.661, 595.432, 0, 0, 0, 0, 620.467, 596.246 )
+}
+
+[sub_resource type="Curve2D" id=23]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 190.094, 490.97, 0, 0, 0, 0, 189.192, 442.235, 0, 0, 0, 0, 186.484, 388.085, 0, 0, 0, 0, 181.972, 357.4 )
+}
+
+[sub_resource type="ParticlesMaterial" id=24]
+emission_shape = 2
+emission_box_extents = Vector3( 650, 1, 20 )
+flag_disable_z = true
+gravity = Vector3( -60, 98, 0 )
+angular_velocity = -1.98188e-032
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.75
+scale_random = 0.32
+
+[sub_resource type="Curve2D" id=25]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 139.104, 583.001, 0, 0, 0, 0, 76.5659, 585.429, 0, 0, 0, 0, 45.0534, 577.866 )
+}
+
+[sub_resource type="OpenSimplexNoise" id=26]
+
+[sub_resource type="NoiseTexture" id=27]
+noise = SubResource( 26 )
+
+[sub_resource type="OpenSimplexNoise" id=28]
+
+[sub_resource type="NoiseTexture" id=29]
+noise = SubResource( 28 )
+
+[sub_resource type="ShaderMaterial" id=30]
+shader = ExtResource( 35 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/zoom = 1.0
+shader_param/gap_stretch = Vector2( 1.5, 0.05 )
+shader_param/refraction_stretch = Vector2( 1, 0.8 )
+shader_param/refraction_strength = 0.05
+shader_param/water_tint = Color( 0.219608, 0.423529, 0.694118, 0.490196 )
+shader_param/water_highlight = Color( 1, 1, 1, 0.266667 )
+shader_param/speed = 2.0
+shader_param/flow_gaps = 0.3
+shader_param/highlight_width = 0.02
+shader_param/time = 1219.42
+shader_param/refraction_map = SubResource( 27 )
+shader_param/water_mask = SubResource( 29 )
+
+[sub_resource type="Curve2D" id=31]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 335.703, 552.074 )
+}
+
+[sub_resource type="Curve2D" id=32]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 85.1652, 631.658 )
+}
+
+[sub_resource type="Curve2D" id=33]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 279.88, 526.376, 0, 0, 0, 0, 330.445, 470.15 )
+}
+
+[sub_resource type="Curve2D" id=34]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 311.955, 536.187, 0, 0, 0, 0, 378.746, 549.395, 0, 0, 0, 0, 431.199, 598.451, 0, 0, 0, 0, 459.5, 670.903 )
+}
+
+[sub_resource type="Curve2D" id=35]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184.644, 529.279, 0, 0, 0, 0, 185.933, 528.646, 0, 0, 0, 0, 38.0006, 499.739 )
+}
+
+[sub_resource type="DynamicFont" id=36]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 40 )
+
+[sub_resource type="DynamicFont" id=37]
+size = 50
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 40 )
+
+[sub_resource type="DynamicFont" id=38]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 40 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 40 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 40 )
+
+[node name="map-selection" type="Node2D"]
+script = ExtResource( 1 )
+defaultBusPosition = Vector2( 133, -171 )
+
+[node name="bdg" type="ColorRect" parent="."]
+margin_left = -162.0
+margin_top = -74.0
+margin_right = 1295.0
+margin_bottom = 762.0
+color = Color( 0.215686, 0.196078, 0.254902, 1 )
+
+[node name="map2" type="Sprite" parent="."]
+position = Vector2( 541.683, 256.451 )
+scale = Vector2( 0.4, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="map" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.572549 )
+position = Vector2( 541.683, 305.451 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 3 )
+
+[node name="bus2" type="Node2D" parent="."]
+position = Vector2( 459.052, 255.921 )
+z_index = 20
+
+[node name="Area2D3" type="Area2D" parent="bus2"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bus2/Area2D3"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="bus2"]
+offset = Vector2( 100, 0 )
+current = true
+zoom = Vector2( 0.75, 0.75 )
+smoothing_enabled = true
+
+[node name="busSprite" type="Sprite" parent="bus2"]
+scale = Vector2( -1, 1 )
+texture = ExtResource( 4 )
+
+[node name="check-points" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 24, -213 )
+
+[node name="random" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 133, -171 )
+script = ExtResource( 5 )
+id = "Random"
+texture = ExtResource( 6 )
+stage_scene_path = "random"
+stage_size = 1
+
+[node name="right" type="Path2D" parent="check-points/random"]
+editor/display_folded = true
+curve = SubResource( 2 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/random/right"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/random/right/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="down" type="Path2D" parent="check-points/random"]
+editor/display_folded = true
+curve = SubResource( 3 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/random/down"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/random/down/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="up" type="Path2D" parent="check-points/random"]
+curve = SubResource( 4 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/random/up"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/random/up/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/random"]
+position = Vector2( 3, 0 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/random/Area2D"]
+position = Vector2( 298.196, 648.408 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/random/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.0
+margin_top = -31.0
+margin_right = 17.0
+margin_bottom = 9.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/random"]
+editor/display_folded = true
+position = Vector2( 306.437, 693.647 )
+
+[node name="down" type="Sprite" parent="check-points/random/navigationArrows"]
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="down2" type="Sprite" parent="check-points/random/navigationArrows"]
+position = Vector2( -10, -115 )
+rotation = 3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="down4" type="Sprite" parent="check-points/random/navigationArrows"]
+position = Vector2( 57, -64 )
+rotation = 4.71238
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="snow" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 415.338, -350.738 )
+script = ExtResource( 5 )
+id = "Winter Carnaval"
+texture = ExtResource( 10 )
+stage_scene_path = "res://stages/snow-carnaval.tscn"
+stage_size = 4
+
+[node name="down-route" type="Path2D" parent="check-points/snow"]
+editor/display_folded = true
+curve = SubResource( 6 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/snow/down-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/snow/down-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/snow"]
+position = Vector2( 3, 0 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/snow/Area2D"]
+position = Vector2( 298.196, 648.408 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/snow/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.0
+margin_top = -31.0
+margin_right = 17.0
+margin_bottom = 9.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/snow"]
+position = Vector2( 308.437, 635.647 )
+
+[node name="up2" type="Sprite" parent="check-points/snow/navigationArrows"]
+position = Vector2( -15, 101 )
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="modulate-animatedObjects" type="Node2D" parent="check-points/snow"]
+script = ExtResource( 11 )
+type = 2
+
+[node name="snow" type="Particles2D" parent="check-points/snow/modulate-animatedObjects"]
+modulate = Color( 2, 2, 2, 0 )
+position = Vector2( 328.563, 567.304 )
+rotation = 1.57079
+scale = Vector2( 0.2, 0.2 )
+z_index = 50
+z_as_relative = false
+amount = 100
+lifetime = 9.0
+visibility_rect = Rect2( 0.0123977, -1472, 3056.22, 4019.96 )
+process_material = SubResource( 7 )
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="visibility-animatedObjects" type="Node2D" parent="check-points/snow"]
+script = ExtResource( 11 )
+
+[node name="happy-snowman" type="Sprite" parent="check-points/snow/visibility-animatedObjects"]
+visible = false
+position = Vector2( 245.5, 665 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="art-museum" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 402.338, -187.738 )
+script = ExtResource( 5 )
+id = "Art Museum"
+texture = ExtResource( 15 )
+stage_scene_path = "res://stages/art-museum.tscn"
+
+[node name="left-route" type="Path2D" parent="check-points/art-museum"]
+editor/display_folded = true
+curve = SubResource( 8 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/art-museum/left-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/art-museum/left-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="right-route" type="Path2D" parent="check-points/art-museum"]
+editor/display_folded = true
+curve = SubResource( 9 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/art-museum/right-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/art-museum/right-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="up-route" type="Path2D" parent="check-points/art-museum"]
+editor/display_folded = true
+curve = SubResource( 10 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/art-museum/up-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/art-museum/up-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="down-route" type="Path2D" parent="check-points/art-museum"]
+editor/display_folded = true
+curve = SubResource( 11 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/art-museum/down-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/art-museum/down-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/art-museum"]
+position = Vector2( 3, 0 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/art-museum/Area2D"]
+position = Vector2( 298.196, 648.408 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/art-museum/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.0
+margin_top = -31.0
+margin_right = 17.0
+margin_bottom = 9.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/art-museum"]
+position = Vector2( 308.437, 635.647 )
+
+[node name="up2" type="Sprite" parent="check-points/art-museum/navigationArrows"]
+position = Vector2( -125, 21 )
+rotation = 1.5708
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up3" type="Sprite" parent="check-points/art-museum/navigationArrows"]
+position = Vector2( -17, -64 )
+rotation = 3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up5" type="Sprite" parent="check-points/art-museum/navigationArrows"]
+position = Vector2( 134, 5.00021 )
+rotation = 4.71238
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up4" type="Sprite" parent="check-points/art-museum/navigationArrows"]
+position = Vector2( 5.21057, 70.7896 )
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="theater" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 717.338, -187.738 )
+script = ExtResource( 5 )
+id = "Theater"
+texture = ExtResource( 16 )
+stage_scene_path = "res://stages/theater.tscn"
+stage_size = 1
+
+[node name="left-route" type="Path2D" parent="check-points/theater"]
+editor/display_folded = true
+curve = SubResource( 12 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/theater/left-route"]
+position = Vector2( 302.052, 639.921 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/theater/left-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/theater"]
+position = Vector2( 3, 0 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/theater/Area2D"]
+position = Vector2( 298.196, 648.408 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/theater/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.0
+margin_top = -31.0
+margin_right = 17.0
+margin_bottom = 9.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/theater"]
+position = Vector2( 308.437, 635.647 )
+
+[node name="up2" type="Sprite" parent="check-points/theater/navigationArrows"]
+position = Vector2( -125, 21 )
+rotation = 1.5708
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="visibility-animatedObjects2" type="Node2D" parent="check-points/theater"]
+position = Vector2( -302, -163 )
+script = ExtResource( 11 )
+
+[node name="Light2D" type="Light2D" parent="check-points/theater/visibility-animatedObjects2"]
+position = Vector2( 598.154, 794.428 )
+scale = Vector2( 0.35, 0.215247 )
+texture = ExtResource( 17 )
+energy = 1.2
+
+[node name="haunted-house" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 413.338, -55.738 )
+script = ExtResource( 5 )
+id = "Haunted Mansion"
+texture = ExtResource( 18 )
+stage_scene_path = "res://stages/haunted-mansion.tscn"
+
+[node name="up-route" type="Path2D" parent="check-points/haunted-house"]
+curve = SubResource( 13 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/haunted-house/up-route"]
+position = Vector2( 299.472, 639.424 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/haunted-house/up-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="DOWN-route" type="Path2D" parent="check-points/haunted-house"]
+editor/display_folded = true
+curve = SubResource( 14 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/haunted-house/DOWN-route"]
+position = Vector2( 299.472, 639.424 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/haunted-house/DOWN-route/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/haunted-house"]
+position = Vector2( 3, 0 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/haunted-house/Area2D"]
+position = Vector2( 298.196, 639.408 )
+z_index = 10
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/haunted-house/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.0
+margin_top = -31.0
+margin_right = 17.0
+margin_bottom = 9.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/haunted-house"]
+position = Vector2( 308.437, 635.647 )
+
+[node name="up3" type="Sprite" parent="check-points/haunted-house/navigationArrows"]
+position = Vector2( -17, -64 )
+rotation = 3.14159
+z_index = 20
+texture = ExtResource( 9 )
+
+[node name="up4" type="Sprite" parent="check-points/haunted-house/navigationArrows"]
+position = Vector2( 3.79822, 74.0247 )
+z_index = 20
+texture = ExtResource( 9 )
+
+[node name="visibility-animatedObjects2" type="Node2D" parent="check-points/haunted-house"]
+position = Vector2( 2, -295 )
+script = ExtResource( 11 )
+
+[node name="house-with-moon" type="Sprite" parent="check-points/haunted-house/visibility-animatedObjects2"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+position = Vector2( 284.539, 959.081 )
+scale = Vector2( 0.55, 0.55 )
+z_index = 5
+texture = ExtResource( 19 )
+
+[node name="farm" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( -30.408, -51.6378 )
+script = ExtResource( 5 )
+id = "Farm"
+texture = ExtResource( 20 )
+stage_scene_path = "res://stages/farm.tscn"
+stage_size = 2
+
+[node name="rightroute" type="Path2D" parent="check-points/farm"]
+curve = SubResource( 15 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/farm/rightroute"]
+position = Vector2( 245.752, 769.251 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/farm/rightroute/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="LEFT" type="Path2D" parent="check-points/farm"]
+curve = SubResource( 16 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/farm/LEFT"]
+position = Vector2( 241.96, 769.105 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/farm/LEFT/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/farm"]
+position = Vector2( -2.79189, 1.30391 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/farm/Area2D"]
+position = Vector2( 247.839, 763.477 )
+shape = SubResource( 5 )
+
+[node name="ColorRect3" type="ColorRect" parent="check-points/farm/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -23.1053
+margin_top = -17.9473
+margin_right = 16.8947
+margin_bottom = 22.0527
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/farm"]
+position = Vector2( 246.845, 761.285 )
+
+[node name="up3" type="Sprite" parent="check-points/farm/navigationArrows"]
+position = Vector2( 100, -8 )
+rotation = 4.71239
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="LEFT" type="Sprite" parent="check-points/farm/navigationArrows"]
+position = Vector2( -82.3028, 12.5826 )
+rotation = 7.85398
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="kayak" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( -273.408, -74.6378 )
+script = ExtResource( 5 )
+id = "Rapid Kayaking"
+texture = ExtResource( 21 )
+stage_scene_path = "res://stages/kayaking.tscn"
+stage_size = 1
+
+[node name="up" type="Path2D" parent="check-points/kayak"]
+curve = SubResource( 17 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/kayak/up"]
+position = Vector2( 339.988, 506.892 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/kayak/up/PathFollow2D"]
+position = Vector2( -49.6849, 13.8466 )
+remote_path = NodePath("../../../../../bus2")
+
+[node name="DOWN" type="Path2D" parent="check-points/kayak"]
+curve = SubResource( 18 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/kayak/DOWN"]
+position = Vector2( 339.988, 506.892 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/kayak/DOWN/PathFollow2D"]
+position = Vector2( -49.6849, 13.8466 )
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/kayak"]
+position = Vector2( -193.271, 58.8359 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/kayak/Area2D"]
+position = Vector2( 528.85, 445.467 )
+shape = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="check-points/kayak/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -21.0
+margin_top = -18.0
+margin_right = 19.0
+margin_bottom = 22.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/kayak"]
+position = Vector2( 340.845, 508.285 )
+
+[node name="up" type="Sprite" parent="check-points/kayak/navigationArrows"]
+position = Vector2( 31, -56 )
+rotation = 3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="DOWN" type="Sprite" parent="check-points/kayak/navigationArrows"]
+position = Vector2( 3.29913, 65.5873 )
+rotation = 6.28319
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="observatory" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 658.329, 180.994 )
+script = ExtResource( 5 )
+id = "Observatory"
+texture = ExtResource( 22 )
+stage_scene_path = "res://stages/observatory.tscn"
+stage_size = 5
+
+[node name="left" type="Path2D" parent="check-points/observatory"]
+editor/display_folded = true
+curve = SubResource( 19 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/observatory/left"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/observatory/left/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/observatory"]
+editor/display_folded = true
+position = Vector2( 143.306, -48.4722 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/observatory/Area2D"]
+position = Vector2( 43.4696, 572.929 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/observatory/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -16.0
+margin_top = -21.0
+margin_right = 24.0
+margin_bottom = 19.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/observatory"]
+position = Vector2( 340.845, 508.285 )
+
+[node name="up" type="Sprite" parent="check-points/observatory/navigationArrows"]
+position = Vector2( -274, 18 )
+rotation = 1.5708
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up2" type="Sprite" parent="check-points/observatory/navigationArrows"]
+position = Vector2( -161.816, -57.6298 )
+rotation = 3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="modulate-animatedObjects2" type="Node2D" parent="check-points/observatory"]
+editor/display_folded = true
+position = Vector2( -242.991, -531.732 )
+script = ExtResource( 11 )
+type = 2
+
+[node name="star" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 282.14, 1011.56 )
+rotation = -0.523598
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star5" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 409.761, 992.2 )
+rotation = -0.523598
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star2" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 457.798, 998.294 )
+rotation = -1.309
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star3" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 361.724, 991.125 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star6" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 332.146, 1032.08 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star8" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 322.476, 1031.51 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star7" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 323.614, 1001.93 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="star4" parent="check-points/observatory/modulate-animatedObjects2" instance=ExtResource( 23 )]
+position = Vector2( 532.754, 1014.24 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="up-route2" type="Path2D" parent="check-points/observatory"]
+position = Vector2( -244.991, -236.732 )
+curve = SubResource( 20 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/observatory/up-route2"]
+position = Vector2( 429.357, 767.46 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/observatory/up-route2/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="radio-tower" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 243.702, 110.226 )
+script = ExtResource( 5 )
+id = "Radio Tower"
+texture = ExtResource( 24 )
+stage_scene_path = "res://stages/radio-tower.tscn"
+stage_size = 2
+
+[node name="left" type="Path2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+curve = SubResource( 21 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/radio-tower/left"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/radio-tower/left/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="right" type="Path2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+curve = SubResource( 22 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/radio-tower/right"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/radio-tower/right/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="up" type="Path2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+curve = SubResource( 23 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/radio-tower/up"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/radio-tower/up/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/radio-tower"]
+position = Vector2( 143.306, -48.4722 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/radio-tower/Area2D"]
+position = Vector2( 43.4696, 572.929 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/radio-tower/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -16.0
+margin_top = -21.0
+margin_right = 24.0
+margin_bottom = 19.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/radio-tower"]
+position = Vector2( 340.845, 508.285 )
+
+[node name="up" type="Sprite" parent="check-points/radio-tower/navigationArrows"]
+position = Vector2( -236, 17 )
+rotation = 1.5708
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up2" type="Sprite" parent="check-points/radio-tower/navigationArrows"]
+position = Vector2( -46, 6 )
+rotation = 4.71238
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up3" type="Sprite" parent="check-points/radio-tower/navigationArrows"]
+position = Vector2( -161.242, -77.8384 )
+rotation = 3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="physics-animatedObjects" type="Node2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+position = Vector2( 171.636, -460.964 )
+script = ExtResource( 11 )
+type = 1
+
+[node name="left-windmill-blade" type="Sprite" parent="check-points/radio-tower/physics-animatedObjects"]
+position = Vector2( -38.779, 922.544 )
+rotation = 0.785398
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 25 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 26 )
+rotationSpeed = 5.0
+initiallyPlayer = false
+
+[node name="right-windmill-blade" type="Sprite" parent="check-points/radio-tower/physics-animatedObjects"]
+position = Vector2( 101.766, 934.518 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 25 )
+offset = Vector2( 0, 10 )
+script = ExtResource( 26 )
+rotationSpeed = 5.0
+initiallyPlayer = false
+
+[node name="modulate-animatedObjects" type="Node2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+position = Vector2( 171.636, -460.964 )
+script = ExtResource( 11 )
+type = 2
+
+[node name="rain" type="Particles2D" parent="check-points/radio-tower/modulate-animatedObjects"]
+modulate = Color( 2, 2, 2, 0 )
+position = Vector2( 53.128, 916.071 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 30
+amount = 180
+lifetime = 3.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1000, -1000, 3000, 3000 )
+process_material = SubResource( 24 )
+texture = ExtResource( 27 )
+script = ExtResource( 13 )
+
+[node name="visibility-animatedObjects" type="Node2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+position = Vector2( 171.636, -460.964 )
+script = ExtResource( 11 )
+
+[node name="cloud" type="Sprite" parent="check-points/radio-tower/visibility-animatedObjects"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+position = Vector2( 26.5388, 955.081 )
+scale = Vector2( 0.370812, 0.37387 )
+z_index = 5
+texture = ExtResource( 28 )
+
+[node name="static-objects" type="Node2D" parent="check-points/radio-tower"]
+editor/display_folded = true
+position = Vector2( -243.702, -110.226 )
+
+[node name="windmill-left" type="Node2D" parent="check-points/radio-tower/static-objects"]
+position = Vector2( 207.107, 416.971 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="base" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-left"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 29 )
+
+[node name="head" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-left"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 30 )
+
+[node name="tower-white-light4" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-left"]
+position = Vector2( 229.895, 207.897 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 31 )
+script = ExtResource( 32 )
+blinkFrequency = 4.0
+initialBlinkDelay = 0.5
+
+[node name="windmill-rigth" type="Node2D" parent="check-points/radio-tower/static-objects"]
+editor/display_folded = true
+position = Vector2( 347.652, 428.945 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="base" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-rigth"]
+position = Vector2( 228.032, 229.704 )
+scale = Vector2( 0.70487, 0.876524 )
+texture = ExtResource( 29 )
+
+[node name="head" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-rigth"]
+position = Vector2( 225.936, 207.447 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 30 )
+
+[node name="tower-white-light4" type="Sprite" parent="check-points/radio-tower/static-objects/windmill-rigth"]
+position = Vector2( 229.895, 207.897 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 31 )
+script = ExtResource( 32 )
+blinkFrequency = 4.0
+initialBlinkDelay = 1.0
+
+[node name="tower-red-light" type="Sprite" parent="check-points/radio-tower/static-objects"]
+position = Vector2( 441.213, 571.354 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 33 )
+script = ExtResource( 32 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+initialBlinkDelay = 0.05
+
+[node name="tower-white-light" type="Sprite" parent="check-points/radio-tower/static-objects"]
+position = Vector2( 441.213, 587.354 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 31 )
+script = ExtResource( 32 )
+lightUpDuration = 0.07
+dimDuration = 0.07
+blinkFrequency = 2.5
+
+[node name="mountain-climbing" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( 120.702, -255.774 )
+script = ExtResource( 5 )
+id = "Rock Climbing"
+texture = ExtResource( 34 )
+stage_scene_path = "res://stages/mountain-climbing.tscn"
+
+[node name="down" type="Path2D" parent="check-points/mountain-climbing"]
+editor/display_folded = true
+curve = SubResource( 25 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/mountain-climbing/down"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/mountain-climbing/down/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/mountain-climbing"]
+editor/display_folded = true
+position = Vector2( 143.306, -48.4722 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/mountain-climbing/Area2D"]
+position = Vector2( 43.4696, 572.929 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/mountain-climbing/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -16.0
+margin_top = -21.0
+margin_right = 24.0
+margin_bottom = 19.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/mountain-climbing"]
+position = Vector2( 340.845, 508.285 )
+
+[node name="up" type="Sprite" parent="check-points/mountain-climbing/navigationArrows"]
+position = Vector2( -155, 60 )
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="physics-animatedObjects" type="Node2D" parent="check-points/mountain-climbing"]
+position = Vector2( 178.486, 342.451 )
+script = ExtResource( 11 )
+type = 1
+
+[node name="waterfall" type="Sprite" parent="check-points/mountain-climbing/physics-animatedObjects"]
+material = SubResource( 30 )
+position = Vector2( -56.1184, 153.481 )
+scale = Vector2( 0.2, 0.25 )
+texture = ExtResource( 36 )
+centered = false
+script = ExtResource( 37 )
+
+[node name="baseball-stadium" type="Node2D" parent="check-points"]
+editor/display_folded = true
+position = Vector2( -172.61, -224.187 )
+script = ExtResource( 5 )
+id = "Baseball Stadium"
+texture = ExtResource( 34 )
+stage_scene_path = "res://stages/baseball-stadium.tscn"
+
+[node name="right" type="Path2D" parent="check-points/baseball-stadium"]
+editor/display_folded = true
+curve = SubResource( 31 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/baseball-stadium/right"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/baseball-stadium/right/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/baseball-stadium"]
+editor/display_folded = true
+position = Vector2( 143.306, -48.4722 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/baseball-stadium/Area2D"]
+position = Vector2( 43.4696, 572.929 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/baseball-stadium/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -16.0
+margin_top = -21.0
+margin_right = 24.0
+margin_bottom = 19.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/baseball-stadium"]
+position = Vector2( 340.845, 508.285 )
+
+[node name="right" type="Sprite" parent="check-points/baseball-stadium/navigationArrows"]
+position = Vector2( -90.9225, 5.85001 )
+rotation = -1.57079
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="left-bridge" type="Node2D" parent="check-points"]
+position = Vector2( -21.298, -199.774 )
+script = ExtResource( 5 )
+id = "Bus Broken Down"
+texture = ExtResource( 38 )
+stage_scene_path = "res://stages/bridge.tscn"
+stage_size = 2
+
+[node name="down" type="Path2D" parent="check-points/left-bridge"]
+editor/display_folded = true
+curve = SubResource( 32 )
+script = ExtResource( 7 )
+routeType = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/left-bridge/down"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/left-bridge/down/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="up" type="Path2D" parent="check-points/left-bridge"]
+editor/display_folded = true
+curve = SubResource( 33 )
+script = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/left-bridge/up"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/left-bridge/up/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="right" type="Path2D" parent="check-points/left-bridge"]
+editor/display_folded = true
+curve = SubResource( 34 )
+script = ExtResource( 7 )
+routeType = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/left-bridge/right"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/left-bridge/right/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="left" type="Path2D" parent="check-points/left-bridge"]
+editor/display_folded = true
+curve = SubResource( 35 )
+script = ExtResource( 7 )
+routeType = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="check-points/left-bridge/left"]
+position = Vector2( 184.644, 529.279 )
+rotate = false
+script = ExtResource( 8 )
+speed = 225.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="check-points/left-bridge/left/PathFollow2D"]
+remote_path = NodePath("../../../../../bus2")
+
+[node name="Area2D" type="Area2D" parent="check-points/left-bridge"]
+position = Vector2( 143.306, -48.4722 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check-points/left-bridge/Area2D"]
+position = Vector2( 43.4696, 572.929 )
+shape = SubResource( 5 )
+
+[node name="ColorRect2" type="ColorRect" parent="check-points/left-bridge/Area2D/CollisionShape2D"]
+visible = false
+margin_left = -16.0
+margin_top = -21.0
+margin_right = 24.0
+margin_bottom = 19.0
+color = Color( 0.691406, 0, 0, 0.469608 )
+
+[node name="navigationArrows" type="Node2D" parent="check-points/left-bridge"]
+editor/display_folded = true
+position = Vector2( 340.845, 508.285 )
+
+[node name="up" type="Sprite" parent="check-points/left-bridge/navigationArrows"]
+position = Vector2( -155, 60 )
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up4" type="Sprite" parent="check-points/left-bridge/navigationArrows"]
+position = Vector2( -220.883, 14.8751 )
+rotation = 1.57079
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up2" type="Sprite" parent="check-points/left-bridge/navigationArrows"]
+position = Vector2( -169.672, -32.0165 )
+rotation = -3.14159
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="up3" type="Sprite" parent="check-points/left-bridge/navigationArrows"]
+position = Vector2( -89.1263, 14.8825 )
+rotation = -1.57079
+z_index = 10
+texture = ExtResource( 9 )
+
+[node name="roads" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 24, -213 )
+
+[node name="Sprite" type="Sprite" parent="roads"]
+position = Vector2( 460.774, 542.768 )
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite7" type="Sprite" parent="roads"]
+position = Vector2( 409.616, 400.294 )
+rotation = -0.785397
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite8" type="Sprite" parent="roads"]
+position = Vector2( 126.458, 362.4 )
+rotation = -2.35619
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite12" type="Sprite" parent="roads"]
+position = Vector2( 90.458, 576.4 )
+rotation = -0.523599
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite9" type="Sprite" parent="roads"]
+position = Vector2( 194.711, 318.509 )
+rotation = -1.83259
+scale = Vector2( 0.256791, 0.576148 )
+texture = ExtResource( 39 )
+
+[node name="Sprite2" type="Sprite" parent="roads"]
+position = Vector2( 382.734, 689.056 )
+rotation = 0.785397
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite3" type="Sprite" parent="roads"]
+position = Vector2( 578.112, 685.115 )
+rotation = -1.309
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite11" type="Sprite" parent="roads"]
+position = Vector2( 828.877, 667.62 )
+rotation = -0.785398
+scale = Vector2( 0.35, 0.733894 )
+z_index = 10
+texture = ExtResource( 39 )
+
+[node name="Sprite4" type="Sprite" parent="roads"]
+position = Vector2( 580.253, 468.63 )
+rotation = -1.57079
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite10" type="Sprite" parent="roads"]
+position = Vector2( 879.254, 461.63 )
+rotation = -1.57079
+scale = Vector2( 0.35, 0.733894 )
+texture = ExtResource( 39 )
+
+[node name="Sprite5" type="Sprite" parent="roads"]
+position = Vector2( 702.342, 512.208 )
+rotation = -3.14159
+scale = Vector2( 0.35, 0.492667 )
+texture = ExtResource( 39 )
+
+[node name="Sprite6" type="Sprite" parent="roads"]
+position = Vector2( 699.332, 383.157 )
+rotation = -3.14159
+scale = Vector2( 0.35, 0.417229 )
+texture = ExtResource( 39 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+visible = false
+margin_left = 673.0
+margin_top = 160.0
+margin_right = 923.0
+margin_bottom = 410.0
+color = Color( 0.215686, 0.196078, 0.254902, 1 )
+
+[node name="footer" type="ColorRect" parent="HUD"]
+visible = false
+margin_left = -13.0
+margin_top = 594.0
+margin_right = 1136.0
+margin_bottom = 688.0
+color = Color( 0.215686, 0.196078, 0.254902, 1 )
+
+[node name="header" type="ColorRect" parent="HUD"]
+visible = false
+margin_left = -13.0
+margin_right = 1136.0
+margin_bottom = 65.0
+color = Color( 0.215686, 0.196078, 0.254902, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+editor/display_folded = true
+margin_right = 1054.0
+margin_bottom = 415.0
+
+[node name="left-padding" type="Control" parent="HUD/HBoxContainer"]
+margin_right = 450.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 450, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="right-pane" type="Control" parent="HUD/HBoxContainer"]
+margin_left = 454.0
+margin_right = 454.0
+margin_bottom = 415.0
+
+[node name="header" type="Control" parent="HUD/HBoxContainer/right-pane"]
+margin_top = 167.0
+margin_right = 600.0
+margin_bottom = 167.0
+
+[node name="stageIcon" type="TextureRect" parent="HUD/HBoxContainer/right-pane/header"]
+margin_left = 246.827
+margin_top = 65.311
+margin_right = 676.827
+margin_bottom = 400.311
+rect_min_size = Vector2( 430, 335 )
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="footer" type="Control" parent="HUD/HBoxContainer/right-pane"]
+margin_left = 169.396
+margin_top = 377.648
+margin_right = 769.396
+margin_bottom = 453.648
+
+[node name="HBoxContainer" type="Control" parent="HUD/HBoxContainer/right-pane/footer"]
+margin_right = 600.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 600, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="HUD/HBoxContainer/right-pane/footer/HBoxContainer"]
+margin_left = 75.6338
+margin_top = -204.94
+margin_right = 404.634
+margin_bottom = -175.94
+custom_fonts/font = SubResource( 36 )
+
+[node name="stage-size" type="Label" parent="HUD/HBoxContainer/right-pane/footer/HBoxContainer"]
+margin_left = 61.6338
+margin_top = -176.94
+margin_right = 390.634
+margin_bottom = -147.94
+custom_fonts/font = SubResource( 36 )
+text = "Stage Size"
+
+[node name="star-array" parent="HUD/HBoxContainer/right-pane/footer/HBoxContainer" instance=ExtResource( 41 )]
+margin_left = 181.0
+margin_top = -172.0
+margin_right = 181.0
+margin_bottom = -172.0
+rect_scale = Vector2( 0.2, 0.2 )
+starOverflowSize = 15
+startTexture = ExtResource( 42 )
+
+[node name="Title" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -188.5
+margin_right = 306.5
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 37 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Stage Selection"
+
+[node name="back-arrow2" parent="HUD" instance=ExtResource( 43 )]
+margin_left = 5.0
+margin_top = 510.0
+margin_right = 71.0
+margin_bottom = 553.0
+
+[node name="quickStageSelect" type="Control" parent="HUD"]
+visible = false
+margin_left = -260.215
+margin_top = 12.6934
+margin_right = -220.215
+margin_bottom = 52.6934
+
+[node name="bdg2" type="ColorRect" parent="HUD/quickStageSelect"]
+margin_left = 311.189
+margin_top = 94.042
+margin_right = 726.189
+margin_bottom = 464.042
+color = Color( 0.215686, 0.196078, 0.254902, 1 )
+
+[node name="backLabel2" type="Label" parent="HUD/quickStageSelect"]
+margin_left = 408.404
+margin_top = 101.933
+margin_right = 680.404
+margin_bottom = 140.933
+custom_fonts/font = SubResource( 38 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Quick Stage Select"
+
+[node name="stageFastListSelection" parent="HUD/quickStageSelect" instance=ExtResource( 44 )]
+margin_left = 421.233
+margin_top = 144.211
+margin_right = 623.233
+margin_bottom = 144.211
+csvOptions = "Winter Carnaval,Art Museum,Theater,Haunted Mansion,Farm,Rapid Kayaking,Observatory,Radio Tower,Rock Climbing"
+
+[node name="Footer" type="Control" parent="HUD"]
+margin_left = 77.0
+margin_right = 117.0
+margin_bottom = 40.0
+
+[node name="back" type="Control" parent="HUD/Footer"]
+editor/display_folded = true
+margin_left = -123.0
+margin_right = -83.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="HUD/Footer/back"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Back"
+
+[node name="BTexture" type="TextureRect" parent="HUD/Footer/back"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 45 )
+
+[node name="quickSelectView" type="Control" parent="HUD/Footer"]
+margin_left = 41.0
+margin_right = 81.0
+margin_bottom = 40.0
+
+[node name="backLabel" type="Label" parent="HUD/Footer/quickSelectView"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Toggle Quick 
+Select Stage List"
+
+[node name="BTexture" type="TextureRect" parent="HUD/Footer/quickSelectView"]
+margin_left = 91.5264
+margin_top = 546.526
+margin_right = 131.526
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 46 )
+
+[node name="navigate" type="Control" parent="HUD/Footer"]
+editor/display_folded = true
+margin_left = 264.0
+margin_right = 304.0
+margin_bottom = 40.0
+
+[node name="selectLabel" type="Label" parent="HUD/Footer/navigate"]
+margin_left = 172.843
+margin_top = 557.31
+margin_right = 444.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Navigate"
+
+[node name="downTexture" type="TextureRect" parent="HUD/Footer/navigate"]
+margin_left = 96.5264
+margin_top = 562.526
+margin_right = 181.526
+margin_bottom = 602.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 9 )
+
+[node name="upTexture" type="TextureRect" parent="HUD/Footer/navigate"]
+margin_left = 96.5264
+margin_top = 530.526
+margin_right = 181.526
+margin_bottom = 570.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 47 )
+
+[node name="leftTexture" type="TextureRect" parent="HUD/Footer/navigate"]
+margin_left = 86.2123
+margin_top = 548.033
+margin_right = 171.212
+margin_bottom = 588.033
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 48 )
+
+[node name="rightTexture" type="TextureRect" parent="HUD/Footer/navigate"]
+margin_left = 121.212
+margin_top = 548.033
+margin_right = 206.212
+margin_bottom = 588.033
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 49 )
+
+[node name="select" type="Control" parent="HUD/Footer"]
+margin_left = 402.751
+margin_top = 3.01471
+margin_right = 442.751
+margin_bottom = 43.0147
+
+[node name="switchLabel" type="Label" parent="HUD/Footer/select"]
+margin_left = 142.843
+margin_top = 557.31
+margin_right = 414.843
+margin_bottom = 588.31
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Select Stage"
+
+[node name="BTexture2" type="TextureRect" parent="HUD/Footer/select"]
+margin_left = 111.133
+margin_top = 546.526
+margin_right = 151.133
+margin_bottom = 586.526
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 50 )
+
+[node name="cameraBoundaries" type="ReferenceRect" parent="."]
+visible = false
+margin_left = 15.0
+margin_top = 13.0
+margin_right = 1071.0
+margin_bottom = 599.0
+
+[node name="sfxPlayer" type="Node" parent="."]
+script = ExtResource( 51 )
+soundDirectory = "res://assets/sounds/sfx/ui/map-select/"
+
+[node name="TODO-stages" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="HIGHWAY" type="Label" parent="TODO-stages"]
+margin_left = 136.988
+margin_top = 88.6222
+margin_right = 271.988
+margin_bottom = 119.622
+custom_fonts/font = SubResource( 40 )
+text = "TODO: highway 
+stage"
+
+[node name="circus" type="Label" parent="TODO-stages"]
+margin_left = 976.463
+margin_top = 52.6027
+margin_right = 1111.46
+margin_bottom = 83.6027
+custom_fonts/font = SubResource( 40 )
+text = "TODO: circus stage"
+
+[node name="sports school" type="Label" parent="TODO-stages"]
+margin_left = 997.781
+margin_top = 362.076
+margin_right = 1132.78
+margin_bottom = 393.076
+custom_fonts/font = SubResource( 40 )
+text = "TODO: sports school
+stage"
+
+[node name="artschool" type="Label" parent="TODO-stages"]
+margin_left = 417.058
+margin_top = 524.532
+margin_right = 552.058
+margin_bottom = 555.532
+custom_fonts/font = SubResource( 40 )
+text = "TODO: art school
+stage"
+
+[node name="science-school" type="Label" parent="TODO-stages"]
+margin_left = 228.874
+margin_top = 279.011
+margin_right = 363.874
+margin_bottom = 310.011
+custom_fonts/font = SubResource( 40 )
+text = "TODO: science school
+stage"
+
+[node name="baseballstadium" type="Label" parent="TODO-stages"]
+margin_left = -2.67928
+margin_top = 82.7415
+margin_right = 132.321
+margin_bottom = 113.741
+custom_fonts/font = SubResource( 40 )
+text = "TODO: baseball 
+stadium stage"

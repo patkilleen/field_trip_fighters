@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://interface/abilityBarFeedingHUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/bar/ability/fill.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/bar/ability/fill-red.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/bar/ability/fill-partial.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/bar/ability/bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/bar/ability/fg.png" type="Texture" id=6]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=7]
+[ext_resource path="res://TriTextureProgress.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="abilityBarFeedingHUD" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+mainProgressTexture = ExtResource( 2 )
+underProgressTexture = ExtResource( 3 )
+partialProgressTexture = ExtResource( 4 )
+backgroundProgressTexture = ExtResource( 5 )
+foregroundProgressTexture = ExtResource( 6 )
+
+[node name="feedingLabel" type="Label" parent="."]
+margin_left = 32.0333
+margin_top = -30.6422
+margin_right = 228.033
+margin_bottom = 5.3578
+custom_fonts/font = SubResource( 1 )
+text = "Feed"
+
+[node name="fillingBarChunk" parent="." instance=ExtResource( 8 )]
+margin_left = -1.0
+margin_top = 25.0
+margin_right = -1.0
+margin_bottom = 65.0
+rect_scale = Vector2( 0.15, 0.5 )
+
+[node name="plusLabel" type="Label" parent="."]
+margin_left = 10.2729
+margin_top = 47.344
+margin_right = 26.2729
+margin_bottom = 83.344
+custom_fonts/font = SubResource( 1 )
+text = "+"
+
+[node name="fullBarChunk" parent="." instance=ExtResource( 8 )]
+margin_left = 43.5046
+margin_top = 56.4897
+margin_right = 43.5046
+margin_bottom = 96.4897
+rect_scale = Vector2( 0.15, 0.5 )
+
+[node name="timesLabel" type="Label" parent="."]
+margin_left = 159.39
+margin_top = 15.7351
+margin_right = 203.39
+margin_bottom = 63.7351
+custom_fonts/font = SubResource( 2 )
+text = "x2"

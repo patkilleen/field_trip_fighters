@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/22-auto-parry.wav-fdf074db98a61f14427ba26f545eb0cd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/common/22-auto-parry.wav"
+dest_files=[ "res://.import/22-auto-parry.wav-fdf074db98a61f14427ba26f545eb0cd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

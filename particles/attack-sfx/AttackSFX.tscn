@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://particles/attack-sfx/GoalExplosion.gd" type="Script" id=1]
+[ext_resource path="res://particles/attack-sfx/Explosion.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.220708, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.0203488 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 450, 1 )
+flag_align_y = true
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -5.16986e-020
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+angle = 90.0
+scale = 0.2
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 450, 1 )
+flag_align_y = true
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -5.16986e-020
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+angle = 90.0
+scale = 0.15
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 450, 1 )
+flag_align_y = true
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -5.16986e-020
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+angle = 90.0
+scale = 0.15
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 450, 1 )
+flag_align_y = true
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = -5.16986e-020
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+angle = 90.0
+scale = 0.15
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_align_y = true
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 55.0
+angular_velocity = -8.45774e+024
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.25
+color_ramp = SubResource( 8 )
+
+[node name="AttackSFX" type="Node2D"]
+script = ExtResource( 1 )
+completionDelay = 0.0
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="ExplosionMain" parent="particles" instance=ExtResource( 2 )]
+position = Vector2( -20.3816, 26.8085 )
+scale = Vector2( 10, 0.15 )
+amount = 250
+lifetime = 0.9
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="ExplosionEnding" parent="particles" instance=ExtResource( 2 )]
+position = Vector2( -20.3816, 26.8085 )
+scale = Vector2( 10, 0.15 )
+amount = 300
+lifetime = 0.5
+local_coords = false
+process_material = SubResource( 4 )
+
+[node name="ExplosionTop" parent="particles" instance=ExtResource( 2 )]
+position = Vector2( -6.13179, 9.23259 )
+scale = Vector2( 10, 0.15 )
+amount = 250
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 5 )
+
+[node name="ExplosionBottom" parent="particles" instance=ExtResource( 2 )]
+position = Vector2( -7.00775, 43.1033 )
+scale = Vector2( 10, 0.15 )
+amount = 120
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 6 )
+
+[node name="ExplosionNeutral" type="Particles2D" parent="particles"]
+emitting = false
+amount = 300
+lifetime = 1.7
+speed_scale = 4.0
+explosiveness = 0.9
+local_coords = false
+process_material = SubResource( 9 )

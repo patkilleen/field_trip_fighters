@@ -1,0 +1,212 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Interface.gd" type="Script" id=1]
+[ext_resource path="res://LifeBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AbilityBarChunked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/interfaces/bar/ability/fill.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/bar/fill-red.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/bar/ability/fill-partial.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/bar/ability/bg.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/bar/ability/fg.png" type="Texture" id=8]
+[ext_resource path="res://interface/shield-efficiency-ui.tscn" type="PackedScene" id=9]
+[ext_resource path="res://blockIcon.gd" type="Script" id=10]
+[ext_resource path="res://assets/interfaces/shield-icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/disabled-shield-icon.png" type="Texture" id=12]
+[ext_resource path="res://cooldownAnimation.gd" type="Script" id=13]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/interfaces/anti-shield-icon.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/disabled-anti-shield-icon.png" type="Texture" id=16]
+[ext_resource path="res://CommandNotification.tscn" type="PackedScene" id=17]
+[ext_resource path="res://interface/CircularProgressDamageBar.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/interfaces/bar/damage/sword-icon.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/bar/circular-progress/over-focus.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/bar/focus/brain.png" type="Texture" id=21]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+outline_size = 3
+outline_color = Color( 0.478431, 0, 1, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
+
+[node name="Interface" type="Control"]
+light_mask = 0
+margin_right = 645.0
+margin_bottom = 62.0
+rect_scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 1 )
+comboPanelBgdColor = Color( 0, 0, 0, 0.101961 )
+
+[node name="HPBar" parent="." instance=ExtResource( 2 )]
+margin_left = 54.0
+margin_top = 10.0
+margin_right = 699.0
+margin_bottom = 60.0
+
+[node name="OldAbilityBar" parent="." instance=ExtResource( 3 )]
+margin_left = 20.0
+margin_top = 722.857
+margin_right = 528.0
+margin_bottom = 722.857
+rect_scale = Vector2( 0.9, 0.9 )
+numberOfChunks = 8
+padding = Vector2( 10, -10 )
+mainProgressTexture = ExtResource( 4 )
+underProgressTexture = ExtResource( 5 )
+partialProgressTexture = ExtResource( 6 )
+backgroundProgressTexture = ExtResource( 7 )
+foregroundProgressTexture = ExtResource( 8 )
+
+[node name="shield-efficiency-ui" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_left = 53.0
+margin_top = 769.0
+margin_right = 215.0
+margin_bottom = 911.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="icon_notifiers" type="HBoxContainer" parent="."]
+margin_top = 775.0
+margin_right = 912.0
+margin_bottom = 775.0
+rect_scale = Vector2( 0.5, 0.5 )
+alignment = 1
+
+[node name="blockIcon" type="NinePatchRect" parent="icon_notifiers"]
+visible = false
+margin_left = 188.0
+margin_right = 388.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 200, 0 )
+script = ExtResource( 10 )
+
+[node name="offCooldownIcon" type="TextureRect" parent="icon_notifiers/blockIcon"]
+visible = false
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 11 )
+
+[node name="onCooldownIcon" type="TextureRect" parent="icon_notifiers/blockIcon"]
+visible = false
+margin_right = 172.0
+margin_bottom = 172.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 12 )
+
+[node name="cooldownAnimation" type="Node2D" parent="icon_notifiers/blockIcon"]
+visible = false
+position = Vector2( 64.3237, 58.1849 )
+z_index = 1
+script = ExtResource( 13 )
+shieldCooldownRadius = 50.0
+
+[node name="countDownLabel" type="Label" parent="icon_notifiers/blockIcon/cooldownAnimation"]
+visible = false
+margin_left = -24.613
+margin_top = -46.2716
+margin_right = 18.387
+margin_bottom = 134.728
+custom_fonts/font = SubResource( 1 )
+text = "9
+"
+
+[node name="anti-blockIcon" type="NinePatchRect" parent="icon_notifiers"]
+margin_left = 356.0
+margin_right = 556.0
+rect_min_size = Vector2( 200, 0 )
+script = ExtResource( 10 )
+
+[node name="offCooldownIcon" type="TextureRect" parent="icon_notifiers/anti-blockIcon"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 97.1429
+margin_top = 31.4286
+margin_right = 269.143
+margin_bottom = 203.429
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 15 )
+
+[node name="onCooldownIcon" type="TextureRect" parent="icon_notifiers/anti-blockIcon"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 97.1429
+margin_top = 31.4286
+margin_right = 269.143
+margin_bottom = 203.429
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+
+[node name="cooldownAnimation" type="Node2D" parent="icon_notifiers/anti-blockIcon"]
+visible = false
+position = Vector2( 160, 88.5715 )
+z_index = 1
+script = ExtResource( 13 )
+shieldCooldownRadius = 50.0
+color = Color( 0.290196, 0.0313726, 0.435294, 0.6 )
+
+[node name="countDownLabel" type="Label" parent="icon_notifiers/anti-blockIcon/cooldownAnimation"]
+margin_left = -20.0
+margin_top = -37.1428
+margin_right = 23.0
+margin_bottom = 143.858
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.972549, 1, 0.0901961, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "9
+"
+
+[node name="ripostNotification" parent="icon_notifiers" instance=ExtResource( 17 )]
+visible = false
+margin_left = 408.0
+margin_right = 708.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 300, 0 )
+text = "Last Ripost"
+
+[node name="counterRipostNotification" parent="icon_notifiers" instance=ExtResource( 17 )]
+visible = false
+margin_left = 560.0
+margin_right = 810.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 250, 0 )
+text = "Last Ctr Ripost"
+
+[node name="CircularDamageProgressBar" parent="icon_notifiers" instance=ExtResource( 18 )]
+margin_left = 494.0
+margin_right = 622.0
+margin_bottom = 132.0
+
+[node name="icon" type="TextureRect" parent="icon_notifiers/CircularDamageProgressBar"]
+margin_left = 25.0
+margin_top = 28.0
+margin_right = 290.0
+margin_bottom = 280.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 19 )
+stretch_mode = 3
+
+[node name="CircularFocusProgressBar" parent="icon_notifiers" instance=ExtResource( 18 )]
+margin_left = 662.0
+margin_right = 790.0
+margin_bottom = 132.0
+texture_progress = ExtResource( 20 )
+
+[node name="icon" type="TextureRect" parent="icon_notifiers/CircularFocusProgressBar"]
+margin_left = 32.0
+margin_top = 23.0
+margin_right = 297.0
+margin_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 21 )
+stretch_mode = 3

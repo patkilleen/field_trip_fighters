@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GameObject.gd" type="Script" id=1]
+[ext_resource path="res://PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://CollisionHandler.gd" type="Script" id=3]
+[ext_resource path="res://active-collision-areas.tscn" type="PackedScene" id=4]
+[ext_resource path="res://active-collision-areas.gd" type="Script" id=5]
+[ext_resource path="res://bodyBox.gd" type="Script" id=6]
+
+[node name="GameObject" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+hitBoxLayer = 0
+hitBoxMask = 0
+hurtBoxLayer = 0
+hurtBoxMask = 0
+selfHitBoxLayer = 0
+selfHitBoxMask = 0
+selfHurtBoxLayer = 0
+selfHurtBoxMask = 0
+
+[node name="GameObjectController" type="Node" parent="." index="0"]
+
+script = ExtResource( 2 )
+reboundingDamageThreshold = 15
+minimumNumberReboundFrames = 6.6
+reboundFramesMod = 1.8
+highDamageThreshold = 2
+ripostHitFreeze = 14
+antiBlockHitstunDuration = 75
+antiBlockDamage = 65
+maxNumberWallBounces = 6
+
+[node name="CollisionHandler" type="Node" parent="GameObjectController" index="0"]
+
+script = ExtResource( 3 )
+
+[node name="active-nodes" type="Node2D" parent="." index="1" instance=ExtResource( 4 )]
+
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="active-nodes" index="1"]
+
+z_index = 1
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="bodyBox" type="CollisionShape2D" parent="." index="2"]
+
+script = ExtResource( 6 )
+facingRight = true
+
+[node name="floorDetector" type="RayCast2D" parent="bodyBox" index="0"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 45 )
+collision_mask = 1
+
+[node name="platformDetector" type="RayCast2D" parent="bodyBox" index="1"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 45 )
+collision_mask = 1
+
+[node name="gameObjects" type="Node2D" parent="." index="3"]
+
+

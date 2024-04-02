@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lighting/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/bridge/sky.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/baseball-stadium/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/baseball-stadium/near-background.png" type="Texture" id=5]
+[ext_resource path="res://assets/sounds/ambience/stage/radio-tower/ambience.ogg" type="AudioStream" id=6]
+
+[node name="swamp" index="0" instance=ExtResource( 1 )]
+endMatchAmbienceVolumeIncrease = 5.0
+
+[node name="leftwall" parent="." index="0"]
+position = Vector2( -10055.2, -142.843 )
+
+[node name="CollisionShape2D" parent="leftwall" index="0"]
+position = Vector2( -29, 13.6038 )
+
+[node name="Sprite" type="Sprite" parent="leftwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 71, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="rightwall" parent="." index="1"]
+position = Vector2( 10898.7, 544.726 )
+
+[node name="CollisionShape2D" parent="rightwall" index="0"]
+editor/display_folded = true
+position = Vector2( -100, -24.0812 )
+
+[node name="Sprite2" type="Sprite" parent="rightwall/CollisionShape2D" index="0"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -62, 0 )
+scale = Vector2( 1, 50 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="background" parent="." index="2"]
+visible = false
+frame = 1
+
+[node name="sky" type="Sprite" parent="." index="3"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 389.618, 263.987 )
+scale = Vector2( 1.25, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="staic-bgd" type="Sprite" parent="." index="4"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 407.99, 410.963 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="near-bgd" type="Sprite" parent="." index="5"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 407.99, 375.963 )
+scale = Vector2( 1, 0.75 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="floor" index="0"]
+position = Vector2( -0.000244, 9994 )
+
+[node name="P1_HUD" parent="CanvasLayer" index="7"]
+editor/display_folded = true
+visible = false
+
+[node name="P2_HUD" parent="CanvasLayer" index="8"]
+editor/display_folded = true
+visible = false
+
+[node name="particles" parent="CanvasLayer/cachedResources" index="3"]
+editor/display_folded = false
+
+[node name="particleEffects" parent="CanvasLayer/cachedResources" index="8"]
+editor/display_folded = false
+
+[node name="magicGlow" parent="CanvasLayer/cachedResources/particleEffects" index="7"]
+emitting = false
+
+[node name="player1Spawn" parent="." index="12"]
+position = Vector2( 433, 455 )
+
+[node name="player2Spawn" parent="." index="13"]
+position = Vector2( 633, 455 )
+
+[node name="cameraBoundaries" parent="." index="16"]
+margin_left = -127.0
+margin_top = 70.0
+margin_right = 941.0
+margin_bottom = 650.0
+
+[node name="AmbienceMusic" type="AudioStreamPlayer" parent="." index="22"]
+pause_mode = 1
+stream = ExtResource( 6 )
+volume_db = 4.0
+autoplay = true
+
+[node name="largeHitTempSpriteTemplate" parent="." index="41"]
+diMeleeModulate = Color( 15, 15, 15, 1 )
+diSpecialModulate = Color( 7, 7, 7, 1 )
+diToolModulate = Color( 10, 10, 10, 1 )
+marginBottom = 50.0

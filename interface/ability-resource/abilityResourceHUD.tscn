@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/ability-resource/abilityResourceHUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/ability-resource-hud/green.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/ability-resource-hud/green-partial.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/ability-resource-hud/circle-bgd.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/ability-resource-hud/gray.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/ability-resource-hud/red-bar.png" type="Texture" id=6]
+
+[node name="abilityResourceHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+fillTexture = ExtResource( 2 )
+partialFillTexture = ExtResource( 3 )
+
+[node name="circle-progress-bgd" type="TextureRect" parent="."]
+margin_left = -33.0
+margin_top = -34.0
+margin_right = 34.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 26.116, 63.5083 )
+texture = ExtResource( 4 )
+
+[node name="circleProgress" type="TextureProgress" parent="."]
+margin_left = -28.0
+margin_top = -28.0
+margin_right = 29.0
+margin_bottom = 29.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+
+[node name="red-cross" type="TextureRect" parent="."]
+margin_left = -20.0
+margin_top = -19.0
+margin_right = 22.0
+margin_bottom = 22.0
+rect_rotation = 15.0
+rect_scale = Vector2( 2, 1 )
+rect_pivot_offset = Vector2( 19.5399, 19.315 )
+texture = ExtResource( 6 )

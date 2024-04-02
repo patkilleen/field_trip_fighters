@@ -1,0 +1,2851 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://interface/new-combo-list/heroInfo.gd" type="Script" id=1]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://interface/new-combo-list/animationEntry.gd" type="Script" id=3]
+[ext_resource path="res://assets/interfaces/command-input/X.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/command-input/r-x.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/command-input/d-x.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/command-input/l-x.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/command-input/up-x.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/command-input/Y.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/command-input/r-y.png" type="Texture" id=10]
+[ext_resource path="res://assets/interfaces/command-input/d-y.png" type="Texture" id=11]
+[ext_resource path="res://assets/interfaces/command-input/l-y.png" type="Texture" id=12]
+[ext_resource path="res://assets/interfaces/command-input/up-y.png" type="Texture" id=13]
+[ext_resource path="res://assets/interfaces/command-input/B.png" type="Texture" id=14]
+[ext_resource path="res://assets/interfaces/command-input/r-b.png" type="Texture" id=15]
+[ext_resource path="res://assets/interfaces/command-input/d-b.png" type="Texture" id=16]
+[ext_resource path="res://assets/interfaces/command-input/l-B.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/command-input/up-b.png" type="Texture" id=18]
+[ext_resource path="res://assets/interfaces/command-input/left.png" type="Texture" id=19]
+[ext_resource path="res://assets/interfaces/command-input/right.png" type="Texture" id=20]
+[ext_resource path="res://assets/interfaces/command-input/up.png" type="Texture" id=21]
+[ext_resource path="res://assets/interfaces/command-input/down.png" type="Texture" id=22]
+[ext_resource path="res://assets/interfaces/command-input/AUTO-RIPOST.png" type="Texture" id=23]
+[ext_resource path="res://assets/interfaces/command-input/ripost.png" type="Texture" id=24]
+[ext_resource path="res://assets/interfaces/command-input/counter-ripost.png" type="Texture" id=25]
+[ext_resource path="res://assets/interfaces/command-input/l2.png" type="Texture" id=26]
+[ext_resource path="res://assets/interfaces/command-input/l1.png" type="Texture" id=27]
+[ext_resource path="res://assets/interfaces/command-input/l-a.png" type="Texture" id=28]
+[ext_resource path="res://assets/interfaces/command-input/A.png" type="Texture" id=29]
+[ext_resource path="res://assets/interfaces/command-input/r-a.png" type="Texture" id=30]
+[ext_resource path="res://assets/interfaces/command-input/right trigger.png" type="Texture" id=31]
+[ext_resource path="res://assets/interfaces/command-input/dash-back.png" type="Texture" id=32]
+[ext_resource path="res://assets/interfaces/command-input/DASH-down.png" type="Texture" id=33]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="rows" type="VBoxContainer"]
+margin_right = 580.0
+margin_bottom = 1022.0
+script = ExtResource( 1 )
+studentType = "Zoner"
+studentDescription = "Microphone is a stance character. She has two stances, Opera and Rap. In Rap stance, she uses a hand-mic, her frame data is more forgiving, her Tools are quick lights, her singing Special sound waves sweet spots is close to her (purple) and sends her opponent flying away . In Opera, her frame data becomes slower, her Tools are slow heavy attacks, and her singing Specials sweet spot is the far/pink part that sucks the opponent in, allowing for ping-pong-like combos using Specials."
+
+[node name="melee" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 580.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="MeleeColorRect" type="ColorRect" parent="melee"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.0156863, 0.156863, 0.717647, 1 )
+
+[node name="meleeLabel" type="Label" parent="melee/MeleeColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Melee"
+align = 1
+valign = 1
+
+[node name="opera2" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 54.0
+margin_right = 580.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="operaColorRect" type="ColorRect" parent="opera2"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.941176, 0, 0.972549, 1 )
+
+[node name="operaLabel" type="Label" parent="opera2/operaColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Opera"
+align = 1
+valign = 1
+
+[node name="air-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 108.0
+margin_right = 580.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 156
+type = "Neutral Melee"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="air-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Can you get down with this?"
+
+[node name="cmdIconContainer" type="Control" parent="air-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-melee/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-melee/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="n-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 162.0
+margin_right = 580.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 155
+type = "Neutral Melee"
+stanceIx = 1
+additionalProperties = "test"
+
+[node name="container" type="VBoxContainer" parent="n-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hiphop hands"
+
+[node name="cmdIconContainer2" type="Control" parent="n-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-melee/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="f-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 216.0
+margin_right = 580.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 160
+type = "Forward Melee"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="f-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Step back"
+
+[node name="cmdIconContainer2" type="Control" parent="f-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-melee/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 5 )
+
+[node name="d-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 270.0
+margin_right = 580.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 159
+type = "Down Melee"
+stanceIx = 1
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="d-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Drop the Bass"
+
+[node name="cmdIconContainer2" type="Control" parent="d-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-melee/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 6 )
+
+[node name="b-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 324.0
+margin_right = 580.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 157
+type = "Back Melee"
+stanceIx = 1
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="b-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Stop the track"
+
+[node name="cmdIconContainer2" type="Control" parent="b-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-melee/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+
+[node name="u-melee" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 378.0
+margin_right = 580.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 158
+type = "Up Melee"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="u-melee"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-melee/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Raise the roof"
+
+[node name="cmdIconContainer2" type="Control" parent="u-melee/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-melee/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 8 )
+
+[node name="rap2" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 432.0
+margin_right = 580.0
+margin_bottom = 482.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="rapColorRect" type="ColorRect" parent="rap2"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.427451, 0, 0.721569, 1 )
+
+[node name="rapLabel" type="Label" parent="rap2/rapColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Rap"
+align = 1
+valign = 1
+
+[node name="air-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 486.0
+margin_right = 580.0
+margin_bottom = 536.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 13
+type = "Neutral Melee"
+
+[node name="container" type="VBoxContainer" parent="air-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Can you get down with this?"
+
+[node name="cmdIconContainer" type="Control" parent="air-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-melee2/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-melee2/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="n-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 540.0
+margin_right = 580.0
+margin_bottom = 590.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 9
+type = "Neutral Melee"
+
+[node name="container" type="VBoxContainer" parent="n-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hiphop hands"
+
+[node name="cmdIconContainer2" type="Control" parent="n-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="f-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 594.0
+margin_right = 580.0
+margin_bottom = 644.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 39
+type = "Forward Melee"
+
+[node name="container" type="VBoxContainer" parent="f-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Step back"
+
+[node name="cmdIconContainer2" type="Control" parent="f-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 5 )
+
+[node name="d-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 648.0
+margin_right = 580.0
+margin_bottom = 698.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 32
+type = "Down Melee"
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="d-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Drop the Bass"
+
+[node name="cmdIconContainer2" type="Control" parent="d-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 6 )
+
+[node name="b-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 702.0
+margin_right = 580.0
+margin_bottom = 752.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 53
+type = "Back Melee"
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="b-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Stop the track"
+
+[node name="cmdIconContainer2" type="Control" parent="b-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+
+[node name="u-melee2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 756.0
+margin_right = 580.0
+margin_bottom = 806.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 50
+type = "Up Melee"
+
+[node name="container" type="VBoxContainer" parent="u-melee2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-melee2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Raise the roof"
+
+[node name="cmdIconContainer2" type="Control" parent="u-melee2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-melee2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 8 )
+
+[node name="special" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 810.0
+margin_right = 580.0
+margin_bottom = 860.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="SpecialColorRect" type="ColorRect" parent="special"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.733333, 0.737255, 0.0235294, 1 )
+
+[node name="specialLabel" type="Label" parent="special/SpecialColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Special"
+align = 1
+valign = 1
+
+[node name="opera" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 864.0
+margin_right = 580.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="operaColorRect" type="ColorRect" parent="opera"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.941176, 0, 0.972549, 1 )
+
+[node name="operaLabel" type="Label" parent="opera/operaColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Opera"
+align = 1
+valign = 1
+
+[node name="air-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 918.0
+margin_right = 580.0
+margin_bottom = 968.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 150
+type = "Neutral Special"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="air-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Passagio"
+
+[node name="cmdIconContainer" type="Control" parent="air-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-special/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-special/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="n-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 972.0
+margin_right = 580.0
+margin_bottom = 1022.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 149
+type = "Neutral Special"
+stanceIx = 1
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="n-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Mezzo-soprano"
+
+[node name="cmdIconContainer2" type="Control" parent="n-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="f-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1026.0
+margin_right = 580.0
+margin_bottom = 1076.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 154
+type = "Forward Special"
+stanceIx = 1
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="f-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Soprano"
+
+[node name="cmdIconContainer2" type="Control" parent="f-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 10 )
+
+[node name="d-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1080.0
+margin_right = 580.0
+margin_bottom = 1130.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 153
+type = "Down Special"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="d-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Low Hum"
+
+[node name="cmdIconContainer2" type="Control" parent="d-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 11 )
+
+[node name="b-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1134.0
+margin_right = 580.0
+margin_bottom = 1184.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 151
+type = "Back Special"
+stanceIx = 1
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="b-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Contralto"
+
+[node name="cmdIconContainer2" type="Control" parent="b-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 12 )
+
+[node name="u-special" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1188.0
+margin_right = 580.0
+margin_bottom = 1238.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 152
+type = "Up Special"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="u-special"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-special/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "This ones for my folks"
+
+[node name="cmdIconContainer2" type="Control" parent="u-special/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-special/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 13 )
+
+[node name="rap" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1242.0
+margin_right = 580.0
+margin_bottom = 1292.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="rapColorRect" type="ColorRect" parent="rap"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.427451, 0, 0.721569, 1 )
+
+[node name="rapLabel" type="Label" parent="rap/rapColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Rap"
+align = 1
+valign = 1
+
+[node name="air-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1296.0
+margin_right = 580.0
+margin_bottom = 1346.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 14
+type = "Neutral Special"
+
+[node name="container" type="VBoxContainer" parent="air-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Passagio"
+
+[node name="cmdIconContainer" type="Control" parent="air-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-special2/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-special2/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="n-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1350.0
+margin_right = 580.0
+margin_bottom = 1400.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 10
+type = "Neutral Special"
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="n-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Mezzo-soprano"
+
+[node name="cmdIconContainer2" type="Control" parent="n-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="f-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1404.0
+margin_right = 580.0
+margin_bottom = 1454.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 33
+type = "Forward Special"
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="f-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Soprano"
+
+[node name="cmdIconContainer2" type="Control" parent="f-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 10 )
+
+[node name="d-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1458.0
+margin_right = 580.0
+margin_bottom = 1508.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 44
+type = "Down Special"
+
+[node name="container" type="VBoxContainer" parent="d-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Low Hum"
+
+[node name="cmdIconContainer2" type="Control" parent="d-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 11 )
+
+[node name="b-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1512.0
+margin_right = 580.0
+margin_bottom = 1562.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 27
+type = "Back Special"
+additionalProperties = "Stale-moves"
+
+[node name="container" type="VBoxContainer" parent="b-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Contralto"
+
+[node name="cmdIconContainer2" type="Control" parent="b-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 12 )
+
+[node name="u-special2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1566.0
+margin_right = 580.0
+margin_bottom = 1616.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 65
+type = "Up Special"
+
+[node name="container" type="VBoxContainer" parent="u-special2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-special2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "This ones for my folks"
+
+[node name="cmdIconContainer2" type="Control" parent="u-special2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-special2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 13 )
+
+[node name="tool" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1620.0
+margin_right = 580.0
+margin_bottom = 1670.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="ToolColorRect" type="ColorRect" parent="tool"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.984314, 0, 0.0235294, 1 )
+
+[node name="toolLabel" type="Label" parent="tool/ToolColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Tool"
+align = 1
+valign = 1
+
+[node name="opera3" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 1674.0
+margin_right = 580.0
+margin_bottom = 1724.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="operaColorRect" type="ColorRect" parent="opera3"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.941176, 0, 0.972549, 1 )
+
+[node name="operaLabel" type="Label" parent="opera3/operaColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Opera"
+align = 1
+valign = 1
+
+[node name="air-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1728.0
+margin_right = 580.0
+margin_bottom = 1778.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 148
+type = "Neutral Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="air-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Let's set the stage shall we"
+
+[node name="cmdIconContainer" type="Control" parent="air-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="n-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1782.0
+margin_right = 580.0
+margin_bottom = 1832.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 117
+type = "Neutral Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="n-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Metric Ambiguity"
+
+[node name="cmdIconContainer2" type="Control" parent="n-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="f-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1836.0
+margin_right = 580.0
+margin_bottom = 1886.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 146
+type = "Forward Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="f-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hold this"
+
+[node name="cmdIconContainer2" type="Control" parent="f-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 15 )
+
+[node name="d-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1890.0
+margin_right = 580.0
+margin_bottom = 1940.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 145
+type = "Down Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="d-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Don't step to me..."
+
+[node name="cmdIconContainer2" type="Control" parent="d-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="b-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1944.0
+margin_right = 580.0
+margin_bottom = 1994.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 143
+type = "Back Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="b-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "I can dance too!"
+
+[node name="cmdIconContainer2" type="Control" parent="b-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 17 )
+
+[node name="u-tool" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 1998.0
+margin_right = 580.0
+margin_bottom = 2048.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 144
+type = "Up Tool"
+stanceIx = 1
+
+[node name="container" type="VBoxContainer" parent="u-tool"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-tool/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Sometimes I get really into it!"
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 18 )
+
+[node name="rap3" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 2052.0
+margin_right = 580.0
+margin_bottom = 2102.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="rapColorRect" type="ColorRect" parent="rap3"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.427451, 0, 0.721569, 1 )
+
+[node name="rapLabel" type="Label" parent="rap3/rapColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Rap"
+align = 1
+valign = 1
+
+[node name="air-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2106.0
+margin_right = 580.0
+margin_bottom = 2156.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 18
+type = "Neutral Tool"
+
+[node name="container" type="VBoxContainer" parent="air-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Check this"
+
+[node name="cmdIconContainer" type="Control" parent="air-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-tool2/container/cmdIconContainer"]
+margin_left = 7.0
+margin_right = 581.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="air-tool2/container/cmdIconContainer"]
+margin_left = 32.0
+margin_right = 606.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="n-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2160.0
+margin_right = 580.0
+margin_bottom = 2210.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 19
+type = "Neutral Tool"
+
+[node name="container" type="VBoxContainer" parent="n-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="n-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Metric Ambiguity"
+
+[node name="cmdIconContainer2" type="Control" parent="n-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="n-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="f-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2214.0
+margin_right = 580.0
+margin_bottom = 2264.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 51
+type = "Forward Tool"
+
+[node name="container" type="VBoxContainer" parent="f-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="f-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hold this"
+
+[node name="cmdIconContainer2" type="Control" parent="f-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="f-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 15 )
+
+[node name="d-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2268.0
+margin_right = 580.0
+margin_bottom = 2318.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 52
+type = "Down Tool"
+
+[node name="container" type="VBoxContainer" parent="d-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="d-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Don't step to me..."
+
+[node name="cmdIconContainer2" type="Control" parent="d-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="d-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 16 )
+
+[node name="b-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2322.0
+margin_right = 580.0
+margin_bottom = 2372.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 38
+type = "Back Tool"
+
+[node name="container" type="VBoxContainer" parent="b-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="b-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "I can dance too!"
+
+[node name="cmdIconContainer2" type="Control" parent="b-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="b-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 17 )
+
+[node name="u-tool2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2376.0
+margin_right = 580.0
+margin_bottom = 2426.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 34
+type = "Up Tool"
+
+[node name="container" type="VBoxContainer" parent="u-tool2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="u-tool2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Sometimes I get really into it!"
+
+[node name="cmdIconContainer2" type="Control" parent="u-tool2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="u-tool2/container/cmdIconContainer2"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 18 )
+
+[node name="unique" type="Control" parent="."]
+margin_top = 2430.0
+margin_right = 580.0
+margin_bottom = 2480.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="universalColorRect" type="ColorRect" parent="unique"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.870588, 0.54902, 0.0941176, 1 )
+
+[node name="universalLabel" type="Label" parent="unique/universalColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Character-specific"
+align = 1
+valign = 1
+
+[node name="reverse-beat" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2484.0
+margin_right = 580.0
+margin_bottom = 2534.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Combo"
+description = "Hitting an opponent consecutively with any Tool + Special + Melee is a Reverse Beats combo. It has the same properties as Magic Series combos."
+disableComboCancelView = true
+
+[node name="container" type="VBoxContainer" parent="reverse-beat"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="reverse-beat/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Reverse Beat"
+
+[node name="cmdIconContainer" type="Control" parent="reverse-beat/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="reverse-beat/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Any                  +                  +                    combo"
+
+[node name="tool" type="TextureRect" parent="reverse-beat/container/cmdIconContainer"]
+margin_left = 52.0
+margin_right = 137.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="all-DI" type="Control" parent="reverse-beat/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -211.0
+margin_right = -171.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="special" type="TextureRect" parent="reverse-beat/container/cmdIconContainer"]
+margin_left = 135.0
+margin_right = 220.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="all-DI2" type="Control" parent="reverse-beat/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -128.0
+margin_right = -88.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI2"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI2"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="melee" type="TextureRect" parent="reverse-beat/container/cmdIconContainer"]
+margin_left = 216.0
+margin_right = 301.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="all-DI3" type="Control" parent="reverse-beat/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -47.0
+margin_right = -7.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI3"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI3"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="reverse-beat/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="universal" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 2538.0
+margin_right = 580.0
+margin_bottom = 2588.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="universalColorRect" type="ColorRect" parent="universal"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.529412, 0.054902, 0.721569, 1 )
+
+[node name="universalLabel" type="Label" parent="universal/universalColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Universal"
+align = 1
+valign = 1
+
+[node name="autoRipost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2592.0
+margin_right = 580.0
+margin_bottom = 2642.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "Invincible (vulnerable to grab) alpha counter reversal. When hit by an attack during this animation, a short-to-medium range parry is performed. There is a brief moment of vulnerability at the end of the animation where you can be hit if the opponent doesn't hit you."
+autoCancelsTypeBlackList = 31
+universalMove = 1
+additionalProperties = "Parry"
+
+[node name="container" type="VBoxContainer" parent="autoRipost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="autoRipost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Auto-ripost"
+
+[node name="cmdIconContainer" type="Control" parent="autoRipost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="autoRipost/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 23 )
+
+[node name="ripost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2646.0
+margin_right = 580.0
+margin_bottom = 2696.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "Ever know exactly what combo your opponent will do? A large window of time is created when you start riposting. If you are hit during that time and inputed R1 + the opponent's command, you steal the combo. Riposting can be done in almost any situation (including during hitstun). Riposting prevents input for the duration. Failing a ripost: when in neutral, you become stunned momentarily; in hitstun, you reset the opponent's damage proration and you are locked of ability bar gain temporarily."
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 2
+
+[node name="container" type="VBoxContainer" parent="ripost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ripost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ripost"
+
+[node name="cmdIconContainer" type="Control" parent="ripost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ripost/container/cmdIconContainer"]
+margin_left = 1.99999
+margin_right = 576.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 24 )
+
+[node name="counter-ripost" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2700.0
+margin_right = 580.0
+margin_bottom = 2750.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 3
+
+[node name="container" type="VBoxContainer" parent="counter-ripost"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="counter-ripost/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Counter-Ripost"
+
+[node name="cmdIconContainer" type="Control" parent="counter-ripost/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="counter-ripost/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 25 )
+
+[node name="ability-cancel" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2754.0
+margin_right = 580.0
+margin_bottom = 2804.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 4
+
+[node name="container" type="VBoxContainer" parent="ability-cancel"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ability-cancel/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ability Cancel"
+
+[node name="cmdIconContainer" type="Control" parent="ability-cancel/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ability-cancel/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="push-block" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2808.0
+margin_right = 580.0
+margin_bottom = 2858.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 70
+type = "Ability-based"
+universalMove = 5
+
+[node name="container" type="VBoxContainer" parent="push-block"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="push-block/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Push Block"
+
+[node name="cmdIconContainer" type="Control" parent="push-block/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="push-block/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Block + "
+
+[node name="cmdIcon2" type="TextureRect" parent="push-block/container/cmdIconContainer"]
+margin_left = 42.0
+margin_right = 616.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="tech" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2862.0
+margin_right = 580.0
+margin_bottom = 2912.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "While blocking (in block stun), push blocking will push your opponent away, prevent them from input buttons for a very brief moment, allowing you to reduce your opponent's aggression.  Block stun can be circumvented by ability canceling the push block animation (although it may be ability costly)"
+disableComboCancelView = true
+universalMove = 6
+additionalProperties = "invincibility"
+
+[node name="container" type="VBoxContainer" parent="tech"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="tech/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Tech"
+
+[node name="cmdIconContainer" type="Control" parent="tech/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="tech/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hitstun + bump into (wall, ceiling, or floor) +"
+
+[node name="cmdIcon2" type="TextureRect" parent="tech/container/cmdIconContainer"]
+margin_left = 284.0
+margin_right = 858.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 26 )
+
+[node name="magic-series" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 2916.0
+margin_right = 580.0
+margin_bottom = 2966.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Ability-based"
+description = "While blocking (in block stun), push blocking will push your opponent away, prevent them from input buttons for a very brief moment, allowing you to reduce your opponent's aggression.  Block stun can be circumvented by ability canceling the push block animation (although it may be ability costly)"
+disableComboCancelView = true
+universalMove = 8
+
+[node name="container" type="VBoxContainer" parent="magic-series"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="magic-series/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Magic Series"
+
+[node name="cmdIconContainer" type="Control" parent="magic-series/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="magic-series/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Any                  +                  +                    combo"
+
+[node name="melee" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 52.0
+margin_right = 137.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="all-DI" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -211.0
+margin_right = -171.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="special" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 135.0
+margin_right = 220.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 9 )
+
+[node name="all-DI2" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -128.0
+margin_right = -88.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI2"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="tool" type="TextureRect" parent="magic-series/container/cmdIconContainer"]
+margin_left = 216.0
+margin_right = 301.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 14 )
+
+[node name="all-DI3" type="Control" parent="magic-series/container/cmdIconContainer"]
+editor/display_folded = true
+margin_left = -47.0
+margin_right = -7.0
+margin_bottom = 28.0
+
+[node name="left" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 235.0
+margin_right = 809.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 19 )
+
+[node name="right" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 249.0
+margin_right = 823.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="up" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = -6.0
+margin_right = 812.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 21 )
+
+[node name="down" type="TextureRect" parent="magic-series/container/cmdIconContainer/all-DI3"]
+margin_left = 238.0
+margin_top = 6.0
+margin_right = 812.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="opera4" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 2970.0
+margin_right = 580.0
+margin_bottom = 3020.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="operaColorRect" type="ColorRect" parent="opera4"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.941176, 0, 0.972549, 1 )
+
+[node name="operaLabel" type="Label" parent="opera4/operaColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Opera"
+align = 1
+valign = 1
+
+[node name="grab2" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3024.0
+margin_right = 580.0
+margin_bottom = 3074.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 42
+type = "Cooldown-based"
+stanceIx = 1
+specialCase = 0
+universalMove = 7
+hitAdvantageOverride = "15"
+linkHitAdvantageOverride = "-1 to current hitstun duration"
+
+[node name="container" type="VBoxContainer" parent="grab2"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="grab2/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Grab"
+
+[node name="cmdIconContainer" type="Control" parent="grab2/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="grab2/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 27 )
+
+[node name="rap4" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 3078.0
+margin_right = 580.0
+margin_bottom = 3128.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="rapColorRect" type="ColorRect" parent="rap4"]
+margin_top = 4.0
+margin_right = 375.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 35 )
+color = Color( 0.427451, 0, 0.721569, 1 )
+
+[node name="rapLabel" type="Label" parent="rap4/rapColorRect"]
+margin_right = 375.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Rap"
+align = 1
+valign = 1
+
+[node name="grab" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3132.0
+margin_right = 580.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 42
+type = "Cooldown-based"
+specialCase = 0
+universalMove = 7
+hitAdvantageOverride = "15"
+linkHitAdvantageOverride = "-1 to current hitstun duration"
+
+[node name="container" type="VBoxContainer" parent="grab"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="grab/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Grab"
+
+[node name="cmdIconContainer" type="Control" parent="grab/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="grab/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 27 )
+
+[node name="mvm" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 3186.0
+margin_right = 580.0
+margin_bottom = 3236.0
+rect_min_size = Vector2( 580, 50 )
+
+[node name="mvmColorRect" type="ColorRect" parent="mvm"]
+margin_top = 4.0
+margin_right = 300.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 50 )
+color = Color( 0.00784314, 0.529412, 0.0156863, 1 )
+
+[node name="mvmLabel" type="Label" parent="mvm/mvmColorRect"]
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.674422, 0.882813, 0.589691, 1 )
+text = "Movement"
+align = 1
+valign = 1
+
+[node name="crouch" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3240.0
+margin_right = 580.0
+margin_bottom = 3290.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 12
+type = "Movement"
+description = "Crouching brings you lower to the ground, allowing the evasion of some high-reaching anti-airs, however only down-input attacks can be done out of crouch. Any other animation will force a brief moment of uncrouching."
+universalMove = 9
+
+[node name="container" type="VBoxContainer" parent="crouch"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="crouch/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crouch"
+
+[node name="cmdIconContainer" type="Control" parent="crouch/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="crouch/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="jump" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3294.0
+margin_right = 580.0
+margin_bottom = 3344.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 0
+type = "Movement"
+universalMove = 10
+autoCancelBlackList = 4294967295
+autoCancelBlackList2 = 67102695
+
+[node name="container" type="VBoxContainer" parent="jump"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="jump/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Jump"
+
+[node name="cmdIconContainer" type="Control" parent="jump/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="moveName2" type="Label" parent="jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "             or             or"
+
+[node name="cmdIcon3" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_left = 70.0
+margin_right = 644.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 29 )
+
+[node name="cmdIcon4" type="TextureRect" parent="jump/container/cmdIconContainer"]
+margin_left = 138.0
+margin_right = 712.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 30 )
+
+[node name="ground-dash-forward" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3348.0
+margin_right = 580.0
+margin_bottom = 3398.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 40
+type = "Movement"
+universalMove = 11
+autoCancelBlackList = 4294967288
+autoCancelBlackList2 = 6552551
+
+[node name="container" type="VBoxContainer" parent="ground-dash-forward"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ground-dash-forward/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground Dash Forward "
+
+[node name="cmdIconContainer" type="Control" parent="ground-dash-forward/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ground-dash-forward/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 31 )
+
+[node name="ground-dash-back" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3402.0
+margin_right = 580.0
+margin_bottom = 3452.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 41
+type = "Movement"
+universalMove = 12
+autoCancelBlackList = 4294967288
+autoCancelBlackList2 = 4456423
+
+[node name="container" type="VBoxContainer" parent="ground-dash-back"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="ground-dash-back/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground Dash Back"
+
+[node name="cmdIconContainer" type="Control" parent="ground-dash-back/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="ground-dash-back/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 32 )
+
+[node name="crouch-cancel" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3456.0
+margin_right = 580.0
+margin_bottom = 3506.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 67
+type = "Movement"
+description = "Crouching brings you lower to the ground, allowing the evasion of some high-reaching anti-airs, however only down-input attacks can be done out of crouch. Any other animation will force a brief moment of uncrouching."
+universalMove = 13
+
+[node name="container" type="VBoxContainer" parent="crouch-cancel"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="crouch-cancel/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crouch-cancel"
+
+[node name="cmdIconContainer" type="Control" parent="crouch-cancel/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="crouch-cancel/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ground dashing in neutral + "
+
+[node name="cmdIcon2" type="TextureRect" parent="crouch-cancel/container/cmdIconContainer"]
+margin_left = 177.0
+margin_right = 751.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="air-jump" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3510.0
+margin_right = 580.0
+margin_bottom = 3560.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 97
+type = "Movement"
+universalMove = 10
+autoCancelBlackList = 4294868991
+autoCancelBlackList2 = 67108839
+
+[node name="container" type="VBoxContainer" parent="air-jump"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-jump/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Jump"
+
+[node name="cmdIconContainer" type="Control" parent="air-jump/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="cmdIcon2" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 34.0
+margin_right = 608.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 28 )
+
+[node name="moveName2" type="Label" parent="air-jump/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +              or             or"
+
+[node name="cmdIcon3" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 105.0
+margin_right = 679.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 29 )
+
+[node name="cmdIcon4" type="TextureRect" parent="air-jump/container/cmdIconContainer"]
+margin_left = 173.0
+margin_right = 747.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 30 )
+
+[node name="air-dash-forward" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3564.0
+margin_right = 580.0
+margin_bottom = 3614.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 6
+type = "Movement"
+universalMove = 14
+autoCancelBlackList = 4289855480
+autoCancelBlackList2 = 6553543
+
+[node name="container" type="VBoxContainer" parent="air-dash-forward"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-dash-forward/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Dash Forward "
+
+[node name="cmdIconContainer" type="Control" parent="air-dash-forward/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="air-dash-forward/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + "
+
+[node name="cmdIcon2" type="TextureRect" parent="air-dash-forward/container/cmdIconContainer"]
+margin_left = 23.0
+margin_right = 597.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 31 )
+
+[node name="air-dash-back" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3618.0
+margin_right = 580.0
+margin_bottom = 3668.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 7
+type = "Movement"
+universalMove = 15
+autoCancelBlackList = 4289855480
+autoCancelBlackList2 = 6553543
+
+[node name="container" type="VBoxContainer" parent="air-dash-back"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="air-dash-back/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air Dash Back"
+
+[node name="cmdIconContainer" type="Control" parent="air-dash-back/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName3" type="Label" parent="air-dash-back/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + "
+
+[node name="cmdIcon2" type="TextureRect" parent="air-dash-back/container/cmdIconContainer"]
+margin_left = 31.0
+margin_right = 605.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 32 )
+
+[node name="fast-fall" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3672.0
+margin_right = 580.0
+margin_bottom = 3722.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+type = "Movement"
+description = "Stop your current air momentum and quickly fall downards without interrupting your current animation."
+autoCancelsTypeBlackList = 31
+disableComboCancelView = true
+universalMove = 16
+
+[node name="container" type="VBoxContainer" parent="fast-fall"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="fast-fall/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fast Fall"
+
+[node name="cmdIconContainer" type="Control" parent="fast-fall/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="fast-fall/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air +"
+
+[node name="cmdIcon2" type="TextureRect" parent="fast-fall/container/cmdIconContainer"]
+margin_left = 25.0
+margin_right = 599.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 33 )
+
+[node name="landing-lag" type="ColorRect" parent="."]
+editor/display_folded = true
+margin_top = 3726.0
+margin_right = 580.0
+margin_bottom = 3776.0
+rect_min_size = Vector2( 580, 50 )
+color = Color( 0.301961, 0.32549, 0.419608, 1 )
+script = ExtResource( 3 )
+actionId = 31
+type = "Movement"
+description = "Most air animations will trigger landing lag when you land mid-animation.  Trip guard is not supported, meaning you are vulnerable and cannot block during this animation.  Landing while blocking doesn't trigger landing lag, but does extend the block stun duration"
+universalMove = 17
+recoveryAdvOverride = "varies"
+
+[node name="container" type="VBoxContainer" parent="landing-lag"]
+margin_right = 574.0
+margin_bottom = 40.0
+
+[node name="moveName" type="Label" parent="landing-lag/container"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Landing Lag"
+
+[node name="cmdIconContainer" type="Control" parent="landing-lag/container"]
+margin_top = 22.0
+margin_right = 574.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="moveName2" type="Label" parent="landing-lag/container/cmdIconContainer"]
+margin_right = 574.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Air + Land"

@@ -1,0 +1,391 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://projectiles/ProjectileController.gd" type="Script" id=1]
+[ext_resource path="res://CollisionHandler.gd" type="Script" id=2]
+[ext_resource path="res://projectiles/ProjectileActionAnimationManager.gd" type="Script" id=3]
+[ext_resource path="res://SpriteAnimationManager.gd" type="Script" id=4]
+[ext_resource path="res://SpriteAnimation.gd" type="Script" id=5]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=6]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/startup/0.png" type="Texture" id=7]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/active/0.png" type="Texture" id=8]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/completion/0.png" type="Texture" id=9]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/completion/1.png" type="Texture" id=10]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/completion/2.png" type="Texture" id=11]
+[ext_resource path="res://assets/fighters/fighter1/animations/projectile/completion/3.png" type="Texture" id=12]
+[ext_resource path="res://PushableMovementAnimationManager.gd" type="Script" id=13]
+[ext_resource path="res://movementAnimation.gd" type="Script" id=14]
+[ext_resource path="res://complexMovement.gd" type="Script" id=15]
+[ext_resource path="res://basicMovement.gd" type="Script" id=16]
+[ext_resource path="res://fighters/attacksfx.gd" type="Script" id=17]
+[ext_resource path="res://assets/particles/attack-sfx/melee-particle.png" type="Texture" id=18]
+[ext_resource path="res://assets/particles/attack-sfx/special-particle.png" type="Texture" id=19]
+[ext_resource path="res://assets/particles/attack-sfx/tool-particle.png" type="Texture" id=20]
+[ext_resource path="res://input_manager.gd" type="Script" id=21]
+[ext_resource path="res://bodyBox.gd" type="Script" id=22]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="projectile" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 0
+collision_mask = 4
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+hitBoxLayer = 0
+hitBoxMask = 0
+hurtBoxLayer = 0
+hurtBoxMask = 0
+spawnPoint = Vector2( 0, 0 )
+mvmType = 0
+behaviorType = 0
+
+[node name="ProjectileController" type="Node" parent="." index="0"]
+
+[node name="CollisionHandler" type="Node" parent="ProjectileController" index="0"]
+
+script = ExtResource( 2 )
+
+[node name="ActionAnimationManager" type="Node" parent="ProjectileController" index="1"]
+
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="SpriteAnimationManager" type="Node" parent="ProjectileController/ActionAnimationManager" index="0"]
+
+script = ExtResource( 4 )
+targetSpritePath = NodePath("../../../active-nodes/Sprite")
+maxShakeDistance = 1.0
+
+[node name="SpriteAnimations" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager" index="0"]
+
+[node name="start-up" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="0"]
+
+script = ExtResource( 5 )
+isLooping = false
+nextActionId = -1
+abilityBarDrain = 0.0
+barCancelableble = false
+canBeBarCanceledInto = false
+landingLagSpeedMin = 1.0
+landingLagSpeedMax = 2.0
+speed = 1.0
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up" index="0"]
+
+editor/display_folded = true
+script = ExtResource( 6 )
+duration = 5
+texture = ExtResource( 7 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = -8384521
+autoCancels2 = 24
+autoCancelsOnHit = 0
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 0, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/start-up/frame0" index="0"]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="active" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="1"]
+
+script = ExtResource( 5 )
+isLooping = false
+nextActionId = -1
+abilityBarDrain = 1.0
+barCancelableble = true
+canBeBarCanceledInto = true
+landingLagSpeedMin = 1.0
+landingLagSpeedMax = 2.0
+speed = 1.0
+
+[node name="frame0" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active" index="0"]
+
+script = ExtResource( 6 )
+duration = 180
+texture = ExtResource( 8 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = 0
+autoCancels2 = 0
+autoCancelsOnHit = 8389895
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 10, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = true
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/active/frame0" index="0"]
+
+position = Vector2( -3, 0 )
+shape = SubResource( 2 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="completion" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations" index="2"]
+
+script = ExtResource( 5 )
+isLooping = false
+nextActionId = -1
+abilityBarDrain = 0.0
+barCancelableble = false
+canBeBarCanceledInto = false
+landingLagSpeedMin = 1.0
+landingLagSpeedMax = 2.0
+speed = 1.0
+
+[node name="frame1" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="0"]
+
+editor/display_folded = true
+script = ExtResource( 6 )
+duration = 5
+texture = ExtResource( 9 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = -8384521
+autoCancels2 = 24
+autoCancelsOnHit = 0
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 0, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame1" index="0"]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="frame2" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="1"]
+
+editor/display_folded = true
+script = ExtResource( 6 )
+duration = 5
+texture = ExtResource( 10 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = -8384521
+autoCancels2 = 24
+autoCancelsOnHit = 0
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 0, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame2" index="0"]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="frame3" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="2"]
+
+editor/display_folded = true
+script = ExtResource( 6 )
+duration = 5
+texture = ExtResource( 11 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = -8384521
+autoCancels2 = 24
+autoCancelsOnHit = 0
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 0, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame3" index="0"]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="frame4" type="Node" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion" index="3"]
+
+editor/display_folded = true
+script = ExtResource( 6 )
+duration = 5
+texture = ExtResource( 12 )
+targetSpritePath = NodePath("../../../../../../active-nodes/Sprite")
+targetBodyBoxPath = NodePath("../../../../../../bodyBox")
+targetCollisionAreaNodePath = NodePath("../../../../../../active-nodes/collisionAreas")
+autoCancels = -8384521
+autoCancels2 = 24
+autoCancelsOnHit = 0
+autoCancelsOnHit2 = 0
+sprite_Offset = Vector2( 0, 0 )
+landing_lag = 0
+commandType = 0
+on_multi_tap_incomplete_action_id = -1
+barCancelable = true
+pushable = true
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="ProjectileController/ActionAnimationManager/SpriteAnimationManager/SpriteAnimations/completion/frame4" index="0"]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MovementAnimationManager" type="Node" parent="ProjectileController/ActionAnimationManager" index="1"]
+
+script = ExtResource( 13 )
+player_name = "p1"
+landingPushAwaySpeed = Vector2( 400, 30 )
+horizontalAlignmentOffset = -40.0
+
+[node name="MovementAnimations" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager" index="0"]
+
+[node name="start-up" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="0"]
+
+editor/display_folded = true
+script = ExtResource( 14 )
+animationSpeed = 1.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up" index="0"]
+
+script = ExtResource( 15 )
+mvmType = 1
+gravEffect = 2
+startFrame = 0
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/start-up/cplx_mvm0" index="0"]
+
+script = ExtResource( 16 )
+speed = 25.0
+acceleration = 100.0
+maxSpeed = 75.0
+minSpeed = 0.0
+angle = 0.0
+durationInFrames = 0
+
+[node name="active" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="1"]
+
+editor/display_folded = true
+script = ExtResource( 14 )
+animationSpeed = 1.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active" index="0"]
+
+script = ExtResource( 15 )
+mvmType = 1
+gravEffect = 2
+startFrame = 0
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/active/cplx_mvm0" index="0"]
+
+script = ExtResource( 16 )
+speed = 75.0
+acceleration = 0
+maxSpeed = 75.0
+minSpeed = 20.0
+angle = 0.0
+durationInFrames = 0
+
+[node name="completion" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations" index="2"]
+
+editor/display_folded = true
+script = ExtResource( 14 )
+animationSpeed = 1.0
+
+[node name="cplx_mvm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion" index="0"]
+
+script = ExtResource( 15 )
+mvmType = 1
+gravEffect = 2
+startFrame = 0
+
+[node name="bm0" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager/MovementAnimations/completion/cplx_mvm0" index="0"]
+
+script = ExtResource( 16 )
+speed = 0.0
+acceleration = 0
+maxSpeed = 0.0
+minSpeed = 0.0
+angle = 0.0
+durationInFrames = 0
+
+[node name="Gravity" type="Node" parent="ProjectileController/ActionAnimationManager/MovementAnimationManager" index="1"]
+
+script = ExtResource( 16 )
+speed = 0.0
+acceleration = 700.0
+maxSpeed = 2500.0
+minSpeed = 0
+angle = 90.0
+durationInFrames = 0
+
+[node name="floorDetector" type="RayCast2D" parent="." index="1"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 45 )
+collision_mask = 1
+
+[node name="active-nodes" type="Node2D" parent="." index="2"]
+
+[node name="Sprite" type="Sprite" parent="active-nodes" index="0"]
+
+z_index = 1
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="collisionAreas" type="Node2D" parent="active-nodes" index="1"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="attackSFXs" type="Node2D" parent="active-nodes" index="2"]
+
+script = ExtResource( 17 )
+meleeParticle = ExtResource( 18 )
+specialParticle = ExtResource( 19 )
+toolParticle = ExtResource( 20 )
+
+[node name="inputManager" type="Node" parent="active-nodes/attackSFXs" index="0"]
+
+script = ExtResource( 21 )
+bufferSize = 5
+doubleTapWindow = 10
+
+[node name="bodyBox" type="CollisionShape2D" parent="." index="3"]
+
+script = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+facingRight = true
+
+

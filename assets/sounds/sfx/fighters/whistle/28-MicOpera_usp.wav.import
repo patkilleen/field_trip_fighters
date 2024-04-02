@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/28-MicOpera_usp.wav-f957f78f3b0cc8fcdfe03467f78a97e2.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fighters/whistle/28-MicOpera_usp.wav"
+dest_files=[ "res://.import/28-MicOpera_usp.wav-f957f78f3b0cc8fcdfe03467f78a97e2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

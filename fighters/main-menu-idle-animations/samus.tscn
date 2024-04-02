@@ -1,0 +1,292 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://SpriteAnimation.gd" type="Script" id=1]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=2]
+[ext_resource path="res://assets/fighters/samus/ground-idle/0.png" type="Texture" id=3]
+[ext_resource path="res://HurtboxArea.gd" type="Script" id=4]
+[ext_resource path="res://samus-idle-hurtbox.tres" type="Shape2D" id=5]
+[ext_resource path="res://assets/fighters/samus/ground-idle/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/fighters/samus/ground-idle/2.png" type="Texture" id=7]
+[ext_resource path="res://assets/fighters/samus/ground-idle/3.png" type="Texture" id=8]
+[ext_resource path="res://assets/fighters/samus/ground-idle/4.png" type="Texture" id=9]
+[ext_resource path="res://assets/fighters/samus/ground-idle/5.png" type="Texture" id=10]
+[ext_resource path="res://assets/fighters/samus/ground-idle/6.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 35 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19.2337, 3.96419 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15.6738, 2.68263 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6.70287, 10 )
+
+[node name="ground-idle" type="Node"]
+editor/display_folded = true
+script = ExtResource( 1 )
+isLooping = true
+abilityBarDrain = 0.0
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame0" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 3 )
+autoCancels = 2139103223
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame0"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox5" type="Node" parent="frame0"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frame0/hurtbox5"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="frame0/hurtbox5"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="frame0/hurtbox5"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="frame0/hurtbox5"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame1" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 6 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame1"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox4" type="Node" parent="frame1"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="frame1/hurtbox4"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="frame1/hurtbox4"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="frame1/hurtbox4"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="frame1/hurtbox4"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame2" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 7 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame2"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox3" type="Node" parent="frame2"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="frame2/hurtbox3"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="frame2/hurtbox3"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="frame2/hurtbox3"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="frame2/hurtbox3"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame3" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 8 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame3"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox2" type="Node" parent="frame3"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="frame3/hurtbox2"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="frame3/hurtbox2"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="frame3/hurtbox2"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="frame3/hurtbox2"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame4" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 9 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame4"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox2" type="Node" parent="frame4"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="frame4/hurtbox2"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="frame4/hurtbox2"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="frame4/hurtbox2"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="frame4/hurtbox2"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame5" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 10 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame5"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox2" type="Node" parent="frame5"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="frame5/hurtbox2"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="frame5/hurtbox2"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="frame5/hurtbox2"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="frame5/hurtbox2"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )
+
+[node name="frame6" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+duration = 10
+texture = ExtResource( 11 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame6"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox2" type="Node" parent="frame6"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="frame6/hurtbox2"]
+visible = false
+position = Vector2( -2.99031, 4.12947 )
+shape = ExtResource( 5 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="frame6/hurtbox2"]
+visible = false
+position = Vector2( -1.70875, 30.7575 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="frame6/hurtbox2"]
+visible = false
+position = Vector2( -3.27509, -27.1976 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="frame6/hurtbox2"]
+visible = false
+position = Vector2( -0.569588, -28.3368 )
+shape = SubResource( 4 )

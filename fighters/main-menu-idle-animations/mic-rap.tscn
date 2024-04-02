@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SpriteAnimation.gd" type="Script" id=1]
+[ext_resource path="res://AlphaSpriteFrame.gd" type="Script" id=2]
+[ext_resource path="res://assets/fighters/microphone/ground-idle/rap/0.png" type="Texture" id=3]
+[ext_resource path="res://HurtboxArea.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 35 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 34 )
+
+[node name="ground-idle" type="Node"]
+script = ExtResource( 1 )
+isLooping = true
+barCancelableble = false
+canBeBarCanceledInto = false
+
+[node name="frame0" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+texture = ExtResource( 3 )
+autoCancels = -8380425
+autoCancels2 = 479
+canUseBufferedCommands = false
+
+[node name="bodybox" type="CollisionShape2D" parent="frame0"]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="hurtbox5" type="Node" parent="frame0"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frame0/hurtbox5"]
+visible = false
+shape = SubResource( 2 )

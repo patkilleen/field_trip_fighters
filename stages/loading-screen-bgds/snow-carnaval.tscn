@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/stages/snow-carnaval/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/stages/snow-carnaval/tree-bgd.png" type="Texture" id=2]
+[ext_resource path="res://assets/stages/snow-carnaval/far-snow-bgd-mountains.png" type="Texture" id=3]
+[ext_resource path="res://assets/stages/snow-carnaval/near-snow-bgd-mountains.png" type="Texture" id=4]
+[ext_resource path="res://assets/stages/snow-carnaval/foreground.png" type="Texture" id=5]
+[ext_resource path="res://assets/stages/snow-carnaval/snow-carnaval.png" type="Texture" id=6]
+
+[node name="loadingScreenBgd" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -132.405, -18.6037 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -129.787, -4.65233 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -140.893, -6.85271 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+position = Vector2( -152, -5.79962 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="foreground" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 429.1, 604.746 )
+z_index = 20
+texture = ExtResource( 5 )
+
+[node name="nonAnimatedBgd" type="Sprite" parent="."]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+light_mask = 5
+position = Vector2( 447.99, 322.692 )
+texture = ExtResource( 6 )

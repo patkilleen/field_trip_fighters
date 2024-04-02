@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/0-belt.wav-fc95c610273ff1d04c8f7505a8e68edd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/ui/fighters-select/0-belt.wav"
+dest_files=[ "res://.import/0-belt.wav-fc95c610273ff1d04c8f7505a8e68edd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,178 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://interface/NewAbilityBar.gd" type="Script" id=1]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/main-ability-gain.png" type="Texture" id=2]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/ability-white-indicator.png" type="Texture" id=3]
+[ext_resource path="res://TriTextureProgress.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/main-bar-ability.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/main-bar-insufficient.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/main-bar-bgd.png" type="Texture" id=7]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/main-bar-partial.png" type="Texture" id=8]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/count-bgd.png" type="Texture" id=9]
+[ext_resource path="res://assets/interfaces/bar/ability/new-2/count-bgd.png" type="Texture" id=10]
+[ext_resource path="res://fonts/roboto_24.tres" type="DynamicFontData" id=11]
+[ext_resource path="res://interface/stage/matchCountdown.gd" type="Script" id=12]
+[ext_resource path="res://particles/particleBuffer.gd" type="Script" id=13]
+[ext_resource path="res://particles/magicalGlow.tscn" type="PackedScene" id=14]
+[ext_resource path="res://particles/materials/interface/abilityBarUpFlow.tres" type="Material" id=15]
+[ext_resource path="res://particles/one-shot-particles.gd" type="Script" id=16]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/chunk-bgd.png" type="Texture" id=17]
+[ext_resource path="res://assets/interfaces/bar/ability/new-1/beige.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[node name="NewAbilityBar" type="Node2D"]
+script = ExtResource( 1 )
+redConsummedBarDuration = 0.5
+gainBarTexture = ExtResource( 2 )
+gainDisplayDuration = 0.5
+
+[node name="cost-indicator" type="TextureProgress" parent="."]
+margin_left = 116.0
+margin_top = 70.0
+margin_right = 1079.0
+margin_bottom = 110.0
+rect_scale = Vector2( 0.7, 1 )
+value = 100.0
+texture_progress = ExtResource( 3 )
+
+[node name="mainBar" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 35.0
+margin_right = 116.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.7, 1 )
+underBarBlinkFrequency = 2.0
+mainProgressTexture = ExtResource( 5 )
+underProgressTexture = ExtResource( 6 )
+backgroundProgressTexture = ExtResource( 7 )
+middleBarTexture = ExtResource( 8 )
+
+[node name="main-bar-ref" type="Sprite" parent="mainBar"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="gainBar" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 35.0
+margin_right = 116.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.7, 1 )
+underBarBlinkFrequency = 2.0
+mainProgressTexture = ExtResource( 5 )
+underProgressTexture = ExtResource( 2 )
+backgroundProgressTexture = ExtResource( 7 )
+
+[node name="numChunksBgd" type="Sprite" parent="."]
+position = Vector2( 828, 72 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="numChunksBgd"]
+texture = ExtResource( 10 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="numChunksBgd"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -824.86
+margin_top = -140.867
+margin_right = 675.14
+margin_bottom = -45.867
+rect_min_size = Vector2( 1500, 0 )
+alignment = 1
+
+[node name="chunkCountLabel" type="Label" parent="numChunksBgd/HBoxContainer"]
+margin_left = 715.0
+margin_top = 12.0
+margin_right = 785.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "24"
+script = ExtResource( 12 )
+transparencyAnimationDelay = 0.4
+transparencyAnimationDuration = 0.3
+growAnimationDuration = 0.3
+ungrowAnimationDuration = 0.3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="numChunksBgd"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -824.86
+margin_top = -92.867
+margin_right = 675.14
+margin_bottom = 2.133
+rect_min_size = Vector2( 1500, 0 )
+alignment = 1
+
+[node name="chunkCostLabel" type="Label" parent="numChunksBgd/HBoxContainer2"]
+margin_left = 730.0
+margin_top = 26.0
+margin_right = 770.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "24"
+script = ExtResource( 12 )
+transparencyAnimationDelay = 0.4
+transparencyAnimationDuration = 0.3
+growAnimationDuration = 0.3
+ungrowAnimationDuration = 0.3
+
+[node name="particleBuffer" type="Node2D" parent="numChunksBgd"]
+script = ExtResource( 13 )
+
+[node name="abilityCancelParticles" parent="numChunksBgd/particleBuffer" instance=ExtResource( 14 )]
+material = SubResource( 3 )
+position = Vector2( 0.477295, -1.80185 )
+amount = 10
+lifetime = 3.0
+speed_scale = 3.5
+process_material = ExtResource( 15 )
+script = ExtResource( 16 )
+
+[node name="chunk" type="TextureProgress" parent="."]
+visible = false
+margin_left = 727.0
+margin_top = 94.0
+margin_right = 1079.0
+margin_bottom = 134.0
+step = 0.5
+value = 100.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="numChunckPlayer2Position" type="Position2D" parent="."]
+position = Vector2( 71, 72 )
+
+[node name="numChunckPlayer1Position" type="Position2D" parent="."]
+position = Vector2( 828, 72 )
+
+[node name="chunckPlayer2Position" type="Position2D" parent="."]
+position = Vector2( 115, 94 )
+
+[node name="chunckPlayer1Position" type="Position2D" parent="."]
+position = Vector2( 430, 94 )

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://TriTextureProgress.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/guardHPBar.gd" type="Script" id=2]
+[ext_resource path="res://assets/interfaces/bar/guard-hp/fill.png" type="Texture" id=3]
+[ext_resource path="res://assets/interfaces/bar/guard-hp/loss.png" type="Texture" id=4]
+[ext_resource path="res://assets/interfaces/bar/guard-hp/bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/interfaces/bar/guard-hp/foreground.png" type="Texture" id=6]
+[ext_resource path="res://assets/interfaces/bar/guard-hp/guard-regen-locked.png" type="Texture" id=7]
+[ext_resource path="res://interface/guardRegenBuffBar.gd" type="Script" id=8]
+[ext_resource path="res://MyTween.gd" type="Script" id=9]
+
+[node name="guardBar" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+mainProgressTexture = ExtResource( 3 )
+underProgressTexture = ExtResource( 4 )
+backgroundProgressTexture = ExtResource( 5 )
+foregroundProgressTexture = ExtResource( 6 )
+middleBarTexture = ExtResource( 7 )
+guardLossRedDuration = 0.75
+
+[node name="guardRegenBuffBar" type="TextureProgress" parent="." index="0"]
+modulate = Color( 0, 1, 0.180392, 1 )
+margin_top = 6.0
+margin_right = 664.0
+margin_bottom = 28.0
+value = 50.0
+texture_progress = ExtResource( 5 )
+script = ExtResource( 8 )
+
+[node name="underBar" parent="." index="1"]
+texture_under = null
+texture_progress = null
+
+[node name="mainBar" parent="." index="3"]
+texture_progress = null
+
+[node name="guardBreakRegBGDBar" type="TextureProgress" parent="." index="4"]
+margin_right = 650.0
+margin_bottom = 40.0
+value = 50.0
+texture_under = ExtResource( 5 )
+
+[node name="guardBreakRegUnderBar" type="TextureProgress" parent="." index="5"]
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 650.0
+margin_bottom = 40.0
+value = 50.0
+texture_progress = ExtResource( 5 )
+
+[node name="guardBreakRegBar" type="TextureProgress" parent="." index="6"]
+margin_right = 650.0
+margin_bottom = 40.0
+value = 50.0
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 3 )
+
+[node name="barRef" type="Sprite" parent="." index="7"]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+
+[node name="myTween" type="Node" parent="." index="8"]
+script = ExtResource( 9 )

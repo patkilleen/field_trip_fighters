@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://active-collision-areas.gd" type="Script" id=1]
+
+[node name="active-nodes" type="Node2D"]
+script = ExtResource( 1 )
+hurtbox_debug_color = Color( 0.104648, 0.0109406, 0.933594, 1 )
+hitbox_debug_color = Color( 0.714844, 0, 0, 1 )
+proximity_guard_area_debug_color = Color( 0.807843, 0.811765, 0.0196078, 1 )
+
+[node name="collisionAreas" type="Node2D" parent="."]
